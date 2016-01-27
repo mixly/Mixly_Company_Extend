@@ -1,0 +1,14 @@
+<!-- type="company" 
+     block="block/xxx.js"
+	 generator="generator/xxx.js" 
+	 lib="xxx" 
+	 hardware="hardware/xxx"
+	 media="media/xxx" 
+	 language="language/xxx"
+	 pin="companypin/xxx" -->
+<script type="text/javascript" src="../../blocks/company/xxx.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/xxx.js"></script>
+<!--引用所有写好的模块，这里引入了"延时"模块-->
+<category name="xxx" colour="120">
+	<block type="base_delay"></block>
+</category>
