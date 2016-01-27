@@ -1,0 +1,21 @@
+LuBotMK.name=LuBot MK
+
+LuBotMK.upload.tool=avrdude
+LuBotMK.upload.protocol=arduino
+LuBotMK.upload.maximum_size=32256
+LuBotMK.upload.maximum_data_size=2048
+LuBotMK.upload.speed=115200
+
+LuBotMK.bootloader.tool=avrdude
+LuBotMK.bootloader.low_fuses=0xff
+LuBotMK.bootloader.high_fuses=0xde
+LuBotMK.bootloader.extended_fuses=0x05
+LuBotMK.bootloader.unlock_bits=0x3F
+LuBotMK.bootloader.lock_bits=0x0F
+LuBotMK.bootloader.file=optiboot/optiboot_atmega328.hex
+
+LuBotMK.build.mcu=atmega328p
+LuBotMK.build.f_cpu=16000000L
+LuBotMK.build.board=AVR_UNO
+LuBotMK.build.core=arduino
+LuBotMK.build.variant=lubotmk
