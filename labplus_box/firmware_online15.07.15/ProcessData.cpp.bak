@@ -1,0 +1,219 @@
+/**************************************************************************
+  Copyright (C), 2014- ,  
+  File name:      ProcessData.cpp
+  Author: jiangzhaohui      Version: v1.0      Date: 2014.10.8
+  Description: 
+  Others:         
+  Function List:  
+    1. 
+	2. 
+  History:  
+                  
+    1. Date: 2014.10.8       Author:
+       Modification: 
+    2. ...
+****************************************************************************/
+#include "Config.h"
+
+union{
+	byte byteVal[4];
+	float floatVal;
+	long longVal;
+}dataVal;
+
+RGBLed colorLed;
+HumidityDHT11 dht11;
+MBMotor motor;
+TM1637 digitalDis;
+
+extern byte direction1, direction2;
+extern int motor1Speed, motor2Speed;
+//PortPin PortPin2ArduinoPin[11] = {{NC, NC}, {13, 3}, {12, 11}, {2, 10}, {8, 9},{A3, A2}, {A0, A7}, {A1, A6}, {NC, NC}, {4, 5}, {7, 6}}; 
+PortDevice PTDevice[11] = { 0 }; 
+
+/***************************************************************************
+  Function:       setData()
+  Description:    
+  Calls:          
+  Called By:      
+  Input:          
+                 
+  Output:         
+  Return:         
+  Others:        
+***************************************************************************/		
+void setData(byte port, byte solt, byte device, long sensorData)
+{
+	int pin;//, sensorHighByte;
+	byte myport, portPin;
+	
+	myport = port;
+//	mysolt = solt;
+//	mydevice = device;
+	dataVal.longVal = sensorData;
+
+	switch(device){
+		case 8: //三色LED灯
+			myport = myport >> 4;
+			colorLed.setPort(myport);
+			colorLed.setColorAt(dataVal.longVal);
+			colorLed.show();
+		break;
+		case 9: //数码管
+			myport = myport >> 4;
+			digitalDis.set(BRIGHT_TYPICAL);
+			digitalDis.init(PortPin2ArduinoPin[myport].pin2, PortPin2ArduinoPin[myport].pin1);
+			digitalDis.display(dataVal.byteVal[1],dataVal.byteVal[0]);
+		break;
+		case 10://DC马达
+			myport = myport >> 4;
+			motor.MotorDriver(PortPin2ArduinoPin[myport].pin1, PortPin2ArduinoPin[myport].pin2, dataVal.longVal);
+		break;
+		case 11://伺服（舵机）
+			portPin = myport & 0x0f;
+			myport = myport >> 4;
+			if(portPin == 1){					
+				servopulse(PortPin2ArduinoPin[myport].pin1, (int)dataVal.longVal);
+			}
+			else{
+				servopulse(PortPin2ArduinoPin[myport].pin2, (int)dataVal.longVal);
+			}
+		break;							
+		case 13://语音模块
+							
+		break; 
+		case 14: //转向灯
+							
+		break;
+		case 18://设置波特率
+							
+		break;
+		case 20://相机快门
+							
+		break;	
+		case 32://模拟量输出（PWM)
+							
+		break;
+		case 33://角度（舵机）
+							
+		break;
+		case 34://音调输出
+							
+		break;	
+		default:
+		break;
+	}
+}
+
+/***************************************************************************
+  Function:    getData()
+  Description:
+			   
+  Calls:          
+  Called By:      
+  Input:          
+                 
+  Output:         
+  Return:         
+  Others:        
+***************************************************************************/ 		
+long getData(byte port, byte solt, byte device)
+{
+	byte i, myport, portPin;
+	long sensorData;
+	
+	myport = port;
+		
+	switch(device){
+		case ULTRASONIC_SENSOR: //超声波测距  1  
+			myport = myport >> 4;
+			noInterrupts(); //关中断，防止中断子程影响计时准确性
+			dataVal.longVal = distanceCm(PortPin2ArduinoPin[myport].pin1);
+			interrupts();
+			return dataVal.longVal;
+		break;
+		case TEMPERATURE_SENSOR:  //温度传感器 2 		
+			myport = myport >> 4;
+			dataVal.longVal = readTemperatureNTC(PortPin2ArduinoPin[myport].pin1);
+			dataVal.longVal = dataVal.longVal*10; //再把数据放大10倍，总共放大100倍，上位机必须除以100得到真实数值	
+			return dataVal.longVal;
+		break;
+		case LIGHT_SENSOR: //光线传感器 3
+			myport = myport >> 4;
+			dataVal.longVal = lightVal(PortPin2ArduinoPin[myport].pin1);	
+			return dataVal.longVal;	
+			
+		break;
+		case POTENTIONMETER: //电位器 4
+			port = myport >> 4;
+			dataVal.longVal = potentionVal(PortPin2ArduinoPin[myport].pin1);
+			return dataVal.longVal;
+		break;
+		case JOYSTICK: //摇杆传感器
+			
+		break;
+		case GYRO: //陀螺仪
+			
+		break;
+		case SOUND_SENSOR: //声音传感器 7
+			myport = myport >> 4;
+			dataVal.longVal = loudness(PortPin2ArduinoPin[myport].pin1);
+			return dataVal.longVal;	
+		break;
+		case ENCODER: //编码器
+			
+		break;
+		case PIRMOTION: //人体红外感应
+			
+		break;
+		case INFRARED: //红外接收
+			
+		break;
+		case LINEFOLLOWER: //寻迹传感器   
+			myport = myport >> 4; //获得端口号
+			portPin =  myport & 0x0F; //端口引脚号
+				
+			if(portPin == 1){
+				pinMode(PortPin2ArduinoPin[myport].pin1, INPUT);
+				dataVal.longVal = (long)digitalRead(PortPin2ArduinoPin[myport].pin1);
+			}
+			else{
+				pinMode(PortPin2ArduinoPin[myport].pin2, INPUT);
+				dataVal.longVal = (long)digitalRead(PortPin2ArduinoPin[myport].pin2);
+			}		
+			return dataVal.longVal;
+		break;
+		case LIMITSWITCH: //限位开关 21
+			myport = port >> 4; //获得端口号         
+			portPin =  myport & 0x0F; //端口引脚号
+				
+			if(portPin == 1){
+				pinMode(PortPin2ArduinoPin[myport].pin1, INPUT);
+				dataVal.longVal = (long)digitalRead(PortPin2ArduinoPin[myport].pin1);
+			}
+			else{
+				pinMode(PortPin2ArduinoPin[myport].pin2, INPUT);
+				dataVal.longVal = (long)digitalRead(PortPin2ArduinoPin[myport].pin2);
+			}	
+			return dataVal.longVal;
+		break;
+		case HUMIDITY:   // 湿度传感器 22
+			myport = myport >> 4; //获得端口号
+
+			dht11.read11(PortPin2ArduinoPin[myport].pin1);
+			dataVal.longVal = (long)dht11.humidity;
+			//dataVal.byteVal[0] = (byte)dht11.humidity;
+			//dataVal.byteVal[1] = 0;
+			//dataVal.byteVal[2] = (byte)dht11.temperature;
+			//dataVal.byteVal[3] = 0;
+			return dataVal.longVal;
+		break;
+		case DIGITAL: //数字引脚 30
+			pinMode(PTDevice[i].port, INPUT);
+			dataVal.longVal = (long)digitalRead(PTDevice[i].port);		
+		break;
+		case  ANALOG: //模拟引脚 31
+			dataVal.longVal = (long)analogRead(PTDevice[i].port);
+		break;
+	  }
+}

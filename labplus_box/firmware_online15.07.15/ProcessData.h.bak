@@ -1,0 +1,21 @@
+/**************************************************************************
+  Copyright (C), 2014- , 
+  File name:      BoardMega328p.h
+  Author: jiangzhaohui      Version: v1.0      Date: 2014.10.8
+  Description:
+
+  History:  
+                  
+    1. Date: 2014.10.8       Author:
+       Modification: 
+    2. ...
+****************************************************************************/
+#ifndef ProcessData_h
+#define ProcessData_h
+
+#include "TypeDef.h"
+
+void setData(byte port, byte solt, byte device, long sensorData);
+long getData(byte port, byte solt, byte device);
+
+#endif
