@@ -1,0 +1,146 @@
+#########################################
+# Syntax Coloring Map for Makeblock
+#########################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+MePort	KEYWORD1
+MeDCMotor	KEYWORD1
+MeParams	KEYWORD1
+MeWire	KEYWORD1
+MeSerial	KEYWORD1
+MeBluetooth KEYWORD1
+MeInfraredReceiver	KEYWORD1
+MeUltrasonicSensor	KEYWORD1
+MeEncoderMotor	KEYWORD1
+MeStepperMotor	KEYWORD1
+MeLineFollower	KEYWORD1
+MeLimitSwitch	KEYWORD1
+MeBluetooth	KEYWORD1
+MeServo	KEYWORD1
+Me4Button	KEYWORD1
+MeJoystick	KEYWORD1
+MeShutter	KEYWORD1
+MeLightSensor	KEYWORD1
+MeSoundSensor	KEYWORD1
+MePotentiometer	KEYWORD1
+Me7SegmentDisplay	KEYWORD1
+MeTemperature	KEYWORD1
+MeRGBLed	KEYWORD1
+MePIRMotionSensor	KEYWORD1
+MeGyro	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+Dwrite1	KEYWORD2
+Dread1	KEYWORD2
+Dwrite2	KEYWORD2
+Dread2	KEYWORD2
+Awrite1	KEYWORD2
+Aread1	KEYWORD2
+Awrite2	KEYWORD2
+Aread2	KEYWORD2
+getParam	KEYWORD2
+getParamAvailable	KEYWORD2
+getParamValue	KEYWORD2
+getParamCode	KEYWORD2
+setParam	KEYWORD2
+parse	KEYWORD2
+clear	KEYWORD2
+paramAvailable	KEYWORD2
+poll	KEYWORD2
+listen	KEYWORD2
+isListening	KEYWORD2
+setSelectorIndex	KEYWORD2
+isRunning	KEYWORD2
+readSensors	KEYWORD2
+readSensor1	KEYWORD2
+readSensor2	KEYWORD2
+touched	KEYWORD2
+begin	KEYWORD2
+end	KEYWORD2
+read	KEYWORD2
+show	KEYWORD2
+available	KEYWORD2
+overflow	KEYWORD2
+flush	KEYWORD2
+distanceCm	KEYWORD2
+distanceInch	KEYWORD2
+measure	KEYWORD2
+setCounter	KEYWORD2
+setRatio	KEYWORD2
+setPID	KEYWORD2
+runWithAngleAndSpeed	KEYWORD2
+runWithTurns	KEYWORD2
+runWithSpeedAndTime	KEYWORD2
+setCommandFlag	KEYWORD2
+getCurrentSpeed		KEYWORD2
+getCurrentPosition	KEYWORD2
+getPIDParam		KEYWORD2
+run	KEYWORD2
+stop	KEYWORD2
+shotOn	KEYWORD2
+shotOff	KEYWORD2
+focusOn	KEYWORD2
+focusOff	KEYWORD2
+buttonState	KEYWORD2
+setMicroStep	KEYWORD2
+reset	KEYWORD2
+moveTo	KEYWORD2
+move	KEYWORD2
+setMaxSpeed		KEYWORD2
+setAcceleration	KEYWORD2
+setSpeed	KEYWORD2
+speed	KEYWORD2
+targetPosition	KEYWORD2
+distanceToGo	KEYWORD2
+currentPosition	KEYWORD2
+setCurrentPosition	KEYWORD2
+enable	KEYWORD2
+disable	KEYWORD2
+wait	KEYWORD2
+readState	KEYWORD2
+detach	KEYWORD2
+writeMicroseconds	KEYWORD2
+readMicroseconds	KEYWORD2
+attached	KEYWORD2
+pressed	KEYWORD2
+released	KEYWORD2
+readX	KEYWORD2
+readY	KEYWORD2
+angle	KEYWORD2
+angleX	KEYWORD2
+angleY	KEYWORD2
+angleZ	KEYWORD2
+strength	KEYWORD2
+Dread	KEYWORD2
+Aread	KEYWORD2
+temperature	KEYWORD2
+isPeopleDetected 	KEYWORD2
+setColorAt	KEYWORD2
+getColorAt	KEYWORD2
+setNumber	KEYWORD2 
+getNumber	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+SLOT1	LITERAL1
+SLOT2	LITERAL1
+buzzerOn	LITERAL1
+buzzerOff	LITERAL1
+PORT_1	LITERAL1
+PORT_2	LITERAL1
+PORT_3	LITERAL1
+PORT_4	LITERAL1
+PORT_5	LITERAL1
+PORT_6	LITERAL1
+PORT_7	LITERAL1
+PORT_8	LITERAL1
+s1	LITERAL1
+s2	LITERAL1
+mePort	LITERAL1
