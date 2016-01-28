@@ -1,0 +1,134 @@
+#######################################
+# Syntax Coloring Map For XfmMegaShield
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+LED	KEYWORD1
+Button	KEYWORD1
+FourButton	KEYWORD1
+TiltSwitch	KEYWORD1
+Sound	KEYWORD1
+LimitSwitch	KEYWORD1
+Light	KEYWORD1
+Buzzer	KEYWORD1
+DigitDisplay	KEYWORD1
+DHT	KEYWORD1
+IRSendRev	KEYWORD1
+Ultrasonic	KEYWORD1
+RTC	KEYWORD1
+Motor	KEYWORD1
+LineFinder	KEYWORD1
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+State	KEYWORD2
+
+On	KEYWORD2
+Off	KEYWORD2
+
+A_ButtonState	KEYWORD2
+B_ButtonState	KEYWORD2
+C_ButtonState	KEYWORD2
+D_ButtonState	KEYWORD2
+
+displayTime	KEYWORD2
+displaynum	KEYWORD2
+displaynum	KEYWORD2
+displayfloat	KEYWORD2
+displaynum	KEYWORD2
+displaybit	KEYWORD2
+display_abcdef	KEYWORD2
+clearbit	KEYWORD2
+clear	KEYWORD2
+
+Tone	KEYWORD2
+
+readTemperature	KEYWORD2
+readHumidity	KEYWORD2
+	
+begin	KEYWORD2
+Recv	KEYWORD2
+available	KEYWORD2
+
+distance	KEYWORD2
+
+startClock	KEYWORD2
+stopClock	KEYWORD2
+setTime	KEYWORD2
+getTime	KEYWORD2
+getsecond	KEYWORD2
+getminute	KEYWORD2
+gethour	KEYWORD2
+getdayOfWeek	KEYWORD2
+getdayOfMonth	KEYWORD2
+getmonth KEYWORD2
+getyear	KEYWORD2
+fillByHMS	KEYWORD2
+fillByYMD	KEYWORD2
+fillDayOfWeek	KEYWORD2
+
+run	KEYWORD2
+stop	KEYWORD2
+
+stateR	KEYWORD2
+stateL	KEYWORD2
+read	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
+SS	LITERAL1
+UL	LITERAL1
+US	LITERAL1
+UR	LITERAL1
+LS	LITERAL1
+RS	LITERAL1
+DL	LITERAL1
+DS	LITERAL1
+DR	LITERAL1
+AA	LITERAL1
+BB	LITERAL1
+CC	LITERAL1
+DD	LITERAL1
+
+C0	LITERAL1
+C1	LITERAL1
+
+S0	LITERAL1
+S1	LITERAL1
+S2	LITERAL1
+S3	LITERAL1
+S4	LITERAL1
+S5	LITERAL1
+
+M0	LITERAL1
+M1	LITERAL1
+
+A0	LITERAL1
+A1	LITERAL1
+A2	LITERAL1
+A3	LITERAL1
+
+IR_BUTTON_0	LITERAL1
+IR_BUTTON_1	LITERAL1
+IR_BUTTON_2	LITERAL1
+IR_BUTTON_3	LITERAL1
+IR_BUTTON_4	LITERAL1
+IR_BUTTON_5	LITERAL1
+IR_BUTTON_6	LITERAL1
+IR_BUTTON_7	LITERAL1
+IR_BUTTON_8	LITERAL1
+IR_BUTTON_9	LITERAL1
+IR_BUTTON_OK	LITERAL1
+IR_BUTTON_UP	LITERAL1
+IR_BUTTON_DOWN	LITERAL1
+IR_BUTTON_LEFT	LITERAL1
+IR_BUTTON_RIGHT	LITERAL1
+IR_BUTTON_SPARK	LITERAL1
+IR_BUTTON_POUND	LITERAL1
+
+L_IN_R_IN	LITERAL1
+L_IN_R_OUT	LITERAL1
+L_OUT_R_IN	LITERAL1
+L_OUT_R_OUT	LITERAL1
