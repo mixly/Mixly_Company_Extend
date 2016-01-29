@@ -1,4 +1,4 @@
-<!-- type="company" block="block/nova.js" generator="generator/nova.js"  lib="nova" -->
+<!-- type="company" block="block/nova.js" generator="generator/nova.js"  lib="Nova" hardware="hardware/nova" media="media/nova" language="language/Nova" -->
 <script type="text/javascript" src="../../blocks/company/nova.js"></script>
 <script type="text/javascript" src="../../generators/arduino/company/nova.js"></script>
 <category id="catNova" name="Nova" colour="40">
