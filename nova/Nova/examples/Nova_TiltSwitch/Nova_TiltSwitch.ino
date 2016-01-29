@@ -6,7 +6,7 @@ Serial port will print "Hello",When the Tilt Switch Trigger.
 Created 15 Dec 2015
 By Blue
 
-http://easy.cc/wiki/index.php/Nova
+https://github.com/StarLabMakerSpace/Nova/wiki
 */
 
 #include <Nova.h>
@@ -19,7 +19,7 @@ void setup() {
 
 void loop() {
   
-  if(tilt.State() == true)
+  if(tilt.state() == true)
   {
     Serial.println("Hello");
   }

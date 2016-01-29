@@ -37,7 +37,7 @@ LimitSwitch::LimitSwitch(uint8_t port)
 	pinMode(_limit_pin, INPUT);
 }
 
-bool LimitSwitch::State(void)
+bool LimitSwitch::state(void)
 {
 	if(digitalRead(_limit_pin) == HIGH)
 	{

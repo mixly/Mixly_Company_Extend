@@ -74,10 +74,23 @@ void IRSendRev::begin(int port)
     case S3:
       irparams.recvpin = S3_PIN;
     break;
+    case A0:
+      irparams.recvpin = A0;
+    break;
+    case A1:
+      irparams.recvpin = A1;
+    break;
+    case A2:
+      irparams.recvpin = A2;
+    break;
+    case A3:
+      irparams.recvpin = A3;
+    break;
+    
   }
     enableIRIn(); // Start the receiver
     delay(20);
-    Clear();
+    clear();
 }
 // initialization
 void IRSendRev::enableIRIn() {
@@ -170,7 +183,7 @@ ISR(TIMER_INTR_NAME)
 
 }
 
-void IRSendRev::Clear() {
+void IRSendRev::clear() {
   irparams.rcvstate = STATE_IDLE;
   irparams.rawlen = 0;
 }
@@ -185,16 +198,16 @@ int IRSendRev::decode(decode_results *results) {
     return ERR;
   }
   // Throw away and start over
-  Clear();
+  clear();
   return 1;
 }
-unsigned char IRSendRev::Recv(void)
+unsigned char IRSendRev::recv(void)
 {
   unsigned char revData[20];
-  Recv(revData);
+  recv(revData);
   return *(revData+9);
 }
-unsigned char IRSendRev::Recv(unsigned char *revData)
+unsigned char IRSendRev::recv(unsigned char *revData)
 {
     int count       = results.rawlen;
     int nshort      = 0;
@@ -262,7 +275,7 @@ unsigned char IRSendRev::Recv(unsigned char *revData)
     Serial.print("\r\n*************************************************************\r\n");
 #endif
 
-    Clear(); // Receive the next value
+    clear(); // Receive the next value
     return revData[D_LEN]+1;
 }
 
@@ -278,7 +291,7 @@ unsigned char IRSendRev::available()
 #if __DEBUG
             Serial.print("IR GET BAD DATA!\r\n");
 #endif
-            Clear();        // Receive the next value
+            clear();        // Receive the next value
             return 0;
         }
         int count_data  = (count-4) / 16;
@@ -295,7 +308,7 @@ unsigned char IRSendRev::available()
 
 }
 
-void IRSendRev::Send(unsigned char *idata, unsigned char ifreq)
+void IRSendRev::send(unsigned char *idata, unsigned char ifreq)
 {
     int len = idata[0];
     unsigned char start_high    = idata[1];

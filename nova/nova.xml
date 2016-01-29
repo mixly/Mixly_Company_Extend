@@ -1,8 +1,9 @@
-<!-- type="company" block="block/nova.js" generator="generator/nova.js"  lib="Nova" media="media/nova" -->
+<!-- type="company" block="block/nova.js" generator="generator/nova.js"  lib="nova" -->
 <script type="text/javascript" src="../../blocks/company/nova.js"></script>
 <script type="text/javascript" src="../../generators/arduino/company/nova.js"></script>
 <category id="catNova" name="Nova" colour="40">
 	<block type="Nova_Led"></block>
+	<block type="Nova_Led_PWM"></block>
 	<block type="Nova_Button"></block>
 	<block type="Nova_4Button"></block>
 	<block type="Nova_TiltSwitch"></block>
@@ -16,11 +17,19 @@
 	<block type="Nova_2LineFinder_readLineState"></block>
 	<block type="Nova_4DigitDisplay"></block>
 	<block type="Nova_4DigitDisplay_Time"></block>
+	<block type="Nova_4DigitDisplay_abcdef"></block>
 	<block type="Nova_RTC"></block>
+	
+	<block type="Nova_RTC_SetHMS"></block>
+	<block type="Nova_RTC_SetYMD"></block>
+	<block type="Nova_RTC_SetWeek"></block>
+
+
+	<block type="Nova_IrRev_Available"></block>
 	<block type="Nova_IrRev"></block>
-	<block type="Nova_Bluetooth_available"></block>
-	<block type="Nova_Bluetooth_readString"></block>
-	<block type="Nova_Bluetooth_readRC"></block>
+
+	<block type="Nova_Bluetooth_readAppKey"></block>
+
 	<block type="Nova_Servo"></block>
 	<block type="Nova_Motor"></block>
 </category>

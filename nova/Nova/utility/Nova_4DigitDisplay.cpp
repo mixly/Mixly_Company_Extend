@@ -64,7 +64,7 @@ void DigitDisplay::displayTime(uint8_t hour,uint8_t min)
     }
 }
 
-void DigitDisplay::displaynum(uint16_t num)
+void DigitDisplay::displayNum(uint16_t num)
 {
 	uint8_t a,b,c,d;
 	uint8_t bit;
@@ -85,7 +85,7 @@ void DigitDisplay::displaynum(uint16_t num)
 		break;
 	}
 }
-void DigitDisplay::displaynum(uint16_t num,bool dir)
+void DigitDisplay::displayNum(uint16_t num,bool dir)
 {
 	uint8_t a[4];
 	uint8_t bit;
@@ -114,7 +114,7 @@ void DigitDisplay::displaynum(uint16_t num,bool dir)
 		}
 	}
 }
-void DigitDisplay::displayfloat(float f)
+void DigitDisplay::displayFloat(float f)
 {
 	uint8_t a[4];
 	uint8_t b[4];
@@ -150,19 +150,19 @@ void DigitDisplay::displayfloat(float f)
 		
 		if(int_bit == 4)
 		{
-			displaynum(int_part);
+			displayNum(int_part);
 //			Write_DATA(0x68+6,tab[a[3]]|0X80);
 		}
 		if(int_bit == 3)
 		{
 			if(b[0] == 0)
 			{
-				displaynum(int_part);
+				displayNum(int_part);
 //				Write_DATA(0x68+6,tab[a[3]]|0X80);
 			}
 			else
 			{
-				displaynum(int_part,0);
+				displayNum(int_part,0);
 				Write_DATA(0x68+4,tab[a[3]]|0X80);
 				Write_DATA(0x68+6,tab[b[0]]);
 			}
@@ -173,7 +173,7 @@ void DigitDisplay::displayfloat(float f)
 			{
 				if(b[0] == 0)
 				{
-					displaynum(int_part);
+					displayNum(int_part);
 //					Write_DATA(0x68+6,tab[a[3]]|0X80);
 				}
 				else
@@ -185,7 +185,7 @@ void DigitDisplay::displayfloat(float f)
 			}
 			else//小数点后第二为不为零
 			{
-				displaynum(int_part,0);
+				displayNum(int_part,0);
 				Write_DATA(0x68+2,tab[a[3]]|0X80);
 				Write_DATA(0x68+4,tab[b[0]]);
 				Write_DATA(0x68+6,tab[b[1]]);
@@ -217,7 +217,7 @@ void DigitDisplay::displayfloat(float f)
 			}
 			else//小数点第三位不为零
 			{
-				displaynum(int_part,0);
+				displayNum(int_part,0);
 				Write_DATA(0x68,tab[a[3]]|0X80);
 				Write_DATA(0x68+2,tab[b[0]]);
 				Write_DATA(0x68+4,tab[b[1]]);
@@ -233,43 +233,73 @@ void DigitDisplay::displayfloat(float f)
 		}
 	}
 }
-void DigitDisplay::displaynum(uint8_t one, uint8_t two, uint8_t three, uint8_t four)
+void DigitDisplay::displayNum(uint8_t one, uint8_t two, uint8_t three, uint8_t four)
 {
 	Write_DATA(0x68+6,tab[one]);
 	Write_DATA(0x68+4,tab[two]);
 	Write_DATA(0x68+2,tab[three]);
 	Write_DATA(0x68,tab[four]);
 }
-void DigitDisplay::displaybit(uint8_t num, uint8_t bit)
+void DigitDisplay::displayBit(uint8_t num, uint8_t bit)
 {
 	if(num > 9)return;
 	Write_DATA(0x68+6-2*(bit-1),tab[num]);
 }
-void DigitDisplay::display_abcdef(char abc, uint8_t bit)
-{
-	switch(abc)
+void DigitDisplay::displayABCDEF(const String &s, uint8_t bit)
+{ 
+    uint8_t i = 0;
+    
+    if(s.compareTo("a") == 0)
+    {
+        i = 1;
+    }
+    else if(s.compareTo("b") == 0)
+    {
+        i = 2;
+    }
+    else if(s.compareTo("c") == 0)
+    {
+        i = 3;
+    }
+    else if(s.compareTo("d") == 0)
+    {
+        i = 4;
+    }
+    else if(s.compareTo("e") == 0)
+    {
+        i = 5;
+    }
+    else if(s.compareTo("f") == 0)
+    {
+        i = 6;
+    }
+    
+    Serial.println(i);
+    
+	switch(i)
 	{
-		case 'a':
-			Write_DATA(0x68+6-2*(bit-1),tab[10]);
+		case 1:
+			Write_DATA(0x68+2*(bit-1),tab[10]);
 		break;
 
-		case 'b':
-			Write_DATA(0x68+6-2*(bit-1),tab[11]);
+		case 2:
+			Write_DATA(0x68+2*(bit-1),tab[11]);
 		break;
 
-		case 'c':
-			Write_DATA(0x68+6-2*(bit-1),tab[12]);
+		case 3:
+			Write_DATA(0x68+2*(bit-1),tab[12]);
 		break;
 
-		case 'd':
-			Write_DATA(0x68+6-2*(bit-1),tab[13]);
+		case 4:
+			Write_DATA(0x68+2*(bit-1),tab[13]);
 		break;
 
-		case 'e':
-			Write_DATA(0x68+6-2*(bit-1),tab[14]);
+		case 5:
+			Write_DATA(0x68+2*(bit-1),tab[14]);
 		break;
-		case 'f':
-			Write_DATA(0x68+6-2*(bit-1),tab[15]);
+        
+		case 6:
+			Write_DATA(0x68+2*(bit-1),tab[15]);
 		break;
 	}
 }
@@ -280,10 +310,10 @@ void DigitDisplay::clear(void)
 		Write_DATA(0x68+a*2,0);
 	}
 }
-void DigitDisplay::clearbit(uint8_t bit)
+void DigitDisplay::clearBit(uint8_t bit)
 {
 	if(bit < 1)return;
-	Write_DATA(0x68+6-(bit - 1)*2,0);
+	Write_DATA(0x68+2*(bit - 1),0);
 }
 //**************************************
 void DigitDisplay::TM1650_start(void)

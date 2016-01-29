@@ -35,12 +35,12 @@ LED::LED(uint8_t port)
 	pinMode(_led_pin, OUTPUT);
 }
 
-void LED::On(void)
+void LED::on(void)
 {
 	digitalWrite(_led_pin, LOW);
 }
 
-void LED::Off(void)
+void LED::off(void)
 {
 	digitalWrite(_led_pin, HIGH);
 }

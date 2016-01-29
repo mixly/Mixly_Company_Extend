@@ -23,34 +23,34 @@ LineFinder	KEYWORD1
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-State	KEYWORD2
+state	KEYWORD2
 
-On	KEYWORD2
-Off	KEYWORD2
+on	KEYWORD2
+off	KEYWORD2
 
-A_ButtonState	KEYWORD2
-B_ButtonState	KEYWORD2
-C_ButtonState	KEYWORD2
-D_ButtonState	KEYWORD2
+buttonAState	KEYWORD2
+buttonBState	KEYWORD2
+buttonCState	KEYWORD2
+buttonDState	KEYWORD2
 
 displayTime	KEYWORD2
-displaynum	KEYWORD2
-displaynum	KEYWORD2
-displayfloat	KEYWORD2
-displaynum	KEYWORD2
-displaybit	KEYWORD2
-display_abcdef	KEYWORD2
-clearbit	KEYWORD2
+displayNum	KEYWORD2
+displayFloat	KEYWORD2
+displayBit	KEYWORD2
+displayABCDEF	KEYWORD2
+clearBit	KEYWORD2
 clear	KEYWORD2
 
-Tone	KEYWORD2
+tone	KEYWORD2
 
 readTemperature	KEYWORD2
 readHumidity	KEYWORD2
 	
 begin	KEYWORD2
-Recv	KEYWORD2
+recv	KEYWORD2
 available	KEYWORD2
+clear	KEYWORD2
+send	KEYWORD2
 
 distance	KEYWORD2
 
@@ -58,16 +58,16 @@ startClock	KEYWORD2
 stopClock	KEYWORD2
 setTime	KEYWORD2
 getTime	KEYWORD2
-getsecond	KEYWORD2
-getminute	KEYWORD2
-gethour	KEYWORD2
-getdayOfWeek	KEYWORD2
-getdayOfMonth	KEYWORD2
-getmonth KEYWORD2
-getyear	KEYWORD2
+getSecond	KEYWORD2
+getMinute	KEYWORD2
+getHour	KEYWORD2
+getWeek	KEYWORD2
+getDay	KEYWORD2
+getMonth KEYWORD2
+getYear	KEYWORD2
 fillByHMS	KEYWORD2
 fillByYMD	KEYWORD2
-fillDayOfWeek	KEYWORD2
+fillByWeek	KEYWORD2
 
 run	KEYWORD2
 stop	KEYWORD2
@@ -75,6 +75,9 @@ stop	KEYWORD2
 stateR	KEYWORD2
 stateL	KEYWORD2
 read	KEYWORD2
+
+readAppKey	KEYWORD2
+
 #######################################
 # Constants (LITERAL1)
 #######################################
@@ -91,6 +94,8 @@ AA	LITERAL1
 BB	LITERAL1
 CC	LITERAL1
 DD	LITERAL1
+ON	LITERAL1
+OFF	LITERAL1
 
 C0	LITERAL1
 C1	LITERAL1

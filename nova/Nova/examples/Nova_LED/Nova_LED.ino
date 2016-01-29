@@ -7,7 +7,7 @@ Turns on an LED on for one second, then off for one second, repeatedly.
 Created 15 Dec 2015
 By Blue
 
-http://easy.cc/wiki/index.php/Nova
+https://github.com/StarLabMakerSpace/Nova/wiki
 */
 
 
@@ -23,13 +23,13 @@ void setup()
 void loop() 
 {
   // turn the LED on
-  led.On(); 
+  led.on(); 
   
   // wait for a second
   delay(1000);
   
   // turn the LED off
-  led.Off();
+  led.off();
   
   // wait for a second
   delay(1000);

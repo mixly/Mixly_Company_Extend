@@ -58,10 +58,10 @@ private:
     void enableIRIn();
 public:
     void begin(int port);
-    unsigned char Recv(void);
-    unsigned char Recv(unsigned char *revData);     // 
+    unsigned char recv(void);
+    unsigned char recv(unsigned char *revData);     // 
     unsigned char available();                          // if IR get data
-    void Clear();                                   // clear IR data
+    void clear();                                   // clear IR data
 
     //**************************send*********************************
 private:
@@ -70,6 +70,6 @@ private:
     void space(int usec);
 	void enableIROut(int khz);
 public:
-    void Send(unsigned char *idata, unsigned char ifreq);
+    void send(unsigned char *idata, unsigned char ifreq);
 };
 #endif

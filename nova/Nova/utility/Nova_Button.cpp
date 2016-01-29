@@ -36,7 +36,7 @@ Button::Button(uint8_t port)
 	pinMode(_button_pin, INPUT);
 }
 
-bool Button::State(void)
+bool Button::state(void)
 {
 	if(digitalRead(_button_pin) == HIGH)
 	{

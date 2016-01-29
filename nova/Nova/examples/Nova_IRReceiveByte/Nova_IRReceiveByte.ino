@@ -6,7 +6,7 @@ Serial port will print "Which Button Press",When the infrared remote control but
 Created 15 Dec 2015
 By Blue
 
-http://easy.cc/wiki/index.php/Nova
+https://github.com/StarLabMakerSpace/Nova/wiki
 */
 
 #include <Nova.h> 
@@ -15,22 +15,22 @@ IRSendRev IR;
 
 void setup()
 {
-  IR.begin(S0);
+  IR.begin(A1);
   Serial.begin(9600);
 }
 void loop()
 {
     if(IR.available())
     {
-        switch(IR.Recv())
+        switch(IR.recv())
         {
             case IR_BUTTON_OK: Serial.println("Press Ok.");break;
             case IR_BUTTON_UP: Serial.println("Press Up.");break;
             case IR_BUTTON_DOWN: Serial.println("Press Down.");break;
             case IR_BUTTON_LEFT: Serial.println("Press Left.");break;
             case IR_BUTTON_RIGHT: Serial.println("Press Right.");break;
-            case IR_BUTTON_SPARK: Serial.println("Press Spark.");break;
-            case IR_BUTTON_POUND: Serial.println("Press Pound.");break;
+            case IR_BUTTON_SPARK: Serial.println("Press *.");break;
+            case IR_BUTTON_POUND: Serial.println("Press #.");break;
             case IR_BUTTON_0: Serial.println("Press 0.");break;
             case IR_BUTTON_1: Serial.println("Press 1.");break;
             case IR_BUTTON_2: Serial.println("Press 2.");break;

@@ -36,7 +36,7 @@ Buzzer::Buzzer(uint8_t port)
 	pinMode(_Buzzer_pin, OUTPUT);
 }
 
-void Buzzer::Tone(uint16_t frequency, uint32_t duration) // F 1-1000     TIME  ms
+void Buzzer::tone(uint16_t frequency, uint32_t duration) // F 1-1000     TIME  ms
 {
 	unsigned long time;
 	

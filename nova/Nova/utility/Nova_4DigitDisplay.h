@@ -8,14 +8,14 @@ class DigitDisplay
 public:
 	DigitDisplay(uint8_t port);
 	void displayTime(uint8_t hour,uint8_t min);
-	void displaynum(uint16_t num);
-	void displaynum(uint16_t num,bool dir);
-	void displayfloat(float f);
-	void displaynum(uint8_t one, uint8_t two, uint8_t three, uint8_t four);
-	void displaybit(uint8_t num, uint8_t bit);
-	void display_abcdef(char abc, uint8_t bit);
+	void displayNum(uint16_t num);
+	void displayNum(uint16_t num,bool dir);
+	void displayFloat(float f);
+	void displayNum(uint8_t one, uint8_t two, uint8_t three, uint8_t four);
+	void displayBit(uint8_t num, uint8_t bit);
+	void displayABCDEF(const String &s, uint8_t bit);
 	void clear(void);
-	void clearbit(uint8_t bit);
+	void clearBit(uint8_t bit);
 private:
 	bool type;//true sofeware,false hardware
 	uint8_t SCL_pin,SDA_pin;

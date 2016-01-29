@@ -7,7 +7,7 @@ class Button
 {
 public:
 	Button(uint8_t port);
-	bool State(void);
+	bool state(void);
 private:
 	uint8_t _button_pin;
 };

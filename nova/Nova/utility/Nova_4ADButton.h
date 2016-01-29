@@ -7,10 +7,10 @@ class FourButton
 {
 public:
 	FourButton(uint8_t port);
-	bool A_ButtonState(void);
-	bool B_ButtonState(void);
-	bool C_ButtonState(void);
-	bool D_ButtonState(void);
+	bool buttonAState(void);
+	bool buttonBState(void);
+	bool buttonCState(void);
+	bool buttonDState(void);
 private:
 	uint8_t _adc_pin;
 };

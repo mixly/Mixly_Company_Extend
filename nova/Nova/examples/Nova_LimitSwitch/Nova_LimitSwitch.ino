@@ -6,7 +6,7 @@ Serial port will print "Hello",When the Limit Switch Trigger.
 Created 15 Dec 2015
 By Blue
 
-http://easy.cc/wiki/index.php/Nova
+https://github.com/StarLabMakerSpace/Nova/wiki
 */
 
 #include <Nova.h>
@@ -19,7 +19,7 @@ Serial.begin(9600);
 
 void loop() {
 
-  if(limit.State() == true)
+  if(limit.state() == true)
   {
     Serial.println("Hello");
   }

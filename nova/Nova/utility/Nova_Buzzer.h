@@ -7,7 +7,7 @@ class Buzzer
 {
 public:
 	Buzzer(uint8_t port);
-	void Tone(uint16_t frequency, uint32_t duration);
+	void tone(uint16_t frequency, uint32_t duration);
 	//void PlayMusic(uint8_t tune, uint8_t duration, uint8_t speed);
 private:
 	uint8_t _Buzzer_pin;

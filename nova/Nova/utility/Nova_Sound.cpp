@@ -37,7 +37,7 @@ Sound::Sound(uint8_t port)
 	pinMode(_sound_pin, INPUT);
 }
 
-bool Sound::State(void)
+bool Sound::state(void)
 {
 	if(digitalRead(_sound_pin) == HIGH)
 	{

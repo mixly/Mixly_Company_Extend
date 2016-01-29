@@ -3,18 +3,22 @@ Nova_RTC
 
 Serial port will print real time.
 
-Created 15 Dec 2015
+Created 12 Jan 2016
 By Blue
 
-http://easy.cc/wiki/index.php/Nova
+https://github.com/StarLabMakerSpace/Nova/wiki
 */
 
 #include <Nova.h>
 
-RTC rtc = RTC(C1);
+RTC rtc = RTC(C1);// C0、C1、S4、S5 
 
 void setup() {
-Serial.begin(9600);
+  Serial.begin(9600);
+  rtc.fillByHMS(17, 40, 00); // 17:40:00
+  rtc.fillByYMD(2016, 1, 12);// 2016.01.12
+  rtc.fillByWeek(2); // Tuesday      
+
 }
 
 void loop() {
@@ -25,16 +29,43 @@ void loop() {
 
 void printTime()
 {
-	Serial.print(rtc.hour, DEC);
-	Serial.print(":");
-	Serial.print(rtc.minute, DEC);
-	Serial.print(":");
-	Serial.print(rtc.second, DEC);
-	Serial.print("	");
-	Serial.print(rtc.month, DEC);
-	Serial.print("/");
-	Serial.print(rtc.dayOfMonth, DEC);
-	Serial.print("/");
-	Serial.print(rtc.year+2000, DEC);
-	Serial.println(" ");
+  Serial.print(rtc.getYear(), DEC);
+  Serial.print("/");
+  Serial.print(rtc.getMonth(), DEC);
+  Serial.print("/");
+  Serial.print(rtc.getDay(), DEC);
+  Serial.print(" ");
+  Serial.print(rtc.getHour(), DEC);
+  Serial.print(":");
+  Serial.print(rtc.getMinute(), DEC);
+  Serial.print(":");
+  Serial.print(rtc.getSecond(), DEC);
+  
+  Serial.print(" ");
+  
+  switch(rtc.getWeek())
+  {
+   case 1:Serial.println("Mon");
+   break;
+ 
+   case 2:Serial.println("Tues");
+   break; 
+   
+   case 3:Serial.println("Wed");
+   break;
+   
+   case 4:Serial.println("Thur");
+   break;
+   
+   case 5:Serial.println("Fri");
+   break;
+   
+   case 6:Serial.println("Sat");
+   break;
+   
+   case 7:Serial.println("Sun");
+   break;
+  }
+
+	
 }

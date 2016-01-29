@@ -7,7 +7,7 @@ class LimitSwitch
 {
 public:
 	LimitSwitch(uint8_t port);
-	bool State(void);
+	bool state(void);
 private:
 	uint8_t _limit_pin;
 };

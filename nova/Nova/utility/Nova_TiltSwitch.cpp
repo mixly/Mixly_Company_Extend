@@ -37,7 +37,7 @@ TiltSwitch::TiltSwitch(uint8_t port)
 	pinMode(_tilt_pin, INPUT);
 }
 
-bool TiltSwitch::State(void)
+bool TiltSwitch::state(void)
 {
 	if(digitalRead(_tilt_pin) == HIGH)
 	{

@@ -6,8 +6,8 @@ class LED
 {
 public:
 	LED(uint8_t port);
-	void On(void);
-	void Off(void);
+	void on(void);
+	void off(void);
 private:
 	uint8_t _led_pin;
 };

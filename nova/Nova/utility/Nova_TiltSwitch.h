@@ -7,7 +7,7 @@ class TiltSwitch
 {
 public:
 	TiltSwitch(uint8_t port);
-	bool State(void);
+	bool state(void);
 private:
 	uint8_t _tilt_pin;
 };

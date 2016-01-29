@@ -6,7 +6,7 @@ Serial port will print "Light value".
 Created 15 Dec 2015
 By Blue
 
-http://easy.cc/wiki/index.php/Nova
+https://github.com/StarLabMakerSpace/Nova/wiki
 */
 
 #include <Nova.h>
@@ -19,6 +19,6 @@ Serial.begin(9600);
 
 void loop() {
   Serial.print("Current Light = ");
-  Serial.println(light.Read());
+  Serial.println(light.read());
   delay(500);
 }

@@ -7,7 +7,7 @@ class Light
 {
 public:
 	Light(uint8_t pin);
-	int Read(void);
+	int read(void);
 private:
 	uint8_t _light_pin;
 };
