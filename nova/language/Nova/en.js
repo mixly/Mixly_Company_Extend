@@ -1,4 +1,3 @@
-
 //-----------------NOVA---------------------------------
 Blockly.LKL_NOVA_PORT = 'Port';
 Blockly.LKL_NOVA_STAT = 'Set';
@@ -76,9 +75,3 @@ Blockly.LKL_NOVA_BLUETOOTH = 'Bluetooth';
 Blockly.LKL_NOVA_BLUETOOTH_AVAILABLE = 'Bluetooth Available？';
 Blockly.LKL_NOVA_BLUETOOTH_READ_STR = 'Bluetooth ReadString';
 Blockly.LKL_NOVA_BLUETOOTH_READ_NUM = 'Bluetooth ReadNumber';
-
-//spi
-Blockly.TO_SPI_SLAVE_PIN='To SPI Slave PIN#';
-Blockly.SPI_TRANSFER='transfer';
-
-Blockly.LKL_SERIAL_BEGIN='baud rate';

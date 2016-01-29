@@ -75,9 +75,3 @@ Blockly.LKL_NOVA_BLUETOOTH = '蓝牙';
 Blockly.LKL_NOVA_BLUETOOTH_AVAILABLE = '蓝牙有数据可读？';
 Blockly.LKL_NOVA_BLUETOOTH_READ_STR = '蓝牙读取数据（返回字符串）';
 Blockly.LKL_NOVA_BLUETOOTH_READ_NUM = '蓝牙读取数据（返回数字）';
-
-//spi
-Blockly.TO_SPI_SLAVE_PIN='向SPI从机#';
-Blockly.SPI_TRANSFER='传输';
-
-Blockly.LKL_SERIAL_BEGIN='波特率';
