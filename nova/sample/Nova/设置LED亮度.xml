@@ -1,1 +1,1 @@
-<xml board="Arduino Uno"><block type="Nova_Led_PWM" x="117" y="121"><field name="PIN">3</field><value name="NUM"><block type="math_number"><field name="NUM">50</field></block></value></block></xml>
+<xml board="Nduino"><block type="Nova_Led_PWM" x="117" y="121"><field name="PIN">3</field><value name="NUM"><block type="math_number"><field name="NUM">50</field></block></value></block></xml>
