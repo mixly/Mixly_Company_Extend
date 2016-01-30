@@ -1,0 +1,35 @@
+#######################################
+# Syntax Coloring Map For SHT1x
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SHT1x KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+readHumidity KEYWORD2
+readTemperatureC KEYWORD2
+readTemperatureF KEYWORD2
+
+#######################################
+# Syntax Coloring Map For APDS9931
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+APDS9931 KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+getdata KEYWORD2
+power KEYWORD2
+init KEYWORD2

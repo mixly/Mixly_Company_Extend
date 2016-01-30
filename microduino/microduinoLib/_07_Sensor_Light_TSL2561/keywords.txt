@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map For TSL2561
+####################################### 
+# Datatypes (KEYWORD1)
+#######################################
+
+Adafruit_TSL2561_Unified	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+getEvent			KEYWORD2
+getSensor			KEYWORD2
+calculateLux		KEYWORD2
+getLuminosity		KEYWORD2
+setGain				KEYWORD2
+setIntegrationTime	KEYWORD2
+enableAutoGain		KEYWORD2
+	
+#######################################
+# Constants (LITERAL1)
+#######################################

@@ -1,0 +1,24 @@
+#######################################
+# Syntax Coloring Map Key
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Key	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+attach	KEYWORD2
+detach	KEYWORD2
+write	KEYWORD2
+read	KEYWORD2
+attached	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+PRESS	LITERAL1
+RELEASE	LITERAL1

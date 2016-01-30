@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map SD
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+GPS	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+lastNMEA	KEYWORD2
+newNMEAreceived	KEYWORD2
+read	KEYWORD2
+parse	KEYWORD2
+set_config	KEYWORD2
+set_updata	KEYWORD2
+set_baud	KEYWORD2
+set_cnssmode	KEYWORD2
+set_powermode	KEYWORD2	
+
+#######################################
+# Constants (LITERAL1)
+#######################################

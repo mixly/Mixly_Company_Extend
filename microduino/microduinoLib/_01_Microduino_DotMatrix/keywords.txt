@@ -1,0 +1,46 @@
+#######################################
+# Syntax Coloring Map For LedControl
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LedControl	KEYWORD1
+Matrix	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+clearDisplay			KEYWORD2
+setColor				KEYWORD2
+clearColor				KEYWORD2
+setLed					KEYWORD2
+setLedColor				KEYWORD2
+setLedColorFast			KEYWORD2
+setRow					KEYWORD2
+setColumn				KEYWORD2
+writeString				KEYWORD2
+displayChar				KEYWORD2
+getDeviceAddr			KEYWORD2
+setDeviceAddr			KEYWORD2
+getCharArrayPosition	KEYWORD2
+setFastMode				KEYWORD2
+clearFastMode			KEYWORD2
+setFontMode				KEYWORD2
+getStringWidth			KEYWORD2
+getStringHeight			KEYWORD2
+getMatrixNum 			KEYWORD2
+getHeight				KEYWORD2
+getWidth				KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+
+MODE_H KEYWORD1
+MODE_V KEYWORD1
+
+#######################################
+

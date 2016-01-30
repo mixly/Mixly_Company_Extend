@@ -1,0 +1,62 @@
+#######################################
+# Syntax Coloring Map For Joypad
+####################################### 
+# Class
+#######################################
+
+Joypad	KEYWORD3
+
+#######################################
+# Methods and Functions 
+#######################################	
+
+begin	KEYWORD2
+readLightSensor	KEYWORD2
+readMicrophone	KEYWORD2
+readIntA	KEYWORD2
+readIntB	KEYWORD2
+readJoystickX	KEYWORD2
+readJoystickY	KEYWORD2
+readJoystick1X	KEYWORD2
+readJoystick1Y	KEYWORD2
+readButton	KEYWORD2
+motor	KEYWORD2
+tone	KEYWORD2
+noTone	KEYWORD2
+
+
+#######################################
+# Constants
+#######################################
+ 
+JOYSTICK_BASE	LITERAL1
+MAX_CHANNELS	LITERAL1
+
+CH_SWITCH_1	LITERAL1
+CH_SWITCH_2	LITERAL1
+CH_SWITCH_3	LITERAL1
+CH_SWITCH_4	LITERAL1
+CH_LIGHT	LITERAL1
+CH_MIC	LITERAL1
+CH_JOYSTICK_SW	LITERAL1
+CH_JOYSTICK_X	LITERAL1
+CH_JOYSTICK_Y	LITERAL1
+CH_JOYSTICK1_SW	LITERAL1
+CH_JOYSTICK1_X	LITERAL1
+CH_JOYSTICK1_Y	LITERAL1
+CH_SWITCH_L	LITERAL1
+CH_SWITCH_R	LITERAL1
+CH_INT_A	LITERAL1
+CH_INT_B	LITERAL1
+
+JOYSTICK_DOWN	LITERAL1
+JOYSTICK_LEFT	LITERAL1
+JOYSTICK_RIGHT	LITERAL1
+JOYSTICK_UP	LITERAL1
+JOYSTICK1_DOWN	LITERAL1
+JOYSTICK1_LEFT	LITERAL1
+JOYSTICK1_RIGHT	LITERAL1
+JOYSTICK1_UP	LITERAL1
+
+PRESSED	LITERAL1
+RELEASED	LITERAL1

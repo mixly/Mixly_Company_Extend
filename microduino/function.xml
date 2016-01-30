@@ -1,0 +1,223 @@
+<!-- type="company" block="block/Microduino.js" generator="generator/Microduino.js"  lib="" -->
+
+<script type="text/javascript" src="../../blocks/company/function/Audio_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/Audio_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/function/RTC_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/RTC_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/function/SD_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/SD_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/function/motion_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/motion_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/function/GPS_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/GPS_Arduino.js"></script>
+
+<category id="catMicroduinoFunction" colour="65">
+
+
+
+<!--GPS模块-->
+<block type="GPS"></block>
+
+<block type="GPSShow">
+
+    <value name="GPSHour">
+        <block type="GPSHour"></block>
+    </value>
+    <value name="GPSMinute">
+        <block type="GPSMinute"></block>
+    </value>
+    <value name="GPSSeconds">
+        <block type="GPSSeconds"></block>
+    </value>
+    <value name="GPSDay">
+        <block type="GPSDay"></block>
+    </value>
+    <value name="GPSMonth">
+        <block type="GPSMonth"></block>
+    </value>
+    <value name="GPSYear">
+        <block type="GPSYear"></block>
+    </value>
+    <value name="GPSFix">
+        <block type="GPSFix"></block>
+    </value>
+    <value name="GPSQuality">
+        <block type="GPSQuality"></block>
+    </value>
+    <value name="GPSLatitude">
+        <block type="GPSLatitude"></block>
+    </value>
+    <value name="GPSLat">
+        <block type="GPSLat"></block>
+    </value>
+    <value name="GPSLongitude">
+        <block type="GPSLongitude"></block>
+    </value>
+    <value name="GPSLon">
+        <block type="GPSLon"></block>
+    </value>
+    <value name="GPSSpeed">
+        <block type="GPSSpeed"></block>
+    </value>
+    <value name="GPSAngle">
+        <block type="GPSAngle"></block>
+    </value>
+    <value name="GPSAltitude">
+        <block type="GPSAltitude"></block>
+    </value>
+    <value name="GPSSatellites">
+        <block type="GPSSatellites"></block>
+
+
+
+</block>
+
+
+
+
+
+<!--Motion模块-->
+<block type="motionBegin"></block>
+
+
+<block type="accX">
+</block>
+<block type="accY">
+</block>
+<block type="accZ">
+</block>
+<block type="gyroX">
+</block>
+<block type="gyroY">
+</block>
+<block type="gyroZ">
+</block>
+
+<block type="tabSpace">
+</block>
+
+<block type="motionDoing">
+	<value name="ax">
+	<block type="accX">
+	</block>
+</value>
+	<value name="ay">
+	<block type="accY">
+	</block>
+</value>
+	<value name="az">
+	<block type="accZ">
+	</block>
+</value>
+	<value name="gx">
+	<block type="gyroX">
+	</block>
+</value>
+	<value name="gy">
+	<block type="gyroY">
+	</block>
+</value>
+	<value name="gz">
+	<block type="gyroZ">
+	</block>
+</value>
+
+</block>
+
+
+
+
+
+
+<!--audio模块-->
+<block type="mCookie_Audio_Serial">
+    <value name="Vol">
+        <shadow type="math_number">
+            <field name="NUM">20</field>
+        </shadow>
+    </value>
+</block>
+<block type="mCookie_Audio_Play"></block>
+<block type="mCookie_Audio_Pose"></block>
+<block type="mCookie_Audio_Next"></block>
+<block type="mCookie_Audio_Prev"></block>
+<block type="mCookie_Audio_VolUp"></block>
+<block type="mCookie_Audio_VolDown"></block>
+
+<!--RTC模块-->
+<block type="mCookie_RTC_set">
+    <value name="Year">
+        <block type="math_number">
+            <field name="NUM">15</field>
+        </block>
+    </value>
+    <value name="Mouth">
+        <block type="math_number">
+            <field name="NUM">10</field>
+        </block>
+    </value>
+    <value name="Day">
+        <block type="math_number">
+            <field name="NUM">5</field>
+        </block>
+    </value>
+	<value name="Week">
+        <block type="math_number">
+            <field name="NUM">1</field>
+        </block>
+    </value>
+    <value name="Hour">
+        <block type="math_number">
+            <field name="NUM">10</field>
+        </block>
+    </value>
+    <value name="Minute">
+        <block type="math_number">
+            <field name="NUM">5</field>
+        </block>
+    </value>
+    <value name="Second">
+        <block type="math_number">
+            <field name="NUM">0</field>
+        </block>
+    </value>
+</block> 
+<block type="mCookie_RTC_date"></block>
+<block type="mCookie_RTC_time"></block>
+<block type="mCookie_RTC_Week"></block>
+<block type="mCookie_RTC_Hour"></block>
+<block type="mCookie_RTC_Minute"></block>
+<block type="mCookie_RTC_Second"></block>
+
+<!--SD模块-->
+ <block type="SD_Write">
+ 		<value name="File_Name">
+			<block type="text">
+				<field name="File_Name">test.txt</field>
+			</block>
+		</value>
+ </block>
+
+
+ <block type="SD_Read">
+ 		<value name="File_Name">
+			<block type="text">
+				<field name="File_Name">test.txt</field>
+			</block>
+		</value>
+ </block>
+
+
+
+
+
+
+
+</category>

@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For IRremote
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Energy	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+PowerDown	KEYWORD2
+Idle	KEYWORD2
+SleepADC	KEYWORD2
+PowerSave	KEYWORD2
+Standby	KEYWORD2
+WasSleeping	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################

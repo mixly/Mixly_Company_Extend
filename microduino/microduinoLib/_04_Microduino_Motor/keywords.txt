@@ -1,0 +1,19 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+Motor	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+Fix		KEYWORD2
+Driver	KEYWORD2
+Free	KEYWORD2
+Brake	KEYWORD2
+GetData	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+CHAN_LEFT	LITERAL1
+CHAN_RIGHT	LITERAL1
