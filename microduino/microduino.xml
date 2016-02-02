@@ -1,0 +1,541 @@
+<!-- type="company" block="block/Microduino.js" generator="generator/Microduino.js"  lib="" -->
+
+<script type="text/javascript" src="../../blocks/company/core/serial_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/core/serial_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/communication/BT_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/communication/BT_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/communication/Zigbee_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/communication/Zigbee_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/communication/W5500_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/communication/W5500_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/communication/nRF24_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/communication/nRF24_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/communication/smartRF_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/communication/smartRF_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/communication/NFC_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/communication/NFC_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/communication/GSM_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/communication/GSM_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/communication/WIFI_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/communication/WIFI_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/function/Audio_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/Audio_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/function/RTC_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/RTC_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/function/SD_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/SD_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/function/motion_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/motion_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/function/GPS_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/function/GPS_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/extended/OLED_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/extended/OLED_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/extended/Motor_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/extended/Motor_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/extended/DotMatrix_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/extended/DotMatrix_Arduino.js"></script>
+
+
+
+<script type="text/javascript" src="../../blocks/company/sensor/colorLED_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/sensor/colorLED_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/sensor/Buzzer_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/sensor/Buzzer_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/sensor/KEY_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/sensor/KEY_Arduino.js"></script>
+
+
+<script type="text/javascript" src="../../blocks/company/sensor/Tem_Hum_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/sensor/Tem_Hum_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/sensor/joystick_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/sensor/joystick_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/sensor/LM75_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/sensor/LM75_Arduino.js"></script>
+
+<script type="text/javascript" src="../../blocks/company/VariableExpansion/NewVariable_Blocks.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/VariableExpansion/NewVariable_Arduino.js"></script>
+
+
+<category id="Microduino" name="Microduino"colour="0">
+
+	<category id="catMicroduinoCore" colour="0">
+		<block type="serialBegin">
+		</block>
+
+		<block type="serialPrint">
+		</block>
+
+		<block type="serialPrintln">
+		</block>
+	</category>
+
+
+	<category id="catMicroduinoCommunication" colour="230">
+
+		<block type="controls_if">
+		    <value name="IF0">
+		        <block type="mCookie_bluetooth_available"></block>
+		    </value>
+		    <statement name="DO0"></statement>
+		</block>
+		<block type="mCookie_bluetooth_readString"></block>
+
+		<!--Zigbee-->
+		<block type="Zigbee_AT">
+		</block>
+
+		<block type="Zigbee_Init">
+			<value name="BRate">
+				<block type="math_number">
+					<field name="BRate">9600</field>
+				</block>
+		    </value>		
+		</block>
+
+		<block type="Zigbee_Send">
+			<value name="text">
+				<block type="text">
+					<field name="TEXT">hello Microduino</field>
+				</block>
+		    </value>			
+		</block>
+
+		<block type="Zigbee_Read">
+		</block>
+
+		<block type="controls_if">
+		    <value name="IF0">
+		        <block type="Zigbee_Available"></block>
+		    </value>
+		    <statement name="DO0"></statement>
+		</block>
+
+
+		<block type="VariableIs">
+			<value name="VariableIs">
+				<block type="text">
+					<field name="VariableIs">AA</field>
+				</block>
+  			</value>		
+		</block>
+
+		<!--W5500-->
+
+		<block type="controls_if">
+		    <value name="IF0">
+		        <block type="W5500_Init"></block>
+		    </value>
+		    <statement name="DO0"></statement>
+		</block>
+	<!--nRF24-->
+		<block type="nRF_Init">
+		</block>
+		<block type="nRF_Send">
+		</block>
+		<block type="nRF_Read">
+		</block>
+	<!--SmartRF-->
+		<block type="smartRF_Init_Send">
+		</block>
+		<block type="smartRF_Init_Read">
+		</block>
+		<block type="smartRF_Send">
+		</block>
+		<block type="smartRF_Read">
+		</block>
+
+	<!--NFC-->
+		<block type="NFC_Format">
+		</block>
+	<!--<block type="NFC_Write">
+		</block>
+	-->
+		<block type="NFC_Read">
+		</block>
+	<!--GSM-->
+		<block type="GSM_SMS">
+		</block>
+
+
+		<block type="controls_if">
+		    <value name="IF0">
+		        <block type="W5500_Init"></block>
+		    </value>
+		    <statement name="DO0"></statement>
+		</block>
+
+		<block type="WiFi">
+		</block>
+
+	</category>
+
+
+	<category id="catMicroduinoFunction" colour="65">
+
+		<!--GPS模块-->
+		<block type="GPS"></block>
+
+		<block type="GPSShow">
+
+		    <value name="GPSHour">
+		        <block type="GPSHour"></block>
+		    </value>
+		    <value name="GPSMinute">
+		        <block type="GPSMinute"></block>
+		    </value>
+		    <value name="GPSSeconds">
+		        <block type="GPSSeconds"></block>
+		    </value>
+		    <value name="GPSDay">
+		        <block type="GPSDay"></block>
+		    </value>
+		    <value name="GPSMonth">
+		        <block type="GPSMonth"></block>
+		    </value>
+		    <value name="GPSYear">
+		        <block type="GPSYear"></block>
+		    </value>
+		    <value name="GPSFix">
+		        <block type="GPSFix"></block>
+		    </value>
+		    <value name="GPSQuality">
+		        <block type="GPSQuality"></block>
+		    </value>
+		    <value name="GPSLatitude">
+		        <block type="GPSLatitude"></block>
+		    </value>
+		    <value name="GPSLat">
+		        <block type="GPSLat"></block>
+		    </value>
+		    <value name="GPSLongitude">
+		        <block type="GPSLongitude"></block>
+		    </value>
+		    <value name="GPSLon">
+		        <block type="GPSLon"></block>
+		    </value>
+		    <value name="GPSSpeed">
+		        <block type="GPSSpeed"></block>
+		    </value>
+		    <value name="GPSAngle">
+		        <block type="GPSAngle"></block>
+		    </value>
+		    <value name="GPSAltitude">
+		        <block type="GPSAltitude"></block>
+		    </value>
+		    <value name="GPSSatellites">
+		        <block type="GPSSatellites"></block>
+		</block>
+
+
+
+
+
+		<!--Motion模块-->
+		<block type="motionBegin"></block>
+
+		<block type="accX">
+		</block>
+		<block type="accY">
+		</block>
+		<block type="accZ">
+		</block>
+		<block type="gyroX">
+		</block>
+		<block type="gyroY">
+		</block>
+		<block type="gyroZ">
+		</block>
+
+		<block type="tabSpace">
+		</block>
+
+		<block type="motionDoing">
+			<value name="ax">
+			<block type="accX">
+			</block>
+		</value>
+			<value name="ay">
+			<block type="accY">
+			</block>
+		</value>
+			<value name="az">
+			<block type="accZ">
+			</block>
+		</value>
+			<value name="gx">
+			<block type="gyroX">
+			</block>
+		</value>
+			<value name="gy">
+			<block type="gyroY">
+			</block>
+		</value>
+			<value name="gz">
+			<block type="gyroZ">
+			</block>
+		</value>
+
+		</block>
+
+
+		<!--audio模块-->
+		<block type="mCookie_Audio_Serial">
+		    <value name="Vol">
+		        <shadow type="math_number">
+		            <field name="NUM">20</field>
+		        </shadow>
+		    </value>
+		</block>
+		<block type="mCookie_Audio_Play"></block>
+		<block type="mCookie_Audio_Pose"></block>
+		<block type="mCookie_Audio_Next"></block>
+		<block type="mCookie_Audio_Prev"></block>
+		<block type="mCookie_Audio_VolUp"></block>
+		<block type="mCookie_Audio_VolDown"></block>
+
+		<!--RTC模块-->
+		<block type="mCookie_RTC_set">
+		    <value name="Year">
+		        <block type="math_number">
+		            <field name="NUM">15</field>
+		        </block>
+		    </value>
+		    <value name="Mouth">
+		        <block type="math_number">
+		            <field name="NUM">10</field>
+		        </block>
+		    </value>
+		    <value name="Day">
+		        <block type="math_number">
+		            <field name="NUM">5</field>
+		        </block>
+		    </value>
+			<value name="Week">
+		        <block type="math_number">
+		            <field name="NUM">1</field>
+		        </block>
+		    </value>
+		    <value name="Hour">
+		        <block type="math_number">
+		            <field name="NUM">10</field>
+		        </block>
+		    </value>
+		    <value name="Minute">
+		        <block type="math_number">
+		            <field name="NUM">5</field>
+		        </block>
+		    </value>
+		    <value name="Second">
+		        <block type="math_number">
+		            <field name="NUM">0</field>
+		        </block>
+		    </value>
+		</block> 
+		<block type="mCookie_RTC_date"></block>
+		<block type="mCookie_RTC_time"></block>
+		<block type="mCookie_RTC_Week"></block>
+		<block type="mCookie_RTC_Hour"></block>
+		<block type="mCookie_RTC_Minute"></block>
+		<block type="mCookie_RTC_Second"></block>
+
+		<!--SD模块-->
+		 <block type="SD_Write">
+		 		<value name="File_Name">
+					<block type="text">
+						<field name="File_Name">test.txt</field>
+					</block>
+				</value>
+		 </block>
+
+
+		 <block type="SD_Read">
+		 		<value name="File_Name">
+					<block type="text">
+						<field name="File_Name">test.txt</field>
+					</block>
+				</value>
+		 </block>
+
+	</category>
+
+
+
+	<category id="catMicroduinoExtended" colour="120">
+
+		<block type="MotorBegin">
+		</block>
+		<block type="mCookie_Motor">
+		</block>
+
+		<!--Dot matrix screen-->
+		<block type="DotMatrix">
+
+			<block type="dotMatrixName">
+			</block>
+
+			<value name="row0">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row1">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row2">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row3">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row4">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row5">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row6">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row7">
+				<block type="DotMatrixRow"></block>
+			</value>
+		</block>
+
+		<block type="group_lcd_begin">
+		</block>
+		<block type="group_lcd_print">
+		<value name="x">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="y">
+			<shadow type="math_number">
+				<field name="NUM">20</field>
+			</shadow>
+		</value>
+		<value name="text">
+			<block type="text">
+				<field name="TEXT">hello Microduino</field>
+			</block>
+		</value>			
+		</block>
+
+	</category>
+
+
+
+	<category id="catMicroduinoExecutor" colour="518">
+
+		<!--colorLED-->
+		<block type="ws2812Begin">
+			<value name="LEDNumber">
+			<block type="math_number">
+				<field name="NUM">1</field>
+			</block>
+		</value>
+		<value name="LEDPin">
+			<block type="math_number">
+				<field name="NUM">6</field>
+			</block>
+		</value>
+		</block>
+
+		<block type="ws2812Doing">
+			<value name="LEDIndex">
+			<block type="math_number">
+				<field name="NUM">0</field>
+			</block>
+		</value>
+		</block>
+			
+		<!--BUZZER-->
+		<block type="BuzzerTone">
+			<value name="BuzzerPin">
+				<block type="math_number">
+					<field name="NUM">6</field>
+				</block>
+			</value>
+			<value name="Frequency">
+				<block type="math_number">
+					<field name="NUM">200</field>
+				</block>
+			</value>
+		</block>
+
+		<block type="BuzzerNoTone">
+			<value name="BuzzerPin">
+				<block type="math_number">
+					<field name="NUM">6</field>
+				</block>
+			</value>
+		</block>
+
+		<!--KEY-->
+		<block type="Microduino_KEYGET"></block>
+
+	</category>
+
+
+
+	<category id="catMicroduinoSensor" colour="518">
+		<block type="lm75"></block>
+		<block type="xJoystick"></block>
+		<block type="yJoystick"></block>
+
+		<!--TEMP HUM-->
+		<block type="mCookie_AM2321"></block>
+	</category>
+
+
+
+	<category id="catVariableExpansion" colour="330">
+		  <block type="Defination">
+	      </block>
+
+	      <block type="Structure">
+	      	<statement name="DO">
+	      	</statement>
+	      </block>
+
+		  <block type="Var_Definations">
+	      </block>
+
+	      <block type="Struct_Var_Definations">
+	      </block>
+
+	      <block type="IntDefine">
+	      </block>
+	</category>
+
+
+</category>
+
+
+
