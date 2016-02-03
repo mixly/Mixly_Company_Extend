@@ -1,7 +1,7 @@
 <!-- type="company" block="block/Microduino.js" generator="generator/Microduino.js"  lib="" -->
 
-<script type="text/javascript" src="../../blocks/company/core/microduinoBlock.js"></script>
-<script type="text/javascript" src="../../generators/arduino/company/core/microduinoCode.js"></script>
+<script type="text/javascript" src="../../blocks/company/microduinoBlock.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/microduinoCode.js"></script>
 
 
 <category id="Microduino" name="Microduino"colour="0">
