@@ -1,14 +1,3 @@
-var MSG = {
-
-  catMicroduinoSensor: "传感器",
-  catMicroduinoExecutor: "执行器",
-  catMicroduinoExtended: "扩展模块",
-  catMicroduinoCore: "核心模块",
-  catMicroduinoFunction: "功能模块",
-  catVariableExpansion:"变量扩展",
-  catMicroduinoCommunication: "通讯模块"
-};
-
 
 /****
 add by Microduino for chinese

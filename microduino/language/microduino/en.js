@@ -1,13 +1,3 @@
-var MSG = {
-  catMicroduinoSensor: "Sensor",
-  catMicroduinoExecutor: "Executor",
-  catMicroduinoExtended: "Extended",
-  catMicroduinoCore: "Core",
-  catMicroduinoFunction: "Function",
-  catVariableExpansion:"VariableExpansion",
-  catMicroduinoCommunication: "Communication"
-};
-
 
 /****
 add by Microduino for english
