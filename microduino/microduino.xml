@@ -1,8 +1,14 @@
-<!-- type="company" block="block/Microduino.js" generator="generator/Microduino.js"  lib="" -->
+<!-- type="company" 
+	 block="block/microduinoBlock.js" 
+	 generator="generator/microduinoCode.js"  
+	 lib="" 
+	 hardware="hardware/Microduino"
+	 media="media/microduino" 
+	 language="language/microduino"
+	 pin="companypin/microduino" -->
 
 <script type="text/javascript" src="../../blocks/company/microduinoBlock.js"></script>
 <script type="text/javascript" src="../../generators/arduino/company/microduinoCode.js"></script>
-
 
 <category name="Microduino" colour="40">
 
@@ -31,6 +37,3 @@
 
 
 </category>
-
-
-
