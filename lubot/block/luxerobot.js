@@ -160,7 +160,7 @@ Blockly.Blocks.luxerobot_speaker_play_duration = {
         .appendTitle(Blockly.LUXE_SPEAKER_DURATION)
         .setCheck(Number);
 	this.appendDummyInput("")
-		.appendTitle(Blockly.LKL_DELAY_MS);
+		.appendTitle(Blockly.MIXLY_DELAY_MS);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 	this.setInputsInline(true);

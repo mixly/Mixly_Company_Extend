@@ -16,7 +16,7 @@ Blockly.Blocks.mb_servo_move = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_SERVO)
+        .appendTitle(Blockly.MIXLY_SERVO)
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_servo.png", 39, 32))
         .appendTitle("#")
         .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN")
@@ -25,11 +25,11 @@ Blockly.Blocks.mb_servo_move = {
     this.appendValueInput("DEGREE", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LKL_DEGREE_0_180);
+        .appendTitle(Blockly.MIXLY_DEGREE_0_180);
     this.appendValueInput("DELAY_TIME", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LKL_DELAY+'('+Blockly.LKL_DELAY_MS+')');
+        .appendTitle(Blockly.MIXLY_DELAY+'('+Blockly.MIXLY_DELAY_MS+')');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('');
@@ -40,11 +40,11 @@ Blockly.Blocks.mb_bluetooth_readString = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.LKL_BLUETOOTH)
+	    .appendTitle(Blockly.MIXLY_BLUETOOTH)
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_bluetooth.png", 45, 32))
 		.appendTitle("#")
 	    .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN")
-		.appendTitle(Blockly.LKL_BLUETOOTH_READ_STR);
+		.appendTitle(Blockly.MIXLY_BLUETOOTH_READ_STR);
     this.setOutput(true, String);
 	this.setInputsInline(true);
   }
@@ -54,11 +54,11 @@ Blockly.Blocks.mb_bluetooth_available = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.LKL_BLUETOOTH)
+	    .appendTitle(Blockly.MIXLY_BLUETOOTH)
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_bluetooth.png", 45, 32))
 		.appendTitle("#")
 	    .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN")
-		.appendTitle(Blockly.LKL_AVAILABLE);
+		.appendTitle(Blockly.MIXLY_AVAILABLE);
     this.setOutput(true, Boolean);
 	this.setInputsInline(true);
   }
@@ -68,13 +68,13 @@ Blockly.Blocks.mb_display = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.LKL_7S_DISPLAY)
+	    .appendTitle(Blockly.MIXLY_7S_DISPLAY)
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_display.png", 40, 32))
 		.appendTitle("#")
 	    .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN");
 	this.appendValueInput('num')
 		.setCheck(Number)
-		.appendTitle(Blockly.LKL_NUMBER);
+		.appendTitle(Blockly.MIXLY_NUMBER);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
 	this.setInputsInline(true);
@@ -85,13 +85,13 @@ Blockly.Blocks.mb_motor = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.LKL_MB_LIGHT_MOTOR)
+	    .appendTitle(Blockly.MIXLY_MB_LIGHT_MOTOR)
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_motor.png", 40, 32))
 		.appendTitle("#")
 	    .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_MS), "PIN");
 	this.appendValueInput('speed')
 		.setCheck(Number)
-		.appendTitle(Blockly.LKL_MB_LIGHT_MOTOR_SPEED);
+		.appendTitle(Blockly.MIXLY_MB_LIGHT_MOTOR_SPEED);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
 	this.setInputsInline(true);
@@ -102,7 +102,7 @@ Blockly.Blocks.mb_sound = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_SOUND)
+        .appendTitle(Blockly.MIXLY_SOUND)
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_sound.png", 48, 32))
 		.appendTitle("#")
         .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN");
@@ -114,7 +114,7 @@ Blockly.Blocks.mb_temperature = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_TEMPERATURE)
+        .appendTitle(Blockly.MIXLY_TEMPERATURE)
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_temperature.png", 59, 32))
 		.appendTitle("#")
         .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN")
@@ -129,7 +129,7 @@ Blockly.Blocks.mb_joystick = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_JOYSTICK)
+        .appendTitle(Blockly.MIXLY_JOYSTICK)
 		.appendTitle(new Blockly.FieldDropdown([["x", "X"], ["y", "Y"]]), "STAT")
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_joystick.png", 38, 32))
 		.appendTitle("#")
@@ -143,7 +143,7 @@ Blockly.Blocks.mb_potentiometer = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_POTENTIOMETER)
+        .appendTitle(Blockly.MIXLY_POTENTIOMETER)
 		.appendField(new Blockly.FieldImage("../../media/makeblock/mb_potentiometer.png", 40, 32))
 		.appendTitle("#")
         .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN");
@@ -155,7 +155,7 @@ Blockly.Blocks.mb_pyroelectric_infrared = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-	      .appendTitle(Blockly.LKL_MB_PYROELECTRIC_INFRARED)
+	      .appendTitle(Blockly.MIXLY_MB_PYROELECTRIC_INFRARED)
 		  .appendField(new Blockly.FieldImage("../../media/makeblock/mb_pir_motion.png", 42, 32))
 		  .appendTitle("#")
 	      .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN");
@@ -167,7 +167,7 @@ Blockly.Blocks.mb_chaoshengbo = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-	      .appendTitle(Blockly.LKL_MB_CHAOSHENGBO)
+	      .appendTitle(Blockly.MIXLY_MB_CHAOSHENGBO)
 		  .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_UNIT), "PIN2")
 		  .appendField(new Blockly.FieldImage("../../media/makeblock/mb_ultrasonic.png", 37, 32))
 		  .appendTitle("#")
@@ -180,7 +180,7 @@ Blockly.Blocks.mb_light_grayscale = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-	      .appendTitle(Blockly.LKL_MB_LIGHT_GRAYSCALE)
+	      .appendTitle(Blockly.MIXLY_MB_LIGHT_GRAYSCALE)
 		  .appendField(new Blockly.FieldImage("../../media/makeblock/mb_light_grayscale.png", 35, 32))
 		  .appendTitle("#")
 	      .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN");
@@ -192,12 +192,12 @@ Blockly.Blocks.mb_light_grayscale_led = {
   init: function() {
     this.setColour(Blockly.Blocks.makeblock.HUE);
     this.appendDummyInput("")
-	      .appendTitle(Blockly.LKL_MB_LIGHT_GRAYSCALE)
+	      .appendTitle(Blockly.MIXLY_MB_LIGHT_GRAYSCALE)
 		  .appendField(new Blockly.FieldImage("../../media/makeblock/mb_light_grayscale.png", 35, 32))
 		  .appendTitle("#")
 	      .appendTitle(new Blockly.FieldDropdown(MAKEBLOCK_PORTS), "PIN")
-		  .appendTitle(Blockly.LKL_MB_LIGHT_GRAYSCALE_LED)
-		  .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_ON, "lightOn"], [Blockly.LKL_OFF, "lightOff"]]), "STAT");
+		  .appendTitle(Blockly.MIXLY_MB_LIGHT_GRAYSCALE_LED)
+		  .appendTitle(new Blockly.FieldDropdown([[Blockly.MIXLY_ON, "lightOn"], [Blockly.MIXLY_OFF, "lightOff"]]), "STAT");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   }
