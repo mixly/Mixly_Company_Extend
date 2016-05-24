@@ -1,0 +1,123 @@
+<!-- type="company" 
+     block="block/ruilong.js"
+	 generator="generator/ruilong.js" 
+	 media="media/ruilong" 
+	 language="language/ruilong" -->
+<script type="text/javascript" src="../../blocks/company/ruilong.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/ruilong.js"></script>
+<!--引用所有写好的模块-->
+<category name="RuiLong" colour="120">
+	<block type="ruilong_lamp">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_buzzer">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_relay">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_button">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_magnetic">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_vibration">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_tilt">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_touch">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_collision">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_obstacle">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_dht11">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_resistor_scratch">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_temp">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_sound">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_moisture">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_steam">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_linefinder">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_knob">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_slider">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_light">
+		<value name="PIN">
+			<shadow type="pins_analog"></shadow>
+		</value>
+	</block>
+	<block type="ruilong_lcd_print">
+		<value name="TEXT">
+			<block type="text">
+				<field name="TEXT"></field>
+			</block>
+		</value>
+		<value name="TEXT2">
+			<block type="text">
+				<field name="TEXT"></field>
+			</block>
+		</value>
+	  </block>
+	  <block type="ruilong_lcd_power"></block>
+</category>

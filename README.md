@@ -15,6 +15,8 @@ Folder "mbot" is mbot library for Mixly.
 
 Folder "nova" is nova library for Mixly.
 
+Folder "ruilong" is ruilong library for Mixly.
+
 Folder "seeedstudio" is seeedstudio library for Mixly.
 
 Folder "xxx" is an empty example of library for Mixly.
