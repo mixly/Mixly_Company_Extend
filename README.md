@@ -3,6 +3,8 @@ Libraries for Mixly(Suitable for Mixly 0.964 or later)
 
 Folder "dfrobot" is dfrobot library for Mixly.
 
+Folder "esp8266wifi" is esp8266wifi library for Mixly.
+
 Folder "labplus_box" is "盛思盒子" library for Mixly.
 
 Folder "labplus_robot" is "盛思机器人" library for Mixly.
