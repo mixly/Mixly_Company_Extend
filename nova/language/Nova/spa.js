@@ -1,4 +1,13 @@
 //-----------------NOVA---------------------------------
+Blockly.LKL_DIGITAL_OUT = 'Digital Write';
+Blockly.LKL_NOVA_HIGH = 'High';
+Blockly.LKL_NOVA_LOW = 'Low';
+Blockly.LKL_DIGITAL_IN = 'Digital Read';
+Blockly.LKL_NOVA_ANALOG_WRITE = 'Analog Write';
+Blockly.LKL_NOVA_PWM_SET = 'Set';
+Blockly.LKL_NOVA_ANALOG_READ = 'Analog Read';
+
+
 Blockly.LKL_NOVA_PORT = 'Port';
 Blockly.LKL_NOVA_STAT = 'Set';
 Blockly.LKL_NOVA_GET_STAT = 'Get';
@@ -24,8 +33,10 @@ Blockly.LKL_NOVA_BUZZER = 'Buzzer';
 Blockly.LKL_NOVA_FREQUENCY = 'Frequency(Hz)'; 
 Blockly.LKL_NOVA_LKL_DURATION = 'Duration(ms)'; 
 
-Blockly.LKL_NOVA_MOTOR = 'DC Motor'; 
-Blockly.LKL_NOVA_MOTOR_SPEED = 'Speed(-100~100)%'; 
+Blockly.LKL_NOVA_MOTOR = 'Single Motor'; 
+Blockly.LKL_NOVA_MOTOR_CW = 'Clockwise';
+Blockly.LKL_NOVA_MOTOR_CCW = 'Counterclockwise';
+Blockly.LKL_NOVA_MOTOR_STOP = 'Stop';
 
 Blockly.LKL_NOVA_ULTRASONIC = 'Ultrasonic(cm)'; 
 
@@ -68,10 +79,40 @@ Blockly.LKL_NOVA_RTC_SET_DAY = 'Set Day';
 Blockly.LKL_NOVA_RTC_SET_MON = 'Set Mon';
 Blockly.LKL_NOVA_RTC_SET_YEAR = 'Set Year';
 
-Blockly.LKL_NOVA_IR_REC = 'Infrared Receiver';
+Blockly.LKL_NOVA_IR_REC = 'Infrared Key Value';
 Blockly.LKL_NOVA_IR_REC_AVAILABLE = 'Infrared Receiver Available';
 
 Blockly.LKL_NOVA_BLUETOOTH = 'Bluetooth';
 Blockly.LKL_NOVA_BLUETOOTH_AVAILABLE = 'Bluetooth Available？';
 Blockly.LKL_NOVA_BLUETOOTH_READ_STR = 'Bluetooth ReadString';
 Blockly.LKL_NOVA_BLUETOOTH_READ_NUM = 'Bluetooth ReadNumber';
+
+Blockly.LKL_NOVA_VIBRATION='Vibraciones';
+// RGB
+Blockly.LKL_NOVA_RGB = 'RGB Las Luces';
+Blockly.LKL_NOVA_RGB_NUM = 'Luces Número（1~4）';
+Blockly.LKL_NOVA_RGB_R= 'R Valor';
+Blockly.LKL_NOVA_RGB_G= 'G Valor';
+Blockly.LKL_NOVA_RGB_B= 'B Valor';
+
+Blockly.LKL_NOVA_Matrix='Matriz';
+Blockly.LKL_NOVA_Matrix_x='X-coordenada（1~8）';
+Blockly.LKL_NOVA_Matrix_y='X-coordenada（1~8）';
+
+Blockly.LKL_NOVA_MQ='Gas Sensor (MQ)';
+
+Blockly.LKL_NOVA_DUAL_MOTOR='Dual DC Motors';
+Blockly.LKL_NOVA_DUAL_MOTORA='Motor 1';
+Blockly.LKL_NOVA_DUAL_MOTORB='Motor 2';
+Blockly.LKL_NOVA_DUAL_MOTOR_SPEEDA='Velocidad 1（-100~100）%';
+Blockly.LKL_NOVA_DUAL_MOTOR_SPEEDB='Velocidad 2（-100~100）%';
+
+Blockly.LKL_NOVA_FLAME='Flame';
+
+Blockly.LKL_NOVA_HALL='Hall';
+
+Blockly.LKL_NOVA_ITR='Interruptor Fotoeléctrico (ITR)';
+
+Blockly.LKL_NOVA_POTENTIOMETER="Potenciómetro";
+
+Blockly.LKL_NOVA_RELAY="Relés";

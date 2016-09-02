@@ -6,12 +6,12 @@ Use Many method to Display Number.
 Created 15 Dec 2015
 By Blue
 
-https://github.com/StarLabMakerSpace/Nova/wiki
+http://easy.cc
 */
 
 #include <Nova.h>
 
-DigitDisplay dis =DigitDisplay(S5);// C0、C1、S4、S5 
+DigitDisplay dis =DigitDisplay(M0);// C0、C1、M0、M1、M2、M3
 
 void setup() {
 

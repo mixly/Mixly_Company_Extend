@@ -6,13 +6,13 @@ Serial port will print the line state.
 Created 15 Dec 2015
 By Blue
 
-https://github.com/StarLabMakerSpace/Nova/wiki
+http://easy.cc
 */
 
 
 #include <Nova.h>
 
-LineFinder line = LineFinder(S4); // C0、C1、S4、S5 
+LineFinder line = LineFinder(M2); // C0、C1、M0、M1、M2、M3  
 
 void setup() {
 Serial.begin(9600);

@@ -1,12 +1,12 @@
  /*
 Nova_Light
 
-Serial port will print "Light value".
+Serial port will print the Light valu.
 
 Created 15 Dec 2015
 By Blue
 
-https://github.com/StarLabMakerSpace/Nova/wiki
+http://easy.cc
 */
 
 #include <Nova.h>

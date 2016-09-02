@@ -1,17 +1,29 @@
 #######################################
-# Syntax Coloring Map For XfmMegaShield
+# Syntax Coloring Map For Nova
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 LED	KEYWORD1
+Relay	KEYWORD1
+
 Button	KEYWORD1
-FourButton	KEYWORD1
+
 TiltSwitch	KEYWORD1
-Sound	KEYWORD1
+Vibration	KEYWORD1
+ITR	KEYWORD1
+Hall	KEYWORD1
 LimitSwitch	KEYWORD1
+
+Sound	KEYWORD1
+FourButton	KEYWORD1
 Light	KEYWORD1
+Flame	KEYWORD1
+MQ	KEYWORD1
+Potentiometer	KEYWORD1
+
+RGB	KEYWORD1
 Buzzer	KEYWORD1
 DigitDisplay	KEYWORD1
 DHT	KEYWORD1
@@ -19,7 +31,9 @@ IRSendRev	KEYWORD1
 Ultrasonic	KEYWORD1
 RTC	KEYWORD1
 Motor	KEYWORD1
+Dual_Motor	KEYWORD1
 LineFinder	KEYWORD1
+NovaPort	KEYWORD1
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
@@ -27,6 +41,9 @@ state	KEYWORD2
 
 on	KEYWORD2
 off	KEYWORD2
+
+cw	KEYWORD2
+ccw	KEYWORD2
 
 buttonAState	KEYWORD2
 buttonBState	KEYWORD2
@@ -78,6 +95,25 @@ read	KEYWORD2
 
 readAppKey	KEYWORD2
 
+begin	KEYWORD2                
+show	KEYWORD2
+setPin	KEYWORD2
+setPixelColor	KEYWORD2
+setPixelColor	KEYWORD2
+setPixelColor	KEYWORD2
+setBrightness	KEYWORD2
+clear	KEYWORD2
+updateLength	KEYWORD2
+updateType	KEYWORD2
+getPixels	KEYWORD2
+getBrightness	KEYWORD2
+numPixels	KEYWORD2
+Color	KEYWORD2
+getPixelColor	KEYWORD2
+canShow	KEYWORD2
+
+getPin	KEYWORD2
+
 #######################################
 # Constants (LITERAL1)
 #######################################
@@ -104,11 +140,11 @@ S0	LITERAL1
 S1	LITERAL1
 S2	LITERAL1
 S3	LITERAL1
-S4	LITERAL1
-S5	LITERAL1
 
 M0	LITERAL1
 M1	LITERAL1
+M2	LITERAL1
+M3	LITERAL1
 
 A0	LITERAL1
 A1	LITERAL1

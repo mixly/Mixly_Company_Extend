@@ -1,4 +1,13 @@
 //-----------------NOVA---------------------------------
+Blockly.LKL_DIGITAL_OUT = '數字輸出';
+Blockly.LKL_NOVA_HIGH = '高';
+Blockly.LKL_NOVA_LOW = '低';
+Blockly.LKL_DIGITAL_IN = '數字輸入';
+Blockly.LKL_NOVA_ANALOG_WRITE = '模擬輸出';
+Blockly.LKL_NOVA_PWM_SET = '赋值为';
+Blockly.LKL_NOVA_ANALOG_READ = '模擬輸入';
+
+
 Blockly.LKL_NOVA_PORT = '端口';
 Blockly.LKL_NOVA_STAT = '設為';
 Blockly.LKL_NOVA_GET_STAT = '獲取';
@@ -24,8 +33,10 @@ Blockly.LKL_NOVA_BUZZER = '蜂鳴器';
 Blockly.LKL_NOVA_FREQUENCY = '頻率(Hz)'; 
 Blockly.LKL_NOVA_LKL_DURATION = '持續時間(ms)'; 
 
-Blockly.LKL_NOVA_MOTOR = '直流電機'; 
-Blockly.LKL_NOVA_MOTOR_SPEED = '轉速(-100~100)%'; 
+Blockly.LKL_NOVA_MOTOR = '單路直流電機'; 
+Blockly.LKL_NOVA_MOTOR_CW = '正轉';
+Blockly.LKL_NOVA_MOTOR_CCW = '反轉';
+Blockly.LKL_NOVA_MOTOR_STOP = '停止';
 
 Blockly.LKL_NOVA_ULTRASONIC = '超聲波測距(cm)'; 
 
@@ -75,3 +86,33 @@ Blockly.LKL_NOVA_BLUETOOTH = '藍牙';
 Blockly.LKL_NOVA_BLUETOOTH_AVAILABLE = '藍牙有數據可讀？';
 Blockly.LKL_NOVA_BLUETOOTH_READ_STR = '藍牙讀取數據（返回字符串）';
 Blockly.LKL_NOVA_BLUETOOTH_READ_NUM = '藍牙讀取數據（返回數字）';
+
+Blockly.LKL_NOVA_VIBRATION='震動開關';
+// RGB
+Blockly.LKL_NOVA_RGB = 'RGB燈';
+Blockly.LKL_NOVA_RGB_NUM = '燈號（1~4）';
+Blockly.LKL_NOVA_RGB_R= 'R值';
+Blockly.LKL_NOVA_RGB_G= 'G值';
+Blockly.LKL_NOVA_RGB_B= 'B值';
+
+Blockly.LKL_NOVA_Matrix='點陣';
+Blockly.LKL_NOVA_Matrix_x='x坐標（1~8）';
+Blockly.LKL_NOVA_Matrix_y='y坐標（1~8）';
+
+Blockly.LKL_NOVA_MQ='氣體傳感器';
+
+Blockly.LKL_NOVA_DUAL_MOTOR='雙路直流電機';
+Blockly.LKL_NOVA_DUAL_MOTORA='電機1';
+Blockly.LKL_NOVA_DUAL_MOTORB='電機2';
+Blockly.LKL_NOVA_DUAL_MOTOR_SPEEDA='轉速1（-100~100）%';
+Blockly.LKL_NOVA_DUAL_MOTOR_SPEEDB='轉速2（-100~100）%';
+
+Blockly.LKL_NOVA_FLAME='火焰探測器';
+
+Blockly.LKL_NOVA_HALL='霍爾開關';
+
+Blockly.LKL_NOVA_ITR='光電開關';
+
+Blockly.LKL_NOVA_POTENTIOMETER='電位計';
+
+Blockly.LKL_NOVA_RELAY='繼電器';

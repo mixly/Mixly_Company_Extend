@@ -6,12 +6,12 @@ Buzzer will play do re mi fa so la si.
 Created 15 Dec 2015
 By Blue
 
-https://github.com/StarLabMakerSpace/Nova/wiki
+http://easy.cc
 */
 
 #include <Nova.h>
 
-Buzzer myBuzzer = Buzzer(S0);
+Buzzer myBuzzer = Buzzer(S0); // A0、A1、A2、A3、S0、S1、S2、S3 
 
 int Tune[8]={0,294,330,350,393,441,495,556}; // do re mi fa so la si
   

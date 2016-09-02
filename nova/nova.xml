@@ -1,35 +1,260 @@
 <!-- type="company" block="block/nova.js" generator="generator/nova.js"  lib="Nova" hardware="hardware/nova" media="media/nova" language="language/Nova" -->
 <script type="text/javascript" src="../../blocks/company/nova.js"></script>
 <script type="text/javascript" src="../../generators/arduino/company/nova.js"></script>
+
+
 <category id="catNova" name="Nova" colour="40">
-	<block type="Nova_Led"></block>
-	<block type="Nova_Led_PWM"></block>
-	<block type="Nova_Button"></block>
-	<block type="Nova_4Button"></block>
+
+<category id="catNovaBase" colour="40">
+	<block type="Nova_digital_write"></block>
+	<block type="Nova_digital_read"></block>
+	<block type="Nova_analog_write">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+    </block>
+	<block type="Nova_analog_read"></block>
+</category>
+
+<category id="catNovaSensor"   colour="40">
 	<block type="Nova_TiltSwitch"></block>
 	<block type="Nova_Sound"></block>
 	<block type="Nova_LimitSwitch"></block>
 	<block type="Nova_Light"></block>
-	<block type="Nova_Buzzer"></block>
+	<block type="Nova_MQ"></block>
+	<block type="Nova_Vibration"></block>
 	<block type="Nova_Ultrasonic"></block>
 	<block type="Nova_DHTxx"></block>
+	<block type="Nova_Flame"></block>
+	<block type="Nova_Hall"></block>
+	<block type="Nova_ITR"></block>
 	<block type="Nova_2LineFinder"></block>
 	<block type="Nova_2LineFinder_readLineState"></block>
-	<block type="Nova_4DigitDisplay"></block>
-	<block type="Nova_4DigitDisplay_Time"></block>
-	<block type="Nova_4DigitDisplay_abcdef"></block>
+	<block type="Nova_Potentiometer"></block>
+	<block type="Nova_Button"></block>
+	<block type="Nova_4Button"></block>
+</category>
+
+<category id="catNovaExecutor" colour="40">
+	<block type="Nova_Buzzer">
+        <value name="FREQUENCY">
+          <shadow type="math_number">
+            <field name="FREQUENCY">0</field>
+          </shadow>
+        </value>   
+        <value name="DURATION">
+          <shadow type="math_number">
+            <field name="DURATION">0</field>
+          </shadow>
+        </value>         
+    </block>
+	<block type="Nova_Servo">
+        <value name="DEGREE">
+          <shadow type="math_number">
+            <field name="DEGREE">0</field>
+          </shadow>
+        </value>      
+    </block>
+	<block type="Nova_Motor">
+                  
+    </block>
+	<block type="Nova_Dual_Motor">
+        <value name="speedA">
+          <shadow type="math_number">
+            <field name="speedA">0</field>
+          </shadow>
+        </value> 
+        <value name="speedB">
+          <shadow type="math_number">
+            <field name="speedB">0</field>
+          </shadow>
+        </value> 
+    </block>
+	<block type="Nova_Relay"></block>
+</category>
+
+<category id="catNovaShow"  colour="40">
+	<block type="Nova_Led"></block>
+	<block type="Nova_Led_PWM">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value> 
+    </block>
+	<block type="Nova_RGB">
+		<value name="_LED_">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="RVALUE">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="GVALUE">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="BVALUE">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	</block>
+	<block type="Nova_RGB2">
+		<value name="_LED_">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	</block>
+	<block type="Nova_Matrix">
+    
+    </block>
+	<block type="Nova_4DigitDisplay">
+        <value name="num">
+          <shadow type="math_number">
+            <field name="num">100</field>
+          </shadow>
+        </value> 
+    </block>
+	<block type="Nova_4DigitDisplay_Time">
+        <value name="hour">
+          <shadow type="math_number">
+            <field name="hour">0</field>
+          </shadow>
+        </value> 
+        <value name="min">
+          <shadow type="math_number">
+            <field name="min">0</field>
+          </shadow>
+        </value> 
+    </block>
+	<block type="Nova_4DigitDisplay_abcdef">
+        <value name="abcdef">
+          <shadow type="math_number">
+            <field name="abcdef">0</field>
+          </shadow>
+        </value> 
+        <value name="bit">
+          <shadow type="math_number">
+            <field name="bit">0</field>
+          </shadow>
+        </value> 
+    </block>
+	<block type="Nova_lcd_print">
+		<value name="device">
+          <shadow type="math_number">
+            <field name="NUM">0x27</field>
+          </shadow>
+        </value>
+		<value name="TEXT">
+			<block type="text">
+				<field name="TEXT"></field>
+			</block>
+		</value>
+		<value name="TEXT2">
+			<block type="text">
+				<field name="TEXT"></field>
+			</block>
+		</value>
+	  </block>
+	<block type="Nova_lcd_power">
+		<value name="device">
+          <shadow type="math_number">
+            <field name="NUM">0x27</field>
+          </shadow>
+        </value>
+	  </block>
+	</category>
+
+<category id="catNovaFunction" colour="40">
 	<block type="Nova_RTC"></block>
-	
-	<block type="Nova_RTC_SetHMS"></block>
-	<block type="Nova_RTC_SetYMD"></block>
-	<block type="Nova_RTC_SetWeek"></block>
+	<block type="Nova_RTC_SetHMS">
+        <value name="Hour">
+          <shadow type="math_number">
+            <field name="Hour">12</field>
+          </shadow>
+        </value> 
+        <value name="Min">
+          <shadow type="math_number">
+            <field name="Min">0</field>
+          </shadow>
+        </value> 
+        <value name="Sec">
+          <shadow type="math_number">
+            <field name="Sec">0</field>
+          </shadow>
+        </value> 
+    </block>
+	<block type="Nova_RTC_SetYMD">
+        <value name="Year">
+          <shadow type="math_number">
+            <field name="Year">0X2016</field>
+          </shadow>
+        </value> 
+        <value name="Month">
+          <shadow type="math_number">
+            <field name="Month">1</field>
+          </shadow>
+        </value> 
+        <value name="Day">
+          <shadow type="math_number">
+            <field name="Day">1</field>
+          </shadow>
+        </value> 
+    </block>
+	<block type="Nova_RTC_SetWeek">
+        <value name="Week">
+          <shadow type="math_number">
+            <field name="Week">1</field>
+          </shadow>
+        </value>      
+    </block>
+</category>
 
-
+<category id="catNovaCommunication" colour="40">
 	<block type="Nova_IrRev_Available"></block>
 	<block type="Nova_IrRev"></block>
-
 	<block type="Nova_Bluetooth_readAppKey"></block>
-
-	<block type="Nova_Servo"></block>
-	<block type="Nova_Motor"></block>
+		<block type="Nova_ethernet_init_begin">
+			<value name="MAC">
+				<block type="Nova_ethernet_mac_address"></block>
+			</value>
+		</block>
+		<block type="Nova_ethernet_init_local_ip"></block>
+		<block type="Nova_ethernet_client_connect_server">
+			<value name="PORT">
+			  <shadow type="math_number">
+				<field name="NUM">80</field>
+			  </shadow>
+			</value>
+		</block>
+		<block type="Nova_ethernet_client_stop"></block>
+		<block type="Nova_ethernet_client_connected"></block>
+		<block type="Nova_ethernet_client_available"></block>
+		<block type="Nova_ethernet_client_print">
+			<value name="TEXT">
+			  <block type="text">
+				<field name="TEXT"></field>
+			  </block>
+			</value>
+		</block>
+		<block type="Nova_ethernet_client_println">
+			<value name="TEXT">
+			  <block type="text">
+				<field name="TEXT"></field>
+			  </block>
+			</value>
+		</block>
+		<block type="Nova_ethernet_client_read"></block>
+		<block type="Nova_ethernet_client_get_request"></block>
 </category>
+
+</category>
+

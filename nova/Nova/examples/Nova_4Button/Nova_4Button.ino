@@ -6,7 +6,7 @@ Serial port will print button is pressed
 Created 15 Dec 2015
 By Blue
 
-https://github.com/StarLabMakerSpace/Nova/wiki
+http://easy.cc
 */
 
 #include <Nova.h>

@@ -6,7 +6,7 @@ Serial port will print "Which Button Press",When the infrared remote control but
 Created 15 Dec 2015
 By Blue
 
-https://github.com/StarLabMakerSpace/Nova/wiki
+http://easy.cc
 */
 
 #include <Nova.h> 
@@ -15,7 +15,7 @@ IRSendRev IR;
 
 void setup()
 {
-  IR.begin(A1);
+  IR.begin(A1);// A0、A1、A2、A3、S0、S1、S2、S3 
   Serial.begin(9600);
 }
 void loop()

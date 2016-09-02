@@ -6,12 +6,12 @@ Serial port will print real time.
 Created 12 Jan 2016
 By Blue
 
-https://github.com/StarLabMakerSpace/Nova/wiki
+http://easy.cc
 */
 
 #include <Nova.h>
 
-RTC rtc = RTC(C1);// C0、C1、S4、S5 
+RTC rtc = RTC(C1);// C0、C1、M0、M1、M2、M3 
 
 void setup() {
   Serial.begin(9600);
