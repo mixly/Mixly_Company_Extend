@@ -1,11 +1,11 @@
 <!-- type="company" block="block/nova.js" generator="generator/nova.js"  lib="Nova" hardware="hardware/nova" media="media/nova" language="language/Nova" -->
 <script type="text/javascript" src="../../blocks/company/nova.js"></script>
 <script type="text/javascript" src="../../generators/arduino/company/nova.js"></script>
-
+<!--显示分类下Nova_RGB,Nova_RGB2,Nova_lcd_power三个模块有问题-->
 
 <category id="catNova" name="Nova" colour="40">
 
-<category id="catNovaBase" colour="40">
+<category id="catNovaBase" name="基础功能" colour="40">
 	<block type="Nova_digital_write"></block>
 	<block type="Nova_digital_read"></block>
 	<block type="Nova_analog_write">
@@ -18,7 +18,7 @@
 	<block type="Nova_analog_read"></block>
 </category>
 
-<category id="catNovaSensor"   colour="40">
+<category id="catNovaSensor"  name="传感器" colour="40">
 	<block type="Nova_TiltSwitch"></block>
 	<block type="Nova_Sound"></block>
 	<block type="Nova_LimitSwitch"></block>
@@ -37,7 +37,7 @@
 	<block type="Nova_4Button"></block>
 </category>
 
-<category id="catNovaExecutor" colour="40">
+<category id="catNovaExecutor" name="执行器" colour="40">
 	<block type="Nova_Buzzer">
         <value name="FREQUENCY">
           <shadow type="math_number">
@@ -75,7 +75,7 @@
 	<block type="Nova_Relay"></block>
 </category>
 
-<category id="catNovaShow"  colour="40">
+<category id="catNovaShow" name="显示" colour="40">
 	<block type="Nova_Led"></block>
 	<block type="Nova_Led_PWM">
         <value name="NUM">
@@ -173,7 +173,7 @@
 	  </block>
 	</category>
 
-<category id="catNovaFunction" colour="40">
+<category id="catNovaFunction" name="功能模块" colour="40">
 	<block type="Nova_RTC"></block>
 	<block type="Nova_RTC_SetHMS">
         <value name="Hour">
@@ -218,7 +218,7 @@
     </block>
 </category>
 
-<category id="catNovaCommunication" colour="40">
+<category id="catNovaCommunication" name="通讯模块" colour="40">
 	<block type="Nova_IrRev_Available"></block>
 	<block type="Nova_IrRev"></block>
 	<block type="Nova_Bluetooth_readAppKey"></block>
