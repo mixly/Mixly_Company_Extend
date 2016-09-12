@@ -7,11 +7,9 @@ class Motor
 {
 public:
 	Motor(uint8_t port);
-	void cw(uint8_t value);
-	void ccw(uint8_t value);
+	void run(int speed);
 	void stop(void);
 private:
 	uint8_t _A_pin,_B_pin;
-	uint8_t _value;
 };
 #endif

@@ -98,7 +98,8 @@ Blockly.Arduino.Nova_TiltSwitch = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
   Blockly.Arduino.definitions_['var_nova_tiltswitch'+dropdown_pin] = 'TiltSwitch  TiltSwitch_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'TiltSwitch_'+dropdown_pin+'.state()';
+  var STAT = this.getTitleValue('STAT');
+  var code = +STAT+'== TiltSwitch_'+dropdown_pin+'.state()';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -182,39 +183,29 @@ Blockly.Arduino.Nova_2LineFinder_readLineState = function() {
 };
 
 // 数码管
+//displayTime  displayFloat
 Blockly.Arduino.Nova_4DigitDisplay = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var num = Blockly.Arduino.valueToCode(this, 'num',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+  var STAT = this.getTitleValue('STAT');
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
   Blockly.Arduino.definitions_['var_nova_4DigitPlay'+dropdown_pin] = 'DigitDisplay  DigitDisplay_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'DigitDisplay_'+dropdown_pin+'.displayFloat('+num+');\n'
+  var code = 'DigitDisplay_'+dropdown_pin+'.'+STAT+'('+num+');\n'
   return code;
 };
 
-Blockly.Arduino.Nova_4DigitDisplay_Time = function() {
+Blockly.Arduino.Nova_4DigitDisplay_Clear = function() {
   var dropdown_pin = this.getTitleValue('PIN');
-  var hour = Blockly.Arduino.valueToCode(this, 'hour',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var min = Blockly.Arduino.valueToCode(this, 'min',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
-  Blockly.Arduino.definitions_['var_nova_4DigitPlay_Time'+dropdown_pin] = 'DigitDisplay  DigitDisplay_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'DigitDisplay_'+dropdown_pin+'.displayTime('+hour+','+min+');\n'
-  return code;
-};
-
-Blockly.Arduino.Nova_4DigitDisplay_abcdef = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var abcdef = Blockly.Arduino.valueToCode(this, 'abcdef',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var bit = Blockly.Arduino.valueToCode(this, 'bit',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
-  Blockly.Arduino.definitions_['var_nova_4DigitPlay_Time'+dropdown_pin] = 'DigitDisplay  DigitDisplay_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'DigitDisplay_'+dropdown_pin+'.displayABCDEF('+abcdef+','+bit+');\n'
+  //Blockly.Arduino.definitions_['var_nova_4DigitPlay_Time'+dropdown_pin] = 'DigitDisplay  DigitDisplay_'+dropdown_pin+''+'('+dropdown_pin+');';
+  var code = 'DigitDisplay_'+dropdown_pin+'.clearBit('+bit+');\n'
   return code;
 };
+
+
 
 // 时钟
 Blockly.Arduino.Nova_RTC = function() {
@@ -222,8 +213,8 @@ Blockly.Arduino.Nova_RTC = function() {
   var dropdown_stat = this.getTitleValue('RTC');
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
   Blockly.Arduino.definitions_['var_nova_RTC'+dropdown_pin] = 'RTC RTC_'+dropdown_pin+''+'('+dropdown_pin+');';
- // var code = 'RTC_'+dropdown_pin+'.getTime();\nRTC_'+dropdown_pin+'.'+dropdown_stat+'';
- var code = 'RTC_'+dropdown_pin+'.'+dropdown_stat+'';
+  // var code = 'RTC_'+dropdown_pin+'.getTime();\nRTC_'+dropdown_pin+'.'+dropdown_stat+'';
+  var code = 'RTC_'+dropdown_pin+'.'+dropdown_stat+'';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -322,15 +313,34 @@ Blockly.Arduino.Nova_Servo = function() {
   return code;
 };
 
-// 电机
+// 大电流舵机
+  Blockly.Arduino.Nova_Servo_Big = function() {
+    var dropdown_pin = this.getTitleValue('PIN');
+    var dropdown_branch = this.getTitleValue('BRANCH');
+    var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
+    Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+    //                                          NovaPort Port_M0(M0); 
+    Blockly.Arduino.definitions_['NovaPort'] = 'NovaPort Port_'+dropdown_pin+''+'('+dropdown_pin+');';
+    //                                                                Servo Servo_M0_S1;
+    Blockly.Arduino.definitions_['var_nova_servo_big'+dropdown_pin] = 'Servo  Servo_'+dropdown_pin+'_'+dropdown_branch+';';
+    //                                                      Servo_M0_S1.attach(Port_M0.getPin(S1));
+    Blockly.Arduino.setups_['setup_servo_big'+dropdown_pin] = 'Servo_'+dropdown_pin+'_'+dropdown_branch+'.attach(Port_'+dropdown_pin+'.getPin('+dropdown_branch+'));\n';
+
+    var code = 'Servo_'+dropdown_pin+'_'+dropdown_branch+'.write('+value_degree+');\n';
+
+    return code;
+  };
+  
 Blockly.Arduino.Nova_Motor = function() {
   var dropdown_pin = this.getTitleValue('PIN');
-  var dropdown_stat = this.getTitleValue('STAT');
-  Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
-  Blockly.Arduino.definitions_['var_nova_motor'+dropdown_pin] = 'Motor  M_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'M_'+dropdown_pin+dropdown_stat+');\n'
+  var speed = Blockly.Arduino.valueToCode(this, 'speed',
+      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+      Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+      Blockly.Arduino.definitions_['var_nova_motor'+dropdown_pin] = 'Motor  M_'+dropdown_pin+''+'('+dropdown_pin+');';
+  var code = 'M_'+dropdown_pin+'.run('+speed+');\n'
   return code;
 };
+  
 //RGB
 /*Blockly.Arduino.Nova_RGB = function() {
   var dropdown_rgbpin = block.getFieldValue('PIN');
@@ -357,6 +367,7 @@ Blockly.Arduino.Nova_RGB= function(block) {
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
   Blockly.Arduino.definitions_['var_nova_rgb'+dropdown_rgbpin] = 'RGB  pixels_'+dropdown_rgbpin+''+'('+dropdown_rgbpin+');';
   Blockly.Arduino.setups_['setup_nova_rgb_'+dropdown_rgbpin] ='pixels_'+dropdown_rgbpin+'.begin();\n';
+  
   var code = 'pixels_'+dropdown_rgbpin+'.setPixelColor('+value__led_+'-1, '+value_rvalue+','+value_gvalue+','+value_bvalue+');\n';
   code+='pixels_'+dropdown_rgbpin+'.show();\n';
   return code;
@@ -370,6 +381,7 @@ Blockly.Arduino.Nova_RGB2= function(block) {
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
   Blockly.Arduino.definitions_['var_nova_rgb'+dropdown_rgbpin] = 'RGB  pixels_'+dropdown_rgbpin+''+'('+dropdown_rgbpin+');';
   Blockly.Arduino.setups_['setup_nova_rgb_'+dropdown_rgbpin] ='pixels_'+dropdown_rgbpin+'.begin();\n';
+  Blockly.Arduino.setups_['setBrightness'+dropdown_rgbpin] ='pixels_'+dropdown_rgbpin+'.setBrightness(40);\n';
   var code = 'pixels_'+dropdown_rgbpin+'.setPixelColor('+value__led_+'-1, pixels_'+dropdown_rgbpin+'.Color'+color+');\n';
   code+='pixels_'+dropdown_rgbpin+'.show();\n';
   return code;
@@ -400,7 +412,8 @@ Blockly.Arduino.Nova_Vibration = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
   Blockly.Arduino.definitions_['var_nova_Vibration'+dropdown_pin] = 'Vibration Vibration_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'Vibration_'+dropdown_pin+'.state()';
+  var STAT = this.getTitleValue('STAT');
+  var code = +STAT+'== Vibration_'+dropdown_pin+'.state()';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 //点阵
@@ -435,6 +448,77 @@ Blockly.Arduino.Nova_MQ = function() {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
+//点阵
+Blockly.Arduino.Nova_Matrix_POS = function() {
+  var pos_x = Blockly.Arduino.valueToCode(this, 'XVALUE', Blockly.Arduino.ORDER_ATOMIC)-1;
+  var pos_y = Blockly.Arduino.valueToCode(this, 'YVALUE', Blockly.Arduino.ORDER_ATOMIC)-1;
+  Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+  Blockly.Arduino.definitions_['var_nova_Matrix'] = 'Matrix matrix = Matrix();\n';
+  Blockly.Arduino.setups_['setup_Matrix_'] = 'matrix.begin(0x70); \n';
+  var code = 'matrix.drawPixel('+pos_x+', '+pos_y+',LED_ON);\n';
+    code+='matrix.writeDisplay();\n';
+    return code;
+};
+Blockly.Arduino.Nova_Matrix = function() {
+  var string1 = Blockly.Arduino.valueToCode(this, 'Str', Blockly.Arduino.ORDER_ASSIGNMENT);
+  Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+  Blockly.Arduino.definitions_['var_nova_Matrix'] = 'Matrix matrix = Matrix();\n';
+  Blockly.Arduino.setups_['setup_Matrix_'] = 'matrix.begin(0x70); \n';
+  var code = 'matrix.drawStr('+string1+');\n'
+  return code;
+};
+
+//步进电机
+Blockly.Arduino.Nova_Stepper = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var POS = Blockly.Arduino.valueToCode(this, 'POSITION',
+      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+  //Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+  Blockly.Arduino.definitions_['var_nova_Stepper'+dropdown_pin] = 'Stepper  Stepper_'+dropdown_pin+''+'('+dropdown_pin+');';
+  //Blockly.Arduino.setups_['setup_Stepper_setsp_'+dropdown_pin] = 'Stepper_'+dropdown_pin+'.setMaxSpeed(10000);\n';
+  //Blockly.Arduino.setups_['setup_Stepper_setac_'+dropdown_pin] = 'Stepper_'+dropdown_pin+'.setAcceleration(20000);\n';
+  var code = 'Stepper_'+dropdown_pin+'.moveTo('+POS+');\n'
+  return code;
+};
+Blockly.Arduino.Nova_Stepper_run = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+  Blockly.Arduino.definitions_['var_nova_Stepper'+dropdown_pin] = 'Stepper  Stepper_'+dropdown_pin+''+'('+dropdown_pin+');';
+  Blockly.Arduino.setups_['setup_Stepper_setsp_'+dropdown_pin] = 'Stepper_'+dropdown_pin+'.setMaxSpeed(10000);\n';
+  Blockly.Arduino.setups_['setup_Stepper_setac_'+dropdown_pin] = 'Stepper_'+dropdown_pin+'.setAcceleration(20000);\n';
+  var code = 'Stepper_'+dropdown_pin+'.run();\n'
+  return code;
+};
+
+//MP3
+Blockly.Arduino.Nova_MP3_VOL = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var VOL = Blockly.Arduino.valueToCode(this, 'VOLUME',
+      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+  Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
+  var code = 'MP3_'+dropdown_pin+'.volume(map('+VOL+', 0, 100, 0, 30));\n'
+  return code;
+};
+Blockly.Arduino.Nova_MP3_PLAY = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var Num = Blockly.Arduino.valueToCode(this, 'NUM',
+      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+  Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+  Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
+  Blockly.Arduino.setups_['setup_MP3_PLAY'+dropdown_pin] = 'MP3_'+dropdown_pin+'.begin(9600);\n';
+  var code = 'MP3_'+dropdown_pin+'.play('+Num+');\n'
+  return code;
+};
+Blockly.Arduino.Nova_MP3_STATE = function() {
+    var dropdown_pin = this.getTitleValue('PIN');
+    var dropdown_stat = this.getTitleValue('STAT');
+    Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+    Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
+    Blockly.Arduino.setups_['setup_MP3_PLAY'+dropdown_pin] = 'MP3_'+dropdown_pin+'.begin(9600);\n';
+	var code = 'MP3_'+dropdown_pin+'.'+dropdown_stat+';\n'
+    return code;
+};
+
 // 双电机
 Blockly.Arduino.Nova_Dual_Motor = function() {
   var dropdown_pin_B = this.getTitleValue('PINB');
@@ -465,7 +549,8 @@ Blockly.Arduino.Nova_Hall = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
   Blockly.Arduino.definitions_['var_nova_Hall'+dropdown_pin] = 'Hall  Hall_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'Hall_'+dropdown_pin+'.state()';
+  var STAT = this.getTitleValue('STAT');
+  var code = +STAT+'== Hall_'+dropdown_pin+'.state()';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -474,7 +559,8 @@ Blockly.Arduino.Nova_ITR = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
   Blockly.Arduino.definitions_['var_nova_ITR'+dropdown_pin] = 'ITR  ITR_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'ITR_'+dropdown_pin+'.state()';
+  var STAT = this.getTitleValue('STAT');
+  var code = +STAT+'== ITR_'+dropdown_pin+'.state()';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -483,7 +569,7 @@ Blockly.Arduino.Nova_ITR = function() {
     var dropdown_pin = this.getTitleValue('PIN');
     Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
     Blockly.Arduino.definitions_['var_Potentiometer'+dropdown_pin] = 'Potentiometer Potentiometer_'+dropdown_pin+''+'('+dropdown_pin+');';
-    var code = 'map(Potentiometer_'+dropdown_pin+'.read(), 0, 1024, 0, 100)';
+    var code = 'map(Potentiometer_'+dropdown_pin+'.read(), 0, 1023, 0, 100)';
      
     return [code, Blockly.Arduino.ORDER_ATOMIC];
   };

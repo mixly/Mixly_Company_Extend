@@ -18,6 +18,6 @@ void setup() {
 }
 
 void loop() {
-  dis.displayTime(13,23); // Display 13:23
+  dis.displayTime(1323); // Display 13:23
 }
 

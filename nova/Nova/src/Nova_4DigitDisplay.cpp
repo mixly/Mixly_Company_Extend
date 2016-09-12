@@ -1,7 +1,9 @@
 #include "Nova_4DigitDisplay.h"
 
-//                    0    1     2   3    4    5     6   7    8    9    A    B    C    D    E    F
-unsigned char tab[]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71};
+//                           0    1     2   3    4    5     6   7    8    9    A    B    C    D    E    F
+unsigned char tab[]=       {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71};
+// 180°颠倒
+unsigned char mirror_tab[]={0x3F,0x30,0x5B,0x79,0x74,0x6D,0x6F,0x38,0x7F,0x7D,0x7E,0x67,0x0F,0x73,0x4F,0x4E};
 
 DigitDisplay::DigitDisplay(uint8_t port)
 {
@@ -37,39 +39,58 @@ DigitDisplay::DigitDisplay(uint8_t port)
 	Write_DATA(0x48,0x31);     // 开显示、8段显示方式、3级亮度
 }
 
-void DigitDisplay::displayTime(uint8_t hour,uint8_t min)
+void DigitDisplay::displayTime(uint16_t num)
 {
-	static unsigned long last_time = 0;
-	uint8_t state = 0x00;
+	// static unsigned long last_time = 0;
+	// uint8_t state = 0x00;
 
-    hour = hour > 23 ? 23 : hour;
-    min = min > 59 ? 59 : min;
+    // hour = hour > 23 ? 23 : hour;
+    // min = min > 59 ? 59 : min;
 
-	// 1. 显示小时
-	Write_DATA(0x68, tab[hour/10]);
-	//Write_DATA(0x6A, tab[hour%10]);
+	// // 1. 显示小时
+	// Write_DATA(0x68, tab[hour/10]);
+	// //Write_DATA(0x6A, tab[hour%10]);
 
-	// 2. 显示分
-    Write_DATA(0x6C, tab[min/10]);
-	Write_DATA(0x6E, tab[min%10]);
+	// // 2. 显示分
+    // Write_DATA(0x6C, tab[min/10]);
+	// Write_DATA(0x6E, tab[min%10]);
 
-	// 3. 时间冒号闪烁
-	if ((millis() - last_time) > 1000)
+	// // 3. 时间冒号闪烁
+	// if ((millis() - last_time) > 1000)
+	// {
+       // // 冒号状态改变
+		// state ^=0x01;
+
+		// last_time = millis();
+	// }
+
+    // if (state == 0x01)
+    // {
+    	// Write_DATA(0x6A, tab[hour%10] |= 0x80);
+    // }
+    // else
+    // {
+    	// Write_DATA(0x6A, tab[hour%10] &= ~(0X80));
+    // }
+    
+    uint8_t a,b,c,d;
+	uint8_t bit;
+	d = num%10;if(d != 0)bit = 1;
+	c = num%100/10;if(c != 0)bit = 2;
+	b = num%1000/100;if(b != 0)bit = 3;
+	a = num/1000;if(a != 0)bit = 4;
+	//switch(bit)
 	{
-       // 冒号状态改变
-		state ^=0x01;
-
-		last_time = millis();
+		//case 4:
+			Write_DATA(0x68,tab[a]);
+		//case 3:
+			Write_DATA(0x68+2,tab[b]|= 0x80);
+		//case 2:
+			Write_DATA(0x68+4,tab[c]);
+		//case 1:
+			Write_DATA(0x68+6,tab[d]);
+		//break;
 	}
-
-    if (state == 0x01)
-    {
-    	Write_DATA(0x6A, tab[hour%10] |= 0x80);
-    }
-    else
-    {
-    	Write_DATA(0x6A, tab[hour%10] &= ~(0X80));
-    }
 }
 
 void DigitDisplay::displayNum(uint16_t num)
@@ -251,7 +272,7 @@ void DigitDisplay::displayNum(uint8_t one, uint8_t two, uint8_t three, uint8_t f
 void DigitDisplay::displayBit(uint8_t num, uint8_t bit)
 {
 	if(num > 9)return;
-	Write_DATA(0x68+6-2*(bit-1),tab[num]);
+	Write_DATA((0x6E)-(2*(bit-1)),tab[num]);
 }
 void DigitDisplay::displayABCDEF(const String &s, uint8_t bit)
 { 
@@ -282,32 +303,32 @@ void DigitDisplay::displayABCDEF(const String &s, uint8_t bit)
         i = 6;
     }
     
-    Serial.println(i);
+    //Serial.println(i);
     
 	switch(i)
 	{
 		case 1:
-			Write_DATA(0x68+2*(bit-1),tab[10]);
+			Write_DATA((0x6E)-(2*(bit-1)),tab[10]);
 		break;
 
 		case 2:
-			Write_DATA(0x68+2*(bit-1),tab[11]);
+			Write_DATA((0x6E)-(2*(bit-1)),tab[11]);
 		break;
 
 		case 3:
-			Write_DATA(0x68+2*(bit-1),tab[12]);
+			Write_DATA((0x6E)-(2*(bit-1)),tab[12]);
 		break;
 
 		case 4:
-			Write_DATA(0x68+2*(bit-1),tab[13]);
+			Write_DATA((0x6E)-(2*(bit-1)),tab[13]);
 		break;
 
 		case 5:
-			Write_DATA(0x68+2*(bit-1),tab[14]);
+			Write_DATA((0x6E)-(2*(bit-1)),tab[14]);
 		break;
         
 		case 6:
-			Write_DATA(0x68+2*(bit-1),tab[15]);
+			Write_DATA((0x6E)-(2*(bit-1)),tab[15]);
 		break;
 	}
 }
@@ -321,7 +342,7 @@ void DigitDisplay::clear(void)
 void DigitDisplay::clearBit(uint8_t bit)
 {
 	if(bit < 1)return;
-	Write_DATA(0x68+2*(bit - 1),0);
+	Write_DATA((0x6E)-(2*(bit-1)),0);
 }
 //**************************************
 void DigitDisplay::TM1650_start(void)

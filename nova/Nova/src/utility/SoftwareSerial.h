@@ -74,7 +74,7 @@ private:
   // private methods
   inline void recv() __attribute__((__always_inline__));
   uint8_t rx_pin_read();
-  void setTX(uint8_t transmitPin);
+  
   void setRX(uint8_t receivePin);
   inline void setRxIntMsk(bool enable) __attribute__((__always_inline__));
 
@@ -88,6 +88,7 @@ public:
   // public methods
   SoftwareSerial(uint8_t receivePin, uint8_t transmitPin, bool inverse_logic = false);
   ~SoftwareSerial();
+  void setTX(uint8_t transmitPin);
   void begin(long speed);
   bool listen();
   void end();

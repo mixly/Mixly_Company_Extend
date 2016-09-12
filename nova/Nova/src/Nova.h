@@ -103,8 +103,11 @@
 #include "Nova_Joystick.h"
 #include "Nova_Gyro.h"
 #include "Nova_Port.h"
-
+#include "Nova_MP3.h"
 #include "Nova_Touch.h"
+
+#include "Nova_Stepper.h"
+#include "Nova_Matrix.h"
 
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ //Get system time
 //

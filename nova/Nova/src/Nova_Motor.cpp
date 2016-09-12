@@ -24,31 +24,56 @@ Motor::Motor(uint8_t port)
 	pinMode(_B_pin, OUTPUT);
 }
 
-void Motor::cw(uint8_t value)
+void Motor::run(int speed)
 {
-	_value = value;
-	if(_value >= 100){
+    speed = speed > 100 ? 100 : speed;
+    speed = speed < -100 ? -100 : speed;
+    
+    if (speed == 0)
+    {
+        stop();
+    }
+	else if(speed > 0)
+	{
 		digitalWrite(_A_pin, HIGH);
-		digitalWrite(_B_pin, LOW);
+		analogWrite(_B_pin,(map(speed,0,100,255,0)));
 	}
-	else{
-		digitalWrite(_A_pin, HIGH);
-		analogWrite(_B_pin,(map(_value,0,100,255,0)));
+	else
+	{
+		digitalWrite(_A_pin, LOW);
+		analogWrite(_B_pin,(map(speed,0,100,0,255)));
 	}
 }
 
-void Motor::ccw(uint8_t value)
-{
-	_value = value;
-	if(_value >= 100){
-		digitalWrite(_A_pin, LOW);
-		digitalWrite(_B_pin, HIGH);
-	}
-	else{
-		digitalWrite(_A_pin, LOW);
-		analogWrite(_B_pin,(map(_value,0,100,0,255)));
-	}
-}
+// void Motor::cw(uint8_t value)
+// {
+	// _value = value;
+    
+    // value = value > 100 ? 100 : value;
+    // value = value < -100 ? -100 : value;
+    
+	// if(_value >= 100){
+		// digitalWrite(_A_pin, HIGH);
+		// digitalWrite(_B_pin, LOW);
+	// }
+	// else{
+		// digitalWrite(_A_pin, HIGH);
+		// analogWrite(_B_pin,(map(_value,0,100,255,0)));
+	// }
+// }
+
+// void Motor::ccw(uint8_t value)
+// {
+	// _value = value;
+	// if(_value >= 100){
+		// digitalWrite(_A_pin, LOW);
+		// digitalWrite(_B_pin, HIGH);
+	// }
+	// else{
+		// digitalWrite(_A_pin, LOW);
+		// analogWrite(_B_pin,(map(_value,0,100,0,255)));
+	// }
+// }
 void Motor::stop(void)
 {
 	digitalWrite(_A_pin, HIGH);

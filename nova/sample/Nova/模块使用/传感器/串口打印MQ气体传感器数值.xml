@@ -1,0 +1,1 @@
+<xml version="for nova 1.0" board="Nduino Pro" xmlns="http://www.w3.org/1999/xhtml"><block type="serial_println" x="108" y="127"><field name="serial_select">Serial</field><value name="CONTENT"><block type="Nova_MQ"><field name="PIN">A0</field></block></value></block></xml>

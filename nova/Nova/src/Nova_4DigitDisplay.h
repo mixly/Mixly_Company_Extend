@@ -7,7 +7,7 @@ class DigitDisplay
 {
 public:
 	DigitDisplay(uint8_t port);
-	void displayTime(uint8_t hour,uint8_t min);
+	void displayTime(uint16_t num);
 	void displayNum(uint16_t num);
 	void displayNum(uint16_t num,bool dir);
 	void displayFloat(float f);

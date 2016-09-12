@@ -57,8 +57,19 @@
           </shadow>
         </value>      
     </block>
+    <block type="Nova_Servo_Big">
+    <value name="DEGREE">
+          <shadow type="math_number">
+            <field name="DEGREE">0</field>
+          </shadow>
+        </value>     
+    </block>
 	<block type="Nova_Motor">
-                  
+        <value name="speed">
+          <shadow type="math_number">
+            <field name="speed">0</field>
+          </shadow>
+        </value>                        
     </block>
 	<block type="Nova_Dual_Motor">
         <value name="speedA">
@@ -73,6 +84,30 @@
         </value> 
     </block>
 	<block type="Nova_Relay"></block>
+    
+    <block type="Nova_MP3_VOL">
+        <value name="VOLUME">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+    </block>
+	<block type="Nova_MP3_PLAY">
+    <value name="NUM">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+    </block>
+	<block type="Nova_MP3_STATE"></block>
+    <block type="Nova_Stepper">
+        <value name="POSITION">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+    </block>
+	<block type="Nova_Stepper_run"></block>
 </category>
 
 <category id="catNovaShow" name="显示" colour="40">
@@ -87,7 +122,7 @@
 	<block type="Nova_RGB">
 		<value name="_LED_">
 			<shadow type="math_number">
-				<field name="NUM">0</field>
+				<field name="NUM">1</field>
 			</shadow>
 		</value>
 		<value name="RVALUE">
@@ -109,13 +144,29 @@
 	<block type="Nova_RGB2">
 		<value name="_LED_">
 			<shadow type="math_number">
-				<field name="NUM">0</field>
+				<field name="NUM">1</field>
 			</shadow>
 		</value>
 	</block>
-	<block type="Nova_Matrix">
-    
+	<block type="Nova_Matrix_POS">
+        <value name="XVALUE">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+        <value name="YVALUE">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
     </block>
+	<block type="Nova_Matrix">
+			<value name="Str">
+			  <block type="text">
+				<field name="Str"></field>
+			  </block>
+			</value>
+	</block>
 	<block type="Nova_4DigitDisplay">
         <value name="num">
           <shadow type="math_number">
@@ -123,30 +174,14 @@
           </shadow>
         </value> 
     </block>
-	<block type="Nova_4DigitDisplay_Time">
-        <value name="hour">
-          <shadow type="math_number">
-            <field name="hour">0</field>
-          </shadow>
-        </value> 
-        <value name="min">
-          <shadow type="math_number">
-            <field name="min">0</field>
-          </shadow>
-        </value> 
-    </block>
-	<block type="Nova_4DigitDisplay_abcdef">
-        <value name="abcdef">
-          <shadow type="math_number">
-            <field name="abcdef">0</field>
-          </shadow>
-        </value> 
+	<block type="Nova_4DigitDisplay_Clear">
         <value name="bit">
           <shadow type="math_number">
-            <field name="bit">0</field>
+            <field name="NUM">1</field>
           </shadow>
         </value> 
     </block>
+
 	<block type="Nova_lcd_print">
 		<value name="device">
           <shadow type="math_number">
@@ -178,7 +213,7 @@
 	<block type="Nova_RTC_SetHMS">
         <value name="Hour">
           <shadow type="math_number">
-            <field name="Hour">12</field>
+            <field name="NUM">12</field>
           </shadow>
         </value> 
         <value name="Min">
@@ -195,24 +230,24 @@
 	<block type="Nova_RTC_SetYMD">
         <value name="Year">
           <shadow type="math_number">
-            <field name="Year">0X2016</field>
+            <field name="NUM">2016</field>
           </shadow>
         </value> 
         <value name="Month">
           <shadow type="math_number">
-            <field name="Month">1</field>
+            <field name="NUM">1</field>
           </shadow>
         </value> 
         <value name="Day">
           <shadow type="math_number">
-            <field name="Day">1</field>
+            <field name="NUM">1</field>
           </shadow>
         </value> 
     </block>
 	<block type="Nova_RTC_SetWeek">
         <value name="Week">
           <shadow type="math_number">
-            <field name="Week">1</field>
+            <field name="NUM">1</field>
           </shadow>
         </value>      
     </block>

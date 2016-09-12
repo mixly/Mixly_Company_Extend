@@ -1,4 +1,4 @@
-Nova.name=Nduino
+Nova.name=Nduino Pro
 
 Nova.upload.tool=avrdude
 Nova.upload.protocol=arduino
