@@ -45,7 +45,7 @@ Blockly.LKL_NOVA_DHT11_H = '获取湿度';
 Blockly.LKL_NOVA_DHT11_T = '获取温度';
 
 Blockly.LKL_NOVA_SERVO = '小舵机';
-Blockly.LKL_NOVA_SERVO_BIG = '大舵机';
+Blockly.LKL_NOVA_SERVO_BIG = '大舵机驱动';
 Blockly.LKL_NOVA_SERVO_BRANCH = '分支';
 Blockly.LKL_NOVA_DEGREE_0_180 = '角度(0~180)';
 Blockly.LKL_NOVA_DELAY = '延时';

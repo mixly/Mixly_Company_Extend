@@ -41,7 +41,7 @@ void Motor::run(int speed)
 	else
 	{
 		digitalWrite(_A_pin, LOW);
-		analogWrite(_B_pin,(map(speed,0,100,0,255)));
+		analogWrite(_B_pin,(map(speed,0,-100,0,255)));
 	}
 }
 

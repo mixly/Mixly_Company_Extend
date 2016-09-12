@@ -46,7 +46,7 @@ Blockly.LKL_NOVA_DHT11_H = 'Get humidity';
 Blockly.LKL_NOVA_DHT11_T = 'Get temperature';
 
 Blockly.LKL_NOVA_SERVO = 'Servo';
-Blockly.LKL_NOVA_SERVO_BIG = 'Big servo';
+Blockly.LKL_NOVA_SERVO_BIG = 'Big servo drive';
 Blockly.LKL_NOVA_DEGREE_0_180 = 'Degree（0~180）';
 Blockly.LKL_NOVA_DELAY = 'Delay';
 Blockly.LKL_NOVA_DELAY_MS = 'ms';
