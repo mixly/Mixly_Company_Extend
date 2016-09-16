@@ -556,46 +556,47 @@ Blockly.Blocks.Nova_Motor = {
 Blockly.Blocks.Nova_RGB= {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
-         this.appendDummyInput("")
-             .appendTitle(Blockly.LKL_NOVA_RGB)
-           .appendField(new Blockly.FieldImage("../../media/nova/Nova_RGB.jpg", 59.5, 32))
-           .appendTitle(Blockly.LKL_NOVA_PORT)
-             .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-       this.appendDummyInput()
-        .appendTitle(Blockly.LKL_NOVA_RGB_NUM);
-       this.appendValueInput("_LED_")
-              .setCheck(Number);
-        this.appendDummyInput()
-            .appendTitle(Blockly.LKL_NOVA_RGB_R);
-        this.appendValueInput("RVALUE")
-            .setCheck("Number");
-        this.appendDummyInput()
-           .appendTitle(Blockly.LKL_NOVA_RGB_G);
-        this.appendValueInput("GVALUE")
-            .setCheck("Number");
-        this.appendDummyInput()
-            .appendTitle(Blockly.LKL_NOVA_RGB_B);
-        this.appendValueInput("BVALUE")
-            .setCheck("Number");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true, null);
-        this.setNextStatement(true, null);
-        this.setTooltip('');
+	this.appendDummyInput("")
+		.appendTitle(Blockly.LKL_NOVA_RGB)
+		.appendField(new Blockly.FieldImage("../../media/nova/Nova_RGB.jpg", 59.5, 32))
+		.appendTitle(Blockly.LKL_NOVA_PORT)
+		.appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");  
+    this.appendValueInput("_LED_")
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendTitle(Blockly.LKL_NOVA_RGB_NUM);	
+	this.appendValueInput("RVALUE")
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendTitle(Blockly.LKL_NOVA_RGB_R);  
+	this.appendValueInput("GVALUE")
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendTitle(Blockly.LKL_NOVA_RGB_G);	
+	this.appendValueInput("BVALUE")
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendTitle(Blockly.LKL_NOVA_RGB_B);
+	this.setInputsInline(true);
+	this.setPreviousStatement(true, null);
+	this.setNextStatement(true, null);
+	this.setTooltip('');
   }
 };
 Blockly.Blocks.Nova_RGB2 = {
-  init: function() {
-  this.setColour(Blockly.Blocks.nova.HUE);
-           this.appendDummyInput("")
-               .appendTitle(Blockly.LKL_NOVA_RGB)
-             .appendField(new Blockly.FieldImage("../../media/nova/Nova_RGB.jpg", 55, 32))
-             .appendTitle(Blockly.LKL_NOVA_PORT)
-               .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-    this.appendDummyInput()
-        .appendField(Blockly.LKL_NOVA_RGB_NUM);
+	init: function() {
+	this.setColour(Blockly.Blocks.nova.HUE);
+	this.appendDummyInput("")
+		.appendTitle(Blockly.LKL_NOVA_RGB)
+		.appendField(new Blockly.FieldImage("../../media/nova/Nova_RGB.jpg", 55, 32))
+		.appendTitle(Blockly.LKL_NOVA_PORT)
+		.appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");       
     this.appendValueInput("_LED_")
-        .setCheck("Number");
+        .setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendField(Blockly.LKL_NOVA_RGB_NUM);
     this.appendDummyInput()
+		.setAlign(Blockly.ALIGN_RIGHT)
         .appendField(Blockly.LKL_NOVA_RGB_Color)
         .appendField(new Blockly.FieldColour("#ff0000"), "RGB_LED_color");
     this.setInputsInline(true);
