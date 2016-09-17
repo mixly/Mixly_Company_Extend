@@ -59,10 +59,10 @@ Blockly.Blocks.ruilong_magnetic = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_RUILONG_MAGNETIC)
+	    .appendField(Blockly.MIXLY_RUILONG_MAGNETIC)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/magnetic.png", 41, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
     this.setOutput(true, Boolean);
 	this.setInputsInline(true);
@@ -74,10 +74,10 @@ Blockly.Blocks.ruilong_vibration = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_RUILONG_VIBRATION)
+	    .appendField(Blockly.MIXLY_RUILONG_VIBRATION)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/vibration.png", 42, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
     this.setOutput(true, Boolean);
 	this.setInputsInline(true);
@@ -89,10 +89,10 @@ Blockly.Blocks.ruilong_tilt = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_RUILONG_TILT)
+	    .appendField(Blockly.MIXLY_RUILONG_TILT)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/tilt.png", 38, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
     this.setOutput(true, Boolean);
 	this.setInputsInline(true);
@@ -104,10 +104,10 @@ Blockly.Blocks.ruilong_touch = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_RUILONG_TOUCH)
+	    .appendField(Blockly.MIXLY_RUILONG_TOUCH)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/touch.png", 41, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
     this.setOutput(true, Boolean);
 	this.setInputsInline(true);
@@ -119,10 +119,10 @@ Blockly.Blocks.ruilong_collision = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_RUILONG_COLLISION)
+	    .appendField(Blockly.MIXLY_RUILONG_COLLISION)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/collision.png", 38, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
     this.setOutput(true, Boolean);
 	this.setInputsInline(true);
@@ -134,10 +134,10 @@ Blockly.Blocks.ruilong_button = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_RUILONG_BUTTON)
+	    .appendField(Blockly.MIXLY_RUILONG_BUTTON)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/button.png", 42, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
     this.setOutput(true, Boolean);
 	this.setInputsInline(true);
@@ -145,7 +145,7 @@ Blockly.Blocks.ruilong_button = {
   }
 };
 
-//DHT11´«¸ÐÆ÷
+//DHT11ä¼ æ„Ÿå™¨
 Blockly.Blocks.ruilong_dht11={
 	init: function() {
 	var WHAT = [[Blockly.MIXLY_DHT11_T, 'temperature'],[Blockly.MIXLY_DHT11_H, 'humidity']];
@@ -165,10 +165,10 @@ Blockly.Blocks.ruilong_resistor_scratch = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_RESISTOR_SCRATCH)
+        .appendField(Blockly.MIXLY_RUILONG_RESISTOR_SCRATCH)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/resistor_scratch.png", 48, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -180,10 +180,10 @@ Blockly.Blocks.ruilong_temp = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_TEMP)
+        .appendField(Blockly.MIXLY_RUILONG_TEMP)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/temp.png", 40, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -195,10 +195,10 @@ Blockly.Blocks.ruilong_sound = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_SOUND)
+        .appendField(Blockly.MIXLY_RUILONG_SOUND)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/sound.png", 41, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -210,10 +210,10 @@ Blockly.Blocks.ruilong_moisture = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_MOISTURE)
+        .appendField(Blockly.MIXLY_RUILONG_MOISTURE)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/moisture.png", 40, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -225,10 +225,10 @@ Blockly.Blocks.ruilong_steam = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_STEAM)
+        .appendField(Blockly.MIXLY_RUILONG_STEAM)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/steam.png", 46, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -240,10 +240,10 @@ Blockly.Blocks.ruilong_linefinder = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_LINEFINDER)
+        .appendField(Blockly.MIXLY_RUILONG_LINEFINDER)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/linefinder.png", 33, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -255,10 +255,10 @@ Blockly.Blocks.ruilong_obstacle = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_OBSTACLE)
+        .appendField(Blockly.MIXLY_RUILONG_OBSTACLE)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/obstacle.png", 39, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -270,10 +270,10 @@ Blockly.Blocks.ruilong_knob = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_KNOB)
+        .appendField(Blockly.MIXLY_RUILONG_KNOB)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/knob.png", 34, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -285,10 +285,10 @@ Blockly.Blocks.ruilong_slider = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_SLIDER)
+        .appendField(Blockly.MIXLY_RUILONG_SLIDER)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/slider.png", 34, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -300,10 +300,10 @@ Blockly.Blocks.ruilong_light = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_RUILONG_LIGHT)
+        .appendField(Blockly.MIXLY_RUILONG_LIGHT)
 		.appendField(new Blockly.FieldImage("../../media/ruilong/light.png", 44, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -316,7 +316,7 @@ Blockly.Blocks.ruilong_lcd_print = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_RUILONG_LCD1602)
+        .appendField(Blockly.MIXLY_RUILONG_LCD1602)
         .appendField(new Blockly.FieldImage("../../media/ruilong/lcd.png", 69, 32));
     this.appendValueInput("TEXT", String)
         .setCheck([String,Number])
@@ -335,9 +335,65 @@ Blockly.Blocks.ruilong_lcd_power = {
   init: function() {
     this.setColour(Blockly.Blocks.ruilong.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_RUILONG_LCD1602)
+        .appendField(Blockly.MIXLY_RUILONG_LCD1602)
         .appendField(new Blockly.FieldImage("../../media/ruilong/lcd.png", 69, 32))
 		.appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_LCD_STAT_ON, "display"], [Blockly.MIXLY_LCD_STAT_OFF, "noDisplay"], [Blockly.MIXLY_LCD_STAT_CURSOR, "cursor"], [Blockly.MIXLY_LCD_STAT_NOCURSOR, "noCursor"], [Blockly.MIXLY_LCD_STAT_BLINK, "blink"], [Blockly.MIXLY_LCD_STAT_NOBLINK, "noBlink"], [Blockly.MIXLY_LCD_STAT_CLEAR, "clear"]]), "STAT");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+//RGB
+Blockly.Blocks.ruilong_rgb= {
+  init: function() {
+    this.setColour(Blockly.Blocks.ruilong.HUE);
+	this.appendDummyInput("")
+		.appendField(Blockly.MIXLY_RUILONG_RGB)
+		.appendField(new Blockly.FieldImage("../../media/ruilong/rgb.png", 33, 32));		
+	this.appendValueInput("PIN", Number)
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.MIXLY_PIN);
+    this.appendValueInput("_LED_")
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendField(Blockly.MIXLY_RUILONG_RGB_NUM);	
+	this.appendValueInput("RVALUE")
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendField(Blockly.MIXLY_RUILONG_RGB_R);  
+	this.appendValueInput("GVALUE")
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendField(Blockly.MIXLY_RUILONG_RGB_G);	
+	this.appendValueInput("BVALUE")
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendField(Blockly.MIXLY_RUILONG_RGB_B);
+	this.setInputsInline(true);
+	this.setPreviousStatement(true, null);
+	this.setNextStatement(true, null);
+	this.setTooltip('');
+  }
+};
+Blockly.Blocks.ruilong_rgb2 = {
+	init: function() {
+	this.setColour(Blockly.Blocks.ruilong.HUE);
+	this.appendDummyInput("")
+		.appendField(Blockly.MIXLY_RUILONG_RGB)
+		.appendField(new Blockly.FieldImage("../../media/ruilong/rgb.png", 33, 32));			
+	this.appendValueInput("PIN", Number)
+		.setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.MIXLY_PIN);
+    this.appendValueInput("_LED_")
+        .setCheck(Number)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendField(Blockly.MIXLY_RUILONG_RGB_NUM);
+    this.appendDummyInput("")
+		.setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldColour("#ff0000"), "RGB_LED_color");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

@@ -19,3 +19,10 @@ Blockly.MIXLY_RUILONG_BUTTON = 'Button';
 Blockly.MIXLY_RUILONG_RELAY = 'Relay';
 Blockly.MIXLY_RUILONG_LIGHT = 'Light';
 Blockly.MIXLY_RUILONG_LCD1602 = 'LCD1602';
+
+// RGB
+Blockly.MIXLY_RUILONG_RGB = 'RGB Light';
+Blockly.MIXLY_RUILONG_RGB_NUM = 'Light number(1~4)';
+Blockly.MIXLY_RUILONG_RGB_R= 'R value';
+Blockly.MIXLY_RUILONG_RGB_G= 'G value';
+Blockly.MIXLY_RUILONG_RGB_B= 'B value';

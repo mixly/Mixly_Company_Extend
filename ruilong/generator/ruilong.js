@@ -31,7 +31,7 @@ Blockly.Arduino.ruilong_magnetic = function() {
 	code = 'mixly_digitalRead('+dropdown_pin+')';
   }else{
     if(Blockly.Arduino.setups_['setup_output_'+dropdown_pin]){
-	   //存在pinMode已设为output则不再设为input
+	   //瀛樺湪pinMode宸茶涓簅utput鍒欎笉鍐嶈涓篿nput
 	}else{
        Blockly.Arduino.setups_['setup_input_'+dropdown_pin] = 'pinMode('+dropdown_pin+', INPUT);';
 	}
@@ -100,5 +100,36 @@ Blockly.Arduino.ruilong_lcd_power = function() {
   Blockly.Arduino.setups_['setup_df_lcd1'] = 'df_lcd.init();';
   Blockly.Arduino.setups_['setup_df_lcd2'] = 'df_lcd.backlight();';
   var code = 'df_lcd.'+dropdown_stat+'();\n'
+  return code;
+};
+
+Blockly.Arduino.ruilong_rgb=function(){
+  var dropdown_rgbpin = Blockly.Arduino.valueToCode(this, 'PIN',Blockly.Arduino.ORDER_ATOMIC);
+  var value__led_ = Blockly.Arduino.valueToCode(this, '_LED_', Blockly.Arduino.ORDER_ATOMIC);
+  var value_rvalue = Blockly.Arduino.valueToCode(this, 'RVALUE', Blockly.Arduino.ORDER_ATOMIC);
+  var value_gvalue = Blockly.Arduino.valueToCode(this, 'GVALUE', Blockly.Arduino.ORDER_ATOMIC);
+  var value_bvalue = Blockly.Arduino.valueToCode(this, 'BVALUE', Blockly.Arduino.ORDER_ATOMIC);
+  Blockly.Arduino.definitions_['include_ruilong'] = '#include "Ruilong.h"';
+  Blockly.Arduino.definitions_['var_rgb_ruilong'+dropdown_rgbpin] = 'Adafruit_NeoPixel  rgb_ruilong_'+dropdown_rgbpin+''+'(4);';
+  Blockly.Arduino.setups_['setup_rgb_ruilong_begin_'+dropdown_rgbpin] ='rgb_ruilong_'+dropdown_rgbpin+'.begin();';
+  Blockly.Arduino.setups_['setup_rgb_ruilong_setpin'+dropdown_rgbpin] ='rgb_ruilong_'+dropdown_rgbpin+'.setPin('+dropdown_rgbpin+');';
+  
+  var code = 'rgb_ruilong_'+dropdown_rgbpin+'.setPixelColor('+value__led_+'-1, '+value_rvalue+','+value_gvalue+','+value_bvalue+');\n';
+  code+='rgb_ruilong_'+dropdown_rgbpin+'.show();\n';
+  return code;
+};
+
+Blockly.Arduino.ruilong_rgb2=function(){
+  var dropdown_rgbpin = Blockly.Arduino.valueToCode(this, 'PIN',Blockly.Arduino.ORDER_ATOMIC);
+  var value__led_ = Blockly.Arduino.valueToCode(this, '_LED_', Blockly.Arduino.ORDER_ATOMIC);
+  var colour_rgb_led_color = this.getFieldValue('RGB_LED_color');
+  var color = colour_rgb_led_color.colorRgb();
+  Blockly.Arduino.definitions_['include_ruilong'] = '#include "Ruilong.h"';
+  Blockly.Arduino.definitions_['var_rgb_ruilong'+dropdown_rgbpin] = 'Adafruit_NeoPixel  rgb_ruilong_'+dropdown_rgbpin+''+'(4);';
+  Blockly.Arduino.setups_['setup_rgb_ruilong_begin_'+dropdown_rgbpin] ='rgb_ruilong_'+dropdown_rgbpin+'.begin();';
+  Blockly.Arduino.setups_['setup_rgb_ruilong_setpin'+dropdown_rgbpin] ='rgb_ruilong_'+dropdown_rgbpin+'.setPin('+dropdown_rgbpin+');';
+  
+  var code = 'rgb_ruilong_'+dropdown_rgbpin+'.setPixelColor('+value__led_+'-1, rgb_ruilong_'+dropdown_rgbpin+'.Color'+color+');\n';
+  code+='rgb_ruilong_'+dropdown_rgbpin+'.show();\n';
   return code;
 };

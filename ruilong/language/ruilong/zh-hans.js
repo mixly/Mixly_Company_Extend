@@ -19,3 +19,10 @@ Blockly.MIXLY_RUILONG_BUTTON = '按钮传感器';
 Blockly.MIXLY_RUILONG_RELAY = '继电器';
 Blockly.MIXLY_RUILONG_LIGHT = '光敏传感器';
 Blockly.MIXLY_RUILONG_LCD1602 = '液晶显示屏';
+
+// RGB
+Blockly.MIXLY_RUILONG_RGB = 'RGB灯';
+Blockly.MIXLY_RUILONG_RGB_NUM = '灯号(1~4)';
+Blockly.MIXLY_RUILONG_RGB_R= 'R值';
+Blockly.MIXLY_RUILONG_RGB_G= 'G值';
+Blockly.MIXLY_RUILONG_RGB_B= 'B值';
