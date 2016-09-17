@@ -10,6 +10,14 @@ Relay	KEYWORD1
 
 Button	KEYWORD1
 
+Matrix	KEYWORD1
+MP3	KEYWORD1
+Stepper	KEYWORD1
+Gyro	KEYWORD1
+Touch	KEYWORD1
+Joystick	KEYWORD1
+BlueTooth	KEYWORD1
+
 TiltSwitch	KEYWORD1
 Vibration	KEYWORD1
 ITR	KEYWORD1
@@ -44,6 +52,44 @@ off	KEYWORD2
 
 cw	KEYWORD2
 ccw	KEYWORD2
+
+drawPixel	KEYWORD2
+writeDisplay	KEYWORD2
+drawLine	KEYWORD2
+drawRect	KEYWORD2
+fillRect	KEYWORD2
+drawCircle	KEYWORD2
+setTextSize	KEYWORD2
+setTextWrap	KEYWORD2
+setTextColor	KEYWORD2
+setRotation	KEYWORD2
+
+volume	KEYWORD2
+play	KEYWORD2
+next_song	KEYWORD2
+last_song	KEYWORD2
+vol_up	KEYWORD2
+vol_dn	KEYWORD2
+loop_play	KEYWORD2
+stop	KEYWORD2
+random_play	KEYWORD2
+pause	KEYWORD2
+
+update	KEYWORD2
+getAngleX	KEYWORD2
+getAngleY	KEYWORD2
+getAngleZ	KEYWORD2
+
+setMaxSpeed	KEYWORD2
+setAcceleration	KEYWORD2
+moveTo	KEYWORD2
+move	KEYWORD2
+run	KEYWORD2
+
+init	KEYWORD2
+readX	KEYWORD2
+readY	KEYWORD2
+getDistance	KEYWORD2
 
 buttonAState	KEYWORD2
 buttonBState	KEYWORD2

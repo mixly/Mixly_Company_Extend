@@ -73,7 +73,6 @@
 #include <utility/SoftwareSerial.h>
 #include <utility/SPI.h>
 
-
 #include "Arduino.h"
 #include "Nova_LED.h"
 #include "Nova_Relay.h"

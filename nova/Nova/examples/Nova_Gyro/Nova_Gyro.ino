@@ -1,6 +1,6 @@
 #include "Nova.h"
 
-Gyro gyro;
+Gyro gyro = Gyro(M1);
 
 void setup()
 {

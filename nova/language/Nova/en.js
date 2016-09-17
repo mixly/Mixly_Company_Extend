@@ -117,6 +117,12 @@ Blockly.LKL_NOVA_MP3_RANDPLAY='Random';
 Blockly.LKL_NOVA_MP3_PAUSE='Pause';
 Blockly.LKL_NOVA_MP3_STOP='Stop';
 
+Blockly.LKL_NOVA_GYRO='Gyro';
+Blockly.LKL_NOVA_GYRO_UPDATE='Gyro update';
+Blockly.LKL_NOVA_GYRO_STATE='Corrdinate';
+Blockly.LKL_NOVA_GYRO_X='X-corrdinate';
+Blockly.LKL_NOVA_GYRO_Y='Y-corrdinate';
+
 Blockly.LKL_NOVA_MQ='Gas sensor (MQ)';
 
 Blockly.LKL_NOVA_DUAL_MOTOR='Dual DC Motors';
