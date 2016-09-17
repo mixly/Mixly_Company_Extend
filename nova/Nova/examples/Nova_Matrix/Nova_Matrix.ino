@@ -1,5 +1,5 @@
 #include <Nova.h>
-Matrix matrix = Matrix();
+Matrix matrix = Matrix(C1);//C0,C1,M0,M1,M2,M3;
 void setup() {
   Serial.begin(9600);
   Serial.println("8x8 LED Matrix Test");

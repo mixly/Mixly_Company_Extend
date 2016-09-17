@@ -2,7 +2,7 @@
 #define _NOVA_MATRIX_H
 
 #include "Arduino.h"
-#include "utility/Wire.h"
+
 #include "Print.h"
 #include "utility/glcdfont.c"
 #include <avr/pgmspace.h>
@@ -19,13 +19,12 @@
 
 #define HT16K33_CMD_BRIGHTNESS 0x0E
 
-#define SEVENSEG_DIGITS 5
 
 #define swap(a, b) { int16_t t = a; a = b; b = t; }
 // this is the raw HT16K33 controller
 class Matrix : public Print{
 public:
-  Matrix(void);
+  Matrix(uint8_t port);
   void begin(uint8_t _addr);
   void setBrightness(uint8_t b);
   void blinkRate(uint8_t b);

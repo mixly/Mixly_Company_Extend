@@ -1,53 +1,127 @@
 #include "Nova_Matrix.h"
+#include <utility/SoftIIC.h>
+
+SoftIIC MatrixIIC;
+
+#define USER	0x80
+#define C0	USER+1
+#define C1	USER+2
+
+#define S0	USER+11
+#define S1	USER+12
+#define S2	USER+13
+#define S3	USER+14
+#define S4	USER+15
+#define S5	USER+16
+
+#define M0	USER+21
+#define M1	USER+22
+#define M2	S4
+#define M3	S5
+
+//pin define
+#define C0_PIN_0	0
+#define C0_PIN_1	1
+
+// 位置后面需要改回来
+#define C1_PIN_0	A5	//SCL
+#define C1_PIN_1	A4	//SDA
+
+#define S0_PIN	2
+#define S1_PIN	9
+#define S2_PIN	10
+#define S3_PIN	13
+
+#define S4_PIN_0	11
+#define S4_PIN_1	12
+#define S5_PIN_0	3
+#define S5_PIN_1	4
+
+#define M0_PIN_0	5
+#define M0_PIN_1	7
+#define M1_PIN_0	6
+#define M1_PIN_1	8
+
+#define M2_PIN_0	S4_PIN_0
+#define M2_PIN_1	S4_PIN_1
+#define M3_PIN_0	S5_PIN_0
+#define M3_PIN_1	S5_PIN_1
+
+Matrix::Matrix(uint8_t port)
+{
+    uint8_t SCL_pin,SDA_pin;
+	switch(port)
+	{
+	    case C0:
+		    SCL_pin = C0_PIN_1;
+			SDA_pin = C0_PIN_0;
+		break;
+		case C1:
+			SCL_pin = C1_PIN_0;
+			SDA_pin = C1_PIN_1;
+		break;
+		case S4:
+			SCL_pin = S4_PIN_1;
+			SDA_pin = S4_PIN_0;
+		break;
+		case S5:
+			SCL_pin = S5_PIN_1;
+			SDA_pin = S5_PIN_0;
+		break;
+        case M0:
+			SCL_pin = M0_PIN_1;
+			SDA_pin = M0_PIN_0;
+		break;
+        case M1:
+			SCL_pin = M1_PIN_1;
+			SDA_pin = M1_PIN_0;
+		break;
+	}
+    MatrixIIC.begin(SDA_pin,SCL_pin);  
+    constructor(8, 8);
+}
 
 void Matrix::setBrightness(uint8_t b) {
   if (b > 15) b = 15;
-  Wire.beginTransmission(i2c_addr);
-  Wire.write(0xE0 | b);
-  Wire.endTransmission();  
+  MatrixIIC.start(i2c_addr | I2C_WRITE);
+  MatrixIIC.write(0xE0 | b);
+  MatrixIIC.stop();  
 }
 
 void Matrix::blinkRate(uint8_t b) {
-  Wire.beginTransmission(i2c_addr);
+  MatrixIIC.start(i2c_addr | I2C_WRITE);
   if (b > 3) b = 0; // turn off if not sure
   
-  Wire.write(HT16K33_BLINK_CMD | HT16K33_BLINK_DISPLAYON | (b << 1)); 
-  Wire.endTransmission();
+  MatrixIIC.write(HT16K33_BLINK_CMD | HT16K33_BLINK_DISPLAYON | (b << 1)); 
+  MatrixIIC.stop();
 }
 
 void Matrix::begin(uint8_t _addr = 0x70) {
   i2c_addr = _addr;
-
-  Wire.begin();
-
-  Wire.beginTransmission(i2c_addr);
-  Wire.write(0x21);  // turn on oscillator
-  Wire.endTransmission();
+  i2c_addr <<= 1;
+  MatrixIIC.start(i2c_addr | I2C_WRITE);
+  MatrixIIC.write(0x21);  // turn on oscillator
+  MatrixIIC.stop();
   blinkRate(HT16K33_BLINK_OFF);
   
   setBrightness(15); // max brightness
 }
 
 void Matrix::writeDisplay(void) {
-  Wire.beginTransmission(i2c_addr);
-  Wire.write((uint8_t)0x00); // start at address $00
+  MatrixIIC.start(i2c_addr | I2C_WRITE);
+  MatrixIIC.write((uint8_t)0x00); // start at address $00
 
   for (uint8_t i=0; i<8; i++) {
-    Wire.write(displaybuffer[i] & 0xFF);    
-    Wire.write(displaybuffer[i] >> 8);    
+    MatrixIIC.write(displaybuffer[i] & 0xFF);    
+    MatrixIIC.write(displaybuffer[i] >> 8);    
   }
-  Wire.endTransmission();  
+  MatrixIIC.stop();  
 }
 
 void Matrix::clear(void) {
   for (uint8_t i=0; i<8; i++) {
     displaybuffer[i] = 0;
   }
-}
-
-
-Matrix::Matrix(void) {
-  constructor(8, 8);
 }
 
 void Matrix::drawPixel(int16_t x, int16_t y, uint16_t color) {
@@ -76,7 +150,6 @@ void Matrix::drawPixel(int16_t x, int16_t y, uint16_t color) {
   }
 }
 
-
 void Matrix::constructor(int16_t w, int16_t h) {
   _width = WIDTH = w;
   _height = HEIGHT = h;
@@ -87,7 +160,6 @@ void Matrix::constructor(int16_t w, int16_t h) {
   textcolor = textbgcolor = 0xFFFF;
   wrap = true;
 }
-
 
 // draw a circle outline
 void Matrix::drawCircle(int16_t x0, int16_t y0, int16_t r, 
@@ -240,7 +312,6 @@ void Matrix::drawLine(int16_t x0, int16_t y0,
   }
 }
 
-
 // draw a rectangle
 void Matrix::drawRect(int16_t x, int16_t y, 
 			    int16_t w, int16_t h, 
@@ -257,7 +328,6 @@ void Matrix::drawFastVLine(int16_t x, int16_t y,
   drawLine(x, y, x, y+h-1, color);
 }
 
-
 void Matrix::drawFastHLine(int16_t x, int16_t y, 
 				 int16_t w, uint16_t color) {
   // stupidest version - update in subclasses if desired!
@@ -271,7 +341,6 @@ void Matrix::fillRect(int16_t x, int16_t y, int16_t w, int16_t h,
     drawFastVLine(i, y, h, color); 
   }
 }
-
 
 void Matrix::fillScreen(uint16_t color) {
   fillRect(0, 0, _width, _height, color);
@@ -466,7 +535,6 @@ void Matrix::setTextSize(uint8_t s) {
   textsize = (s > 0) ? s : 1;
 }
 
-
 void Matrix::setTextColor(uint16_t c) {
   textcolor = c;
   textbgcolor = c; 
@@ -508,7 +576,6 @@ void Matrix::setRotation(uint8_t x) {
 void Matrix::invertDisplay(boolean i) {
   // do nothing, can be subclassed
 }
-
 
 // return the size of the display which depends on the rotation!
 int16_t Matrix::width(void) { 

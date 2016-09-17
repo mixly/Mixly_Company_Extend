@@ -117,6 +117,12 @@ Blockly.LKL_NOVA_MP3_RANDPLAY='隨機播放';
 Blockly.LKL_NOVA_MP3_PAUSE='暫停';
 Blockly.LKL_NOVA_MP3_STOP='停止';
 
+Blockly.LKL_NOVA_GYRO='陀螺儀';
+Blockly.LKL_NOVA_GYRO_UPDATE='陀螺儀更新數據';
+Blockly.LKL_NOVA_GYRO_STATE='坐標';
+Blockly.LKL_NOVA_GYRO_X='X坐標';
+Blockly.LKL_NOVA_GYRO_Y='Y坐標';
+
 Blockly.LKL_NOVA_MQ='氣體';
 
 Blockly.LKL_NOVA_DUAL_MOTOR='雙路電機';

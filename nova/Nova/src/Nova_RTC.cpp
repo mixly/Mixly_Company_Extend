@@ -1,10 +1,10 @@
 #include "Nova_RTC.h"
-#include <utility/I2cMaster.h>
+#include <utility/SoftIIC.h>
 #include "string.h"
 
 #define USE_SOFT_I2C 1
 
-SoftI2cMaster ds1307;
+SoftIIC ds1307;
 
 uint8_t RTC::decToBcd(uint8_t val)
 {

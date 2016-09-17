@@ -517,7 +517,7 @@ Blockly.Blocks.Nova_Servo_Big = {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
     .appendTitle(Blockly.LKL_NOVA_SERVO_BIG)
-    .appendField(new Blockly.FieldImage("../../media/nova/Big_Servo.jpg", 36, 32))
+    .appendField(new Blockly.FieldImage("../../media/nova/Big_Servo.jpg", 43, 32))
     .appendTitle(Blockly.LKL_NOVA_PORT)
     .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
     .appendTitle(Blockly.LKL_NOVA_SERVO_BRANCH)
@@ -620,29 +620,6 @@ Blockly.Blocks.Nova_Vibration = {
   }
 };
 
-//点阵
-
-Blockly.Blocks.Nova_Matrix = {
-  init: function() {
-    this.setColour(Blockly.Blocks.nova.HUE);
- this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_Matrix)
-    .appendField(new Blockly.FieldImage("../../media/nova/Nova_led.jpg", 68, 32))
-        .appendTitle(Blockly.LKL_NOVA_STAT)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_LED_ON, "1"], [Blockly.LKL_NOVA_LED_OFF, "0"]]), "STAT");
-    this.appendValueInput("XVALUE", Number)
-        .setCheck(Number)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LKL_NOVA_Matrix_x);
-    this.appendValueInput("YVALUE", Number)
-        .setCheck(Number)
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LKL_NOVA_Matrix_y);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-  }
-};
-
 // MQ
 Blockly.Blocks.Nova_MQ={
 init: function() {
@@ -657,13 +634,43 @@ init: function() {
   }
 };
 
+// 陀螺仪
+Blockly.Blocks.Nova_Gyro = {
+  init: function() {
+    this.setColour(Blockly.Blocks.nova.HUE);
+    this.appendDummyInput("")
+        .appendTitle(Blockly.LKL_NOVA_GYRO)
+      .appendField(new Blockly.FieldImage("../../media/nova/Nova_Gyro.jpg", 46, 32))
+      .appendTitle(Blockly.LKL_NOVA_PORT)
+      .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
+	  .appendTitle(Blockly.LKL_NOVA_GYRO_STATE)
+      .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_GYRO_X, "getAngleX()"], [Blockly.LKL_NOVA_GYRO_Y, "getAngleY()"]]), "STAT");
+    this.setOutput(true, Number);
+    this.setInputsInline(true);
+  }
+};
+Blockly.Blocks.Nova_Gyro_update = {
+  init: function() {
+    this.setColour(Blockly.Blocks.nova.HUE);
+    this.appendDummyInput("")
+        .appendTitle(Blockly.LKL_NOVA_GYRO_UPDATE)
+      .appendField(new Blockly.FieldImage("../../media/nova/Nova_Gyro.jpg", 46, 32))
+      .appendTitle(Blockly.LKL_NOVA_PORT)
+      .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
+	this.setPreviousStatement(true);
+	this.setNextStatement(true);
+  }
+};
+
 //点阵
 Blockly.Blocks.Nova_Matrix_POS = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
  this.appendDummyInput("")
       .appendTitle(Blockly.LKL_Nova_Matrix_POS)
-    .appendField(new Blockly.FieldImage("../../media/nova/Nova_Matrix.jpg", 36.5, 32));
+    .appendField(new Blockly.FieldImage("../../media/nova/Nova_Matrix.jpg", 36.5, 32))
+	.appendTitle(Blockly.LKL_NOVA_PORT)
+        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendValueInput('XVALUE', Number)
         .setCheck(Number)
         .appendTitle(Blockly.LKL_NOVA_Matrix_x);
@@ -680,7 +687,9 @@ init:function(){
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
       .appendTitle(Blockly.LKL_NOVA_Matrix)
-      .appendField(new Blockly.FieldImage("../../media/nova/Nova_Matrix.jpg", 36.5, 32));  
+      .appendField(new Blockly.FieldImage("../../media/nova/Nova_Matrix.jpg", 36.5, 32))
+	  .appendTitle(Blockly.LKL_NOVA_PORT)
+        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");  
 	this.appendValueInput('Str',String)
       .setCheck(String)
       .appendTitle(Blockly.LKL_NOVA_Matrix_Str);
@@ -714,8 +723,9 @@ Blockly.Blocks.Nova_Stepper_run = {
       .appendTitle(Blockly.LKL_NOVA_STEPPER_RUN)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Stepper.jpg", 39, 32))
     .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
+      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN");
     this.setPreviousStatement(true);
+	this.setNextStatement(true);
   }
 };
 
