@@ -151,4 +151,16 @@
 	</block>
 	<block type="ruilong_lcd_power">
 	</block>
+	<block type="ruilong_4digitdisplay_power">
+		<field name="STAT">clear</field>
+	</block>
+	<block type="ruilong_4digitdisplay_displayString">
+		<value name="VALUE">
+			<shadow type="text">
+				<field name="TEXT">abcd</field>
+			</shadow>
+		</value>
+	</block>
+	<block type="ruilong_4digitdisplay_showDot">
+	</block>
 </category>

@@ -399,3 +399,50 @@ Blockly.Blocks.ruilong_rgb2 = {
     this.setNextStatement(true, null);
   }
 };
+
+Blockly.Blocks.ruilong_4digitdisplay_power = {
+  init: function() {
+    this.setColour(Blockly.Blocks.ruilong.HUE);
+    this.appendDummyInput()
+		.appendField(Blockly.MIXLY_RUILONG_4DIGITDISPLAY)
+		.appendField(new Blockly.FieldImage("../../media/ruilong/4digitdisplay.png", 88, 32))
+        .appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_LCD_STAT_ON, "displayOn"], [Blockly.MIXLY_LCD_STAT_OFF, "displayOff"], [Blockly.MIXLY_LCD_STAT_CLEAR, "clear"]]), "STAT");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+Blockly.Blocks.ruilong_4digitdisplay_displayString = {
+  init: function() {
+    this.setColour(Blockly.Blocks.ruilong.HUE);
+    this.appendDummyInput()
+		.appendField(Blockly.MIXLY_RUILONG_4DIGITDISPLAY)
+		.appendField(new Blockly.FieldImage("../../media/ruilong/4digitdisplay.png", 88, 32));
+	this.appendValueInput("VALUE")
+        .setCheck(String)
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendField(Blockly.MIXLY_RUILONG_4DIGITDISPLAY_DISPLAYSTRING);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+Blockly.Blocks.ruilong_4digitdisplay_showDot = {
+  init: function() {
+    this.setColour(Blockly.Blocks.ruilong.HUE);
+    this.appendDummyInput()
+		.appendField(Blockly.MIXLY_RUILONG_4DIGITDISPLAY)
+		.appendField(new Blockly.FieldImage("../../media/ruilong/4digitdisplay.png", 88, 32))
+		.appendField(Blockly.MIXLY_RUILONG_4DIGITDISPLAY_NOMBER1)
+		.appendField(new Blockly.FieldDropdown([["1","0"],["2","1"],["3","2"],["4","3"]]),"NO")
+		.appendField(Blockly.MIXLY_RUILONG_4DIGITDISPLAY_NOMBER2)
+		.appendField(Blockly.MIXLY_RUILONG_4DIGITDISPLAY_DOT)
+		.appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_RUILONG_4DIGITDISPLAY_ON,"true"],[Blockly.MIXLY_RUILONG_4DIGITDISPLAY_OFF,"false"]]),"STAT");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+

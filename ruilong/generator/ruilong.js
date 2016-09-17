@@ -133,3 +133,32 @@ Blockly.Arduino.ruilong_rgb2=function(){
   code+='rgb_ruilong_'+dropdown_rgbpin+'.show();\n';
   return code;
 };
+
+Blockly.Arduino.ruilong_4digitdisplay_power=function(){
+	var stat=this.getFieldValue("STAT");
+	Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
+	Blockly.Arduino.definitions_['include_ruilong'] = '#include "Ruilong.h"';
+	Blockly.Arduino.definitions_['var_ruilong_4display'] = 'TM1650 ruilong_4display;';
+	Blockly.Arduino.setups_['setup_wire_begin'] ='Wire.begin();';
+	Blockly.Arduino.setups_['setup_ruilong_4display_init'] ='ruilong_4display.init();';
+	return 'ruilong_4display.'+stat+'();\n';
+}
+Blockly.Arduino.ruilong_4digitdisplay_displayString=function(){
+	var value = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ATOMIC);
+	Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
+	Blockly.Arduino.definitions_['include_ruilong'] = '#include "Ruilong.h"';
+	Blockly.Arduino.definitions_['var_ruilong_4display'] = 'TM1650 ruilong_4display;';
+	Blockly.Arduino.setups_['setup_wire_begin'] ='Wire.begin();';
+	Blockly.Arduino.setups_['setup_ruilong_4display_init'] ='ruilong_4display.init();';
+	return 'ruilong_4display.displayString('+value+');\n';
+}
+Blockly.Arduino.ruilong_4digitdisplay_showDot=function(){
+	var no=this.getFieldValue("NO");
+	var stat=this.getFieldValue("STAT");
+	Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
+	Blockly.Arduino.definitions_['include_ruilong'] = '#include "Ruilong.h"';
+	Blockly.Arduino.definitions_['var_ruilong_4display'] = 'TM1650 ruilong_4display;';
+	Blockly.Arduino.setups_['setup_wire_begin'] ='Wire.begin();';
+	Blockly.Arduino.setups_['setup_ruilong_4display_init'] ='ruilong_4display.init();';
+	return 'ruilong_4display.setDot('+no+','+stat+');\n';
+}

@@ -1,3 +1,4 @@
+//untranslated
 Blockly.MIXLY_RUILONG_LAMP = 'Lamp';
 Blockly.MIXLY_RUILONG_BUZZER = 'Buzzer';
 Blockly.MIXLY_RUILONG_DHT11 = 'DHT11';
