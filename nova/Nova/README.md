@@ -1,6 +1,6 @@
-# Nova Library v1.00
+# Nova Library v1.12
 
-Arduino Library for Easy Electronic Modules
+Arduino Library for Easy Nova Modules
 
 How to use:
 
