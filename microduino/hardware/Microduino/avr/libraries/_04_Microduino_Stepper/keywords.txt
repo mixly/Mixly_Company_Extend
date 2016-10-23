@@ -1,0 +1,37 @@
+#######################################
+# Syntax Coloring Shenyang
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+Stepper	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+stepperAllEnable	KEYWORD2
+stepperAllDisable	KEYWORD2
+setSpeed			KEYWORD2
+setMaxAccel			KEYWORD2
+getSpeed			KEYWORD2
+computeStep			KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+MAX_SPEED		LITERAL1
+TIMER_COMP 		LITERAL1
+MAX_STEPPERS 	LITERAL1
+MINVALID_STEPPER 	LITERAL1
+PIN_EN 			LITERAL1
+PIN_DIRA 			LITERAL1
+PIN_STEPA 			LITERAL1
+PIN_DIRB 			LITERAL1
+PIN_STEPB 			LITERAL1
+PIN_DIRC 			LITERAL1
+PIN_STEPC 			LITERAL1
+PIN_DIRD 			LITERAL1
+PIN_STEPD 			LITERAL1
+DEFAULT_ACCEL			LITERAL1

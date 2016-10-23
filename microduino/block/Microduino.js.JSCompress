@@ -1,0 +1,42 @@
+﻿<jscompress public="http://www.jscompress.cn/" command="import-combineset">
+<combinefile path="Microduino.js">
+    <auto value="0" />
+    <sourcefile path=".\communication\BT_Blocks.js" />
+    <sourcefile path=".\communication\GSM_Blocks.js" />
+    <sourcefile path=".\communication\IIC_Blocks.js" />
+    <sourcefile path=".\communication\IRCommunication_Blocks.js" />
+    <sourcefile path=".\communication\NFC_Blocks.js" />
+    <sourcefile path=".\communication\nRF24_Blocks.js" />
+    <sourcefile path=".\communication\smartRF_Blocks.js" />
+    <sourcefile path=".\communication\W5500_Blocks.js" />
+    <sourcefile path=".\communication\WIFI_Blocks.js" />
+    <sourcefile path=".\communication\Zigbee_Blocks.js" />
+    <sourcefile path=".\core\serial_Blocks.js" />
+    <sourcefile path=".\core\softwareSerial_Blocks.js" />
+    <sourcefile path=".\extended\DotMatrix_Blocks.js" />
+    <sourcefile path=".\extended\Motor_Blocks.js" />
+    <sourcefile path=".\extended\OLED_Blocks.js" />
+    <sourcefile path=".\extended\Stepper_Blocks.js" />
+    <sourcefile path=".\function\Audio_Blocks.js" />
+    <sourcefile path=".\function\AudioPro_Blocks.js" />
+    <sourcefile path=".\function\GPS_Blocks.js" />
+    <sourcefile path=".\function\motion_Blocks.js" />
+    <sourcefile path=".\function\RTC_Blocks.js" />
+    <sourcefile path=".\function\SD_Blocks.js" />
+    <sourcefile path=".\sensor\analogRead_Blocks.js" />
+    <sourcefile path=".\sensor\BreathingLight_Blocks.js" />
+    <sourcefile path=".\sensor\Buzzer_Blocks.js" />
+    <sourcefile path=".\sensor\colorLED_Blocks.js" />
+    <sourcefile path=".\sensor\digitalRead_Blocks.js" />
+    <sourcefile path=".\sensor\IR_Receiver_Blocks.js" />
+    <sourcefile path=".\sensor\joystick_Blocks.js" />
+    <sourcefile path=".\sensor\KEY_Blocks.js" />
+    <sourcefile path=".\sensor\LM75_Blocks.js" />
+    <sourcefile path=".\sensor\servo_Blocks.js" />
+    <sourcefile path=".\sensor\TCS3414_Blocks.js" />
+    <sourcefile path=".\sensor\Tem_Hum_Blocks.js" />
+    <sourcefile path=".\sensor\Timer_Blocks.js" />
+    <sourcefile path=".\sensor\TSL2561_Blocks.js" />
+    <sourcefile path=".\VariableExpansion\NewVariable_Blocks.js" />
+</combinefile>
+</jscompress>

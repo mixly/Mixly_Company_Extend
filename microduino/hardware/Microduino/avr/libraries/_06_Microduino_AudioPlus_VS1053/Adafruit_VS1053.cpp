@@ -203,6 +203,14 @@ void Adafruit_VS1053_FilePlayer::stopPlaying(void) {
   currentTrack.close();
 }
 
+void Adafruit_VS1053_FilePlayer::stopSong(void) {
+  // cancel all playback
+  sciWrite(VS1053_REG_MODE, VS1053_MODE_SM_LINE1 | VS1053_MODE_SM_SDINEW | VS1053_MODE_SM_CANCEL);
+  
+  // wrap it up!
+  playingMusic = false;
+}
+
 void Adafruit_VS1053_FilePlayer::pausePlaying(boolean pause) {
   if (pause) 
     playingMusic = false;
@@ -434,8 +442,6 @@ uint16_t Adafruit_VS1053::loadPlugin(char *plugname) {
 }
 
 
-
-
 boolean Adafruit_VS1053::readyForData(void) {
   return digitalRead(_dreq);
 }
@@ -453,6 +459,26 @@ void Adafruit_VS1053::playData(uint8_t *buffer, uint8_t buffsiz) {
   if (useHardwareSPI) SPI.endTransaction();
   #endif
 }
+
+
+void Adafruit_VS1053::playBuffer(uint8_t *buffer, size_t buffsiz) {
+  #ifdef SPI_HAS_TRANSACTION
+  if (useHardwareSPI) SPI.beginTransaction(VS1053_DATA_SPI_SETTING);
+  #endif
+  digitalWrite(_dcs, LOW);
+  while ( buffsiz ){
+    while (!readyForData());
+    delayMicroseconds(3);
+    size_t chunk_length = min(buffsiz,VS1053_DATABUFFERLEN);
+    buffsiz -= chunk_length;
+    while ( chunk_length-- ) spiwrite(*buffer++);
+  }
+  digitalWrite(_dcs, HIGH);
+  #ifdef SPI_HAS_TRANSACTION
+  if (useHardwareSPI) SPI.endTransaction();
+  #endif
+}
+
 
 void Adafruit_VS1053::setVolume(uint8_t left, uint8_t right) {
   uint16_t v;
@@ -539,6 +565,11 @@ uint16_t Adafruit_VS1053::recordedWordsWaiting(void) {
 
 uint16_t Adafruit_VS1053::recordedReadWord(void) {
   return sciRead(VS1053_REG_HDAT0);
+}
+
+void Adafruit_VS1053::stopPlaying(void) {
+  // cancel all playback
+  sciWrite(VS1053_REG_MODE, VS1053_MODE_SM_LINE1 | VS1053_MODE_SM_SDINEW | VS1053_MODE_SM_CANCEL);
 }
 
 

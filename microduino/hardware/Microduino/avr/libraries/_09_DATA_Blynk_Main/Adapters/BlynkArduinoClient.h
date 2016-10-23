@@ -12,8 +12,8 @@
 #define BlynkArduinoClient_h
 
 #include <BlynkApiArduino.h>
-#include <Client.h>
 #include <Blynk/BlynkDebug.h>
+#include <Client.h>
 
 #if defined(ESP8266) && !defined(BLYNK_NO_YIELD)
 	#define YIELD_FIX() yield();
@@ -21,10 +21,11 @@
 	#define YIELD_FIX()
 #endif
 
-class BlynkArduinoClient
+template <typename Client>
+class BlynkArduinoClientGen
 {
 public:
-    BlynkArduinoClient(Client& client)
+    BlynkArduinoClientGen(Client& client)
         : client(client), domain(NULL), port(0), isConn(false)
     {
         client.setTimeout(BLYNK_TIMEOUT_MS);
@@ -43,15 +44,16 @@ public:
 
     bool connect() {
         if (domain) {
-            BLYNK_LOG("Connecting to %s:%d", domain, port);
+            BLYNK_LOG4(BLYNK_F("Connecting to "), domain, ':', port);
+
             isConn = (1 == client.connect(domain, port));
             return isConn;
         } else { //if (uint32_t(addr) != 0) {
-            BLYNK_LOG("Connecting to %d.%d.%d.%d:%d", addr[0], addr[1], addr[2], addr[3], port);
+            BLYNK_LOG_IP("Connecting to ", addr);
             isConn = (1 == client.connect(addr, port));
             return isConn;
         }
-        return 0;
+        return false;
     }
 
     void disconnect() { isConn = false; client.stop(); }
@@ -79,8 +81,14 @@ public:
                 sent += w;
             } else {
                 delay(50);
-#ifdef BLYNK_DEBUG
-                BLYNK_LOG("Retry %d send (%d/%d)", retry, sent, len);
+#if defined(BLYNK_DEBUG) && defined(BLYNK_PRINT)
+                BLYNK_PRINT_TIME();
+                BLYNK_PRINT.print(BLYNK_F("Retry "));
+                BLYNK_PRINT.print(retry);
+                BLYNK_PRINT.print(BLYNK_F(" send: "));
+                BLYNK_PRINT.print(sent);
+                BLYNK_PRINT.print('/');
+                BLYNK_PRINT.println(len);
 #endif
             }
         }
@@ -98,12 +106,14 @@ public:
     bool connected() { YIELD_FIX(); return isConn && client.connected(); }
     int available() {  YIELD_FIX(); return client.available(); }
 
-private:
+protected:
     Client&     client;
     IPAddress   addr;
     const char* domain;
     uint16_t    port;
     bool        isConn;
 };
+
+typedef BlynkArduinoClientGen<Client> BlynkArduinoClient;
 
 #endif

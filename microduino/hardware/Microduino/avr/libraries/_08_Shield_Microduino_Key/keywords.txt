@@ -20,5 +20,6 @@ attached	KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
-PRESS	LITERAL1
-RELEASE	LITERAL1
+NOT_PRESS 	LITERAL1
+SHORT_PRESS LITERAL1
+LONG_PRESS 	LITERAL1

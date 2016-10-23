@@ -40,8 +40,9 @@ LedControl::LedControl() {
     this->matrixIndex = 255 ;  // too many keys
   }
 
+  this->type = TYPE_COLOR;
+  this->brightness = 255;
   this->Fast_mode = false;
-  this->Font_mode = true;
   clearColor();
 }
 
@@ -61,8 +62,8 @@ void LedControl::setFastMode() {
   this->Fast_mode = true;
 }
 
-void LedControl::setFontMode(bool _Mode) {
-  this->Font_mode = _Mode;
+void LedControl::setType(bool _type) {
+  this->type = _type;
 }
 
 void LedControl::clearColor() {
@@ -71,16 +72,33 @@ void LedControl::clearColor() {
   this->value_color[2] = 255;
 }
 
-void LedControl::setColor(uint8_t value_r, uint8_t value_g, uint8_t value_b) {
-  this->value_color[0] = value_r;
-  this->value_color[1] = value_g;
-  this->value_color[2] = value_b;
+void LedControl::setColor(uint8_t _value_r, uint8_t _value_g, uint8_t _value_b) {
+  if (_value_r > 255 || _value_r < 0 || _value_g > 255 || _value_g < 0 || _value_b > 255 || _value_b < 0)
+    return;
+
+  this->value_color[0] = _value_r;
+  this->value_color[1] = _value_g;
+  this->value_color[2] = _value_b;
+}
+
+void LedControl::setBrightness(uint8_t _value) {
+  if (_value > 255 || _value < 0)
+    return;
+
+  this->brightness = _value;
 }
 
 void LedControl::clearDisplay() {
-  Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
-  Wire.write(0x60);       // sends five bytes
-  Wire.endTransmission();    // stop transmitting
+  if (this->type == TYPE_COLOR) {
+    Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
+    Wire.write(0x60);       // sends five bytes
+    Wire.endTransmission();    // stop transmitting
+  }
+  else {
+    Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
+    Wire.write(0xC0);       // sends five bytes
+    Wire.endTransmission();    // stop transmitting
+  }
 }
 
 
@@ -88,51 +106,93 @@ void LedControl::setLedColor(uint8_t _row, uint8_t _col, uint8_t _value_r, uint8
   if (_row < 0 || _row > 7 || _col < 0 || _col > 7 || _value_r > 255 || _value_r < 0 || _value_g > 255 || _value_g < 0 || _value_b > 255 || _value_b < 0)
     return;
 
-  Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
-  uint8_t temp[4];
-  temp[0] = 0x80 | (_row << 3) | _col;
-  temp[1] = _value_b / 8;
-  temp[2] = 0x20 | _value_g / 8;
-  temp[3] = 0x40 | _value_r / 8;
-  Wire.write(temp, 4);       // sends five bytes
-  Wire.endTransmission();    // stop transmitting
+  if (this->type == TYPE_COLOR) {
+    Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
+    uint8_t temp[4];
+    temp[0] = 0x80 | (_row << 3) | _col;
+    temp[1] = _value_b / 8;
+    temp[2] = 0x20 | _value_g / 8;
+    temp[3] = 0x40 | _value_r / 8;
+    Wire.write(temp, 4);       // sends five bytes
+    Wire.endTransmission();    // stop transmitting
+  }
+  else {
+    Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
+    uint8_t temp[2];
+    temp[0] = 0x80 | (_row << 3) | _col;
+    temp[1] = ((_value_b / 8) + (_value_g / 8) + (_value_r / 8)) / 3;
+    Wire.write(temp, 2);       // sends five bytes
+    Wire.endTransmission();    // stop transmitting
+  }
 }
 
 void LedControl::setLedColorFast(uint8_t _row, uint8_t _col, uint8_t _value_r, uint8_t _value_g, uint8_t _value_b) {
   if (_row < 0 || _row > 7 || _col < 0 || _col > 7 || _value_r > 255 || _value_r < 0 || _value_g > 255 || _value_g < 0 || _value_b > 255 || _value_b < 0)
     return;
 
-  Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
-  uint8_t temp[2];
-  temp[0] = 0xC0 | (_row << 3) | _col;
-  temp[1] = ((_value_b / 64) << 4) | ((_value_g / 64) << 2) | (_value_r / 64);
-  Wire.write(temp, 2);       // sends five bytes
-  Wire.endTransmission();    // stop transmitting
+  if (this->type == TYPE_COLOR) {
+    Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
+    uint8_t temp[2];
+    temp[0] = 0xC0 | (_row << 3) | _col;
+    temp[1] = ((_value_b / 64) << 4) | ((_value_g / 64) << 2) | (_value_r / 64);
+    Wire.write(temp, 2);       // sends five bytes
+    Wire.endTransmission();    // stop transmitting
+  }
+  else {
+    Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
+    uint8_t temp[2];
+    temp[0] = 0x80 | (_row << 3) | _col;
+    temp[1] = ((_value_b / 8) + (_value_g / 8) + (_value_r / 8)) / 3;
+    Wire.write(temp, 2);       // sends five bytes
+    Wire.endTransmission();    // stop transmitting
+  }
+}
+
+void LedControl::setLedBrightness(uint8_t _row, uint8_t _col, uint8_t _value) {
+  if (_row < 0 || _row > 7 || _col < 0 || _col > 7 || _value > 255 || _value < 0)
+    return;
+
+  if (_value) {
+    if (this->Fast_mode)
+      this->setLedColorFast(_row, _col, this->value_color[0]*_value / 255, this->value_color[1]*_value / 255, this->value_color[2]*_value / 255);
+    else
+      this->setLedColor(_row, _col, this->value_color[0]*_value / 255, this->value_color[1]*_value / 255, this->value_color[2]*_value / 255);
+  }
+  else
+    this->setLedColorFast(_row, _col, 0, 0, 0);
 }
 
 void LedControl::setLed(uint8_t _row, uint8_t _col, bool _state) {
   if (_row < 0 || _row > 7 || _col < 0 || _col > 7)
     return;
 
-  if (_state) {
-    if (this->Fast_mode)
-      this->setLedColorFast(_row, _col, this->value_color[0], this->value_color[1], this->value_color[2]);
-    else
-      this->setLedColor(_row, _col, this->value_color[0], this->value_color[1], this->value_color[2]);
-  }
-  else
-    this->setLedColorFast(_row, _col, 0, 0, 0);
+  setLedBrightness(_row, _col, _state ? this->brightness : 0);
 }
 
 void LedControl::setRow(uint8_t _row, byte _value) {
   if (_row < 0 || _row > 7)
     return;
 
-  byte val;
-  for (uint8_t _col = 0; _col < 8; _col++) {
-    val = _value >> (_col);
-    val = val & 0x01;
-    this->setLed(_row, _col, val);
+  if (this->type == TYPE_COLOR) {
+    byte _val;
+    for (uint8_t _col = 0; _col < 8; _col++) {
+      _val = _value >> (_col);
+      _val = _val & 0x01;
+      this->setLed(_row, _col, _val);
+    }
+  }
+  else {
+    uint8_t temp[9];
+    Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
+    temp[0] = 0x80 | (_row << 3); //10000000 | x 确定列
+    byte _val;
+    for (uint8_t _col = 0; _col < 8; _col++) {
+      _val = _value >> (_col);
+      _val = _val & 0x01;
+      temp[_col + 1] = (_val ? this->brightness : 0) & 0x7F | 0x40;
+    }
+    Wire.write(temp, 9);
+    Wire.endTransmission();
   }
 }
 
@@ -140,20 +200,35 @@ void LedControl::setColumn(uint8_t _col, byte _value) {
   if (_col < 0 || _col > 7)
     return;
 
-  byte val;
-  for (uint8_t _row = 0; _row < 8; _row++) {
-    //val = _value >> (7 - _row);
-    val = _value >> (_row);
-    val = val & 0x01;
-    this->setLed(_row, _col, val);
+  if (this->type == TYPE_COLOR) {
+    byte _val;
+    for (uint8_t _row = 0; _row < 8; _row++) {
+      //_val = _value >> (7 - _row);
+      _val = _value >> (_row);
+      _val = _val & 0x01;
+      this->setLed(_row, _col, _val);
+    }
+  }
+  else {
+    uint8_t temp[9];
+    Wire.beginTransmission(this->Devices_addr + 1); // transmit to device #4
+    temp[0] = 0x80 | _col;  //10000000 | x 确定列
+    byte _val;
+    for (uint8_t _row = 0; _row < 8; _row++) {
+      _val = _value >> (_row);
+      _val = _val & 0x01;
+      temp[_row + 1] = (_val ? this->brightness : 0) & 0x3F;
+    }
+    Wire.write(temp, 9);
+    Wire.endTransmission();
   }
 }
 
-void LedControl::writeString(int16_t _time, char * _displayString) {
+void LedControl::writeString(int16_t _time, char* _displayString) {
   int16_t _leng = 0;
   int16_t _wight = 0;
   while (_displayString[_leng] != NULL) _wight += 1 + pgm_read_byte(alphabetBitmap[CharToInt(_displayString[_leng++])] + FONE_SIZE_X);
-//  Serial.println(_wight);
+  //  Serial.println(_wight);
 
   for (int16_t a = 8; a > -_wight; a--) {
     int16_t c = 0;
@@ -173,32 +248,33 @@ size_t LedControl::write(uint8_t c) {
     return 0;
 
   this->displayChar((this->cursor_x), (this->cursor_y), c);
-  if (this->Font_mode)
-    this->cursor_x += 1 + pgm_read_byte(alphabetBitmap[CharToInt(c)] + FONE_SIZE_X);
-  else
-    this->cursor_y += 1 + FONE_SIZE_Y;
+  this->cursor_x += 1 + pgm_read_byte(alphabetBitmap[CharToInt(c)] + FONE_SIZE_X);
+
   return 1;
 }
 
 
-void LedControl::displayChar(int8_t row, int8_t col, char _charIndex) {
-  if (row < 0 - 8 || row > 7 + 8 || col < 0 - 8 || col > 7 + 8 || CharToInt(_charIndex) > 94 || CharToInt(_charIndex) < 0)
+void LedControl::displayChar(int8_t _row, int8_t _col, char _charIndex) {
+  if (_row < 0 - 8 || _row > 7 + 8 || _col < 0 - 8 || _col > 7 + 8 || CharToInt(_charIndex) > 94 || CharToInt(_charIndex) < 0)
     return;
 
   uint8_t n = CharToInt(_charIndex);
-  uint8_t m = (this->Font_mode ? FONE_SIZE_X - pgm_read_byte(alphabetBitmap[n] + FONE_SIZE_X) : 0);
+  uint8_t m = FONE_SIZE_X - pgm_read_byte(alphabetBitmap[n] + FONE_SIZE_X);
 
-  byte val;
+
   for (int8_t i = m; i < FONE_SIZE_X + 1; i++) {
-    for (int8_t _col = col; col < 0 ? _col < 8 + col : _col < 8; _col++) {
-      if (i - m + row < 0 || i - m + row > 7)
+	byte _val,_cache = 0x00;
+    for (int8_t j = _col; _col < 0 ? j < 8 + _col : j < 8; j++) {
+      if (i - m + _row < 0 || i - m + _row > 7) {
         break;
+      }
       if (i != FONE_SIZE_X)
-        val = pgm_read_byte(alphabetBitmap[n] + i) >> (_col - col);
+        _val = pgm_read_byte(alphabetBitmap[n] + i) >> (j - _col);
       else
-        val = 0x00 >> (_col - col);
-      val = val & 0x01;
-      this->setLed(i - m + row, _col, val);
+        _val = 0x00 >> (j - _col);
+      _val = _val & 0x01;
+	  
+      this->setLed(i - m + _row, j, _val);
     }
   }
 }

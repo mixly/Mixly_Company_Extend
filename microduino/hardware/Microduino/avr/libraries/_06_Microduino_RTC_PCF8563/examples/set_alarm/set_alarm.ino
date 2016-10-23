@@ -1,46 +1,35 @@
 
-#include <Wire.h>
 #include <Rtc_Pcf8563.h>
 
 /* get a real time clock object */
 Rtc_Pcf8563 rtc;
+/* set a time to start with.
+ * year, month, weekday, day, hour, minute, second */
+DateTime dateTime = {2016, 6, 3, 1, 15, 30, 40};
 /* a flag for the interrupt */
-volatile int alarm_flag=0;
+volatile int alarmFlag=0;
 long timer=millis();
 
 /* the interrupt service routine */
-void blink()
-{
-  alarm_flag=1;
+void blink(){
+  alarmFlag=1;
 }
 
 void setup()
 {
   pinMode(2, INPUT);           // set pin to input
-
   Serial.begin(9600);
-
   /* clear out all the registers */
-  rtc.initClock();
-  /* set a time to start with.
-   * day, weekday, month, century, year */
-  rtc.setDate(16, 1, 12, 0, 13);
-  //hr, min, sec
-  rtc.setTime(10, 2, 50);
-  //  Serial.println("debug set time");
-  /* set an alarm for 10 secs later...
-   * alarm pin goes low when match occurs
-   * this triggers the interrupt routine
-   * min, hr, day, weekday 
-   * 99 = no alarm value to be set
-   */
-  rtc.clearAlarm();   
-  rtc.setAlarm(3, 10, 99, 99);
+  rtc.begin();
+  rtc.clearAll();
+  rtc.setDateTime(dateTime);
+   
+  rtc.setAlarm(30, 10, 0, 0, EN_HOUR);
+  rtc.enableAlarmInt();
   Serial.println("debug set alarm");
 
   /* setup int on pin 2 of arduino */
   attachInterrupt(0, blink, FALLING);
-
 }
 
 void loop()
@@ -52,24 +41,21 @@ void loop()
     Serial.print("  ");
     Serial.print(rtc.formatDate());
     Serial.print("  0x");
-    Serial.print(rtc.getStatus2(), HEX);
+    Serial.print(rtc.readStatus2(), HEX);
     Serial.print("\r\n");
-    delay(200);
     timer=millis();  
   }
 
-  if (alarm_flag==1){
-    clr_alarm();
+  if (alarmFlag==1){
+    clrAlarm();
   }
 }
 
-void clr_alarm()
+void clrAlarm()
 {
-  delay(2000);
   Serial.print("blink!\r\n");
-
-  rtc.clearAlarm();   
+  rtc.clearAlarmInt();   
   detachInterrupt(0);
-  alarm_flag=0;
+  alarmFlag=0;
   attachInterrupt(0, blink, FALLING);
 }

@@ -1,0 +1,62 @@
+#######################################
+# Syntax Coloring Map For JQ6500
+####################################### 
+# Datatypes (KEYWORD1)
+#######################################
+
+JQ6500	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+next	KEYWORD2
+prev	KEYWORD2
+choose	KEYWORD2
+volUp	KEYWORD2
+volDown	KEYWORD2
+volumn	KEYWORD2
+eq		KEYWORD2
+setDevice	KEYWORD2
+sleep	KEYWORD2
+reset   KEYWORD2
+play    KEYWORD2
+pause   KEYWORD2
+folder  KEYWORD2
+setMode KEYWORD2
+chooseFile	KEYWORD2
+init		KEYWORD2
+queryTF		KEYWORD2
+queryTFFile	KEYWORD2
+queryFlash	KEYWORD2
+queryFlashFile	KEYWORD2
+queryTotalTime	KEYWORD2
+queryPlayTime	KEYWORD2
+queryName	KEYWORD2
+
+
+
+	
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+EQ_NORMAL    	LITERAL1
+EQ_POP    		LITERAL1
+EQ_ROCK  		LITERAL1
+EQ_JAZZ      	LITERAL1
+EQ_CLASSIC    	LITERAL1
+EQ_BASE			LITERAL1
+
+DEVICE_U    	LITERAL1
+DEVICE_TF    	LITERAL1
+DEVICE_AUX  	LITERAL1
+DEVICE_SLEEP    LITERAL1
+DEVICE_FLASH    LITERAL1
+
+MODE_ALL		LITERAL1
+MODE_FOL		LITERAL1
+MODE_ONE		LITERAL1
+MODE_RAM		LITERAL1
+MODE_ONE_STOP	LITERAL1

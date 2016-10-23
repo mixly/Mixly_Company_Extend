@@ -27,8 +27,6 @@
 #define ERR 0
 #define DECODED 1
 
-#define BLINKLED 4
-
 // defines for setting and clearing register bits
 #ifndef cbi
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
@@ -40,6 +38,7 @@
 // clock timer reset value
 #define INIT_TIMER_COUNT (CLK - USECPERTICK*CLKSPERUSEC + CLKFUDGE) 
 #define RESET_TIMER2 TCNT2 = INIT_TIMER_COUNT
+#define RESET_TIMER3 TCNT3 = INIT_TIMER_COUNT
 #define RESET_TIMER4 TCNT4 = INIT_TIMER_COUNT
 
 // pulse parameters in usec
@@ -91,7 +90,6 @@
 typedef struct {
   uint8_t recvpin;           // pin for IR data from detector
   uint8_t rcvstate;          // state machine
-  uint8_t blinkflag;         // TRUE to enable blinking of pin 13 on IR processing
   unsigned int timer;     // state timer, counts 50uS ticks.
   unsigned int rawbuf[RAWBUF]; // raw data
   uint8_t rawlen;         // counter of entries in rawbuf

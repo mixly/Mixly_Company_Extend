@@ -12,7 +12,7 @@
 #define BlynkSimpleEthernet_h
 
 #ifndef BLYNK_INFO_CONNECTION
-#define BLYNK_INFO_CONNECTION "W5500"
+#define BLYNK_INFO_CONNECTION "W5100"
 #endif
 
 #include <Ethernet.h>

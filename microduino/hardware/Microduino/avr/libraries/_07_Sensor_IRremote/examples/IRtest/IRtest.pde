@@ -4,6 +4,11 @@
  * Copyright 2009 Ken Shirriff
  * http://arcfn.com
  *
+ * An IR LED must be connected to Arduino PWM pin 3.
+ * Microduino Core:D3
+ * Microduino Core+:D8
+ * Microduino CoreUSB:D6
+ * Microduino CoreRF:D5
  * Note: to run these tests, edit IRremote/IRremote.h to add "#define TEST"
  * You must then recompile the library by removing IRremote.o and restarting
  * the arduino IDE.

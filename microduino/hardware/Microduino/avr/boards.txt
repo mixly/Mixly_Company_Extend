@@ -207,19 +207,19 @@ menu.usb=UploadType
              
 32u416m.vid.0x2A03.warning=Uncertified
 
-32u416m.menu.usb.usb32u416m=USB
-32u416m.menu.usb.usb32u416m.upload.tool=avrdude
-32u416m.menu.usb.usb32u416m.upload.protocol=avr109
-32u416m.menu.usb.usb32u416m.upload.disable_flushing=true
-32u416m.menu.usb.usb32u416m.upload.use_1200bps_touch=true
-32u416m.menu.usb.usb32u416m.upload.wait_for_upload_port=true
+32u416m.menu.cpu.usb32u416m=USB
+32u416m.menu.cpu.usb32u416m.upload.tool=avrdude
+32u416m.menu.cpu.usb32u416m.upload.protocol=avr109
+32u416m.menu.cpu.usb32u416m.upload.disable_flushing=true
+32u416m.menu.cpu.usb32u416m.upload.use_1200bps_touch=true
+32u416m.menu.cpu.usb32u416m.upload.wait_for_upload_port=true
 
-32u416m.menu.usb.ttl32u416m=TTL
-32u416m.menu.usb.ttl32u416m.upload.tool=avrdude
-32u416m.menu.usb.ttl32u416m.upload.protocol=arduino
-32u416m.menu.usb.ttl32u416m.upload.disable_flushing=true
-32u416m.menu.usb.ttl32u416m.upload.use_1200bps_touch=true
-32u416m.menu.usb.ttl32u416m.upload.wait_for_upload_port=false
+32u416m.menu.cpu.ttl32u416m=TTL
+32u416m.menu.cpu.ttl32u416m.upload.tool=avrdude
+32u416m.menu.cpu.ttl32u416m.upload.protocol=arduino
+32u416m.menu.cpu.ttl32u416m.upload.disable_flushing=true
+32u416m.menu.cpu.ttl32u416m.upload.use_1200bps_touch=true
+32u416m.menu.cpu.ttl32u416m.upload.wait_for_upload_port=false
 
 
 32u416m.upload.maximum_size=28672
@@ -230,8 +230,8 @@ menu.usb=UploadType
 32u416m.bootloader.low_fuses=0xff
 32u416m.bootloader.high_fuses=0xd8
 32u416m.bootloader.extended_fuses=0xcb
-32u416m.menu.usb.usb32u416m.bootloader.file=caterina/Caterina.hex
-32u416m.menu.usb.ttl32u416m.bootloader.file=caterina/Caterina_TTL.hex
+32u416m.menu.cpu.usb32u416m.bootloader.file=caterina/Caterina.hex
+32u416m.menu.cpu.ttl32u416m.bootloader.file=caterina/Caterina_TTL.hex
 32u416m.bootloader.unlock_bits=0x3F
 32u416m.bootloader.lock_bits=0x2F
 

@@ -11,18 +11,21 @@
 #ifndef BlynkConfig_h
 #define BlynkConfig_h
 
+#include "Blynk/BlynkDetectDevice.h"
+
 /***************************************************
  * Change these settings to match your need
  ***************************************************/
 
-#define BLYNK_DEFAULT_DOMAIN "cloud.blynk.cc"
-#define BLYNK_DEFAULT_PORT   8442
+#define BLYNK_DEFAULT_DOMAIN     "blynk-cloud.com"
+#define BLYNK_DEFAULT_PORT       8442
+#define BLYNK_DEFAULT_PORT_SSL   8441
 
 /***************************************************
  * Professional settings
  ***************************************************/
 // Library version.
-#define BLYNK_VERSION        "0.3.3-beta"
+#define BLYNK_VERSION        "0.3.5-beta"
 
 // Heartbeat period in seconds.
 #ifndef BLYNK_HEARTBEAT

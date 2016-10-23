@@ -19,6 +19,7 @@ Key::Key(int pin, uint8_t input)
       keys[this->keyIndex].Pin.nbr = pin;
       this->key_status  = LOW;
       this->key_cache  = HIGH;
+	  this->key_time = 0;
 
       keys[this->keyIndex].Pin.isActive = true;  // this must be set after the check for isTimerActive
     }
@@ -62,7 +63,7 @@ Key::Key(int pin, uint8_t input)
   }
 */
 
-bool Key::read(bool sta) // return the value as degrees
+uint8_t Key::read() // return the value as degrees
 {
   // calculate and store the values for the given channel
   int8_t channel = keys[this->keyIndex].Pin.nbr;
@@ -71,25 +72,24 @@ bool Key::read(bool sta) // return the value as degrees
     this->key_cache = this->key_status; //缓存作判断用
     this->key_status = !digitalRead(channel); //触发时
 
-    switch (sta)
-    {
-      case 0:
-        if (!this->key_status && this->key_cache)   //按下松开后
-          return true;
-        else
-          return false;
-        break;
-      case 1:
-        if (this->key_status && !this->key_cache)   //按下松开后
-          return true;
-        else
-          return false;
-        break;
+    if (this->key_status && !this->key_cache) this->key_time = millis();
+
+    if (millis() - this->key_time > 1000) {
+      if (this->key_status)
+        return LONG_PRESS;
+      else
+        return NOT_PRESS;
     }
+    else if (!this->key_status && this->key_cache) {  //按下松开后
+      this->key_time = 0;
+      return SHORT_PRESS;
+    }
+    else
+      return NOT_PRESS;
   }
 }
 
-bool Key::read(bool sta, int min, int max) // return the value as degrees
+uint8_t Key::read(int min, int max) // return the value as degrees
 {
   // calculate and store the values for the given channel
   int8_t channel = keys[this->keyIndex].Pin.nbr;
@@ -97,23 +97,22 @@ bool Key::read(bool sta, int min, int max) // return the value as degrees
   {
 	int analog=analogRead(channel);
     this->key_cache = this->key_status; //缓存作判断用
-    this->key_status = bool( analog> min && analog < max); //触发时
+    this->key_status = bool( analog>= min && analog <= max); //触发时
 
-    switch (sta)
-    {
-      case 0:
-        if (!this->key_status && this->key_cache)   //按下松开后
-          return true;
-        else
-          return false;
-        break;
-      case 1:
-        if (this->key_status && !this->key_cache)   //按下松开后
-          return true;
-        else
-          return false;
-        break;
+    if (this->key_status && !this->key_cache) this->key_time = millis();
+
+    if (millis() - this->key_time > 1000) {
+      if (this->key_status)
+        return LONG_PRESS;
+      else
+        return NOT_PRESS;
     }
+    else if (!this->key_status && this->key_cache) {  //按下松开后
+      this->key_time = 0;
+      return SHORT_PRESS;
+    }
+    else
+      return NOT_PRESS;
   }
 }
 

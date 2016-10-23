@@ -130,8 +130,10 @@ public:
             return false;
         humidity     = buf[2] << 8;
         humidity    += buf[3];
-        temperature  = buf[4] << 8;
+        temperature  = (buf[4]&0x7F) << 8;
         temperature += buf[5];
+		if((buf[4]&0x80) == 0x80)
+			temperature = -temperature;
         return true;
     }
 };

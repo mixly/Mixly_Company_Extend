@@ -45,7 +45,6 @@ class IRrecv
 {
 public:
   IRrecv(int recvpin);
-  void blinkLED(int blinkflag);
   int decode(decode_results *results);
   void enableIRIn();
   void resume();

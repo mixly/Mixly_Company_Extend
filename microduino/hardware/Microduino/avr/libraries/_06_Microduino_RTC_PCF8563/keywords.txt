@@ -4,7 +4,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-Rtc_Pcf8563	KEYWORD1
+PCF8563	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -38,8 +38,7 @@ clearSquareWave KEYWORD2
 getAlarmMinute  KEYWORD2
 getAlarmHour  KEYWORD2
 getAlarmDay KEYWORD2
-getAlarmWeekday KEYWORD2
-version KEYWORD2		
+getAlarmWeekday KEYWORD2	
 
 #######################################
 # Constants (LITERAL1)

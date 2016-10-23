@@ -100,6 +100,8 @@ class Adafruit_VS1053 {
   void dumpRegs(void);
 
   void playData(uint8_t *buffer, uint8_t buffsiz);
+  void playBuffer(uint8_t *buffer, size_t buffsiz);
+  void stopPlaying(void);
   boolean readyForData(void);
   void applyPatch(const uint16_t *patch, uint16_t patchsize);
   uint16_t loadPlugin(char *fn);
@@ -144,6 +146,7 @@ class Adafruit_VS1053_FilePlayer : public Adafruit_VS1053 {
   boolean startPlayingFile(const char *trackname);
   boolean playFullFile(const char *trackname);
   void stopPlaying(void);
+  void stopSong(void);
   boolean paused(void);
   boolean stopped(void);
   void pausePlaying(boolean pause);

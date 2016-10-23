@@ -1,36 +1,870 @@
-<!-- type="company" 
-	 block="block/microduinoBlock.js" 
-	 generator="generator/microduinoCode.js"  
-	 lib="" 
-	 hardware="hardware/Microduino"
-	 media="media/microduino" 
-	 language="language/microduino"
-	 pin="companypin/microduino" -->
+<!-- type="company" block="block/Microduino.min.js" generator="generator/Microduino.min.js"  lib="Microduino" hardware="hardware/Microduino" media="media/microduino" language="language/microduino" pin="companypin/microduino" -->
 
-<script type="text/javascript" src="../../blocks/company/microduinoBlock.js"></script>
-<script type="text/javascript" src="../../generators/arduino/company/microduinoCode.js"></script>
 
-<category name="Microduino" colour="40">
+<script type="text/javascript" src="../../blocks/company/Microduino.min.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/Microduino.min.js"></script>
 
-	<block type="ws2812Begin">
-		<value name="LEDNumber">
-			<block type="math_number">
-				<field name="NUM">1</field>
+<category id="microduino" name="Microduino" colour="#000000">
+
+	<category id="catMicroduinoCore" name="基础模块" colour="#e36a69">
+		<block type="microduinoWatting">
+		</block>
+		<block type="microduinoWhile">
+		</block>
+		<block type="microduinoFor">
+	    <value name="FROM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+		<value name="TO">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+	  </block>
+
+		<block type="microduinoAnaloyWrite">
+		    <value name="pwmNumber">
+		      <shadow type="math_number">
+		        <field name="NUM">0</field>
+		      </shadow>
+		    </value>
+		</block>
+
+		<block type="microduinoAnaloyRead"></block>
+
+		<block type="microduinoSerailAvailable"></block>
+	</category>
+
+	<category id="catMicroduinoExtended" name="拓展模块" colour="#27b6ac">
+
+		<block type="MotorBeginchange">
+		</block>
+		<block type="Motor_run">
+		 <value name="speed">
+           <shadow type="math_number">
+             <field name="NUM">255</field>
+           </shadow>
+         </value>
+		</block>
+		<block type="MotorBreak">
+		</block>
+		<block type="MotorFree">
+		</block>
+
+
+
+		<block type="MotorBegin">
+		</block>
+
+
+		<block type="microduinoCarControl">
+	 	 	<value name="leftSpeed">
+	           <shadow type="math_number">
+	             <field name="NUM">255</field>
+	           </shadow>
+	         </value>
+	 		<value name="rightSpeed">
+	           <shadow type="math_number">
+	             <field name="NUM">255</field>
+	           </shadow>
+	         </value>
+ 	  	</block>
+
+
+
+		<block type="mdStepperBegin">
+		</block>
+		<block type="mdStepperControl">
+			<value name="speed">
+				<shadow type="math_number">
+				 <field name="NUM">60</field>
+				</shadow>
+        	</value>
+		</block>
+
+
+		<block type="DotMatrix">
+			<block type="dotMatrixName">
 			</block>
-	    </value>
-		<value name="LEDPin">
-			<block type="math_number">
-				<field name="NUM">6</field>
-			</block>
+			<value name="row0">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row1">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row2">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row3">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row4">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row5">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row6">
+				<block type="DotMatrixRow"></block>
+			</value>
+			<value name="row7">
+				<block type="DotMatrixRow"></block>
+			</value>
+		</block>
+
+		<block type="DotMatrixAddArray"></block>
+		<block type="DotMatrixAddNum"></block>
+		<block type="getMatrixNum"></block>
+		<block type="getMatrixDeviceAddr">
+			<value name="MatrixIndex">
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+			</value>
+		</block>
+
+		<block type="getMatrixHeight"></block>
+		<block type="getMatrixWidth"></block>
+		<block type="setMatrixLedColor">
+			<value name="MatrixIndexX">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="MatrixIndexY">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="MatrixIndexRed">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+			<value name="MatrixIndexGreen">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+			<value name="MatrixIndexBlue">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+		</block>
+
+		<block type="clearMatrixDisplay"></block>
+
+		<block type="setMatrixColor">
+			<value name="MatrixRed">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+			<value name="MatrixGreen">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+			<value name="MatrixBlue">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+		</block>
+
+		<block type="clearMatrixColor"></block>
+
+		<block type="MatrixWriteString">
+			<value name="startMatrixT">
+				<shadow type="math_number">
+					<field name="NUM">20</field>
+				</shadow>
+			</value>
+			<value name="startMatrixXY">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+		</block>
+
+
+		<block type="MD_Matrix_GeometryLine">
+			<value name="x0">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="y0">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>	
+			<value name="x1w">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="y1h">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>		
+		</block>
+
+
+		<block type="MD_Matrix_GeometryCircle">
+			<value name="x">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="y">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>	
+			<value name="rw">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+		</block>
+
+
+
+		<block type="OLED_begin"></block>
+		<block type="OLED_print">
+		<value name="x">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
 		</value>
-	</block>
+		<value name="y">
+			<shadow type="math_number">
+				<field name="NUM">20</field>
+			</shadow>
+		</value>
+		<value name="text">
+			<block type="text">
+				<field name="TEXT">hello Microduino</field>
+			</block>
+		</value>			
+		</block>
 
-	<block type="ws2812Doing">
-		<value name="LEDIndex">
+
+		<block type="MD_OLED_GeometryLine">
+			<value name="x0">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="y0">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>	
+			<value name="x1w">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="y1h">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>		
+		</block>
+
+
+		<block type="MD_OLED_GeometryCircle">
+			<value name="x">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="y">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>	
+			<value name="rw">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+	
+		</block>
+
+		<block type="MD_OLED_getWidthHigh"></block>
+
+		<block type="OLED_print_roll">
+		<value name="y">
+			<shadow type="math_number">
+				<field name="NUM">20</field>
+			</shadow>
+		</value>
+		<value name="x">
+			<shadow type="math_number">
+				<field name="NUM">100</field>
+			</shadow>
+		</value>
+		<value name="text">
+			<block type="text">
+				<field name="TEXT">hello mCookie</field>
+			</block>
+		</value>			
+		</block>
+		<block type="OLED_simplePrint">
+		<value name="text">
+			<block type="text">
+				<field name="TEXT">hello Microduino</field>
+			</block>
+		</value>			
+		</block>
+	</category>
+
+	<category id="catMicroduinoFunction" name="功能模块" colour="#edbd53">
+
+		<block type="mCookie_Audio_Serial">
+		    <value name="Vol">
+		        <shadow type="math_number">
+		            <field name="NUM">20</field>
+		        </shadow>
+		    </value>
+		</block>
+
+		<block type="mCookie_Audio_Control"></block>
+
+		<block type="mCookie_Audio_Choose">
+			<value name="audioNumber">
+	          <shadow type="math_number">
+	            <field name="NUM">1</field>
+	          </shadow>
+	        </value>
+		</block>
+
+		<block type="audioProPrepare"></block>
+		<block type="audioProInstrument"></block>
+		<block type="audioProControl">
+			<value name="audioProMelody">
+	          <shadow type="math_number">
+	            <field name="NUM">57</field>
+	          </shadow>
+	        </value>
+	        <value name="audioProVolume">
+	          <shadow type="math_number">
+	            <field name="NUM">127</field>
+	          </shadow>
+	        </value>
+	        <value name="audioProDuration">
+	          <shadow type="math_number">
+	            <field name="NUM">100</field>
+	          </shadow>
+	        </value>
+		</block>
+
+		<block type="mCookie_RTC_time"></block>
+
+		<block type="mCookie_RTC_set">
+		    <value name="Year">
+		        <shadow type="math_number">
+		            <field name="NUM">15</field>
+		        </shadow>
+		    </value>
+		    <value name="Mouth">
+		        <shadow type="math_number">
+		            <field name="NUM">10</field>
+		        </shadow>
+		    </value>
+		    <value name="Day">
+		        <shadow type="math_number">
+		            <field name="NUM">5</field>
+		        </shadow>
+		    </value>
+			<value name="Week">
+		        <shadow type="math_number">
+		            <field name="NUM">1</field>
+		        </shadow>
+		    </value>
+		    <value name="Hour">
+		        <shadow type="math_number">
+		            <field name="NUM">10</field>
+		        </shadow>
+		    </value>
+		    <value name="Minute">
+		        <shadow type="math_number">
+		            <field name="NUM">5</field>
+		        </shadow>
+		    </value>
+		    <value name="Second">
+		        <shadow type="math_number">
+		            <field name="NUM">0</field>
+		        </shadow>
+		    </value>
+		</block> 
+
+		
+		<block type="mCookie_RTC_Output"></block>
+		<block type="GPS"></block>
+		<block type="GPSShows">
+
+		    <value name="GPSHour">
+		        <block type="GPSHour"></block>
+		    </value>
+		    <value name="GPSMinute">
+		        <block type="GPSMinute"></block>
+		    </value>
+		    <value name="GPSSeconds">
+		        <block type="GPSSeconds"></block>
+		    </value>
+		    <value name="GPSDay">
+		        <block type="GPSDay"></block>
+		    </value>
+		    <value name="GPSMonth">
+		        <block type="GPSMonth"></block>
+		    </value>
+		    <value name="GPSYear">
+		        <block type="GPSYear"></block>
+		    </value>
+		    <value name="GPSFix">
+		        <block type="GPSFix"></block>
+		    </value>
+		    <value name="GPSQuality">
+		        <block type="GPSQuality"></block>
+		    </value>
+		    <value name="GPSLatitude">
+		        <block type="GPSLatitude"></block>
+		    </value>
+		    <value name="GPSLat">
+		        <block type="GPSLat"></block>
+		    </value>
+		    <value name="GPSLongitude">
+		        <block type="GPSLongitude"></block>
+		    </value>
+		    <value name="GPSLon">
+		        <block type="GPSLon"></block>
+		    </value>
+		    <value name="GPSSpeed">
+		        <block type="GPSSpeed"></block>
+		    </value>
+		    <value name="GPSAngle">
+		        <block type="GPSAngle"></block>
+		    </value>
+		    <value name="GPSAltitude">
+		        <block type="GPSAltitude"></block>
+		    </value>
+		    <value name="GPSSatellites">
+		        <block type="GPSSatellites"></block>
+		    </value>
+		</block>
+
+		
+		<block type="motionAccGyro"></block>
+		<block type="getMotionValue"></block>
+		<block type="motionDMP"></block>
+
+		<block type="getMotionYawPitchRoll"></block>
+
+
+
+		 <block type="SD_Write">
+		 		<value name="File_Name">
+					<block type="text">
+						<field name="File_Name">test.txt</field>
+					</block>
+				</value>
+		 </block>
+
+		 <block type="SD_Read">
+		 		<value name="File_Name">
+					<block type="text">
+						<field name="File_Name">test.txt</field>
+					</block>
+				</value>
+		 </block> 
+	</category>
+
+
+	<category id="catMicroduinoCommunication" name="通信模块" colour="#6c91ac">
+
+		<block type="bluetoothMicroduinoBegin"></block>
+		<block type="bluetoothMicroduinoReciver"></block>
+		<block type="btMicroduinoReciverData"></block>
+		<block type="btMicroduinoSenderData"></block>
+		<block type="bluetoothmtankBegin"></block>
+		<block type="bluetoothmTankReciver"></block>
+		<block type="bluetoothmTankdata"></block>
+		<block type="bluetoothcolorled"></block>
+
+		<block type="IRSenderCode">
+			<value name="data">
+		   <shadow type="math_number">
+		     <field name="NUM">0x89ABCDEF</field>
+		   </shadow>
+		 </value>
+			<value name="bits">
+		   <shadow type="math_number">
+		     <field name="NUM">32</field>
+		   </shadow>
+		 </value>
+		  </block>
+ 
+ 
+		<block type="IRSenderRaw">
+			<value name="length">
+				<shadow type="math_number">
+				 <field name="NUM">3</field>
+				</shadow>
+			</value>
+			<value name="freq">
+				<shadow type="math_number">
+				 <field name="NUM">38</field>
+				</shadow>
+			</value>
+		</block>
+
+	  <block type="IRReciver">
+		<value name="PIN">
+          <shadow type="pins_digital"></shadow>
+        </value>
+		<statement name="DO">
+			<block type="serial_print_hex">
+				<value name="CONTENT">
+					<block type="variables_get">
+						<field name="VAR">ir_item</field>
+					</block>
+				</value>
+			</block>
+		</statement>
+	  </block>
+
+	  <block type="IRReciverRaw">
+		<value name="PIN">
+          <shadow type="pins_digital"></shadow>
+        </value>
+	  </block>
+	  <block type="IRReciverEnable">
+		<value name="PIN">
+          <shadow type="pins_digital"></shadow>
+        </value>
+	  </block>
+
+	<block type="nRF_Init"></block>
+	<block type="nRF_Send"></block>
+	<block type="nRF_Read"></block>
+
+	<block type="WiFiBlynk"></block>
+	<block type="BLYNK_READ"></block>
+	<block type="BLYNK_WRITE"></block>
+	<block type="BLYNKParamOne"></block>
+	<block type="BLYNKParamArray">
+		<value name="paramNum">
 			<block type="math_number">
 				<field name="NUM">0</field>
 			</block>
-	    </value>
+		</value>
 	</block>
-	
+	<block type="WiFiBlynkTimer"></block>
+	<block type="WiFiBlynkVirtualWrite"></block>
+
+
+	<block type="microduinoIICSendToSlaver">
+		<value name="numSlaver">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="numByte">
+		  <shadow type="text">
+			<field name="TEXT">a</field>
+		  </shadow>
+		</value>
+
+	</block>
+
+	<block type="microduinoIICRequest">
+		<value name="numSlaver">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="numByte">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	</block>
+
+	<block type="microduinoIICReadCache"></block>
+	<block type="microduinoIICCacheLen"></block>
+	<block type="microduinoIMIICSlaver">
+		<value name="numSlaver">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	</block>
+	<block type="reciverIICMasterRequest"></block>
+	<block type="microduinoIICSendToMaster">
+		<value name="numByte">
+		  <shadow type="text">
+			<field name="TEXT">a</field>
+		  </shadow>
+		</value>
+	</block>
+	<block type="reciverIICMasterData"></block>
+
+
+
+	</category>
+
+
+	<category id="catMicroduinoExecutor" name="执行器" colour="#70bd94">
+
+		<block type="BreathingLightH">
+			<value name="LEDPinNumber">
+				<shadow type="math_number">
+					<field name="NUM">6</field>
+				</shadow>
+			</value>
+			<value name="LEDFrequency">
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="BreathingLightX">
+			<value name="LEDPinNumber">
+				<shadow type="math_number">
+					<field name="NUM">6</field>
+				</shadow>
+			</value>
+			<value name="LEDFrequency">
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+			</value>
+		</block>
+
+		<block type="ws2812Begin">
+			<value name="LEDNumber">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+		<value name="LEDPin">
+			<shadow type="math_number">
+				<field name="NUM">6</field>
+			</shadow>
+		</value>
+		</block>
+		<block type="ws2812Doing">
+			<value name="LEDIndex">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+		</block>
+		<block type="ws2812DoingRGB">
+			<value name="LEDIndex">
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+			</value>
+			<value name="red">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="green">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+			<value name="blue">
+				<shadow type="math_number">
+					<field name="NUM">0</field>
+				</shadow>
+			</value>
+		</block>
+        <block type="ws2812BreathRGB">
+			<value name="LEDIndex">
+				<shadow type="math_number">
+					<field name="NUM">1</field>
+				</shadow>
+			</value>
+			<value name="red">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+			<value name="green">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+			<value name="blue">
+				<shadow type="math_number">
+					<field name="NUM">255</field>
+				</shadow>
+			</value>
+		</block>
+
+		<block type="BuzzerTone">
+			<value name="BuzzerPin">
+				<shadow type="math_number">
+					<field name="NUM">6</field>
+				</shadow>
+			</value>
+			<value name="Frequency">
+				<shadow type="math_number">
+					<field name="NUM">200</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="BuzzerToneMelody">
+			<value name="BuzzerPin">
+				<shadow type="math_number">
+					<field name="NUM">6</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="BuzzerToneSong">
+			<value name="BuzzerPin">
+				<shadow type="math_number">
+					<field name="NUM">6</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="BuzzerNoTone">
+			<value name="BuzzerPin">
+				<shadow type="math_number">
+					<field name="NUM">6</field>
+				</shadow>
+			</value>
+		</block>
+
+
+		<block type="MicroduinoTimer">
+			<value name="intervalTime">
+				<shadow type="math_number">
+					<field name="NUM">2000</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="MicroduinoTimerBegin"></block>
+		<block type="MicroduinoTimerOut">
+			<value name="intervalTime">
+				<shadow type="math_number">
+					<field name="NUM">2000</field>
+				</shadow>
+			</value>
+		</block>
+		<block type="MicroduinoTimerDuration">
+		</block>
+
+
+	   <block type="microduinoServoMove">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	    <value name="DEGREE">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+		<value name="DELAY_TIME">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+	  </block>
+
+
+	</category>
+
+
+	<category id="catMicroduinoSensor" name="传感器" colour="#efa752">
+
+		<block type="Microduino_KEYDigital"></block>
+		<block type="Microduino_KEYAnalog"></block>
+		<block type="lm75"></block>
+		<block type="TSL2561LightReady"></block>
+		<block type="TSL2561Light"></block>
+		<block type="xyJoystick"></block>
+		<block type="microduinoJoystick"></block>
+		<block type="microduinoCrash">
+			<value name="digitalPin">
+	          <shadow type="math_number">
+	            <field name="NUM">6</field>
+	          </shadow>
+	        </value>
+		</block>
+		<block type="microduinoTuch">
+			<value name="digitalPin">
+	          <shadow type="math_number">
+	            <field name="NUM">6</field>
+	          </shadow>
+	        </value>
+		</block>
+		<block type="microduinoPIR">
+			<value name="digitalPin">
+	          <shadow type="math_number">
+	            <field name="NUM">6</field>
+	          </shadow>
+	        </value>
+		</block>
+		<block type="microduinoMic">
+			<value name="digitalPin">
+	          <shadow type="math_number">
+	            <field name="NUM">6</field>
+	          </shadow>
+	        </value>
+		</block>
+		<block type="microduinoLight">
+			<value name="digitalPin">
+	          <shadow type="math_number">
+	            <field name="NUM">6</field>
+	          </shadow>
+	        </value>
+		</block>
+		<block type="microduinoMicAnal"></block>
+		<block type="microduinoLightAnal"></block>
+		<block type="microduinoIRRactAnal"></block>
+
+		<block type="mCookie_AM2321"></block>
+		<block type="mCookie_SHT2"></block>
+		<block type="ColorDetPrepare_TCS3414"></block>
+		<block type="ColorGet_TCS3414"></block>
+		<block type="MD_Potentiometer"></block>
+	</category>
+
+	<category id="catVariableExpansion" name="拓展变量" colour="#e386a1">
+		  <block type="Defination">
+	      </block>
+
+	      <block type="nrfDataStructDefine">
+	      </block>
+	      <block type="nrfDataMemberDefine">
+	      </block>
+	      <block type="nrfDataSender">
+	      </block>
+	      <block type="nrfDataMemberSender">
+	      </block>
+	      <block type="nrfDataMemberReciver">
+	      </block>
+
+
+		<block type="melodyBuzzer">
+		</block>
+
+		<block type="rhythmBuzzer">
+		</block>
+
+	</category>
+
 </category>
+

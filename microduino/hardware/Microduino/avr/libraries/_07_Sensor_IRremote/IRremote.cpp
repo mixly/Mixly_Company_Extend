@@ -209,6 +209,8 @@ void IRsend::mark(int time) {
   
 #if defined (__AVR_ATmega32U4__)
   TCCR4A |= _BV(COM4A1); 
+#elif defined(__AVR_ATmega128RFA1__)
+  TCCR3A |= _BV(COM3B1);
 #else
   TCCR2A |= _BV(COM2B1); // Enable pin 3 PWM output
 #endif
@@ -222,6 +224,8 @@ void IRsend::space(int time) {
   // A space is no output, so the PWM output is disabled.
 #if defined (__AVR_ATmega32U4__)
   TCCR4A &= ~(_BV(COM4A1));
+#elif defined(__AVR_ATmega128RFA1__)
+  TCCR3A &= ~(_BV(COM3B1));
 #else
   TCCR2A &= ~(_BV(COM2B1)); // Disable pin 3 PWM output
 #endif
@@ -244,6 +248,8 @@ void IRsend::enableIROut(int khz) {
   // Disable the Timer2 Interrupt (which is used for receiving IR)
 #if defined (__AVR_ATmega32U4__)
 	TIMSK4 &= ~_BV(TOIE4);
+#elif defined(__AVR_ATmega128RFA1__)
+	TIMSK3 &= ~_BV(TOIE3); //Timer3 Overflow Interrupt
 #else
 	TIMSK2 &= ~_BV(TOIE2); //Timer2 Overflow Interrupt
 #endif
@@ -251,6 +257,9 @@ void IRsend::enableIROut(int khz) {
 #if defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__)
   pinMode(8, OUTPUT);
   digitalWrite(8, LOW); // When not sending PWM, we want it low
+#elif defined(__AVR_ATmega128RFA1__)
+  pinMode(5, OUTPUT);
+  digitalWrite(5, LOW);
 #elif defined(__AVR_ATmega32U4__)
   pinMode(6, OUTPUT);
   digitalWrite(6, LOW);
@@ -270,7 +279,13 @@ void IRsend::enableIROut(int khz) {
   
   OCR4A = SYSCLOCK / 2 / khz / 1000;
   OCR4B = OCR4A / 3;
- 
+#elif defined(__AVR_ATmega128RFA1__)
+  TCCR3A = _BV(WGM30);
+  TCCR3B = _BV(WGM32) | _BV(CS30);
+
+  // The top value for the timer.  The modulation frequency will be SYSCLOCK / 2 / OCR2A.
+  OCR3A = SYSCLOCK / 2 / khz / 1000;
+  OCR3B = OCR3A / 3; // 33% duty cycle 
 #else  
   TCCR2A = _BV(WGM20);
   TCCR2B = _BV(WGM22) | _BV(CS20);
@@ -284,7 +299,6 @@ void IRsend::enableIROut(int khz) {
 IRrecv::IRrecv(int recvpin)
 {
   irparams.recvpin = recvpin;
-  irparams.blinkflag = 0;
 }
 
 // initialization
@@ -303,6 +317,20 @@ void IRrecv::enableIRIn() {
   sbi(TIMSK4, TOIE4);
   
   RESET_TIMER4;
+#elif defined(__AVR_ATmega128RFA1__)
+  TCCR3A = 0;  // normal mode
+
+  //Prescale /8 (16M/8 = 0.5 microseconds per tick)
+  // Therefore, the timer interval can range from 0.5 to 128 microseconds
+  // depending on the reset value (255 to 0)
+  cbi(TCCR3B,CS32);
+  sbi(TCCR3B,CS31);
+  cbi(TCCR3B,CS30);
+
+  //Timer3 Overflow Interrupt Enable
+  sbi(TIMSK3,TOIE3);
+
+  RESET_TIMER3;
 #else
   TCCR2A = 0;  // normal mode
 
@@ -329,13 +357,6 @@ void IRrecv::enableIRIn() {
   pinMode(irparams.recvpin, INPUT);
 }
 
-// enable/disable blinking of pin 13 on IR processing
-void IRrecv::blinkLED(int blinkflag)
-{
-  irparams.blinkflag = blinkflag;
-  if (blinkflag)
-    pinMode(BLINKLED, OUTPUT);
-}
 
 // TIMER2 interrupt code to collect raw data.
 // Widths of alternating SPACE, MARK are recorded in rawbuf.
@@ -348,73 +369,15 @@ void IRrecv::blinkLED(int blinkflag)
 ISR(TIMER4_OVF_vect)
 {
   RESET_TIMER4;
-
-  uint8_t irdata = (uint8_t)digitalRead(irparams.recvpin);
-
-  irparams.timer++; // One more 50us tick
-  if (irparams.rawlen >= RAWBUF) {
-    // Buffer overflow
-    irparams.rcvstate = STATE_STOP;
-  }
-  switch(irparams.rcvstate) {
-  case STATE_IDLE: // In the middle of a gap
-    if (irdata == MARK) {
-      if (irparams.timer < GAP_TICKS) {
-        // Not big enough to be a gap.
-        irparams.timer = 0;
-      } 
-      else {
-        // gap just ended, record duration and start recording transmission
-        irparams.rawlen = 0;
-        irparams.rawbuf[irparams.rawlen++] = irparams.timer;
-        irparams.timer = 0;
-        irparams.rcvstate = STATE_MARK;
-      }
-    }
-    break;
-  case STATE_MARK: // timing MARK
-    if (irdata == SPACE) {   // MARK ended, record time
-      irparams.rawbuf[irparams.rawlen++] = irparams.timer;
-      irparams.timer = 0;
-      irparams.rcvstate = STATE_SPACE;
-    }
-    break;
-  case STATE_SPACE: // timing SPACE
-    if (irdata == MARK) { // SPACE just ended, record it
-      irparams.rawbuf[irparams.rawlen++] = irparams.timer;
-      irparams.timer = 0;
-      irparams.rcvstate = STATE_MARK;
-    } 
-    else { // SPACE
-      if (irparams.timer > GAP_TICKS) {
-        // big SPACE, indicates gap between codes
-        // Mark current code as ready for processing
-        // Switch to STOP
-        // Don't reset timer; keep counting space width
-        irparams.rcvstate = STATE_STOP;
-      } 
-    }
-    break;
-  case STATE_STOP: // waiting, measuring gap
-    if (irdata == MARK) { // reset gap timer
-      irparams.timer = 0;
-    }
-    break;
-  }
-
-  if (irparams.blinkflag) {
-    if (irdata == MARK) {
-      PORTB |= B00100000;  // turn pin 13 LED on
-    } 
-    else {
-      PORTB &= B11011111;  // turn pin 13 LED off
-    }
-  }
-}
+#elif defined(__AVR_ATmega128RFA1__)
+ISR(TIMER3_OVF_vect)
+{
+  RESET_TIMER3;
 #else
 ISR(TIMER2_OVF_vect)
 {
   RESET_TIMER2;
+#endif
 
   uint8_t irdata = (uint8_t)digitalRead(irparams.recvpin);
 
@@ -468,17 +431,7 @@ ISR(TIMER2_OVF_vect)
     }
     break;
   }
-
-  if (irparams.blinkflag) {
-    if (irdata == MARK) {
-      PORTB |= B00100000;  // turn pin 13 LED on
-    } 
-    else {
-      PORTB &= B11011111;  // turn pin 13 LED off
-    }
-  }
 }
-#endif
 
 void IRrecv::resume() {
   irparams.rcvstate = STATE_IDLE;

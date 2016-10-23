@@ -165,6 +165,7 @@ static int8_t toneBegin(uint8_t _pin)
         // 8 bit timer
         TCCR0A = 0;
         TCCR0B = 0;
+		TIMSK0 = 0;
         bitWrite(TCCR0A, WGM01, 1);
         bitWrite(TCCR0B, CS00, 1);
         timer0_pin_port = portOutputRegister(digitalPinToPort(_pin));
@@ -177,6 +178,7 @@ static int8_t toneBegin(uint8_t _pin)
         // 16 bit timer
         TCCR1A = 0;
         TCCR1B = 0;
+		TIMSK1 = 0;
         bitWrite(TCCR1B, WGM12, 1);
         bitWrite(TCCR1B, CS10, 1);
         timer1_pin_port = portOutputRegister(digitalPinToPort(_pin));
@@ -189,6 +191,7 @@ static int8_t toneBegin(uint8_t _pin)
         // 8 bit timer
         TCCR2A = 0;
         TCCR2B = 0;
+		TIMSK2 = 0;
         bitWrite(TCCR2A, WGM21, 1);
         bitWrite(TCCR2B, CS20, 1);
         timer2_pin_port = portOutputRegister(digitalPinToPort(_pin));
@@ -201,6 +204,7 @@ static int8_t toneBegin(uint8_t _pin)
         // 16 bit timer
         TCCR3A = 0;
         TCCR3B = 0;
+		TIMSK3 = 0;
         bitWrite(TCCR3B, WGM32, 1);
         bitWrite(TCCR3B, CS30, 1);
         timer3_pin_port = portOutputRegister(digitalPinToPort(_pin));
@@ -213,6 +217,7 @@ static int8_t toneBegin(uint8_t _pin)
         // 16 bit timer
         TCCR4A = 0;
         TCCR4B = 0;
+		TIMSK4 = 0;
         #if defined(WGM42)
           bitWrite(TCCR4B, WGM42, 1);
         #elif defined(CS43)
@@ -231,6 +236,7 @@ static int8_t toneBegin(uint8_t _pin)
         // 16 bit timer
         TCCR5A = 0;
         TCCR5B = 0;
+		TIMSK5 = 0;
         bitWrite(TCCR5B, WGM52, 1);
         bitWrite(TCCR5B, CS50, 1);
         timer5_pin_port = portOutputRegister(digitalPinToPort(_pin));

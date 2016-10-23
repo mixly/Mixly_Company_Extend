@@ -8,8 +8,9 @@
 #endif
 
 #define INVALID_SERVO         255     // flag indicating an invalid key index
-#define PRESS 1
-#define RELEASE 0
+#define NOT_PRESS 0
+#define SHORT_PRESS 1
+#define LONG_PRESS 2
 
 typedef struct  {
   uint8_t nbr        :6 ;             // a pin number from 0 to 63
@@ -26,13 +27,14 @@ class Key
 public:
   Key(int pin,uint8_t input);
   uint8_t attach(int pin);           // attach the given pin to the next free channel, sets pinMode, returns channel number or 0 if failure
-  bool read(bool sta, int min, int max); // as above but also sets min and max values for writes. 
-  bool read(bool sta);                        // returns current pulse width as an angle between 0 and 180 degrees
+  uint8_t read(int min, int max); // as above but also sets min and max values for writes. 
+  uint8_t read();                        // returns current pulse width as an angle between 0 and 180 degrees
   bool attached();                   // return true if this key is attached, otherwise false 
 private:
    uint8_t keyIndex;               // index into the channel data for this key
    bool key_status;
    bool key_cache;
+   unsigned long key_time;
 };
 
 #endif

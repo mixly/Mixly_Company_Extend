@@ -1,21 +1,30 @@
 #include <Microduino_Key.h>
 
-Key KeyA(4, INPUT_PULLUP);
-Key KeyB(5, INPUT_PULLUP);
-Key KeyC(A6, INPUT);
+Key KeyA(A0, INPUT_PULLUP);
+Key KeyB(A2, INPUT);
 
-void setup()
-{
+void setup(){
   Serial.begin(9600);
 }
 
-void loop()
-{
-  if (KeyA.read(RELEASE))
-    Serial.println("KEY A(digital)!");                  // sets the servo position according to the scaled value
-  if (KeyB.read(PRESS))
-    Serial.println("KEY B(digital)!");                  // sets the servo position according to the scaled value
-  if (KeyC.read(PRESS, 500, 530))
-    Serial.println("KEY C(analog)!");                  // sets the servo position according to the scaled value
-  delay(15);                           // waits for the servo to get there
+void loop(){
+	switch(KeyA.read()){
+		case SHORT_PRESS:
+		Serial.println("KEY A(digital) SHORT_PRESS"); 	//短按
+		break;
+		case LONG_PRESS:
+		Serial.println("KEY A(digital) LONG_PRESS");    //长按
+		break;
+	}
+
+	switch(KeyB.read(500, 530)){
+		case SHORT_PRESS:
+		Serial.println("KEY B(analog) SHORT_PRESS"); 	//短按
+		break;
+		case LONG_PRESS:
+		Serial.println("KEY B(analog) LONG_PRESS");    //长按
+		break;
+	}
+
+	delay(15);
 }
