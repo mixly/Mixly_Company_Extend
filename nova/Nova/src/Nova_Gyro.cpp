@@ -51,7 +51,7 @@ SoftIIC GyroIIC;
 
 Gyro::Gyro(uint8_t port)
 {
-    uint8_t SCL_pin,SDA_pin;
+    
 	switch(port)
 	{
 	    case C0:
@@ -79,8 +79,10 @@ Gyro::Gyro(uint8_t port)
 			SDA_pin = M1_PIN_0;
 		break;
 	}
-    GyroIIC.begin(SDA_pin,SCL_pin);  
+	
+    GyroIIC.begin(SDA_pin,SCL_pin); 	
     Device_Address = GYRO_DEFAULT_ADDRESS;
+		
 }
 
 
@@ -100,27 +102,41 @@ Gyro::Gyro(uint8_t port)
  */
 void Gyro::begin(void)
 {
-  gSensitivity = 65.5; //for 500 deg/s, check data sheet
-  gx = 0;
-  gy = 0;
-  gz = 0;
-  gyrX = 0;
-  gyrY = 0;
-  gyrZ = 0;
-  accX = 0;
-  accY = 0;
-  accZ = 0;
-  gyrXoffs = 0;
-  gyrYoffs = 0;
-  gyrZoffs = 0;
+	pinMode(SCL_pin, OUTPUT);
+	pinMode(SDA_pin, OUTPUT);
+	digitalWrite(SCL_pin,HIGH);
+	digitalWrite(SDA_pin,HIGH);
+	delay(1);
+	digitalWrite(SCL_pin,LOW);
+	digitalWrite(SDA_pin,LOW);
+	delay(1);
+	digitalWrite(SCL_pin,HIGH);
+	digitalWrite(SDA_pin,HIGH);
+	delay(1);
+	digitalWrite(SCL_pin,LOW);
+	digitalWrite(SDA_pin,LOW);
+	delay(1);
+	gSensitivity = 65.5; //for 500 deg/s, check data sheet
+	gx = 0;
+	gy = 0;
+	gz = 0;
+	gyrX = 0;
+	gyrY = 0;
+	gyrZ = 0;
+	accX = 0;
+	accY = 0;
+	accZ = 0;
+	gyrXoffs = 0;
+	gyrYoffs = 0;
+	gyrZoffs = 0;
+
+	delay(800);
+	writeReg(0x6b, 0x00);//close the sleep mode
+	writeReg(0x1a, 0x01);//configurate the digital low pass filter
+	writeReg(0x1b, 0x08);//set the gyro scale to 500 deg/s
+
   
-  delay(800);
-  writeReg(0x6b, 0x00);//close the sleep mode
-  writeReg(0x1a, 0x01);//configurate the digital low pass filter
-  writeReg(0x1b, 0x08);//set the gyro scale to 500 deg/s
-  
-  
-  deviceCalibration();
+	deviceCalibration();
 }
 
 /**

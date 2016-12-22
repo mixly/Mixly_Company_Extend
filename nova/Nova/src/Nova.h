@@ -105,8 +105,12 @@
 #include "Nova_MP3.h"
 #include "Nova_Touch.h"
 
+#include "Nova_ir.h"
+
 #include "Nova_Stepper.h"
 #include "Nova_Matrix.h"
+#include "Nova_GLLED.h"
+#include "NOVA_DS18B20.h"
 
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ //Get system time
 //

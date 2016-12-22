@@ -68,6 +68,15 @@ void MP3::play()
 	sed_buf[3] = 0x0D;
 	for (int i=0; i<8; i++) {
 		Set_MP3::write(sed_buf[i]);
+		//int a = sed_buf[i];
+		//uint8_t b = (uint8_t)a;
+		//for(int j=0;j<8;j++){
+		//	digitalWrite(_MP3_pin,b);
+		//	b>>=1;
+		//	delayMicroseconds(2);
+		//_delay_us(130);
+		//}
+		
 	}
 }
 

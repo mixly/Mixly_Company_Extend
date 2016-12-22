@@ -41,7 +41,7 @@ private:
   double  gyrXoffs, gyrYoffs, gyrZoffs;
   uint8_t i2cData[14];
   uint8_t Device_Address;
-  
+  uint8_t SCL_pin,SDA_pin;
   void deviceCalibration(void);
 
   int8_t writeReg(uint8_t reg, uint8_t data);

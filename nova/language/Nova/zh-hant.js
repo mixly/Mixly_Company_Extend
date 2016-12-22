@@ -17,6 +17,12 @@ Blockly.LKL_NOVA_LED_ON = '開';
 Blockly.LKL_NOVA_LED_OFF = '關';
 Blockly.LKL_NOVA_LED_PWM = '設置亮度為(0~100)%';
 
+// GLLED
+Blockly.LKL_NOVA_GLLED = '高亮LED';
+Blockly.LKL_NOVA_GLLED_PWM = '設置亮度為(0~100)%';
+Blockly.LKL_NOVA_GLLED_ON = '開';
+Blockly.LKL_NOVA_GLLED_OFF = '關'; 
+
 // Button
 Blockly.LKL_NOVA_BUTTON_PRESSED = '按下';
 Blockly.LKL_NOVA_BUTTON_RELEASED = '鬆開';
@@ -37,7 +43,10 @@ Blockly.LKL_NOVA_LKL_DURATION = '持續時間(ms)';
 Blockly.LKL_NOVA_MOTOR = '單路直流電機'; 
 Blockly.LKL_NOVA_MOTOR_SPEED='轉速(-100~100)%';
 
-Blockly.LKL_NOVA_ULTRASONIC = '超聲波測距(cm)'; 
+Blockly.LKL_NOVA_ULTRASONIC = '超聲波測距(4~200cm)'; 
+
+Blockly.LKL_NOVA_DS18B20 = '溫度DS18B20';
+Blockly.LKL_NOVA_DS18B20_getTemp = '獲取溫度'; 
 
 Blockly.LKL_NOVA_DHT11 = '溫濕度';
 Blockly.LKL_NOVA_TYPE = '類型';
@@ -50,6 +59,10 @@ Blockly.LKL_NOVA_SERVO_BRANCH = '分支分支';
 Blockly.LKL_NOVA_DEGREE_0_180 = '角度(0~180)';
 Blockly.LKL_NOVA_DELAY = '延時';
 Blockly.LKL_NOVA_DELAY_MS = '毫秒';
+
+Blockly.LKL_NOVA_Joystick = '搖桿';
+Blockly.LKL_NOVA_readX = 'X值';
+Blockly.LKL_NOVA_readY = 'Y值';
 
 Blockly.LKL_NOVA_LINEFINDER = '灰度';
 Blockly.LKL_NOVA_L = '左邊狀態';
@@ -93,16 +106,26 @@ Blockly.LKL_NOVA_Vibration_NoVibrating='無震動';
 
 // RGB
 Blockly.LKL_NOVA_RGB = 'RGB燈';
-Blockly.LKL_NOVA_RGB_NUM = '燈號(1~4)';
+Blockly.LKL_NOVA_RGB_NUM = '燈號';
 Blockly.LKL_NOVA_RGB_R= 'R值';
 Blockly.LKL_NOVA_RGB_G= 'G值';
 Blockly.LKL_NOVA_RGB_B= 'B值';
 
 Blockly.LKL_Nova_Matrix_POS='點陣座標';
 Blockly.LKL_NOVA_Matrix='點陣';
+Blockly.LKL_NOVA_DotMatrixName='幀數';
 Blockly.LKL_NOVA_Matrix_x='x座標(1~8)';
 Blockly.LKL_NOVA_Matrix_y='y座標(1~8)';
 Blockly.LKL_NOVA_Matrix_Str='輸出字符串';
+Blockly.LKL_Nova_DotMatrix='點陣屏幕:'
+Blockly.LKL_Nova_MatrixRow0='第一行:';
+Blockly.LKL_Nova_MatrixRow1='第二行:';
+Blockly.LKL_Nova_MatrixRow2='第三行:';
+Blockly.LKL_Nova_MatrixRow3='第四行:';
+Blockly.LKL_Nova_MatrixRow4='第五行:';
+Blockly.LKL_Nova_MatrixRow5='第六行:';
+Blockly.LKL_Nova_MatrixRow6='第七行:';
+Blockly.LKL_Nova_MatrixRow7='第八行:';
 
 Blockly.LKL_NOVA_STEPPER='步進電機';
 Blockly.LKL_NOVA_POSITION='設置目標位子';
@@ -111,6 +134,7 @@ Blockly.LKL_NOVA_STEPPER_RUN='步進電機執行動作';
 Blockly.LKL_NOVA_MP3='MP3';
 Blockly.LKL_NOVA_VOL='音量(0~100)%';
 Blockly.LKL_NOVA_PLAY='播放曲目';
+Blockly.LKL_NOVA_MP3_ONPLAY='播放';
 Blockly.LKL_NOVA_MP3_STATE='播放模式';
 Blockly.LKL_NOVA_MP3_LOOPPLAY='循環播放';
 Blockly.LKL_NOVA_MP3_RANDPLAY='隨機播放';

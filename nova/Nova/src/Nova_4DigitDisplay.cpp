@@ -41,38 +41,7 @@ DigitDisplay::DigitDisplay(uint8_t port)
 
 void DigitDisplay::displayTime(uint16_t num)
 {
-	// static unsigned long last_time = 0;
-	// uint8_t state = 0x00;
-
-    // hour = hour > 23 ? 23 : hour;
-    // min = min > 59 ? 59 : min;
-
-	// // 1. 显示小时
-	// Write_DATA(0x68, tab[hour/10]);
-	// //Write_DATA(0x6A, tab[hour%10]);
-
-	// // 2. 显示分
-    // Write_DATA(0x6C, tab[min/10]);
-	// Write_DATA(0x6E, tab[min%10]);
-
-	// // 3. 时间冒号闪烁
-	// if ((millis() - last_time) > 1000)
-	// {
-       // // 冒号状态改变
-		// state ^=0x01;
-
-		// last_time = millis();
-	// }
-
-    // if (state == 0x01)
-    // {
-    	// Write_DATA(0x6A, tab[hour%10] |= 0x80);
-    // }
-    // else
-    // {
-    	// Write_DATA(0x6A, tab[hour%10] &= ~(0X80));
-    // }
-    
+	
     uint8_t a,b,c,d;
 	uint8_t bit;
 	d = num%10;if(d != 0)bit = 1;

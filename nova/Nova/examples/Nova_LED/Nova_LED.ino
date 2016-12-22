@@ -13,16 +13,18 @@ http://easy.cc
 
 #include <Nova.h>
 
-RGB pixels = RGB(S0);  // A0、A1、A2、A3、S0、S1、S2、S3 
+LED LED1 = LED(S0);  // A0、A1、A2、A3、S0、S1、S2、S3 
 
 void setup() 
 {
-pixels.begin(); 
 }
 
 void loop() 
 {
-    pixels.setPixelColor(1, pixels.Color(0,150,0)); // Moderately bright green color.
-
-    pixels.show(); // This sends the updated pixel color to the hardware.
+  LED1.on(); 
+  delay(1000);
+  LED1.off();  
+  delay(1000);
+  LED1.brightness(50);  //Set brightness  50
+  delay(1000);
 }

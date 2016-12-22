@@ -27,6 +27,8 @@ var BLUETOOTH_PORTS =[["M2", "M2"],["C0", "C0"]];
 
 var PWM_PORTS =[["S1", "S1"],["S2", "S2"]];  
 
+var Joystick_PORT =[["C1", "C1"]];
+
 var RTC_TIME = [[Blockly.LKL_NOVA_RTC_SEC, "getSecond()"],[Blockly.LKL_NOVA_RTC_MIN, "getMinute()"],
                 [Blockly.LKL_NOVA_RTC_HOUR, "getHour()"],[Blockly.LKL_NOVA_RTC_WEEK, "getWeek()"],
                 [Blockly.LKL_NOVA_RTC_DAY, "getDay()"],[Blockly.LKL_NOVA_RTC_MON, "getMonth()"],
@@ -126,6 +128,39 @@ Blockly.Blocks.Nova_Led_PWM = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
+  }
+};
+
+// 高亮LED
+Blockly.Blocks.Nova_GLLED = {
+  init: function() {
+    this.setColour(Blockly.Blocks.nova.HUE);
+    this.appendDummyInput("")
+      .appendTitle(Blockly.LKL_NOVA_GLLED)
+    .appendField(new Blockly.FieldImage("../../media/nova/Nova_HIGHLIGHT.jpg", 43, 32))
+    .appendTitle(Blockly.LKL_NOVA_PORT)
+      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
+        .appendTitle(Blockly.LKL_NOVA_STAT)
+        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_GLLED_ON, "on()"], [Blockly.LKL_NOVA_GLLED_OFF, "off()"]]), "STAT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+Blockly.Blocks.Nova_GLLED_PWM = {
+  init: function() {
+    this.setColour(Blockly.Blocks.nova.HUE);
+    this.appendDummyInput("")
+      .appendTitle(Blockly.LKL_NOVA_GLLED)
+    .appendField(new Blockly.FieldImage("../../media/nova/Nova_HIGHLIGHT.jpg", 43, 32))
+    .appendTitle(Blockly.LKL_NOVA_PORT)
+      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
+   this.appendValueInput("NUM", Number)
+        .setCheck(Number)
+        .appendTitle(Blockly.LKL_NOVA_GLLED_PWM);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true,null);
+    this.setNextStatement(true,null);
   }
 };
 
@@ -267,6 +302,23 @@ init: function() {
     this.appendDummyInput("")
       .appendTitle(Blockly.LKL_NOVA_TYPE)
         .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_DHT11_H, "readHumidity()"], [Blockly.LKL_NOVA_DHT11_T, "readTemperature()"]]), "dht");
+  this.setOutput(true, Number);
+  this.setInputsInline(true);
+  }
+};
+
+// 温度DS18B20
+Blockly.Blocks.Nova_DS18B20={
+init: function() {
+    this.setColour(Blockly.Blocks.nova.HUE);
+    this.appendDummyInput("")
+        .appendTitle(Blockly.LKL_NOVA_DS18B20)
+    .appendField(new Blockly.FieldImage("../../media/nova/Nova_DS18B20.jpg", 64.5, 32))
+        .appendTitle(Blockly.LKL_NOVA_PORT)
+        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
+    this.appendDummyInput("")
+        .appendTitle(Blockly.LKL_NOVA_TYPE)
+        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_DS18B20_getTemp, "getTemp()"]]),  "ds18b20");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -597,8 +649,8 @@ Blockly.Blocks.Nova_RGB2 = {
 		.appendField(Blockly.LKL_NOVA_RGB_NUM);
     this.appendDummyInput()
 		.setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(Blockly.LKL_NOVA_RGB_Color)
-        .appendField(new Blockly.FieldColour("#ff0000"), "RGB_LED_color");
+        //.appendField(Blockly.LKL_NOVA_RGB_Color)
+        .appendField(new Blockly.FieldColour("#ff0"), "RGB_LED_color");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -698,6 +750,87 @@ init:function(){
     this.setNextStatement(true);
   }
 };
+Blockly.Blocks.Nova_DotMatrix = {
+  init: function() {
+	this.setColour(Blockly.Blocks.nova.HUE);
+    this.appendDummyInput("")
+		.appendTitle(Blockly.LKL_Nova_DotMatrix)
+        .appendField(new Blockly.FieldImage("../../media/nova/Nova_Matrix.jpg", 36.5, 32))
+		.appendTitle(Blockly.LKL_NOVA_PORT)
+        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
+		.appendTitle(Blockly.LKL_NOVA_DotMatrixName)
+		.appendField(new Blockly.FieldTextInput("1"), "dotName"); 
+    this.appendValueInput("row0", String)
+        .setCheck([String,Number])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.LKL_Nova_MatrixRow0);
+    this.appendValueInput("row1", String)
+        .setCheck([String,Number])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.LKL_Nova_MatrixRow1)
+    this.appendValueInput("row2", String)
+        .setCheck([String,Number])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.LKL_Nova_MatrixRow2);
+    this.appendValueInput("row3", String)
+        .setCheck([String,Number])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.LKL_Nova_MatrixRow3)
+    this.appendValueInput("row4", String)
+        .setCheck([String,Number])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.LKL_Nova_MatrixRow4);
+    this.appendValueInput("row5", String)
+        .setCheck([String,Number])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.LKL_Nova_MatrixRow5)
+    this.appendValueInput("row6", String)
+        .setCheck([String,Number])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.LKL_Nova_MatrixRow6);
+    this.appendValueInput("row7", String)
+        .setCheck([String,Number])
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.LKL_Nova_MatrixRow7)
+
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+Blockly.Blocks.DotMatrixRow = {
+  init: function() {
+
+    this.setColour(Blockly.Blocks.nova.HUE);
+
+    this.appendDummyInput("")
+    	.appendTitle(" ")
+        .appendField(new Blockly.FieldColour("#000000"), "Dot0");
+    this.appendDummyInput("")
+    	.appendTitle(" ")
+        .appendField(new Blockly.FieldColour("#000000"), "Dot1");
+    this.appendDummyInput("")
+    	.appendTitle(" ")
+        .appendField(new Blockly.FieldColour("#000000"), "Dot2");
+    this.appendDummyInput("")
+    	.appendTitle(" ")
+        .appendField(new Blockly.FieldColour("#000000"), "Dot3");
+    this.appendDummyInput("")
+    	.appendTitle(" ")
+        .appendField(new Blockly.FieldColour("#000000"), "Dot4");
+    this.appendDummyInput("")
+    	.appendTitle(" ")
+        .appendField(new Blockly.FieldColour("#000000"), "Dot5");
+    this.appendDummyInput("")
+    	.appendTitle(" ")
+        .appendField(new Blockly.FieldColour("#000000"), "Dot6");
+    this.appendDummyInput("")
+    	.appendTitle(" ")
+        .appendField(new Blockly.FieldColour("#000000"), "Dot7");
+
+    this.setInputsInline(true);
+    this.setOutput(true, String);
+    },
+};
 
 //步进电机
 Blockly.Blocks.Nova_Stepper={
@@ -771,7 +904,7 @@ Blockly.Blocks.Nova_MP3_STATE = {
     .appendTitle(Blockly.LKL_NOVA_PORT)
       .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
         .appendTitle(Blockly.LKL_NOVA_MP3_STATE)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_MP3_LOOPPLAY, "loop_play()"], [Blockly.LKL_NOVA_MP3_RANDPLAY, "random_play()"], [Blockly.LKL_NOVA_MP3_PAUSE, "pause()"], [Blockly.LKL_NOVA_MP3_STOP, "stop()"]]), "STAT");
+        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_MP3_ONPLAY, "play()"],[Blockly.LKL_NOVA_MP3_LOOPPLAY, "loop_play()"], [Blockly.LKL_NOVA_MP3_RANDPLAY, "random_play()"], [Blockly.LKL_NOVA_MP3_PAUSE, "pause()"], [Blockly.LKL_NOVA_MP3_STOP, "stop()"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -829,6 +962,23 @@ Blockly.Blocks.Nova_Hall = {
         .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_Hall_Magnetic, "1"],[Blockly.LKL_NOVA_Hall_NoMagnetic, "0"]]), "STAT");
     this.setOutput(true, Number);
     this.setTooltip('');
+  }
+};
+
+//摇杆
+Blockly.Blocks.Nova_Joystick={
+init: function() {
+    this.setColour(Blockly.Blocks.nova.HUE);
+    this.appendDummyInput("")
+        .appendTitle(Blockly.LKL_NOVA_Joystick)
+    .appendField(new Blockly.FieldImage("../../media/nova/Nova_Joystick.jpg", 39, 32))
+        .appendTitle(Blockly.LKL_NOVA_PORT)
+        .appendTitle(new Blockly.FieldDropdown(Joystick_PORT), "PIN");
+    this.appendDummyInput("")
+      .appendTitle(Blockly.LKL_NOVA_GET_STAT)
+        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_readX, "readX()"], [Blockly.LKL_NOVA_readY, "readY()"]]), "Joystick");
+  this.setOutput(true, Number);
+  this.setInputsInline(true);
   }
 };
 

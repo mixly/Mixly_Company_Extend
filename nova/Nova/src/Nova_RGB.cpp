@@ -50,7 +50,7 @@ RGB::RGB(uint8_t port)
     pixels = NULL;
     endTime = 0;
     updateType(NEO_GRB + NEO_KHZ800);
-  	updateLength(4);
+  	updateLength(60);
   	setPin(_rgb_pin);
 }
 

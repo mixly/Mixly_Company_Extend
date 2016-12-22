@@ -17,6 +17,12 @@ Blockly.LKL_NOVA_LED_ON = 'ON';
 Blockly.LKL_NOVA_LED_OFF = 'OFF';
 Blockly.LKL_NOVA_LED_PWM = 'Set brightness(0~100)%';
 
+// GLLED
+Blockly.LKL_NOVA_GLLED = 'Highlight LED';
+Blockly.LKL_NOVA_GLLED_PWM = 'Set brightness(0~100)%';
+Blockly.LKL_NOVA_GLLED_ON = 'ON';
+Blockly.LKL_NOVA_GLLED_OFF = 'OFF'; 
+
 // Button
 Blockly.LKL_NOVA_BUTTON_PRESSED = 'Pressed';
 Blockly.LKL_NOVA_BUTTON_RELEASED = 'Released';
@@ -38,7 +44,10 @@ Blockly.LKL_NOVA_MOTOR = 'Single motor';
 Blockly.LKL_NOVA_MOTOR_SPEED='Speed(-100~100)%';
 
 
-Blockly.LKL_NOVA_ULTRASONIC = 'Ultrasonic(cm)'; 
+Blockly.LKL_NOVA_ULTRASONIC = 'Ultrasonic(4~200cm)'; 
+
+Blockly.LKL_NOVA_DS18B20 = 'DS18B20';
+Blockly.LKL_NOVA_DS18B20_getTemp = 'Get temperature'; 
 
 Blockly.LKL_NOVA_DHT11 = 'DHT11';
 Blockly.LKL_NOVA_TYPE = 'Type';
@@ -50,6 +59,10 @@ Blockly.LKL_NOVA_SERVO_BIG = 'Big servo drive';
 Blockly.LKL_NOVA_DEGREE_0_180 = 'Degree（0~180）';
 Blockly.LKL_NOVA_DELAY = 'Delay';
 Blockly.LKL_NOVA_DELAY_MS = 'ms';
+
+Blockly.LKL_NOVA_Joystick = 'Joystick';
+Blockly.LKL_NOVA_readX = 'X value';
+Blockly.LKL_NOVA_readY = 'Y value';
 
 Blockly.LKL_NOVA_LINEFINDER = 'LineFinder';
 Blockly.LKL_NOVA_L = 'LeftState';
@@ -93,16 +106,26 @@ Blockly.LKL_NOVA_Vibration_NoVibrating='No vibration';
 
 // RGB
 Blockly.LKL_NOVA_RGB = 'RGB Light';
-Blockly.LKL_NOVA_RGB_NUM = 'Light number(1~4)';
+Blockly.LKL_NOVA_RGB_NUM = 'Light number';
 Blockly.LKL_NOVA_RGB_R= 'R value';
 Blockly.LKL_NOVA_RGB_G= 'G value';
 Blockly.LKL_NOVA_RGB_B= 'B value';
 
 Blockly.LKL_Nova_Matrix_POS='Matrix corrdinate';
 Blockly.LKL_NOVA_Matrix='Matrix';
+Blockly.LKL_NOVA_DotMatrixName='Frame number';
 Blockly.LKL_NOVA_Matrix_x='X-Corrdinate(1~8)';
 Blockly.LKL_NOVA_Matrix_y='Y-Corrdinate(1~8)';
 Blockly.LKL_NOVA_Matrix_Str='Print string';
+Blockly.LKL_Nova_DotMatrix='Matrix screen:'
+Blockly.LKL_Nova_MatrixRow0='First line:';
+Blockly.LKL_Nova_MatrixRow1='Second line:';
+Blockly.LKL_Nova_MatrixRow2='Third line:';
+Blockly.LKL_Nova_MatrixRow3='Fourth line:';
+Blockly.LKL_Nova_MatrixRow4='Fifth line:';
+Blockly.LKL_Nova_MatrixRow5='Sixth line:';
+Blockly.LKL_Nova_MatrixRow6='Seventh line:';
+Blockly.LKL_Nova_MatrixRow7='Eighth line:';
 
 Blockly.LKL_NOVA_STEPPER='Stepper motor';
 Blockly.LKL_NOVA_POSITION='Set target location';
@@ -110,7 +133,8 @@ Blockly.LKL_NOVA_STEPPER_RUN='Stepper run';
 
 Blockly.LKL_NOVA_MP3='MP3';
 Blockly.LKL_NOVA_VOL='Volume(0~100)%';
-Blockly.LKL_NOVA_PLAY='Play';
+Blockly.LKL_NOVA_PLAY='Play number';
+Blockly.LKL_NOVA_MP3_ONPLAY='Play';
 Blockly.LKL_NOVA_MP3_STATE='Play mode';
 Blockly.LKL_NOVA_MP3_LOOPPLAY='Loop';
 Blockly.LKL_NOVA_MP3_RANDPLAY='Random';

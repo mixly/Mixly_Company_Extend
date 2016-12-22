@@ -1,9 +1,8 @@
 #include "Nova_IRSendRev.h"
 #include "Nova_IRSendRevInt.h"
 
-// Provides ISR
-#include <avr/interrupt.h>
 
+#include <avr/interrupt.h>
 volatile irparams_t irparams;
 
 void IRSendRev::sendRaw(unsigned int buf[], int len, int hz)

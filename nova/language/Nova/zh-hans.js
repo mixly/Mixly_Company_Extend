@@ -17,6 +17,12 @@ Blockly.LKL_NOVA_LED_ON = '开';
 Blockly.LKL_NOVA_LED_OFF = '关';
 Blockly.LKL_NOVA_LED_PWM = '设置亮度为(0~100)%';
 
+// GLLED
+Blockly.LKL_NOVA_GLLED = '高亮LED';
+Blockly.LKL_NOVA_GLLED_ON = '开';
+Blockly.LKL_NOVA_GLLED_OFF = '关'; 
+Blockly.LKL_NOVA_GLLED_PWM = '设置亮度为(0~100)%';
+
 // Button
 Blockly.LKL_NOVA_BUTTON_PRESSED = '按下';
 Blockly.LKL_NOVA_BUTTON_RELEASED = '松开';
@@ -37,12 +43,19 @@ Blockly.LKL_NOVA_LKL_DURATION = '持续时间(ms)';
 Blockly.LKL_NOVA_MOTOR = '单路直流电机'; 
 Blockly.LKL_NOVA_MOTOR_SPEED='转速(-100~100)%';
 
-Blockly.LKL_NOVA_ULTRASONIC = '超声波测距(cm)'; 
+Blockly.LKL_NOVA_ULTRASONIC = '超声波测距(4~200cm)'; 
+
+Blockly.LKL_NOVA_DS18B20 = '温度DS18B20';
+Blockly.LKL_NOVA_DS18B20_getTemp = '获取温度值'; 
 
 Blockly.LKL_NOVA_DHT11 = '温湿度';
 Blockly.LKL_NOVA_TYPE = '类型';
 Blockly.LKL_NOVA_DHT11_H = '获取湿度';
 Blockly.LKL_NOVA_DHT11_T = '获取温度';
+
+Blockly.LKL_NOVA_Joystick = '摇杆';
+Blockly.LKL_NOVA_readX = 'X值';
+Blockly.LKL_NOVA_readY = 'Y值';
 
 Blockly.LKL_NOVA_SERVO = '小舵机';
 Blockly.LKL_NOVA_SERVO_BIG = '大舵机驱动';
@@ -93,16 +106,26 @@ Blockly.LKL_NOVA_Vibration_NoVibrating='无震动';
 
 // RGB
 Blockly.LKL_NOVA_RGB = 'RGB灯';
-Blockly.LKL_NOVA_RGB_NUM = '灯号(1~4)';
+Blockly.LKL_NOVA_RGB_NUM = '灯号';
 Blockly.LKL_NOVA_RGB_R= 'R值';
 Blockly.LKL_NOVA_RGB_G= 'G值';
 Blockly.LKL_NOVA_RGB_B= 'B值';
 
 Blockly.LKL_Nova_Matrix_POS='点阵坐标';
 Blockly.LKL_NOVA_Matrix='点阵';
+Blockly.LKL_NOVA_DotMatrixName='帧数';
 Blockly.LKL_NOVA_Matrix_x='x坐标(1~8)';
 Blockly.LKL_NOVA_Matrix_y='y坐标(1~8)';
 Blockly.LKL_NOVA_Matrix_Str='输出字符串';
+Blockly.LKL_Nova_DotMatrix='点阵屏幕:'
+Blockly.LKL_Nova_MatrixRow0='第一行:';
+Blockly.LKL_Nova_MatrixRow1='第二行:';
+Blockly.LKL_Nova_MatrixRow2='第三行:';
+Blockly.LKL_Nova_MatrixRow3='第四行:';
+Blockly.LKL_Nova_MatrixRow4='第五行:';
+Blockly.LKL_Nova_MatrixRow5='第六行:';
+Blockly.LKL_Nova_MatrixRow6='第七行:';
+Blockly.LKL_Nova_MatrixRow7='第八行:';
 
 Blockly.LKL_NOVA_STEPPER='步进电机';
 Blockly.LKL_NOVA_POSITION='设置目标位置';
@@ -111,6 +134,7 @@ Blockly.LKL_NOVA_STEPPER_RUN='步进电机执行动作';
 Blockly.LKL_NOVA_MP3='MP3';
 Blockly.LKL_NOVA_VOL='音量(0~100)%';
 Blockly.LKL_NOVA_PLAY='播放曲目';
+Blockly.LKL_NOVA_MP3_ONPLAY='播放';
 Blockly.LKL_NOVA_MP3_STATE='播放模式';
 Blockly.LKL_NOVA_MP3_LOOPPLAY='循环播放';
 Blockly.LKL_NOVA_MP3_RANDPLAY='随机播放';
