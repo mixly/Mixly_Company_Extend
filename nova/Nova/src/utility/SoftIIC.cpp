@@ -47,7 +47,7 @@ uint8_t SoftIIC::read(uint8_t last) {
     delayMicroseconds(I2C_DELAY_USEC);
     digitalWrite(_sclpin, HIGH);
     if (digitalRead(_sdapin)) {b |= 1;}
-	else b &= 0;
+	//else b &= 0;
     digitalWrite(_sclpin, LOW);
   }
   // send Ack or Nak
@@ -80,7 +80,7 @@ bool SoftIIC::write(uint8_t data) {
   // get Ack or Nak
   pinMode(_sdapin, INPUT);
   // enable pullup
-  //digitalWrite(_sdapin, HIGH);
+  digitalWrite(_sdapin, HIGH);
   digitalWrite(_sclpin, HIGH);
   uint8_t rtn = digitalRead(_sdapin);
   digitalWrite(_sclpin, LOW);
