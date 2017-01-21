@@ -67,23 +67,9 @@ E-mail:qiujiongtao@163.com
 			<shadow type="pins_analog"></shadow>
 		</value>
 	</block>
-	<block type="maker17_resistor_scratch" name="电阻侦测传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
+	
 </category>
 <category id="catMaker17DigitalSensor"  name="数字传感器" colour="40">
-	<block type="maker17_vibration">
-		<value name="PIN">
-			<shadow type="pins_digital"/>
-		</value>
-	</block>
-	<block type="maker17_obstacle" name="红外测障">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
 	<block type="maker17_dht11" name="DHT11温湿度传感器">
 		<value name="PIN">
 			<shadow type="pins_digital"></shadow>
@@ -126,21 +112,13 @@ E-mail:qiujiongtao@163.com
 			<shadow type="pins_digital"></shadow>
 		</value>
 	</block>
-	<block type="maker17_tilt" name="单向倾角传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
+	
 	<block type="maker17_touch"  name="触摸传感器">
 		<value name="PIN">
 			<shadow type="pins_digital"></shadow>
 		</value>
 	</block>
-	<block type="maker17_collision"  name="碰撞传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
+	
 	<block type="maker17_flame" name="火焰传感器">
 		<value name="PIN">
 			<shadow type="pins_digital"></shadow>
@@ -810,10 +788,10 @@ E-mail:qiujiongtao@163.com
 
 
 </category>
-<category id="catMaker17Time"  name="时间" colour="40">
+<!-- <category id="catMaker17Time"  name="时间" colour="40">
 	<block type="DS1307_init" name="DS1307初始化">
 		</block>
 	<block type="DS1307_get_time" name="DS1307获取时间">
 		</block>
-</category>
+</category> -->
 </category>
