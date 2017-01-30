@@ -746,7 +746,7 @@ Blockly.Blocks.maker17_oled_init2 = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.MAKER17_OLED_INIT_TOOLTIP);
+     this.setTooltip(Blockly.MAKER17_OLED_INIT_TOOLTIP);
   }
 };
 
@@ -955,7 +955,7 @@ Blockly.Blocks.maker17_oled_print = {
 };
 
 //显示-OLED-显示多行文本
-Blockly.Blocks.maker17_oled_draw4Str = {
+Blockly.Blocks.maker17_oled_draw4Str = { 
   init: function() {
     this.appendDummyInput().appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_oled_draw4Str);
     this.appendDummyInput().appendField(Blockly.MAKER17_OLED_PRINT);
@@ -976,7 +976,8 @@ Blockly.Blocks.maker17_oled_draw4Str = {
 Blockly.Blocks.set_tonelist = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
-    this.appendDummyInput("").appendField(Blockly.MAKER17_PLAYMUSIC_SET_TONELIST).appendField(new Blockly.FieldTextInput('mylist'), 'VAR').appendField(new Blockly.FieldTextInput('0,0,0'), 'TEXT')
+    this.appendDummyInput("").appendField(Blockly.MAKER17_PLAYMUSIC_SET_TONELIST).appendField(new Blockly.FieldTextInput('mylist'), 'VAR')
+    .appendField(new Blockly.FieldTextInput('0,0,0'), 'TEXT')
     this.setNextStatement(true);
     this.setTooltip(Blockly.MIXLY_TOOLTIP_LISTS_CREATE_WITH_TEXT);
   }
@@ -1026,14 +1027,14 @@ Blockly.Blocks.set_tone_duration = {
 };
 
 //时间-DS1307获取时间变量
-var MAKER17_DS1307_GET_TYPE = [
-  ["年", "year"],
-  ["月", "month"],
-  ["日", "dayOfMonth"],
-  ["时", "hour"],
-  ["分", "minute"],
-  ["秒", "second"],
-  ["星期", "dayOfWeek"]
+var MAKER17_DS1307_TIME_TYPE = [
+  ["年", "Year"],
+  ["月", "Month"],
+  ["日", "Day"],
+  ["时", "Hour"],
+  ["分", "Minute"],
+  ["秒", "Second"],
+  ["星期", "Wday"]
 ];
 
 //时间-DS1307初始化
@@ -1053,9 +1054,26 @@ Blockly.Blocks.DS1307_init = {
 Blockly.Blocks.DS1307_get_time = {
   init: function() {
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_GET_TIME);
-    this.appendDummyInput("").appendTitle(new Blockly.FieldDropdown(MAKER17_DS1307_GET_TYPE), "GET_TYPE");
+    this.appendDummyInput("").appendTitle(new Blockly.FieldDropdown(MAKER17_DS1307_TIME_TYPE), "SET_TYPE");
     this.setInputsInline(true);
     this.setOutput(true, String);
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+//时间-DS1307设置时间
+Blockly.Blocks.DS1307_set_time = {
+  init: function() {
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_SET_TIME);
+    this.appendDummyInput("").appendTitle(new Blockly.FieldDropdown(MAKER17_DS1307_TIME_TYPE), "GET_TYPE");
+    this.setInputsInline(true);
+   this.appendValueInput("time").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+    this.setOutput(false, Number);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
     this.setColour(Blockly.Blocks.maker17.HUE3);
     this.setTooltip('');
     this.setHelpUrl('');

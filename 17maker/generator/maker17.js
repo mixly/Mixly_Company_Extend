@@ -700,26 +700,37 @@ Blockly.Arduino.Maker17_4DigitDisplay_Brightness = function() {
   return code;
 };
 
+
 //时间-DS1307初始化
 Blockly.Arduino.DS1307_init = function() {
- 
   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
-  Blockly.Arduino.definitions_['include_ds1307'] = '#include "DS1307.h"';
-  Blockly.Arduino.definitions_['define_ds1307'] = 'DS1307 clock;';
-  var code = ' clock.getTime();\n';
- 
- return code;
+  Blockly.Arduino.definitions_['include_TIMELIB'] = '#include <TimeLib.h>';
+  Blockly.Arduino.definitions_['include_ds1307'] = '#include "DS1307RTC.h"';
+  var code = ' tmElements_t tm;\n';
+  return code;
 };
 
 //时间-DS1307-获取时间
 Blockly.Arduino.DS1307_get_time = function() {
-  var dropdown_type = this.getTitleValue('GET_TYPE');
-  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
-  Blockly.Arduino.definitions_['include_ds1307'] = '#include "DS1307.h"';
-  Blockly.Arduino.definitions_['define_ds1307'] = 'DS1307 clock;';
+  var dropdown_type = this.getTitleValue('SET_TYPE');
   var code = '';
-  if (dropdown_type == "year") code += 'clock.' + dropdown_type +'+'+ 2000;
-   else code += 'clock.' + dropdown_type;
+  if (dropdown_type == "Year") code += 'tm.' + dropdown_type + '+' + 2000;
+  else code += 'tm.' + dropdown_type;
   // return 'tm_4display.' + stat + '();\n';
- return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+//时间-DS1307-设置时间
+Blockly.Arduino.DS1307_set_time = function() {
+  var time = Blockly.Arduino.valueToCode(this, 'time', Blockly.Arduino.ORDER_ATOMIC);
+  var dropdown_type = this.getTitleValue('GET_TYPE');
+  //Blockly.Arduino.setups_['setup_GET_TIME_'] = 'bool parse=false;\nbool config=false;\nif (getDate(__DATE__) && getTime(__TIME__)) {\nparse = true;\nif (RTC.write(tm)) {\nconfig = true;\n}}';
+  var code = '';
+  if (dropdown_type == "Year" && time > 0) code += 'tm.year=' + time + '-' + 2000 + ';';
+  else if (dropdown_type == "Month" && time < 12 && time > 0) code += 'tm.Month =  ' + time + ';';
+  else if (dropdown_type == "Day" && time < 31 && time > 0) code += 'tm.Day=' + time + ';';
+  else if (dropdown_type == "Hour" && time < 25 && time > 0) code += 'tm.Hour=' + time + ';';
+  else if (dropdown_type == "Minute" && time < 61 && time > 0) code += 'tm.Minute=' + time + ';';
+  else if (dropdown_type == "Second" && time < 61 && time > 0) code += 'tm.Second=' + time + ';';
+  return code;
 };
