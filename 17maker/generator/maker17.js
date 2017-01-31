@@ -702,35 +702,47 @@ Blockly.Arduino.Maker17_4DigitDisplay_Brightness = function() {
 
 
 //时间-DS1307初始化
-Blockly.Arduino.DS1307_init = function() {
-  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
-  Blockly.Arduino.definitions_['include_TIMELIB'] = '#include <TimeLib.h>';
-  Blockly.Arduino.definitions_['include_ds1307'] = '#include "DS1307RTC.h"';
-  var code = ' tmElements_t tm;\n';
-  return code;
-};
+// Blockly.Arduino.DS1307_init = function() {
+//   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
+//   Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
+//   Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+// };
 
 //时间-DS1307-获取时间
 Blockly.Arduino.DS1307_get_time = function() {
-  var dropdown_type = this.getTitleValue('SET_TYPE');
+  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
+  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
+  Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+  var dropdown_type = this.getTitleValue('TIME_TYPE');
   var code = '';
-  if (dropdown_type == "Year") code += 'tm.' + dropdown_type + '+' + 2000;
-  else code += 'tm.' + dropdown_type;
+  if (dropdown_type == "year") code += 'clock.' + dropdown_type + '+' + 2000;
+  else code += 'clock.' + dropdown_type;
   // return 'tm_4display.' + stat + '();\n';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
+  return code;
 };
 
 //时间-DS1307-设置时间
 Blockly.Arduino.DS1307_set_time = function() {
-  var time = Blockly.Arduino.valueToCode(this, 'time', Blockly.Arduino.ORDER_ATOMIC);
-  var dropdown_type = this.getTitleValue('GET_TYPE');
-  //Blockly.Arduino.setups_['setup_GET_TIME_'] = 'bool parse=false;\nbool config=false;\nif (getDate(__DATE__) && getTime(__TIME__)) {\nparse = true;\nif (RTC.write(tm)) {\nconfig = true;\n}}';
+  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
+  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
+  Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+  var hour = Blockly.Arduino.valueToCode(this, 'hour', Blockly.Arduino.ORDER_ATOMIC);
+  var minute = Blockly.Arduino.valueToCode(this, 'minute', Blockly.Arduino.ORDER_ATOMIC);
+  var second = Blockly.Arduino.valueToCode(this, 'second', Blockly.Arduino.ORDER_ATOMIC);
   var code = '';
-  if (dropdown_type == "Year" && time > 0) code += 'tm.year=' + time + '-' + 2000 + ';';
-  else if (dropdown_type == "Month" && time < 12 && time > 0) code += 'tm.Month =  ' + time + ';';
-  else if (dropdown_type == "Day" && time < 31 && time > 0) code += 'tm.Day=' + time + ';';
-  else if (dropdown_type == "Hour" && time < 25 && time > 0) code += 'tm.Hour=' + time + ';';
-  else if (dropdown_type == "Minute" && time < 61 && time > 0) code += 'tm.Minute=' + time + ';';
-  else if (dropdown_type == "Second" && time < 61 && time > 0) code += 'tm.Second=' + time + ';';
+  if (hour < 25 && hour > 0 && minute < 60 && minute > 0 && second < 60 && second > 0) code += 'clock.fillByHMS(' + hour + ',' + minute + ',' + second + ');\n';
+  return code;
+};
+
+//时间-DS1307-设置日期
+Blockly.Arduino.DS1307_set_date = function() {
+  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
+  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
+  Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+  var year = Blockly.Arduino.valueToCode(this, 'year', Blockly.Arduino.ORDER_ATOMIC);
+  var month = Blockly.Arduino.valueToCode(this, 'month', Blockly.Arduino.ORDER_ATOMIC);
+  var day = Blockly.Arduino.valueToCode(this, 'day', Blockly.Arduino.ORDER_ATOMIC);
+  var code = '';
+  if (year > 0 && month < 13 && month > 0 && day < 32 && day > 0) code += 'clock.fillByYMD(' + year + ',' + month + ',' + day + ');\n';
   return code;
 };

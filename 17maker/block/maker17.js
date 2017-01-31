@@ -976,8 +976,7 @@ Blockly.Blocks.maker17_oled_draw4Str = {
 Blockly.Blocks.set_tonelist = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
-    this.appendDummyInput("").appendField(Blockly.MAKER17_PLAYMUSIC_SET_TONELIST).appendField(new Blockly.FieldTextInput('mylist'), 'VAR')
-    .appendField(new Blockly.FieldTextInput('0,0,0'), 'TEXT')
+    this.appendDummyInput("").appendField(Blockly.MAKER17_PLAYMUSIC_SET_TONELIST).appendField(new Blockly.FieldTextInput('mylist'), 'VAR').appendField(new Blockly.FieldTextInput('0,0,0'), 'TEXT')
     this.setNextStatement(true);
     this.setTooltip(Blockly.MIXLY_TOOLTIP_LISTS_CREATE_WITH_TEXT);
   }
@@ -1028,37 +1027,37 @@ Blockly.Blocks.set_tone_duration = {
 
 //时间-DS1307获取时间变量
 var MAKER17_DS1307_TIME_TYPE = [
-  ["年", "Year"],
-  ["月", "Month"],
-  ["日", "Day"],
-  ["时", "Hour"],
-  ["分", "Minute"],
-  ["秒", "Second"],
-  ["星期", "Wday"]
+  ["年", "year"],
+  ["月", "month"],
+  ["日", "dayOfMonth"],
+  ["时", "hour"],
+  ["分", "minute"],
+  ["秒", "second"],
+  ["星期", "dayOfWeek"]
 ];
 
-//时间-DS1307初始化
-Blockly.Blocks.DS1307_init = {
-  init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_INIT);
-    this.setInputsInline(false);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  }
-};
+// //时间-DS1307初始化
+// Blockly.Blocks.DS1307_init = {
+//   init: function() {
+//     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_INIT);
+//     this.setInputsInline(false);
+//     this.setPreviousStatement(true);
+//     this.setNextStatement(true);
+//     this.setColour(Blockly.Blocks.maker17.HUE3);
+//     this.setTooltip('');
+//     this.setHelpUrl('');
+//   }
+// };
 
 //时间-DS1307获取时间
 Blockly.Blocks.DS1307_get_time = {
   init: function() {
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_GET_TIME);
-    this.appendDummyInput("").appendTitle(new Blockly.FieldDropdown(MAKER17_DS1307_TIME_TYPE), "SET_TYPE");
+    this.appendDummyInput("").appendTitle(new Blockly.FieldDropdown(MAKER17_DS1307_TIME_TYPE), "TIME_TYPE");
     this.setInputsInline(true);
     this.setOutput(true, String);
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.setTooltip('');
+    this.setTooltip(Blockly.MAKER17_IIC);
     this.setHelpUrl('');
   }
 };
@@ -1067,15 +1066,39 @@ Blockly.Blocks.DS1307_get_time = {
 Blockly.Blocks.DS1307_set_time = {
   init: function() {
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_SET_TIME);
-    this.appendDummyInput("").appendTitle(new Blockly.FieldDropdown(MAKER17_DS1307_TIME_TYPE), "GET_TYPE");
     this.setInputsInline(true);
-   this.appendValueInput("time").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+   this.appendValueInput("hour").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+     this.appendDummyInput("").appendField(Blockly.MAKER17_HOUR);
+   this.appendValueInput("minute").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+     this.appendDummyInput("").appendField(Blockly.MAKER17_MINUTE);   
+   this.appendValueInput("second").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+     this.appendDummyInput("").appendField(Blockly.MAKER17_SECOND); 
     this.setOutput(false, Number);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.setTooltip('');
+   this.setTooltip(Blockly.MAKER17_IIC);
+    this.setHelpUrl('');
+  }
+};
+//时间-DS1307设置时间
+Blockly.Blocks.DS1307_set_date = {
+  init: function() {
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_SET_DATE);
+    this.setInputsInline(true);
+   this.appendValueInput("year").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+   this.appendDummyInput("").appendField(Blockly.MAKER17_YEAR);
+   this.appendValueInput("month").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+     this.appendDummyInput("").appendField(Blockly.MAKER17_MONTH);
+   this.appendValueInput("day").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_DAY);
+    this.setOutput(false, Number);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.setTooltip(Blockly.MAKER17_IIC);
     this.setHelpUrl('');
   }
 };
