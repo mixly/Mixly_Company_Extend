@@ -2,22 +2,6 @@
 goog.provide('Blockly.Arduino.maker17');
 goog.require('Blockly.Arduino');
 
-//执行器-led灯（数字输出）
-Blockly.Arduino.maker17_led = function() {
-  var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-  var dropdown_stat = this.getTitleValue('STAT');
-  var code = "";
-  if (window.isNaN(dropdown_pin)) {
-    code = code + 'pinMode(' + dropdown_pin + ', OUTPUT);\n';
-  } else {
-    Blockly.Arduino.setups_['setup_output_' + dropdown_pin] = 'pinMode(' + dropdown_pin + ', OUTPUT);';
-  }
-  code += 'digitalWrite(' + dropdown_pin + ',' + dropdown_stat + ');\n'
-  return code;
-};
-
-Blockly.Arduino.maker17_relay = Blockly.Arduino.maker17_led;
-Blockly.Arduino.maker17_joystick_d = Blockly.Arduino.maker17_led;
 //执行器-播放音乐函数-设置每拍时长
 Blockly.Arduino.set_tone_duration = function() {
   var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
@@ -55,34 +39,6 @@ Blockly.Arduino.set_tonelist = function() {
 Blockly.Arduino.set_rhythmlist = Blockly.Arduino.set_musiclist;
 Blockly.Arduino.set_highlist = Blockly.Arduino.set_musiclist;
 
-//数字传感器-磁敏传感器（数字输入）
-Blockly.Arduino.maker17_magnetic = function() {
-  var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-  var code = "";
-  if (window.isNaN(dropdown_pin)) {
-    var funcName = 'mixly_digitalRead';
-    var code2 = 'int' + ' ' + funcName + '(uint8_t pin) {\n' + '  pinMode(pin, INPUT);\n' + '  return digitalRead(pin);\n' + '}\n';
-    Blockly.Arduino.definitions_[funcName] = code2;
-    code = 'mixly_digitalRead(' + dropdown_pin + ')';
-  } else {
-    if (Blockly.Arduino.setups_['setup_output_' + dropdown_pin]) {
-      //存在pinMode已设为output则不再设为input
-    } else {
-      Blockly.Arduino.setups_['setup_input_' + dropdown_pin] = 'pinMode(' + dropdown_pin + ', INPUT);';
-    }
-    code = 'digitalRead(' + dropdown_pin + ')';
-  }
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-Blockly.Arduino.maker17_joystick_a = Blockly.Arduino.maker17_magnetic;
-Blockly.Arduino.maker17_vibration = Blockly.Arduino.maker17_magnetic;
-Blockly.Arduino.maker17_tilt = Blockly.Arduino.maker17_magnetic;
-Blockly.Arduino.maker17_touch = Blockly.Arduino.maker17_magnetic;
-Blockly.Arduino.maker17_collision = Blockly.Arduino.maker17_magnetic;
-Blockly.Arduino.maker17_flame = Blockly.Arduino.maker17_magnetic;
-Blockly.Arduino.maker17_button = Blockly.Arduino.maker17_magnetic;
-Blockly.Arduino.maker17_obstacle = Blockly.Arduino.maker17_magnetic;
-
 //dht11温湿度传感器
 Blockly.Arduino.maker17_dht11 = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
@@ -94,21 +50,6 @@ Blockly.Arduino.maker17_dht11 = function() {
   Blockly.Arduino.definitions_[funcName] = code;
   return [funcName + '()', Blockly.Arduino.ORDER_ATOMIC];
 };
-//模拟传感器-电阻侦测传感器
-Blockly.Arduino.maker17_resistor_scratch = function() {
-  var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-  var code = 'analogRead(' + dropdown_pin + ')';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-Blockly.Arduino.maker17_sound = Blockly.Arduino.maker17_resistor_scratch;
-Blockly.Arduino.maker17_moisture = Blockly.Arduino.maker17_resistor_scratch;
-Blockly.Arduino.maker17_steam = Blockly.Arduino.maker17_resistor_scratch;
-Blockly.Arduino.maker17_linefinder = Blockly.Arduino.maker17_resistor_scratch;
-Blockly.Arduino.maker17_MQ = Blockly.Arduino.maker17_resistor_scratch;
-Blockly.Arduino.maker17_knob = Blockly.Arduino.maker17_resistor_scratch;
-Blockly.Arduino.maker17_slider = Blockly.Arduino.maker17_resistor_scratch;
-Blockly.Arduino.maker17_light = Blockly.Arduino.maker17_resistor_scratch;
 
 //模拟传感器-LM35温度传感器
 Blockly.Arduino.maker17_LM35temp = function() {
@@ -116,6 +57,7 @@ Blockly.Arduino.maker17_LM35temp = function() {
   var code = 'analogRead(' + dropdown_pin + ')*0.488';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
 //显示-1602LCD显示
 Blockly.Arduino.maker17_lcd_print = function() {
   var str1 = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_ATOMIC) || '\"\"';
@@ -218,6 +160,7 @@ Blockly.Arduino.maker17_tone_notes = function() {
   var code = this.getFieldValue('STAT');
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
 //执行器-蜂鸣器
 Blockly.Arduino.maker17_tone = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
@@ -236,6 +179,7 @@ Blockly.Arduino.maker17_tone = function() {
   var code = "newtone(" + dropdown_pin + "," + fre + "," + dur + ");\n";
   return code;
 };
+
 //执行器-蜂鸣器结束声音
 Blockly.Arduino.maker17_newNoTone = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
@@ -245,6 +189,7 @@ Blockly.Arduino.maker17_newNoTone = function() {
   code += 'delay(' + Delay_time + ');';
   return code;
 };
+
 //显示-MAX7219-初始化
 Blockly.Arduino.MAX7219_init = function() {
   var pin_din = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
@@ -354,7 +299,6 @@ Blockly.Arduino.MAX7219_init = function() {
   Blockly.Arduino.definitions_['define2_MaxMatrix'] = 'MaxMatrix m(' + pin_din + ',' + pin_cs + ',' + pin_clk + ',' + lc_num + ');\nbyte buffer[100];';
   Blockly.Arduino.setups_['setup_init'] = ' m.init(); ';
   Blockly.Arduino.setups_['setup_Intensity'] = 'm.setIntensity(' + Intensity + ');';
-
   var code = '';
   return code;
 };
@@ -393,6 +337,7 @@ Blockly.Arduino.MAX7219_DisplayChar = function() {
   code += ' m.setColumn(i, ' + lc_chars + '[i]);\n';
   return code;
 };
+
 //显示-max7219-移动图案 
 Blockly.Arduino.Max7219_MoveChar = function() {
   // var varName = this.getFieldValue('VAR');
@@ -688,6 +633,7 @@ Blockly.Arduino.maker17_4digitdisplay_showDot = function() {
   var code = 'tm_4display.setDot(' + no + ',' + stat + ');\n';
   return code;
 };
+
 //显示-TM1650-设置亮度
 Blockly.Arduino.Maker17_4DigitDisplay_Brightness = function() {
   var BRIGHTNESS = this.getTitleValue('BRIGHTNESS');

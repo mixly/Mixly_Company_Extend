@@ -14,112 +14,14 @@ E-mail:qiujiongtao@163.com
 <!--引用所有写好的模块-->
 <category id="catMaker17" name="17Maker" colour="40">
 	<!-- <category id="catMaker17Base" name="基础功能" colour="40">
-
 </category> -->
-<category id="catMaker17AnalogSensor"  name="模拟传感器" colour="40">
+<category id="catMaker17Sensor"  name="传感器" colour="40">
 	<block type="maker17_LM35temp" name="LM35温度传感器">
 		<value name="PIN">
 			<shadow type="pins_analog"></shadow>
 		</value>
 	</block>
-	<block type="maker17_knob"  name="旋钮传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	<block type="maker17_slider"  name="滑杆传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	<block type="maker17_light"  name="光敏传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	<block type="maker17_steam" name="水滴传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	<block type="maker17_linefinder" name="红外循迹传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	<block type="maker17_MQ"  name="气体传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	<block type="maker17_moisture" name="土壤干湿度传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	<block type="maker17_joystick_a" name="摇杆">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	<block type="maker17_sound"  name="声音传感器">
-		<value name="PIN">
-			<shadow type="pins_analog"></shadow>
-		</value>
-	</block>
-	
-</category>
-<category id="catMaker17DigitalSensor"  name="数字传感器" colour="40">
 	<block type="maker17_dht11" name="DHT11温湿度传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
-	<block type="maker17_tilt" name="单向倾角传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"/>
-		</value>
-	</block>
-	<block type="maker17_joystick_d" name="摇杆按钮">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
-	
-	<block type="maker17_collision" name="碰撞传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"/>
-		</value>
-	</block>
-	<block type="maker17_obstacle" name="红外测障">
-		<value name="PIN">
-			<shadow type="pins_digital"/>
-		</value>
-	</block>
-	<block type="maker17_button" name="按钮传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
-
-	<block type="maker17_magnetic"  name="磁敏传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
-	<block type="maker17_vibration" name="震动传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
-	
-	<block type="maker17_touch"  name="触摸传感器">
-		<value name="PIN">
-			<shadow type="pins_digital"></shadow>
-		</value>
-	</block>
-	
-	<block type="maker17_flame" name="火焰传感器">
 		<value name="PIN">
 			<shadow type="pins_digital"></shadow>
 		</value>
@@ -287,12 +189,6 @@ E-mail:qiujiongtao@163.com
 				</block>
 			</statement>
 		</block>
-		<block type="maker17_led" name="LED">
-			<value name="PIN">
-				<shadow type="pins_digital"><field name="PIN">13</field></shadow>
-			</value>
-		</block>
-
 		<block type="maker17_relay" name="继电器">
 			<value name="PIN">
 				<shadow type="pins_digital"></shadow>
@@ -827,4 +723,22 @@ E-mail:qiujiongtao@163.com
 		</value>
 	</block>
 </category>
+<!-- <block type="title1" name="一级标题">
+		<value name="year">
+			<shadow type="math_number">
+				<field name="NUM">2017</field>
+			</shadow>
+		</value>
+	</block>
+	 <block type="math_trig1">
+	 	<value name="year">
+			<shadow type="math_number">
+				<field name="NUM">2017</field>
+			</shadow>
+		</value>
+	</block>
+	 <block type="text1">
+	 	
+	</block>
+		<block type="maker17_page"></block> -->
 </category>

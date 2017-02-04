@@ -11,6 +11,10 @@ website: http://hznupeter.oschina.io/maker17/
 1.打开mixly 软件，点击导入库。
 2.选中17maker中的maker17.xml文件，稍等片刻，提示导入成功。
 
+---
+### Date:2017.2.1 Version:1.7
+*删除模拟传感器、数字传感器中单纯读取数值的传感器。
+*调整程序格式。
 
 ---
 ### Date:2017.1.15 Version:1.6.2
