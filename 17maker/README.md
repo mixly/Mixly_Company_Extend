@@ -15,6 +15,7 @@ website: http://hznupeter.oschina.io/maker17/
 ### Date:2017.2.1 Version:1.7
 *删除模拟传感器、数字传感器中单纯读取数值的传感器。
 *调整程序格式。
+*增加DHT22温湿度传感器模块。
 
 ---
 ### Date:2017.1.15 Version:1.6.2

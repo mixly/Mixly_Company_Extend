@@ -26,6 +26,11 @@ E-mail:qiujiongtao@163.com
 			<shadow type="pins_digital"></shadow>
 		</value>
 	</block>
+	<block type="maker17_dht22" name="DHT22温湿度传感器">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
 </category>
 <category id="catMaker17Executor" name="执行器" colour="40">
 	<block type="set_tonelist" x="206" y="34" name="设置音调频率">

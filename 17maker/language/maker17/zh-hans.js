@@ -1,6 +1,7 @@
 Blockly.MAKER17_LED= 'LED灯';
 Blockly.MAKER17_BUZZER = '蜂鸣器';
 Blockly.MAKER17_DHT11 = 'DHT11温湿度传感器';
+Blockly.MAKER17_DHT22 = 'DHT22温湿度传感器';
 Blockly.MAKER17_RESISTOR_SCRATCH = '电阻侦测传感器';
 Blockly.MAKER17_LM35TEMP = 'LM35温度传感器';
 Blockly.MAKER17_SOUND = '声音传感器';

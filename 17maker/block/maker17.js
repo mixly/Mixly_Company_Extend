@@ -131,6 +131,19 @@ Blockly.Blocks.maker17_dht11 = {
   }
 };
 
+//数字传感器-DHT22传感器
+Blockly.Blocks.maker17_dht22 = {
+  init: function() {
+    var WHAT = [
+      [Blockly.MIXLY_DHT11_T, 'TemperatureC'],
+      [Blockly.MIXLY_DHT11_H, 'Humidity']
+    ];
+    this.setColour(Blockly.Blocks.maker17.HUE1);
+    this.appendValueInput("PIN", Number).appendField(new Blockly.FieldImage("../../media/maker17/dht11.png", 32, 32)).appendField(Blockly.MAKER17_DHT22).appendField(Blockly.MIXLY_PIN).setCheck(Number);
+    this.appendDummyInput("").appendField(new Blockly.FieldDropdown(WHAT), "WHAT");
+    this.setOutput(true, Number);
+  }
+};
 
 //模拟传感器-温度传感器
 Blockly.Blocks.maker17_LM35temp = {

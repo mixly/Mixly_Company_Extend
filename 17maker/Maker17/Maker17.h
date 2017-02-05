@@ -11,6 +11,6 @@
 #include "Adafruit_GFX.h" //for 88点阵
 #include "Adafruit_LEDBackpack.h" //for 88点阵
 #include "DS1307RTC.h" //for ds1307
-
+#include "DHT22.h" //for ds1307
 #endif
 

@@ -51,6 +51,17 @@ Blockly.Arduino.maker17_dht11 = function() {
   return [funcName + '()', Blockly.Arduino.ORDER_ATOMIC];
 };
 
+//dht11温湿度传感器
+Blockly.Arduino.maker17_dht22 = function() {
+  var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+  var what = this.getFieldValue('WHAT');
+  Blockly.Arduino.definitions_['define_dht22'] = '#include "DHT22.h"';
+  Blockly.Arduino.setups_['setup_delay2000'] = ' delay(2000);';
+  Blockly.Arduino.definitions_['var_dht22' + dropdown_pin] = 'DHT22 myDHT22(' + dropdown_pin + ');';
+  var code = 'myDHT22.get'+what+'()';
+  return code;
+};
+
 //模拟传感器-LM35温度传感器
 Blockly.Arduino.maker17_LM35temp = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
