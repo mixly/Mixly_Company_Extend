@@ -32,7 +32,26 @@ E-mail:qiujiongtao@163.com
 		</value>
 	</block>
 </category>
-<category id="catMaker17Executor" name="执行器" colour="40">
+<category id="catMaker17Music" name="音乐" colour="40">
+	<block type="maker17_tone"  name="蜂鸣器">
+			<value name="PIN">
+				<shadow type="pins_digital"></shadow>
+			</value>
+			<value name="FREQUENCY">
+				<shadow type="maker17_tone_notes"  name="设置蜂鸣器频率选择"></shadow>
+			</value>
+			<value name="DURATION">
+				<shadow type="math_number"></shadow>
+			</value>
+		</block>
+		<block type="maker17_newNoTone" name="停止蜂鸣器">
+			<value name="PIN">
+				<shadow type="pins_digital"></shadow>
+			</value>
+			<value name="DELAY_TIME">
+				<shadow type="math_number"></shadow>
+			</value>
+		</block>
 	<block type="set_tonelist" x="206" y="34" name="设置音调频率">
 		<field name="TYPE">float</field>
 		<field name="VAR">tonelist</field>
@@ -194,41 +213,26 @@ E-mail:qiujiongtao@163.com
 				</block>
 			</statement>
 		</block>
+	</category>
+<category id="catMaker17Motion" name="动作" colour="40">
+	
 		<block type="maker17_relay" name="继电器">
 			<value name="PIN">
 				<shadow type="pins_digital"></shadow>
 			</value>
 		</block>
-		<block type="maker17_tone"  name="蜂鸣器">
-			<value name="PIN">
-				<shadow type="pins_digital"></shadow>
-			</value>
-			<value name="FREQUENCY">
-				<shadow type="maker17_tone_notes"  name="设置蜂鸣器频率选择"></shadow>
-			</value>
-			<value name="DURATION">
-				<shadow type="math_number"></shadow>
-			</value>
-		</block>
-		<block type="maker17_newNoTone" name="停止蜂鸣器">
-			<value name="PIN">
-				<shadow type="pins_digital"></shadow>
-			</value>
-			<value name="DELAY_TIME">
-				<shadow type="math_number"></shadow>
-			</value>
-		</block>
-		<block type="maker17_romeo_motor" name="电机转动">
+		
+		<block type="maker17_motor" name="电机转动">
 			<value name="speed">
 				<shadow type="math_number">
 					<field name="NUM">0</field>
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_romeo_motor_stop"  name="电机停止"></block>
+		<block type="maker17_motor_stop"  name="电机停止"></block>
 	</category>
 	<category id="catMaker17Show" name="显示" colour="40">
-		<category id="catMaker17MAX7219" name="MAX7219" colour="40">
+		<category id="catMaker17MAX7219" name="点阵屏幕MAX7219" colour="40">
 			<block type="MAX7219_init" name="LED点阵初始化">
 			<value name="PIN1">
 				<shadow type="pins_digital">

@@ -98,7 +98,7 @@ Blockly.Arduino.maker17_lcd_power = function() {
 };
 
 //执行器-电机转动
-Blockly.Arduino.maker17_romeo_motor = function() {
+Blockly.Arduino.maker17_motor = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var code = 'setRomeoMotor(' + dropdown_pin + ', ' + speed + ');\n';
@@ -117,7 +117,7 @@ Blockly.Arduino.maker17_romeo_motor = function() {
 };
 
 //执行器-电机停止
-Blockly.Arduino.maker17_romeo_motor_stop = function() {
+Blockly.Arduino.maker17_motor_stop = function() {
   var dropdown_pin = this.getTitleValue('PIN');
   var code = 'setRomeoMotor(' + dropdown_pin + ', 0);\n';
   Blockly.Arduino.setups_['setup_output_4'] = 'pinMode(4, OUTPUT);';

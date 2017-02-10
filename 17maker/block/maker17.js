@@ -52,7 +52,7 @@ Blockly.Blocks.maker17_tone = {
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/buzzer.png", 32, 32)).appendField(Blockly.MAKER17_BUZZER);
     this.appendValueInput("PIN", Number).appendField(Blockly.MIXLY_PIN).setCheck(Number);
     this.appendValueInput('FREQUENCY').setCheck(Number).appendField(Blockly.MIXLY_FREQUENCY);
-    this.appendValueInput('DURATION', Number).setCheck(Number).appendField(Blockly.MIXLY_DURATION);
+    this.appendValueInput('DURATION', Number).setCheck(Number).appendField(Blockly.MIXLY_DURATION).appendField("(ms)");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -65,7 +65,7 @@ Blockly.Blocks.maker17_newNoTone = {
     this.setColour(Blockly.Blocks.maker17.HUE2);
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/buzzer.png", 32, 32)).appendField(Blockly.MAKER17_NEWNOTONE);
     this.appendValueInput("PIN", Number).appendField(Blockly.MIXLY_PIN).setCheck(Number);
-    this.appendValueInput("DELAY_TIME", Number).appendField(Blockly.MIXLY_DELAY).setCheck(Number);
+    this.appendValueInput("DELAY_TIME", Number).appendField(Blockly.MIXLY_DELAY).setCheck(Number).appendField("(ms)");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -79,7 +79,7 @@ var MAKER17_MOTERSELECT = [
 ];
 
 //执行器-电机转速
-Blockly.Blocks.maker17_romeo_motor = {
+Blockly.Blocks.maker17_motor = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/motor.png", 32, 32)).appendTitle(Blockly.MAKER17_MOTOR).appendTitle("#").appendTitle(new Blockly.FieldDropdown(MAKER17_MOTERSELECT), "PIN");
@@ -91,7 +91,7 @@ Blockly.Blocks.maker17_romeo_motor = {
 };
 
 //执行器-电机停止
-Blockly.Blocks.maker17_romeo_motor_stop = {
+Blockly.Blocks.maker17_motor_stop = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/motor.png", 32, 32)).appendTitle(Blockly.MAKER17_MOTOR).appendTitle("#").appendTitle(new Blockly.FieldDropdown(MAKER17_MOTERSELECT), "PIN").appendTitle(Blockly.MIXLY_STOP);
