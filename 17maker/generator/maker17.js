@@ -332,17 +332,18 @@ Blockly.Arduino.MAX7219_putString = function() {
 };
 
 //显示-max7219 清除LED点阵显示
-Blockly.Arduino.Ledcontrol_clearDisplay = function() {
-  var varName = this.getFieldValue('VAR');
-  var lc_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
-  var code = varName + '.clearDisplay(' + (lc_num - 1) + ');\n';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
+// Blockly.Arduino.Ledcontrol_clearDisplay = function() {
+//   var varName = this.getFieldValue('VAR');
+//   var lc_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
+//   var code = varName + '.clearDisplay(' + (lc_num - 1) + ');\n';
+//   return [code, Blockly.Arduino.ORDER_ATOMIC];
+// };
 
 //显示-max7219-显示图案 
 Blockly.Arduino.MAX7219_DisplayChar = function() {
 
-  var lc_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
+  //var lc_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
+//  var lc_num=1;
   var lc_chars = Blockly.Arduino.valueToCode(this, 'Chars', Blockly.Arduino.ORDER_ATOMIC);
   code = 'for (int i = 0; i < 8; i++)\n';
   code += ' m.setColumn(i, ' + lc_chars + '[i]);\n';

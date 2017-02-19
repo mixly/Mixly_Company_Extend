@@ -34,24 +34,24 @@ E-mail:qiujiongtao@163.com
 </category>
 <category id="catMaker17Music" name="音乐" colour="40">
 	<block type="maker17_tone"  name="蜂鸣器">
-			<value name="PIN">
-				<shadow type="pins_digital"></shadow>
-			</value>
-			<value name="FREQUENCY">
-				<shadow type="maker17_tone_notes"  name="设置蜂鸣器频率选择"></shadow>
-			</value>
-			<value name="DURATION">
-				<shadow type="math_number"></shadow>
-			</value>
-		</block>
-		<block type="maker17_newNoTone" name="停止蜂鸣器">
-			<value name="PIN">
-				<shadow type="pins_digital"></shadow>
-			</value>
-			<value name="DELAY_TIME">
-				<shadow type="math_number"></shadow>
-			</value>
-		</block>
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+		<value name="FREQUENCY">
+			<shadow type="maker17_tone_notes"  name="设置蜂鸣器频率选择"></shadow>
+		</value>
+		<value name="DURATION">
+			<shadow type="math_number"></shadow>
+		</value>
+	</block>
+	<block type="maker17_newNoTone" name="停止蜂鸣器">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+		<value name="DELAY_TIME">
+			<shadow type="math_number"></shadow>
+		</value>
+	</block>
 	<block type="set_tonelist" x="206" y="34" name="设置音调频率">
 		<field name="TYPE">float</field>
 		<field name="VAR">tonelist</field>
@@ -214,8 +214,8 @@ E-mail:qiujiongtao@163.com
 			</statement>
 		</block>
 	</category>
-<category id="catMaker17Motion" name="动作" colour="40">
-	
+	<category id="catMaker17Motion" name="动作" colour="40">
+
 		<block type="maker17_relay" name="继电器">
 			<value name="PIN">
 				<shadow type="pins_digital"></shadow>
@@ -232,55 +232,57 @@ E-mail:qiujiongtao@163.com
 		<block type="maker17_motor_stop"  name="电机停止"></block>
 	</category>
 	<category id="catMaker17Show" name="显示" colour="40">
-		<category id="catMaker17MAX7219" name="点阵屏幕MAX7219" colour="40">
-			<block type="MAX7219_init" name="LED点阵初始化">
-			<value name="PIN1">
-				<shadow type="pins_digital">
-					<field name="PIN">8</field>
-				</shadow>
-			</value>
-			<value name="PIN2">
-				<shadow type="pins_digital">
-					<field name="PIN">9</field>
-				</shadow>
-			</value>
-			<value name="PIN3">
-				<shadow type="pins_digital">
-					<field name="PIN">10</field>
-				</shadow>
-			</value>
-			<value name="NUM">
-				<shadow type="math_number">
-					<field name="NUM">1</field>
-				</shadow>
-			</value>
-			<value name="Intensity">
-				<shadow type="math_number">
-					<field name="NUM">1</field>
-				</shadow>
-			</value>
-		</block>
+		<category id="catMaker17MAX7219" name="MAX7219点阵" colour="40">
 			
-
-			<block type="Ledcontrol_clearDisplay">
+			<block type="MAX7219_init" name="LED点阵初始化">
+				<value name="PIN1">
+					<shadow type="pins_digital">
+						<field name="PIN">8</field>
+					</shadow>
+				</value>
+				<value name="PIN2">
+					<shadow type="pins_digital">
+						<field name="PIN">9</field>
+					</shadow>
+				</value>
+				<value name="PIN3">
+					<shadow type="pins_digital">
+						<field name="PIN">10</field>
+					</shadow>
+				</value>
 				<value name="NUM">
 					<shadow type="math_number">
 						<field name="NUM">1</field>
 					</shadow>
 				</value>
+				<value name="Intensity">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
 			</block>
-<block type="MAX7219_putString" name="max7219显示字符">
-			<value name="String">
-				<shadow type="text">
-					<field name="TEXT">abc1234</field>
-				</shadow>
-			</value>
-			<value name="Speed">
-				<shadow type="math_number">
-					<field name="NUM">300</field>
-				</shadow>
-			</value>
-		</block>
+			
+
+			<!-- <block type="Ledcontrol_clearDisplay">
+				<value name="NUM">
+					<shadow type="math_number">
+						<field name="NUM">1</field>
+					</shadow>
+				</value>
+			</block> -->
+			<block type="MAX7219_putString" name="max7219滚动字符串">
+				<value name="String">
+					<shadow type="text">
+						<field name="TEXT">abc1234</field>
+					</shadow>
+				</value>
+				<value name="Speed">
+					<shadow type="math_number">
+						<field name="NUM">300</field>
+					</shadow>
+				</value>
+			</block>
+
 			<block type="MAX7219_DisplayChar" name="显示图案">
 				<value name="NUM">
 					<shadow type="math_number">
@@ -311,8 +313,6 @@ E-mail:qiujiongtao@163.com
 			<block type="Max7219_img" name="预设图案">
 			</block>
 			
-		
-		
 		</category>
 		<category id="catMaker17OLED" name="OLED" colour="40">
 			<!--  OLED 类 -->
@@ -362,28 +362,28 @@ E-mail:qiujiongtao@163.com
 					</block>
 				</value>
 			</block>
-				<block type="maker17_oled_draw4Str">
-	<value name="Text_line1">
-          <shadow type="text">
-            <field name="TEXT">Example line 1</field>
-          </shadow>
-    </value>
-	<value name="Text_line2">
-          <shadow type="text">
-            <field name="TEXT">Example line 2</field>
-          </shadow>
-    </value>
-	<value name="Text_line3">
-          <shadow type="text">
-            <field name="TEXT">Example line 3</field>
-          </shadow>
-    </value>
-	<value name="Text_line4">
-          <shadow type="text">
-            <field name="TEXT">Example line 4</field>
-          </shadow>
-    </value>
-	</block> 
+			<block type="maker17_oled_draw4Str">
+				<value name="Text_line1">
+					<shadow type="text">
+						<field name="TEXT">Example line 1</field>
+					</shadow>
+				</value>
+				<value name="Text_line2">
+					<shadow type="text">
+						<field name="TEXT">Example line 2</field>
+					</shadow>
+				</value>
+				<value name="Text_line3">
+					<shadow type="text">
+						<field name="TEXT">Example line 3</field>
+					</shadow>
+				</value>
+				<value name="Text_line4">
+					<shadow type="text">
+						<field name="TEXT">Example line 4</field>
+					</shadow>
+				</value>
+			</block> 
 			<block type="maker17_oled_print">
 				<value name="POS_X">
 					<shadow type="math_number">
@@ -396,9 +396,9 @@ E-mail:qiujiongtao@163.com
 					</shadow>
 				</value>
 				<value name="TEXT">
-					 <shadow type="text">
-            <field name="TEXT">1234</field>
-          </shadow>
+					<shadow type="text">
+						<field name="TEXT">1234</field>
+					</shadow>
 				</value>
 			</block>
 			
@@ -648,24 +648,24 @@ E-mail:qiujiongtao@163.com
 		
 		
 
-<category id="catMaker17_TM1650" name="TM1650数码管" colour="40">
-	<block type="Maker17_4DigitDisplay_Brightness">
-			<value name="bit">
-			</value> 
-		</block>
-		<block type="maker17_4digitdisplay_power">
-			<field name="STAT">clear</field>
-		</block>
-		<block type="maker17_4digitdisplay_displayString">
-			<value name="VALUE">
-				<shadow type="text">
-					<field name="TEXT">abcd</field>
-				</shadow>
-			</value>
-		</block>
-		<block type="maker17_4digitdisplay_showDot">
-		</block>
-</category>
+		<category id="catMaker17_TM1650" name="TM1650数码管" colour="40">
+			<block type="Maker17_4DigitDisplay_Brightness">
+				<value name="bit">
+				</value> 
+			</block>
+			<block type="maker17_4digitdisplay_power">
+				<field name="STAT">clear</field>
+			</block>
+			<block type="maker17_4digitdisplay_displayString">
+				<value name="VALUE">
+					<shadow type="text">
+						<field name="TEXT">abcd</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="maker17_4digitdisplay_showDot">
+			</block>
+		</category>
 <!-- 
 
 <block type="maker17_4digitdisplay_power">
@@ -694,43 +694,43 @@ E-mail:qiujiongtao@163.com
 </category>
 <category id="catMaker17Time" name="时间" colour="40">
 	<!-- <block type="DS1307_init" name="DS1307初始化">
-	</block> -->
-	<block type="DS1307_get_time" name="获取时间">
-	</block>
-	<block type="DS1307_set_time" name="设置时间">
-		<value name="hour">
-			<shadow type="math_number">
-				<field name="NUM">12</field>
-			</shadow>
-		</value>
-		<value name="minute">
-			<shadow type="math_number">
-				<field name="NUM">1</field>
-			</shadow>
-		</value>
-		<value name="second">
-			<shadow type="math_number">
-				<field name="NUM">10</field>
-			</shadow>
-		</value>
-	</block>
-	<block type="DS1307_set_date" name="设置日期">
-		<value name="year">
-			<shadow type="math_number">
-				<field name="NUM">2017</field>
-			</shadow>
-		</value>
-		<value name="month">
-			<shadow type="math_number">
-				<field name="NUM">1</field>
-			</shadow>
-		</value>
-		<value name="day">
-			<shadow type="math_number">
-				<field name="NUM">10</field>
-			</shadow>
-		</value>
-	</block>
+</block> -->
+<block type="DS1307_get_time" name="获取时间">
+</block>
+<block type="DS1307_set_time" name="设置时间">
+	<value name="hour">
+		<shadow type="math_number">
+			<field name="NUM">12</field>
+		</shadow>
+	</value>
+	<value name="minute">
+		<shadow type="math_number">
+			<field name="NUM">1</field>
+		</shadow>
+	</value>
+	<value name="second">
+		<shadow type="math_number">
+			<field name="NUM">10</field>
+		</shadow>
+	</value>
+</block>
+<block type="DS1307_set_date" name="设置日期">
+	<value name="year">
+		<shadow type="math_number">
+			<field name="NUM">2017</field>
+		</shadow>
+	</value>
+	<value name="month">
+		<shadow type="math_number">
+			<field name="NUM">1</field>
+		</shadow>
+	</value>
+	<value name="day">
+		<shadow type="math_number">
+			<field name="NUM">10</field>
+		</shadow>
+	</value>
+</block>
 </category>
 <!-- <block type="title1" name="一级标题">
 		<value name="year">
@@ -749,5 +749,5 @@ E-mail:qiujiongtao@163.com
 	 <block type="text1">
 	 	
 	</block>
-		<block type="maker17_page"></block> -->
+	<block type="maker17_page"></block> -->
 </category>

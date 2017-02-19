@@ -331,23 +331,23 @@ Blockly.Blocks.MAX7219_putString = {
 };
 
 //显示-MAX7219-清除LED点阵
-Blockly.Blocks.Ledcontrol_clearDisplay = {
-  init: function() {
-    this.appendDummyInput().appendField("清除LED点阵显示").appendField(new Blockly.FieldTextInput("LC"), "VAR");
-    this.appendValueInput("NUM").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField("点阵模块编号（1~8）");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.setInputsInline(true);
-    this.setTooltip('清除LED点阵(Max7219)显示');
-    this.setHelpUrl('');
-  }
-};
+// Blockly.Blocks.Ledcontrol_clearDisplay = {
+//   init: function() {
+//     this.appendDummyInput().appendField("清除LED点阵显示").appendField(new Blockly.FieldTextInput("LC"), "VAR");
+//     this.appendValueInput("NUM").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField("点阵模块编号（1~8）");
+//     this.setPreviousStatement(true, null);
+//     this.setNextStatement(true, null);
+//     this.setColour(Blockly.Blocks.maker17.HUE3);
+//     this.setInputsInline(true);
+//     this.setTooltip('清除LED点阵(Max7219)显示');
+//     this.setHelpUrl('');
+//   }
+// };
 //显示-MAX7219-LED点阵显示图案
 Blockly.Blocks.MAX7219_DisplayChar = {
   init: function() {
     this.appendDummyInput().appendField(Blockly.MAKER17_MAX7219_DISPLAYCHAR);
-    this.appendValueInput("NUM").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MAX7219_DISPLAYCHAR_NUM);
+    // this.appendValueInput("NUM").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MAX7219_DISPLAYCHAR_NUM);
     this.appendValueInput("Chars").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MAX7219_DISPLAYCHAR_SHOWIMG);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

@@ -10,6 +10,10 @@ website: http://hznupeter.oschina.io/maker17/
 使用方法
 1.打开mixly 软件，点击导入库。
 2.选中17maker中的maker17.xml文件，稍等片刻，提示导入成功。
+---
+### Date:2017.2.19 Version:1.7.1
+*增加例子。
+*简化MAX7219为非级联。
 
 ---
 ### Date:2017.2.1 Version:1.7
