@@ -305,7 +305,7 @@ Blockly.Blocks.MAX7219_init = {
     this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MAX7219_INIT).appendField("DIN").appendField(Blockly.MIXLY_PIN);
     this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField("CS").appendField(Blockly.MIXLY_PIN);
     this.appendValueInput("PIN3").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField("CLK").appendField(Blockly.MIXLY_PIN);
-    this.appendValueInput("NUM").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MAX7219_INIT_NUM);
+   
     this.appendValueInput("Intensity").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_BRIGHTNESS);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
