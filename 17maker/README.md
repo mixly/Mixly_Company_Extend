@@ -11,6 +11,11 @@ website: http://hznupeter.oschina.io/maker17/
 1.打开mixly 软件，点击导入库。
 2.选中17maker中的maker17.xml文件，稍等片刻，提示导入成功。
 ---
+### Date:2017.2.28 Version:1.8
+*增加ADXL345加速度计传感器。
+*增加TM1637数码管（未完成）。
+
+---
 ### Date:2017.2.19 Version:1.7.1
 *增加例子。
 *简化MAX7219为非级联。

@@ -3,6 +3,7 @@ block="block/maker17.js"
 generator="generator/maker17.js" 
 media="media/maker17" 
 lib="Maker17"
+hardware="hardware/arduino" 
 language="language/maker17" -->
 <!-- 
 Author :hznupeter
@@ -27,6 +28,16 @@ E-mail:qiujiongtao@163.com
 		</value>
 	</block>
 	<block type="maker17_dht22" name="DHT22温湿度传感器">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block>
+	<!-- <block type="maker17_mpu6050" name="mpu6050三轴加速度计">
+		<value name="PIN">
+			<shadow type="pins_digital"></shadow>
+		</value>
+	</block> -->
+	<block type="maker17_ADXL345" name="ADXL345三轴加速度计">
 		<value name="PIN">
 			<shadow type="pins_digital"></shadow>
 		</value>
@@ -630,24 +641,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_lcd_power"  name="液晶屏开关">
-
-		</block>
-		<block type="maker17_lcd_print"  name="液晶显示屏">
-			<value name="TEXT">
-				<block type="text">
-					<field name="TEXT"></field>
-				</block>
-			</value>
-			<value name="TEXT2">
-				<block type="text">
-					<field name="TEXT"></field>
-				</block>
-			</value>
-		</block>
 		
-		
-
 		<category id="catMaker17_TM1650" name="TM1650数码管" colour="40">
 			<block type="Maker17_4DigitDisplay_Brightness">
 				<value name="bit">
@@ -666,6 +660,29 @@ E-mail:qiujiongtao@163.com
 			<block type="maker17_4digitdisplay_showDot">
 			</block>
 		</category>
+		<!-- <category id="catMaker17_TM1637" name="TM1637数码管" colour="40">
+			<block type="Maker17_TM1637_Brightness">
+				<value name="bit">
+				</value> 
+			</block>
+			<block type="maker17_TM1637_power">
+				<field name="STAT">clear</field>
+			</block>
+			<block type="maker17_TM1637_displayString">
+				<value name="VALUE">
+					<shadow type="text">
+						<field name="TEXT">abcd</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="maker17_TM1637_displayTime">
+				<value name="VALUE">
+					<shadow type="text">
+						<field name="TEXT">abcd</field>
+					</shadow>
+				</value>
+			</block>
+		</category> -->
 <!-- 
 
 <block type="maker17_4digitdisplay_power">
