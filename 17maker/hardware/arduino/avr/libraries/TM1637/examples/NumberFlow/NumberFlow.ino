@@ -31,21 +31,26 @@ void loop()
   unsigned char i = 0;
   unsigned char count = 0;
   delay(150);
-  while(1)
+  int8_t run=1;
+  while(run)
   {
     i = count;
     count ++;
-    if(count == sizeof(NumTab)) count = 0;
-    for(unsigned char BitSelect = 0;BitSelect < 4;BitSelect ++)
+    if(sizeof(NumTab)<5)
+      run=0;
+    if(count == sizeof(NumTab))
+     count = 0;
+    for(unsigned char BitSelect = 0;BitSelect < sizeof(NumTab);BitSelect ++)
     {
       ListDisp[BitSelect] = NumTab[i];
       i ++;
-      if(i == sizeof(NumTab)) i = 0;
+      if(i == sizeof(NumTab))
+       i = 0;
     }
-    tm1637.display(0,ListDisp[0]);
-    tm1637.display(1,ListDisp[1]); 
-    tm1637.display(2,ListDisp[2]);
-    tm1637.display(3,ListDisp[3]);
+    for(unsigned char k = 0;k <sizeof(NumTab) ;k ++)
+   {
+    tm1637.display(k,ListDisp[k]);
+   }
     delay(300);
   }
 }

@@ -21,17 +21,10 @@ Blockly.MAKER17_RELAY = '继电器';
 Blockly.MAKER17_LIGHT = '光敏传感器';
 Blockly.MAKER17_LCD1602 = '液晶显示屏';
 Blockly.MAKER17_JOYSTICK_D = '摇杆按钮';
-// RGB
-Blockly.MAKER17_RGB = 'RGB灯';
-Blockly.MAKER17_RGB_NUM = '灯号(1~4)';
-Blockly.MAKER17_RGB_R = 'R值';
-Blockly.MAKER17_RGB_G = 'G值';
-Blockly.MAKER17_RGB_B = 'B值';
-Blockly.MAKER17_JOYSTICK_A = '摇杆';
+
 Blockly.MAKER17_MOTOR_SPEED = '速度(-255~255)';
 Blockly.MAKER17_MOTOR = '电机';
-Blockly.MAKER17_MQ = '气体传感器(MQ)';
-Blockly.MAKER17_FLAME = '火焰传感器';
+
 Blockly.MAKER17_BUZZER = '蜂鸣器';
 Blockly.MAKER17_DISPLAY_CLEAR = '清除第几位(1/2/3/4)';
 
@@ -46,7 +39,7 @@ Blockly.MAKER17_OLED = 'OLED';
 Blockly.MAKER17_OLEDGET = '获取OLED';
 Blockly.MAKER17_OLED_HEIGHT = '高度';
 Blockly.MAKER17_OLED_WIDTH = '宽度';
-Blockly.MAKER17_OLED_DRAWPIXE = 'OLED画点';
+Blockly.MAKER17_OLED_DRAWPIXE = '画点';
 Blockly.MAKER17_OLED_POSX = 'x坐标';
 Blockly.MAKER17_OLED_POSY = 'y坐标';
 Blockly.MAKER17_OLED_PAGE = '页面';
@@ -84,31 +77,40 @@ Blockly.MAKER17_OLED_DRAWSTR = '显示字符串';
 Blockly.MAKER17_OLED_PRINT_VAR = '显示变量';
 Blockly.MAKER17_OLED_STRING = '内容';
 Blockly.MAKER17_OLED_SET_FONT = '设置字体';
-Blockly.MAKER17_oled_draw4Str = 'OLED显示多行文本';
+Blockly.MAKER17_oled_draw4Str = '显示多行文本';
 Blockly.MAKER17_oled_page_tooltip='新建OLED页面';
-Blockly.MAKER17_oled_setFont_tooltip='设置字体';
+Blockly.MAKER17_oled_setFont_tooltip='设置字体,小字体11px,中字体20px,大字体25px';
 Blockly.MAKER17_oled_print_tooltip='打印字符串变量值。';
-Blockly.MAKER17_OLED_DRAW_ELLIPSE_TOOLTIP="绘制椭圆，x范围(0~127),y范围(0~63)";
+Blockly.MAKER17_OLED_DRAW_ELLIPSE_TOOLTIP='绘制椭圆，x范围(0~127),y范围(0~63)';
 Blockly.MAKER17_OLED_INIT='OLED初始化';
-Blockly.MAKER17_OLED_INIT2='OLED初始化（IIC接口）';
-Blockly.MAKER17_OLED_INIT_TOOLTIP='接IIC接口,A4 (SDA), A5 (SCL)';
-Blockly.MAKER17_OLED_SOLID="实心";
-Blockly.MAKER17_OLED_HOLLOW="空心";
-Blockly.MAKER17_OLED_WHOLE_CICILE="整圆";
-Blockly.MAKER17_OLED_UP_R="右上";
-Blockly.MAKER17_OLED_UP_L="左上";
-Blockly.MAKER17_OLED_LOW_R="右下";
-Blockly.MAKER17_OLED_LOW_L="左下";
-Blockly.MAKER17_OLED_normal="常规";
-Blockly.MAKER17_OLED_bold="加粗";
+Blockly.MAKER17_OLED_INIT2='OLED初始化(I2C)';
+Blockly.MAKER17_OLED_INIT2_TOOLTIP='接SPI接口';
+Blockly.MAKER17_OLED_INIT2_TOOLTIP='接IIC接口,A4 (SDA), A5 (SCL)';
+Blockly.MAKER17_OLED_SOLID='实心';
+Blockly.MAKER17_OLED_HOLLOW='空心';
+Blockly.MAKER17_OLED_WHOLE_CICILE='整圆';
+Blockly.MAKER17_OLED_UP_R='右上';
+Blockly.MAKER17_OLED_UP_L='左上';
+Blockly.MAKER17_OLED_LOW_R='右下';
+Blockly.MAKER17_OLED_LOW_L='左下';
+Blockly.MAKER17_OLED_normal='常规';
+Blockly.MAKER17_OLED_bold='加粗';
 Blockly.MAKER17_BIG='大';
 Blockly.MAKER17_MIDDLE='中';
 Blockly.MAKER17_SMALL='小';
-Blockly.MAKER17_OLED_DEGREE0="0度";
-Blockly.MAKER17_OLED_DEGREE90="90度";
-Blockly.MAKER17_OLED_DEGREE180="180度";
-Blockly.MAKER17_OLED_DEGREE270="270度";
-
+Blockly.MAKER17_OLED_DEGREE0='0度';
+Blockly.MAKER17_OLED_DEGREE90='90度';
+Blockly.MAKER17_OLED_DEGREE180='180度';
+Blockly.MAKER17_OLED_DEGREE270='270度';
+Blockly.MAKER17_OLED_BITMAP='显示图像(汉字)';
+Blockly.MAKER17_OLED_CN_HEIGHT='高度';
+Blockly.MAKER17_OLED_BITMAP_NAME='字模名称';
+Blockly.MAKER17_OLED_BITMAP_DATA='字模数据';
+Blockly.MAKER17_OLED_GET_HEIGHT_TOOLTIP='获取OLED的宽度或高度';
+Blockly.MAKER17_OLED_DEF_BMP_DATA_TOOLTIP='设置一个字模名称，将图像/汉字取模结果粘贴到字模数据中。';
+Blockly.MAKER17_OLED_SHOW_BMP_TOOLTIP='设置需要显示图像/汉字的坐标和它的宽高，再设置字模名称。';
+Blockly.MAKER17_OLED_DRAW_PIXE_TOOLTIP='设置坐标，在OLED上绘制点。';
+Blockly.MAKER17_OLED_DRAW_LINE_TOOLTIP='设置直线的起点和终点坐标，画出一条直线。';
 //playmusic函数
 Blockly.MAKER17_PLAYMUSIC_SET_DUR = '设置每拍时长';
 Blockly.MAKER17_PLAYMUSIC_SET_RHYTHM = '设置时值';
@@ -118,40 +120,43 @@ Blockly.MAKER17_PLAYMUSIC_SET_HIGH = '设置音高';
 Blockly.MAKER17_NEWNOTONE = '结束声音';
 
 //TM1650
-Blockly.MAKER17_4DIGITDISPLAY = '四位数码管';
+Blockly.MAKER17_4DIGITDISPLAY = 'TM1650';
 Blockly.MAKER17_4DIGITDISPLAY_DISPLAYSTRING = '显示字符串';
 Blockly.MAKER17_4DIGITDISPLAY_NOMBER1 = '第';
 Blockly.MAKER17_4DIGITDISPLAY_NOMBER2 = '个';
 Blockly.MAKER17_4DIGITDISPLAY_DOT = '小数点';
 Blockly.MAKER17_4DIGITDISPLAY_ON = '亮';
 Blockly.MAKER17_4DIGITDISPLAY_OFF = '灭';
-Blockly.MAKER17_4DIGITDISPLAY_TOOLTIP='TM1650四位数码管接IIC接口,A4 (SDA), A5 (SCL)';
-Blockly.MAKER17_BRIGHTNESS='亮度';
+Blockly.MAKER17_4DIGITDISPLAY_TOOLTIP='TM1650接IIC接口,A4 (SDA), A5 (SCL)';
+Blockly.MAKER17_BRIGHTNESS='设置亮度';
 Blockly.MAKER17_4DIGITDISPLAY_BRIGHTNESS_TOOLTIP='亮度（0-7）';
 
 //TM1637
-Blockly.MAKER17_TM1637='TM1637数码管';
-Blockly.MAKER17_TM1637_DISPLAYSTRING='显示字符串';
-Blockly.MAKER17_TM1637_DISPLAYTIME='显示时间';
+Blockly.MAKER17_TM1637='TM1637';
+Blockly.MAKER17_TM1637_DISPLAYSTRING='显示(滚动)字符串';
+Blockly.MAKER17_TM1637_DISPLAYSTRING_TIP='少于等于4字符为显示，超过4个字符为滚动。';
+Blockly.MAKER17_TM1637_DISPLAYTIME='TM1637显示时间';
+Blockly.MAKER17_TM1637_INIT='TM1637初始化';
+
 //max7219
 Blockly.MAKER17_MAX7219_INIT_TOOLTIP='初始化LED点阵,模块数量(1~8),亮度(0~15)';
 Blockly.MAKER17_MAX7219_INIT_NUM='点阵模块数量';
 Blockly.MAKER17_MAX7219_PUTSTR='滚动字符串';
-Blockly.MAKER17_SPEED="速度";
-Blockly.MAKER17_MAX7219_DISPLAYCHAR="LED点阵显示图案";
-Blockly.MAKER17_MAX7219_DISPLAYCHAR_NUM="点阵编号（1~8）";
+Blockly.MAKER17_SPEED='速度';
+Blockly.MAKER17_MAX7219_DISPLAYCHAR='LED点阵显示图案';
+Blockly.MAKER17_MAX7219_DISPLAYCHAR_NUM='点阵编号（1~8）';
 Blockly.MAKER17_MAX7219_DISPLAYCHAR_TOOLTIP='LED点阵显示图案';
-Blockly.MAKER17_MAX7219_DISPLAYCHAR_IMG="图案";
-Blockly.MAKER17_MAX7219_DISPLAYCHAR_SHOWIMG="显示图案";
-Blockly.MAKER17_MAX7219_LEDARRAY="图案变量";
+Blockly.MAKER17_MAX7219_DISPLAYCHAR_IMG='图案';
+Blockly.MAKER17_MAX7219_DISPLAYCHAR_SHOWIMG='显示图案';
+Blockly.MAKER17_MAX7219_LEDARRAY='图案变量';
 Blockly.MAKER17_MAX7219_INIT='LED点阵初始化';
 Blockly.MAKER17_MAX7219_INIT2='LED点阵初始化(IIC)';
 Blockly.MAKER17_MAX7219_PUTSTR_TOOLTIP='可以滚动显示数字，大小写字母，英文标点符号等，不支持中文哦。';
 Blockly.MAKER17_MAX7219_IMG='预设图案';
 
 //DS1307
-Blockly.MAKER17_DS1307_GET_TIME='DS1307时钟模块-获取';
-Blockly.MAKER17_DS1307_INIT='DS1307时钟模块初始化';
+Blockly.MAKER17_DS1307_GET_TIME='获取';
+Blockly.MAKER17_DS1307_INIT='时钟模块初始化';
 Blockly.MAKER17_DS1307_SET_TIME='设置时间';
 Blockly.MAKER17_DS1307_SET_DATE='设置日期';
 Blockly.MAKER17_YEAR='年';
