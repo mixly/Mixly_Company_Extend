@@ -145,6 +145,15 @@ Blockly.Blocks.maker17_ADXL345 = {
   }
 };
 
+//模拟传感器-IIC地址查找
+Blockly.Blocks.maker17_IICSCAN = {
+  init: function() {
+    this.setColour(Blockly.Blocks.maker17.HUE1);
+    this.appendDummyInput("").appendField(Blockly.maker17_IICSCAN);
+    this.setInputsInline(true);
+    this.setTooltip('');
+  }
+};
 //模拟传感器-lm35温度传感器
 Blockly.Blocks.maker17_LM35temp = {
   init: function() {

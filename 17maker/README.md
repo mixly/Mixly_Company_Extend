@@ -17,6 +17,7 @@ website: http://hznupeter.oschina.io/maker17/
 *在库文件目录中增加PCtoLCD取模软件。
 *对oled的各项函数增加数据范围的检测，只有当x<128,x>=0,y<64,y>=0时才编写代码，否则此语句无效。
 *删除MAX7219移动图形的模块。
+*修正OLED显示变量的坐标问题。
 ---
 ### Date:2017.2.28 Version:1.8
 *增加ADXL345加速度计传感器。

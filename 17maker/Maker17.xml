@@ -17,6 +17,9 @@ E-mail:qiujiongtao@163.com
 	<!-- <category id="catMaker17Base" name="基础功能" colour="40">
 </category> -->
 <category id="catMaker17Sensor"  name="传感器" colour="40">
+	<block type="maker17_IICSCAN" name="IIC地址查找">
+	
+	</block>
 	<block type="maker17_LM35temp" name="LM35温度传感器">
 		<value name="PIN">
 			<shadow type="pins_analog"></shadow>

@@ -172,4 +172,5 @@ Blockly.MAKER17_ADXL345='ADXL345加速度计';
 Blockly.MAKER17_ADXL345_AX='x轴加速度';
 Blockly.MAKER17_ADXL345_AY='y轴加速度';
 Blockly.MAKER17_ADXL345_AZ='z轴加速度';
-Blockly.MAKER17_ADXL345_TIP='与IIC接口相连，SCL接A5，SDA接A4。';
+Blockly.MAKER17_ADXL345_TIP='与IIC接口相连，SCL接A5，SDA接A4。使用串口监视器时，波特率设为38400.';
+Blockly.maker17_IICSCAN='IIC设备地址查找'
