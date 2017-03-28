@@ -283,6 +283,21 @@ Blockly.Blocks.maker17_TM1637_displayTime = {
   }
 };
 
+//显示-TM1637-4位数码管停表
+Blockly.Blocks.maker17_TM1637_Stopwatch = {
+  init: function() {
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83, 32)).appendField(Blockly.MAKER17_TM1637);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_STOPWATCH).appendField(new Blockly.FieldDropdown([
+      [Blockly.MAKER17_STOPWATCH_START, "stopwatchStart"],
+      [Blockly.MAKER17_STOPWATCH_PAUSE, "stopwatchPause"],
+      [Blockly.MAKER17_STOPWATCH_RESET, "stopwatchReset"],]), "STAT");
+    this.setTooltip(Blockly.MAKER17_TM1637_STOPWATCH_TOOLTIP);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setInputsInline(true);
+  }
+};
 //显示-TM1637-4位数码管设置亮度
 Blockly.Blocks.Maker17_TM1637_Brightness = {
   init: function() {
@@ -966,7 +981,7 @@ Blockly.Blocks['math_trig1'] = {
 Blockly.Blocks.maker17_page = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput().appendField("第一单元");
+    //this.appendDummyInput().appendField("第一单元");
     this.appendStatementInput('DO').appendField('');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -990,5 +1005,48 @@ Blockly.Blocks['text1'] = {
       var file = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAn0lEQVQI1z3OMa5BURSF4f/cQhAKjUQhuQmFNwGJEUi0RKN5rU7FHKhpjEH3TEMtkdBSCY1EIv8r7nFX9e29V7EBAOvu7RPjwmWGH/VuF8CyN9/OAdvqIXYLvtRaNjx9mMTDyo+NjAN1HNcl9ZQ5oQMM3dgDUqDo1l8DzvwmtZN7mnD+PkmLa+4mhrxVA9fRowBWmVBhFy5gYEjKMfz9AylsaRRgGzvZAAAAAElFTkSuQmCC';
     }
     return new Blockly.FieldImage(file, 12, 12, '"');
+  }
+};
+
+//MP3
+Blockly.Blocks.maker17_MP3_VOL={
+init:function(){
+   this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.appendDummyInput("")
+    .appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32))
+      .appendTitle(Blockly.MAKER17_MP3);  
+  this.appendValueInput('VOLUME',Number)
+      .setCheck(Number)
+      .appendTitle(Blockly.MAKER17_MP3_VOL);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+  }
+};
+
+Blockly.Blocks.maker17_MP3_PLAY={
+init:function(){
+   this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.appendDummyInput("")
+    .appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32))
+      .appendTitle(Blockly.MAKER17_MP3);
+  this.appendValueInput('NUM',Number)
+      .setCheck(Number)
+      .appendTitle(Blockly.MAKER17_MP3_PLAY);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+  }
+};
+Blockly.Blocks.maker17_MP3_STATE = {
+  init: function() {
+   this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.appendDummyInput("")
+    .appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32))
+      .appendTitle(Blockly.MAKER17_MP3)
+      .appendTitle(Blockly.MAKER17_MP3_STATE)
+        .appendTitle(new Blockly.FieldDropdown([[Blockly.MAKER17_MP3_ONPLAY, "play()"],[Blockly.MAKER17_MP3_LOOPPLAY, "loop_play()"], [Blockly.MAKER17_MP3_RANDPLAY, "random_play()"], [Blockly.MAKER17_MP3_PAUSE, "pause()"], [Blockly.MAKER17_MP3_STOP, "stop()"]]), "STAT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
   }
 };

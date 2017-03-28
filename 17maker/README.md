@@ -2,15 +2,20 @@
 =========
 17Maker libary for mixly.
 ----
-The port is general GVS.
 Author :hznupeter
 E-mail:qiujiongtao@163.com
-website: http://hznupeter.oschina.io/maker17/
+website: http://wiki.17maker.org
 --
 使用方法
 1.打开mixly 软件，点击导入库。
 2.选中17maker中的maker17.xml文件，稍等片刻，提示导入成功。
 ---
+### Date:2017.3.28 Version:2.0
+*TM1637增加秒表功能。
+
+---
+
+
 ### Date:2017.3.4 Version:1.9
 *OLED模块中增加显示图像（汉字）模块。
 *图像（汉字）显示的显示需要先取模，后显示。

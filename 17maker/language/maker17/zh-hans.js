@@ -137,6 +137,10 @@ Blockly.MAKER17_TM1637_DISPLAYSTRING='显示(滚动)字符串';
 Blockly.MAKER17_TM1637_DISPLAYSTRING_TIP='少于等于4字符为显示，超过4个字符为滚动。';
 Blockly.MAKER17_TM1637_DISPLAYTIME='TM1637显示时间';
 Blockly.MAKER17_TM1637_INIT='TM1637初始化';
+Blockly.MAKER17_STOPWATCH='秒表';
+Blockly.MAKER17_STOPWATCH_START='开始';
+Blockly.MAKER17_STOPWATCH_PAUSE='暂停';
+Blockly.MAKER17_STOPWATCH_RESET='重置';
 
 //max7219
 Blockly.MAKER17_MAX7219_INIT_TOOLTIP='初始化LED点阵,模块数量(1~8),亮度(0~15)';
@@ -173,4 +177,16 @@ Blockly.MAKER17_ADXL345_AX='x轴加速度';
 Blockly.MAKER17_ADXL345_AY='y轴加速度';
 Blockly.MAKER17_ADXL345_AZ='z轴加速度';
 Blockly.MAKER17_ADXL345_TIP='与IIC接口相连，SCL接A5，SDA接A4。使用串口监视器时，波特率设为38400.';
-Blockly.maker17_IICSCAN='IIC设备地址查找'
+Blockly.maker17_IICSCAN='IIC设备地址查找';
+
+//mp3
+Blockly.MAKER17_MP3='MP3';
+Blockly.MAKER17_MP3_VOL='音量';
+Blockly.MAKER17_MP3_PLAY='播放曲目';
+Blockly.MAKER17_MP3_STATE='播放模式';
+Blockly.MAKER17_MP3_ONPLAY='播放';
+Blockly.MAKER17_MP3_LOOPPLAY='循环播放';
+
+Blockly.MAKER17_MP3_RANDPLAY='随机播放';
+Blockly.MAKER17_MP3_PAUSE='暂停';
+Blockly.MAKER17_MP3_STOP='停止';

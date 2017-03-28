@@ -674,11 +674,38 @@ Blockly.Arduino.maker17_TM1637_displayTime = function() {
   Blockly.Arduino.definitions_['definitions_TimeDisp'] = 'int8_t TimeDisp[] = {0x00,0x00,0x00,0x00};\nunsigned char ClockPoint = 1;\nunsigned char Update;\nunsigned char halfsecond = 0;\nunsigned char second=' + second + ';\nunsigned char minute = ' + minute + ';\nunsigned char hour = ' + hour + ';\n';
   Blockly.Arduino.definitions_['void_TimingISR'] = 'void TimingISR()\n{\nhalfsecond ++;\nUpdate=ON;\nif(halfsecond == 2){\nsecond ++;\nif(second==60)\n{\nminute ++;\nif(minute == 60){\nhour ++;\nif(hour == 24)\nhour = 0;\nminute = 0;\n}\nsecond = 0;\n}\nhalfsecond = 0;\n}\nClockPoint=(~ClockPoint) & 0x01;\n}';
   Blockly.Arduino.definitions_['void_TimeUpdate'] = ' void TimeUpdate(void){  if(ClockPoint)tm1637.point(POINT_ON);  else tm1637.point(POINT_OFF);   TimeDisp[0] = hour / 10;  TimeDisp[1] = hour % 10;  TimeDisp[2] = minute / 10;  TimeDisp[3] = minute % 10;  Update = OFF;}';
-  Blockly.Arduino.setups_['setup_tm1637_init'] = '  tm1637.set();\n tm1637.init();\nTimer1.initialize(500000);\n  Timer1.attachInterrupt(TimingISR);\n ';
+  Blockly.Arduino.setups_['setup_tm1637_init'] = 'tm1637.init();\nTimer1.initialize(500000);\n  Timer1.attachInterrupt(TimingISR);\n ';
   var code = ' if(Update == ON){TimeUpdate();tm1637.display(TimeDisp);}';
   return code;
 };
+//显示-TM1637-停表
+Blockly.Arduino.maker17_TM1637_Stopwatch = function() {
+   var STAT = this.getTitleValue('STAT');
+  Blockly.Arduino.definitions_['include_EEPROM'] = '#include <EEPROM.h>';
+  Blockly.Arduino.definitions_['include_timerone'] = '#include <TimerOne.h>';
+  Blockly.Arduino.definitions_['include_pgmspace'] = '#include <avr/pgmspace.h>';
+  Blockly.Arduino.definitions_['definitions_on_off'] = '#define ON 1\n#define OFF 0\n';
+  
+  Blockly.Arduino.definitions_['definitions_TimeDisp'] = 'int8_t TimeDisp[] = {0x00,0x00,0x00,0x00};\nunsigned char ClockPoint = 1;\nunsigned char Update;\nunsigned char microsecond_10 = 0;\nunsigned char second;\nunsigned char _microsecond_10 = 0;\nunsigned char _second;\nunsigned int eepromaddr;\nboolean Flag_ReadTime;\n';
 
+  Blockly.Arduino.definitions_['void_TimingISR2'] = 'void TimingISR2()\n{\nmicrosecond_10 ++;\nUpdate = ON;\nif(microsecond_10 == 100)\n{\nsecond ++;\nif(second == 60)\n{\nsecond = 0;\n}\nmicrosecond_10 = 0; \n}\nClockPoint =(~ClockPoint) & 0x01;\nif(Flag_ReadTime == 0) \n {_microsecond_10 = microsecond_10;\n_second = second;  }\n}\n';
+
+  Blockly.Arduino.definitions_['void_TimeUpdate2'] = 'void TimeUpdate2(void)\n{\nif(ClockPoint)tm1637.point(POINT_ON);\nelse tm1637.point(POINT_OFF);\nTimeDisp[2] = _microsecond_10 / 10;\nTimeDisp[3] = _microsecond_10 % 10;\nTimeDisp[0] = _second / 10;\nTimeDisp[1]= _second % 10;\nUpdate = OFF;\n}\n';
+
+  Blockly.Arduino.definitions_['void_stopwatchStart'] = 'void stopwatchStart()\n{\n  Flag_ReadTime = 0;\nTCCR1B |=Timer1.clockSelectBits; \n}\n';
+  Blockly.Arduino.definitions_['void_stopwatchPause'] = 'void stopwatchPause()\n{\nTCCR1B &= ~(_BV(CS10) | _BV(CS11) | _BV(CS12));\n}\n';
+
+  Blockly.Arduino.definitions_['void_stopwatchReset'] = 'void stopwatchReset()\n{\n stopwatchPause();\nFlag_ReadTime = 0;\n_microsecond_10 = 0;\n_second = 0;\nmicrosecond_10 = 0;\nsecond = 0;\nUpdate = ON;\n}\n';
+  Blockly.Arduino.definitions_['void_saveTime'] = 'void saveTime()\n{EEPROM.write(eepromaddr ++,microsecond_10);\nEEPROM.write(eepromaddr ++,second);\n}\n';
+
+  Blockly.Arduino.definitions_['void_readTime'] = 'void readTime(){\nFlag_ReadTime = 1;\nif(eepromaddr == 0)\n{\nSerial.println("The time had been read");\n_microsecond_10 = 0;\n _second = 0;\n}\nelse{\n_second = EEPROM.read(-- eepromaddr);\n_microsecond_10 = EEPROM.read(-- eepromaddr);\nSerial.println("List the time");\n}\nUpdate = ON;\n}';
+
+  Blockly.Arduino.setups_['setup_tm1637_stopwatch'] = '  tm1637.set();\n tm1637.init();\nTimer1.initialize(10000);\n  Timer1.attachInterrupt(TimingISR2);\n ';
+
+  var code = STAT+'();\n';
+  code+='if(Update == ON)\n{\nTimeUpdate2();\ntm1637.display(TimeDisp);\n}';
+  return code;
+};
 //显示-TM1637-设置亮度
 Blockly.Arduino.Maker17_TM1637_Brightness = function() {
   var BRIGHTNESS = this.getTitleValue('BRIGHTNESS');
@@ -739,4 +766,33 @@ Blockly.Arduino.maker17_IICSCAN = function() {
  Blockly.Arduino.setups_['setup_delay2000'] = '  Wire.begin();\nSerial.begin(9600);\nSerial.println("I2C Scanner");\n';
  var code='byte error, address;\nint nDevices;\nSerial.println("Scanning...");\nnDevices = 0;\nfor (address = 1; address < 127; address++ )\n{\n Wire.beginTransmission(address);\nerror = Wire.endTransmission();\nif (error == 0){\nSerial.print("I2C device found at address 0x");\nif (address < 16)\nSerial.print("0"); \nSerial.print(address, HEX);  \nSerial.println(" !");\nnDevices++;\n}\nelse if (error == 4){\nSerial.print("Unknow error at address 0x");\nif (address < 16)Serial.print("0"); \nSerial.println(address, HEX);  }\n}\nif (nDevices == 0)\nSerial.println("No I2C devices found");\nelse \nSerial.println("done");\ndelay(5000); ';
  return code;
+};
+
+//MP3
+Blockly.Arduino.maker17_MP3_VOL = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var VOL = Blockly.Arduino.valueToCode(this, 'VOLUME',
+      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+  Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
+  var code = 'MP3_'+dropdown_pin+'.volume(map('+VOL+', 0, 100, 0, 30));\n'
+  return code;
+};
+Blockly.Arduino.maker17_MP3_PLAY = function() {
+  var dropdown_pin = this.getTitleValue('PIN');
+  var Num = Blockly.Arduino.valueToCode(this, 'NUM',
+      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+  Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+  Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
+  Blockly.Arduino.setups_['setup_MP3_PLAY'+dropdown_pin] = 'MP3_'+dropdown_pin+'.begin(9600);\n';
+  var code = 'MP3_'+dropdown_pin+'.play('+Num+');\n'
+  return code;
+};
+Blockly.Arduino.maker17_MP3_STATE = function() {
+    var dropdown_pin = this.getTitleValue('PIN');
+    var dropdown_stat = this.getTitleValue('STAT');
+    Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
+    Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
+    Blockly.Arduino.setups_['setup_MP3_PLAY'+dropdown_pin] = 'MP3_'+dropdown_pin+'.begin(9600);\n';
+  var code = 'MP3_'+dropdown_pin+'.'+dropdown_stat+';\n'
+    return code;
 };

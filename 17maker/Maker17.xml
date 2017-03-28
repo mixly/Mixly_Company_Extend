@@ -4,10 +4,12 @@ generator="generator/maker17.js"
 media="media/maker17" 
 lib="Maker17"
 hardware="hardware/arduino" 
-language="language/maker17" -->
+language="language/maker17"
+examples="examples/maker17"
+-->
 <!-- 
 Author :hznupeter
-Date:2016-12-30
+Date:2017-3-30
 E-mail:qiujiongtao@163.com
 -->
 <script type="text/javascript" src="../../blocks/company/maker17.js"></script>
@@ -647,6 +649,9 @@ E-mail:qiujiongtao@163.com
 					</shadow>
 				</value>
 			</block>
+			<block type="maker17_TM1637_Stopwatch" name="秒表">
+				
+			</block>
 		</category> 
 </category>
 <category id="catMaker17Time" name="DS1307时间模块" colour="40">
@@ -686,6 +691,22 @@ E-mail:qiujiongtao@163.com
 		</shadow>
 	</value>
 </block>
+<block type="maker17_MP3_VOL" name="mp3音量">
+        <value name="VOLUME">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+    </block>
+	<block type="maker17_MP3_PLAY" name="播放曲目">
+    <value name="NUM">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+    </block>
+	<block type="maker17_MP3_STATE" name="播放模式"></block>
+    
 </category></category>
 
 <!-- <category id="catMaker17TimeDS3231" name="DS3231时间模块" colour="40">
