@@ -1,4 +1,4 @@
-<!-- type="company" 
+type="company" 
 block="block/maker17.js"
 generator="generator/maker17.js" 
 media="media/maker17" 
@@ -67,6 +67,37 @@ E-mail:qiujiongtao@163.com
 		<value name="DELAY_TIME">
 			<shadow type="math_number"></shadow>
 		</value>
+	</block>
+	<block type="maker17_MP3_VOL" name="mp3音量">
+	<value name="PIN">
+					<shadow type="pins_digital">
+						<field name="PIN">8</field>
+					</shadow>
+				</value>
+        <value name="VOLUME">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+    </block>
+	<block type="maker17_MP3_PLAY" name="播放曲目">
+		<value name="PIN">
+					<shadow type="pins_digital">
+						<field name="PIN">8</field>
+					</shadow>
+				</value>
+    <value name="NUM">
+			<shadow type="math_number">
+				<field name="NUM">1</field>
+			</shadow>
+		</value>
+    </block>
+	<block type="maker17_MP3_STATE" name="播放模式">
+		<value name="PIN">
+					<shadow type="pins_digital">
+						<field name="PIN">8</field>
+					</shadow>
+				</value>
 	</block>
 	<block type="set_tonelist" x="206" y="34" name="设置音调频率">
 		<field name="TYPE">float</field>
@@ -583,7 +614,7 @@ E-mail:qiujiongtao@163.com
 		</category>
 
 		
-		<category id="catMaker17_TM1650" name="TM1650数码管" colour="40">
+		<!-- <category id="catMaker17_TM1650" name="TM1650数码管" colour="40">
 			<block type="Maker17_4DigitDisplay_Brightness">
 				<value name="bit">
 				</value> 
@@ -600,7 +631,7 @@ E-mail:qiujiongtao@163.com
 			</block>
 			<block type="maker17_4digitdisplay_showDot">
 			</block>
-		</category>
+		</category> -->
 		
 		<category id="catMaker17_TM1637" name="TM1637数码管" colour="40">
 			<block type="Maker17_TM1637_init" name="TM1637初始化">
@@ -655,6 +686,8 @@ E-mail:qiujiongtao@163.com
 		</category> 
 </category>
 <category id="catMaker17Time" name="DS1307时间模块" colour="40">
+<block type="DS1307_start_get_time" name="开始获取时间">
+</block>
 <block type="DS1307_get_time" name="获取时间">
 </block>
 <block type="DS1307_set_time" name="设置时间">
@@ -691,23 +724,9 @@ E-mail:qiujiongtao@163.com
 		</shadow>
 	</value>
 </block>
-<block type="maker17_MP3_VOL" name="mp3音量">
-        <value name="VOLUME">
-			<shadow type="math_number">
-				<field name="NUM">1</field>
-			</shadow>
-		</value>
-    </block>
-	<block type="maker17_MP3_PLAY" name="播放曲目">
-    <value name="NUM">
-			<shadow type="math_number">
-				<field name="NUM">1</field>
-			</shadow>
-		</value>
-    </block>
-	<block type="maker17_MP3_STATE" name="播放模式"></block>
-    
-</category></category>
+
+</category>
+</category>
 
 <!-- <category id="catMaker17TimeDS3231" name="DS3231时间模块" colour="40">
 <block type="DS3231_get_time" name="获取时间">
@@ -749,4 +768,4 @@ E-mail:qiujiongtao@163.com
 		</shadow>
 	</value>
 </block>
-</category> -->
+</category>

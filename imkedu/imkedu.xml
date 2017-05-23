@@ -1,0 +1,17 @@
+<!-- type="company" block="block/imkedu.js" generator="generator/imkedu.js"  lib="SCoop" media="media/imkedu" -->
+<script type="text/javascript" src="../../blocks/company/imkedu.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/imkedu.js"></script>
+  <category name="imkedu-V1.0">
+    <block type="imkedu_task">
+      <field name="IMKEDU_TASK_NAME">task1</field>
+      <statement name="IMKEDU_TASK_STATEMENT">
+        <block type="imkedu_delay">
+          <field name="IMKEDU_DELAY_VALUE">10</field>
+        </block>
+      </statement>
+    </block>
+    <block type="imkedu_delay">
+      <field name="IMKEDU_DELAY_VALUE">10</field>
+    </block>
+    <block type="imkedu_start_task"></block>
+  </category>                                                                                                       

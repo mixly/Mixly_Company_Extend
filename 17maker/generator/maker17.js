@@ -397,9 +397,8 @@ Blockly.Arduino.maker17_oled_draw4Str = function() {
 Blockly.Arduino.maker17_oled_drawPixe = function() {
   var pos_x = Blockly.Arduino.valueToCode(this, 'POS_X', Blockly.Arduino.ORDER_ATOMIC);
   var pos_y = Blockly.Arduino.valueToCode(this, 'POS_Y', Blockly.Arduino.ORDER_ATOMIC);
-  var code="";
-  if(pos_x<128&&pos_x>=0&&pos_y<64&&pos_y>=0)
-   code = "u8g.drawPixel(" + pos_x + "," + pos_y + " ); ";
+  var code = "";
+  if (pos_x < 128 && pos_x >= 0 && pos_y < 64 && pos_y >= 0) code = "u8g.drawPixel(" + pos_x + "," + pos_y + " ); ";
   return code;
 };
 
@@ -421,9 +420,8 @@ Blockly.Arduino.maker17_oled_showBitmap = function() {
   var WIDTH = this.getTitleValue('WIDTH');
   var data_name = Blockly.Arduino.valueToCode(this, 'bitmap_name', Blockly.Arduino.ORDER_ATOMIC);
   data_name = data_name.replace(/\"/g, ""); //过滤引号
-  var code="";
-   if(START_X<128&&START_X>=0&&START_Y<64&&START_Y>=0)
-  code = ' u8g.drawBitmapP( ' + START_X + ', ' + START_Y + ',' + (parseInt(WIDTH) / 8) + ' ,' + parseInt(Height) + ', ' + data_name + ');\n';
+  var code = "";
+  if (START_X < 128 && START_X >= 0 && START_Y < 64 && START_Y >= 0) code = ' u8g.drawBitmapP( ' + START_X + ', ' + START_Y + ',' + (parseInt(WIDTH) / 8) + ' ,' + parseInt(Height) + ', ' + data_name + ');\n';
   return code;
 };
 
@@ -443,9 +441,8 @@ Blockly.Arduino.maker17_oled_drawLine = function() {
   var start_y = Blockly.Arduino.valueToCode(this, 'START_Y', Blockly.Arduino.ORDER_ATOMIC);
   var end_x = Blockly.Arduino.valueToCode(this, 'END_X', Blockly.Arduino.ORDER_ATOMIC);
   var end_y = Blockly.Arduino.valueToCode(this, 'END_Y', Blockly.Arduino.ORDER_ATOMIC);
-var code="";
-   if(start_x<128&&start_x>=0&&start_y<64&&start_y>=0&&end_x<128&&end_x>=0&&end_y<64&&end_y>=0)
-  code = "u8g.drawLine(" + start_x + "," + start_y + "," + end_x + "," + end_y + "); \n";
+  var code = "";
+  if (start_x < 128 && start_x >= 0 && start_y < 64 && start_y >= 0 && end_x < 128 && end_x >= 0 && end_y < 64 && end_y >= 0) code = "u8g.drawLine(" + start_x + "," + start_y + "," + end_x + "," + end_y + "); \n";
   return code;
 };
 
@@ -455,9 +452,8 @@ Blockly.Arduino.maker17_oled_draw_Str_Line = function() {
   var start_y = Blockly.Arduino.valueToCode(this, 'START_Y', Blockly.Arduino.ORDER_ATOMIC);
   var length = Blockly.Arduino.valueToCode(this, 'LENGTH', Blockly.Arduino.ORDER_ATOMIC);
   var TYPE = this.getTitleValue('TYPE');
-  var code="";
-   if(start_x<128&&start_x>=0&&start_y<64&&start_y>=0&&length>0&&length<129)
-  code = "u8g.draw" + TYPE + "Line(" + start_x + "," + start_y + "," + length + "); \n";
+  var code = "";
+  if (start_x < 128 && start_x >= 0 && start_y < 64 && start_y >= 0 && length > 0 && length < 129) code = "u8g.draw" + TYPE + "Line(" + start_x + "," + start_y + "," + length + "); \n";
   return code;
 };
 
@@ -469,9 +465,8 @@ Blockly.Arduino.maker17_oled_drawTriangle = function() {
   var D1_y = Blockly.Arduino.valueToCode(this, 'D1_Y', Blockly.Arduino.ORDER_ATOMIC);
   var D2_x = Blockly.Arduino.valueToCode(this, 'D2_X', Blockly.Arduino.ORDER_ATOMIC);
   var D2_y = Blockly.Arduino.valueToCode(this, 'D2_Y', Blockly.Arduino.ORDER_ATOMIC);
-   var code="";
-   if(D0_x<128&&D0_x>=0&&D0_y<64&&D0_y>=0&&D1_x<128&&D1_x>=0&&D1_y<64&&D1_y>=0&&D2_x<128&&D2_x>=0&&D2_y<64&&D2_y>=0)
-  code = "u8g.drawTriangle(" + D0_x + "," + D0_y + "," + D1_x + "," + D1_y + "," + D2_x + "," + D2_y + "); \n";
+  var code = "";
+  if (D0_x < 128 && D0_x >= 0 && D0_y < 64 && D0_y >= 0 && D1_x < 128 && D1_x >= 0 && D1_y < 64 && D1_y >= 0 && D2_x < 128 && D2_x >= 0 && D2_y < 64 && D2_y >= 0) code = "u8g.drawTriangle(" + D0_x + "," + D0_y + "," + D1_x + "," + D1_y + "," + D2_x + "," + D2_y + "); \n";
   return code;
 };
 
@@ -482,9 +477,8 @@ Blockly.Arduino.maker17_oled_drawFrame = function() {
   var Width = Blockly.Arduino.valueToCode(this, 'WIDTH', Blockly.Arduino.ORDER_ATOMIC);
   var Height = Blockly.Arduino.valueToCode(this, 'HEIGHT', Blockly.Arduino.ORDER_ATOMIC);
   var type = this.getTitleValue('TYPE');
-   var code="";
-   if(D0_x<128&&D0_x>=0&&D0_y<64&&D0_y>=0&&Width<128&&Width>=0&&Height<64&&Height>=0)
- code = "u8g." + type + "(" + D0_x + "," + D0_y + "," + Width + "," + Height + "); \n";
+  var code = "";
+  if (D0_x < 128 && D0_x >= 0 && D0_y < 64 && D0_y >= 0 && Width < 128 && Width >= 0 && Height < 64 && Height >= 0) code = "u8g." + type + "(" + D0_x + "," + D0_y + "," + Width + "," + Height + "); \n";
   return code;
 };
 
@@ -496,9 +490,8 @@ Blockly.Arduino.maker17_oled_drawRFrame = function() {
   var Height = Blockly.Arduino.valueToCode(this, 'HEIGHT', Blockly.Arduino.ORDER_ATOMIC);
   var Rauius = Blockly.Arduino.valueToCode(this, 'RADIUS', Blockly.Arduino.ORDER_ATOMIC);
   var type = this.getTitleValue('TYPE');
-   var code="";
-   if(D0_x<128&&D0_x>=0&&D0_y<64&&D0_y>=0&&Width<128&&Width>=0&&Height<64&&Height>=0&&Rauius>=0)
-  code = "u8g." + type + "(" + D0_x + "," + D0_y + "," + Width + "," + Height + "," + Rauius + "); \n";
+  var code = "";
+  if (D0_x < 128 && D0_x >= 0 && D0_y < 64 && D0_y >= 0 && Width < 128 && Width >= 0 && Height < 64 && Height >= 0 && Rauius >= 0) code = "u8g." + type + "(" + D0_x + "," + D0_y + "," + Width + "," + Height + "," + Rauius + "); \n";
   return code;
 };
 
@@ -509,9 +502,8 @@ Blockly.Arduino.maker17_oled_drawCircle = function() {
   var Rauius = Blockly.Arduino.valueToCode(this, 'RADIUS', Blockly.Arduino.ORDER_ATOMIC);
   var type = this.getTitleValue('TYPE');
   var opt = this.getTitleValue('OPT');
-   var code="";
-   if(D0_x<128&&D0_x>=0&&D0_y<64&&D0_y>=0&&Rauius>=0)
-  code = "u8g." + type + "(" + D0_x + "," + D0_y + "," + Rauius + "," + opt + "); \n";
+  var code = "";
+  if (D0_x < 128 && D0_x >= 0 && D0_y < 64 && D0_y >= 0 && Rauius >= 0) code = "u8g." + type + "(" + D0_x + "," + D0_y + "," + Rauius + "," + opt + "); \n";
   return code;
 };
 
@@ -523,9 +515,8 @@ Blockly.Arduino.maker17_oled_drawEllipse = function() {
   var Rauius_Y = Blockly.Arduino.valueToCode(this, 'RADIUS_Y', Blockly.Arduino.ORDER_ATOMIC);
   var type = this.getTitleValue('TYPE');
   var opt = this.getTitleValue('OPT');
-   var code="";
-   if(D0_x<128&&D0_x>=0&&D0_y<64&&D0_y>=0&&Rauius_X>=0&&Rauius_Y>=0)
-  code = "u8g." + type + "(" + D0_x + "," + D0_y + "," + Rauius_X + "," + Rauius_Y + "," + opt + "); \n";
+  var code = "";
+  if (D0_x < 128 && D0_x >= 0 && D0_y < 64 && D0_y >= 0 && Rauius_X >= 0 && Rauius_Y >= 0) code = "u8g." + type + "(" + D0_x + "," + D0_y + "," + Rauius_X + "," + Rauius_Y + "," + opt + "); \n";
   return code;
 };
 
@@ -535,9 +526,8 @@ Blockly.Arduino.maker17_oled_drawStr = function() {
   var POS_y = Blockly.Arduino.valueToCode(this, 'POS_Y', Blockly.Arduino.ORDER_ATOMIC);
   var TEXT = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_ATOMIC);
   var rad = this.getTitleValue('RAD');
-   var code="";
-   if(POS_x<128&&POS_x>=0&&POS_y<64&&POS_y>=0)
-   code = "u8g." + rad + "(" + POS_x + "," + POS_y + "," + TEXT + "); \n";
+  var code = "";
+  if (POS_x < 128 && POS_x >= 0 && POS_y < 64 && POS_y >= 0) code = "u8g." + rad + "(" + POS_x + "," + POS_y + "," + TEXT + "); \n";
   return code;
 };
 
@@ -546,9 +536,8 @@ Blockly.Arduino.maker17_oled_print = function() {
   var POS_x = Blockly.Arduino.valueToCode(this, 'POS_X', Blockly.Arduino.ORDER_ATOMIC);
   var POS_y = Blockly.Arduino.valueToCode(this, 'POS_Y', Blockly.Arduino.ORDER_ATOMIC);
   var TEXT = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_ATOMIC);
-   var code="";
-   if(POS_x<128&&POS_x>=0&&POS_y<64&&POS_y>=0)
-   code = "u8g.setFontPosTop();\nu8g.setPrintPos(" + POS_x + "," + POS_y + ");\n";
+  var code = "";
+  if (POS_x < 128 && POS_x >= 0 && POS_y < 64 && POS_y >= 0) code = "u8g.setFontPosTop();\nu8g.setPrintPos(" + POS_x + "," + POS_y + ");\n";
   code += "u8g.print(" + TEXT + "); \n";
   return code;
 };
@@ -559,20 +548,13 @@ Blockly.Arduino.maker17_oled_setFont = function() {
   var style = this.getTitleValue('STYLE');
   var size = this.getTitleValue('SIZE');
   var code = "";
-  if(type=="Adobe"&& size=="11")
-  {
-code = "u8g.setFont(u8g_font_cour" +style.toUpperCase() + "14);\n";
-  }
-  else if(type=="Adobe"&& size=="20")
-  {
-    code = "u8g.setFont(u8g_font_cour" +style.toUpperCase() + "24);\n";
-  }
-  else if(type=="Adobe"&& size=="25")
-     {
-    code = "u8g.setFont(u8g_font_helv" +style.toUpperCase() + "24);\n";
-  }
-  else
-     code = "u8g.setFont(u8g_font_" + type + style + size + ");\n";
+  if (type == "Adobe" && size == "11") {
+    code = "u8g.setFont(u8g_font_cour" + style.toUpperCase() + "14);\n";
+  } else if (type == "Adobe" && size == "20") {
+    code = "u8g.setFont(u8g_font_cour" + style.toUpperCase() + "24);\n";
+  } else if (type == "Adobe" && size == "25") {
+    code = "u8g.setFont(u8g_font_helv" + style.toUpperCase() + "24);\n";
+  } else code = "u8g.setFont(u8g_font_" + type + style + size + ");\n";
   return code;
 };
 
@@ -680,12 +662,12 @@ Blockly.Arduino.maker17_TM1637_displayTime = function() {
 };
 //显示-TM1637-停表
 Blockly.Arduino.maker17_TM1637_Stopwatch = function() {
-   var STAT = this.getTitleValue('STAT');
+  var STAT = this.getTitleValue('STAT');
   Blockly.Arduino.definitions_['include_EEPROM'] = '#include <EEPROM.h>';
   Blockly.Arduino.definitions_['include_timerone'] = '#include <TimerOne.h>';
   Blockly.Arduino.definitions_['include_pgmspace'] = '#include <avr/pgmspace.h>';
   Blockly.Arduino.definitions_['definitions_on_off'] = '#define ON 1\n#define OFF 0\n';
-  
+
   Blockly.Arduino.definitions_['definitions_TimeDisp'] = 'int8_t TimeDisp[] = {0x00,0x00,0x00,0x00};\nunsigned char ClockPoint = 1;\nunsigned char Update;\nunsigned char microsecond_10 = 0;\nunsigned char second;\nunsigned char _microsecond_10 = 0;\nunsigned char _second;\nunsigned int eepromaddr;\nboolean Flag_ReadTime;\n';
 
   Blockly.Arduino.definitions_['void_TimingISR2'] = 'void TimingISR2()\n{\nmicrosecond_10 ++;\nUpdate = ON;\nif(microsecond_10 == 100)\n{\nsecond ++;\nif(second == 60)\n{\nsecond = 0;\n}\nmicrosecond_10 = 0; \n}\nClockPoint =(~ClockPoint) & 0x01;\nif(Flag_ReadTime == 0) \n {_microsecond_10 = microsecond_10;\n_second = second;  }\n}\n';
@@ -702,8 +684,8 @@ Blockly.Arduino.maker17_TM1637_Stopwatch = function() {
 
   Blockly.Arduino.setups_['setup_tm1637_stopwatch'] = '  tm1637.set();\n tm1637.init();\nTimer1.initialize(10000);\n  Timer1.attachInterrupt(TimingISR2);\n ';
 
-  var code = STAT+'();\n';
-  code+='if(Update == ON)\n{\nTimeUpdate2();\ntm1637.display(TimeDisp);\n}';
+  var code = STAT + '();\n';
+  code += 'if(Update == ON)\n{\nTimeUpdate2();\ntm1637.display(TimeDisp);\n}';
   return code;
 };
 //显示-TM1637-设置亮度
@@ -718,16 +700,29 @@ Blockly.Arduino.Maker17_TM1637_Brightness = function() {
 //   Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
 //   Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
 // };
+//时间-DS1307-获取时间
+Blockly.Arduino.DS1307_start_get_time = function() {
+  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
+  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307RTC.h>';
+  Blockly.Arduino.definitions_['include_TimeLib'] = '#include <TimeLib.h>';
+  Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);  while (!Serial) ;  \ndelay(200);  \n';
+  Blockly.Arduino.definitions_['tmElements_t'] = 'tmElements_t tm;\n';
 
+  var code = 'RTC.read(tm); ';
+
+  return code;
+};
 //时间-DS1307-获取时间
 Blockly.Arduino.DS1307_get_time = function() {
   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
-  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
-  Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307RTC.h>';
+  Blockly.Arduino.definitions_['include_TimeLib'] = '#include <TimeLib.h>';
+  Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);  while (!Serial) ;  \ndelay(200);  \n';
+  Blockly.Arduino.definitions_['tmElements_t'] = 'tmElements_t tm;\n';
   var dropdown_type = this.getTitleValue('TIME_TYPE');
-  var code = '';
-  if (dropdown_type == "year") code += 'clock.' + dropdown_type + '+' + 2000;
-  else code += 'clock.' + dropdown_type;
+  var code = '  ';
+  if (dropdown_type == "Year") code += 'tmYearToCalendar(tm.Year);';
+  else code += 'tm.' + dropdown_type;
   // return code;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
@@ -761,38 +756,38 @@ Blockly.Arduino.DS1307_set_date = function() {
 
 //IIC地址查找
 Blockly.Arduino.maker17_IICSCAN = function() {
-   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
-     
- Blockly.Arduino.setups_['setup_delay2000'] = '  Wire.begin();\nSerial.begin(9600);\nSerial.println("I2C Scanner");\n';
- var code='byte error, address;\nint nDevices;\nSerial.println("Scanning...");\nnDevices = 0;\nfor (address = 1; address < 127; address++ )\n{\n Wire.beginTransmission(address);\nerror = Wire.endTransmission();\nif (error == 0){\nSerial.print("I2C device found at address 0x");\nif (address < 16)\nSerial.print("0"); \nSerial.print(address, HEX);  \nSerial.println(" !");\nnDevices++;\n}\nelse if (error == 4){\nSerial.print("Unknow error at address 0x");\nif (address < 16)Serial.print("0"); \nSerial.println(address, HEX);  }\n}\nif (nDevices == 0)\nSerial.println("No I2C devices found");\nelse \nSerial.println("done");\ndelay(5000); ';
- return code;
+  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
+
+  Blockly.Arduino.setups_['setup_delay2000'] = '  Wire.begin();\nSerial.begin(9600);\nSerial.println("I2C Scanner");\n';
+  var code = 'byte error, address;\nint nDevices;\nSerial.println("Scanning...");\nnDevices = 0;\nfor (address = 1; address < 127; address++ )\n{\n Wire.beginTransmission(address);\nerror = Wire.endTransmission();\nif (error == 0){\nSerial.print("I2C device found at address 0x");\nif (address < 16)\nSerial.print("0"); \nSerial.print(address, HEX);  \nSerial.println(" !");\nnDevices++;\n}\nelse if (error == 4){\nSerial.print("Unknow error at address 0x");\nif (address < 16)Serial.print("0"); \nSerial.println(address, HEX);  }\n}\nif (nDevices == 0)\nSerial.println("No I2C devices found");\nelse \nSerial.println("done");\ndelay(5000); ';
+  return code;
 };
 
 //MP3
 Blockly.Arduino.maker17_MP3_VOL = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var VOL = Blockly.Arduino.valueToCode(this, 'VOLUME',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
-  var code = 'MP3_'+dropdown_pin+'.volume(map('+VOL+', 0, 100, 0, 30));\n'
+   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+  var VOL = Blockly.Arduino.valueToCode(this, 'VOLUME', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+   Blockly.Arduino.definitions_['include_Maker17_MP3'] = '#include "maker17_MP3.h"';
+  Blockly.Arduino.definitions_['var_maker17_MP3_PLAY' + dropdown_pin] = 'MP3  MP3_' + dropdown_pin + '' + '(' + dropdown_pin + ');';
+  var code = 'MP3_' + dropdown_pin + '.volume(map(' + VOL + ', 0, 100, 0, 30));\n'
   return code;
 };
 Blockly.Arduino.maker17_MP3_PLAY = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var Num = Blockly.Arduino.valueToCode(this, 'NUM',
-      Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
-  Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
-  Blockly.Arduino.setups_['setup_MP3_PLAY'+dropdown_pin] = 'MP3_'+dropdown_pin+'.begin(9600);\n';
-  var code = 'MP3_'+dropdown_pin+'.play('+Num+');\n'
+   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+  var Num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+  Blockly.Arduino.definitions_['include_Maker17_MP3'] = '#include "maker17_MP3.h"';
+  Blockly.Arduino.definitions_['var_maker17_MP3_PLAY' + dropdown_pin] = 'MP3  MP3_' + dropdown_pin + '' + '(' + dropdown_pin + ');';
+  Blockly.Arduino.setups_['setup_MP3_PLAY' + dropdown_pin] = 'MP3_' + dropdown_pin + '.begin(9600);\n';
+  var code = 'MP3_' + dropdown_pin + '.play(' + Num + ');\n'
   return code;
 };
+
 Blockly.Arduino.maker17_MP3_STATE = function() {
-    var dropdown_pin = this.getTitleValue('PIN');
-    var dropdown_stat = this.getTitleValue('STAT');
-    Blockly.Arduino.definitions_['include_nova'] = '#include "Nova.h"';
-    Blockly.Arduino.definitions_['var_nova_MP3_PLAY'+dropdown_pin] = 'MP3  MP3_'+dropdown_pin+''+'('+dropdown_pin+');';
-    Blockly.Arduino.setups_['setup_MP3_PLAY'+dropdown_pin] = 'MP3_'+dropdown_pin+'.begin(9600);\n';
-  var code = 'MP3_'+dropdown_pin+'.'+dropdown_stat+';\n'
-    return code;
+    var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
+  var dropdown_stat = this.getTitleValue('STAT');
+  Blockly.Arduino.definitions_['include_Maker17_MP3'] = '#include "maker17_MP3.h"';
+  Blockly.Arduino.definitions_['var_nova_MP3_PLAY' + dropdown_pin] = 'MP3  MP3_' + dropdown_pin + '' + '(' + dropdown_pin + ');';
+  Blockly.Arduino.setups_['setup_MP3_PLAY' + dropdown_pin] = 'MP3_' + dropdown_pin + '.begin(9600);\n';
+  var code = 'MP3_' + dropdown_pin + '.' + dropdown_stat + ';\n'
+  return code;
 };

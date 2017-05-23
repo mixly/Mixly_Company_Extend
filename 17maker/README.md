@@ -10,6 +10,11 @@ website: http://wiki.17maker.org
 1.打开mixly 软件，点击导入库。
 2.选中17maker中的maker17.xml文件，稍等片刻，提示导入成功。
 ---
+### Date:2017.5.23 Version:2.1
+*调整u8glib库结构，使之能与mixly0.995兼容。
+
+
+---
 ### Date:2017.3.28 Version:2.0
 *TM1637增加秒表功能。
 

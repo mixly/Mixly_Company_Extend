@@ -291,7 +291,7 @@ Blockly.Blocks.maker17_TM1637_Stopwatch = {
     this.appendDummyInput("").appendField(Blockly.MAKER17_STOPWATCH).appendField(new Blockly.FieldDropdown([
       [Blockly.MAKER17_STOPWATCH_START, "stopwatchStart"],
       [Blockly.MAKER17_STOPWATCH_PAUSE, "stopwatchPause"],
-      [Blockly.MAKER17_STOPWATCH_RESET, "stopwatchReset"],]), "STAT");
+      [Blockly.MAKER17_STOPWATCH_RESET, "stopwatchReset"], ]), "STAT");
     this.setTooltip(Blockly.MAKER17_TM1637_STOPWATCH_TOOLTIP);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -551,7 +551,7 @@ Blockly.Blocks.maker17_oled_getHeight_or_Width = {
 
 //显示-OLED-图像（汉字）高度选择
 var MAKER17_OLED_BITMAP_HEIGHT_SELECT = [
-  ["16", "16"], 
+  ["16", "16"],
   ["8", "8"],
   ["24", "24"],
   ["32", "32"],
@@ -563,7 +563,7 @@ var MAKER17_OLED_BITMAP_HEIGHT_SELECT = [
 
 //显示-OLED-图像（汉字）宽度选择
 var MAKER17_OLED_BITMAP_WIDTH_SELECT = [
-  ["16", "16"], 
+  ["16", "16"],
   ["8", "8"],
   ["24", "24"],
   ["32", "32"],
@@ -585,10 +585,10 @@ var MAKER17_OLED_BITMAP_WIDTH_SELECT = [
 Blockly.Blocks['maker17_oled_define_bitmap_data'] = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-  this.appendDummyInput("").appendField(Blockly.MAKER17_OLED_BITMAP_NAME).appendField(new Blockly.FieldTextInput('bitmap1'), 'VAR').appendField(Blockly.MAKER17_OLED_BITMAP_DATA).appendField(new Blockly.FieldTextInput('0x00,0x00,0x01,0x80,0x11,0x8C,0x19,0x98,0x0D,0x90,0x09,0x90,0x01,0x80,0x7F,0xFE,0x03,0xC0,0x07,0xE0,0x05,0xB0,0x0D,0x98,0x39,0x8E,0x61,0x82,0x01,0x80,0x01,0x80'), 'TEXT');
+    this.appendDummyInput("").appendField(Blockly.MAKER17_OLED_BITMAP_NAME).appendField(new Blockly.FieldTextInput('bitmap1'), 'VAR').appendField(Blockly.MAKER17_OLED_BITMAP_DATA).appendField(new Blockly.FieldTextInput('0x00,0x00,0x01,0x80,0x11,0x8C,0x19,0x98,0x0D,0x90,0x09,0x90,0x01,0x80,0x7F,0xFE,0x03,0xC0,0x07,0xE0,0x05,0xB0,0x0D,0x98,0x39,0x8E,0x61,0x82,0x01,0x80,0x01,0x80'), 'TEXT');
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-  this.setTooltip(Blockly.MAKER17_OLED_DEF_BMP_DATA_TOOLTIP);
+    this.setTooltip(Blockly.MAKER17_OLED_DEF_BMP_DATA_TOOLTIP);
   }
 }
 
@@ -598,10 +598,10 @@ Blockly.Blocks.maker17_oled_showBitmap = {
     this.setColour(Blockly.Blocks.maker17.HUE3);
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_BITMAP);
     this.appendValueInput("START_X", Number).appendField(Blockly.MAKER17_OLED_POSX).setCheck(Number);
-    this.appendValueInput("START_Y", Number).appendField(Blockly.MAKER17_OLED_POSY).setCheck(Number); 
+    this.appendValueInput("START_Y", Number).appendField(Blockly.MAKER17_OLED_POSY).setCheck(Number);
     this.appendDummyInput("").appendField(Blockly.MAKER17_OLED_WIDTH).appendTitle(new Blockly.FieldDropdown(MAKER17_OLED_BITMAP_WIDTH_SELECT), "WIDTH");
- this.appendDummyInput("").appendField(Blockly.MAKER17_OLED_HEIGHT).appendTitle(new Blockly.FieldDropdown(MAKER17_OLED_BITMAP_HEIGHT_SELECT), "HEIGHT");
-   this.appendValueInput("bitmap_name", String).appendField(Blockly.MAKER17_OLED_BITMAP_NAME).setCheck(String);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_OLED_HEIGHT).appendTitle(new Blockly.FieldDropdown(MAKER17_OLED_BITMAP_HEIGHT_SELECT), "HEIGHT");
+    this.appendValueInput("bitmap_name", String).appendField(Blockly.MAKER17_OLED_BITMAP_NAME).setCheck(String);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -873,28 +873,28 @@ Blockly.Blocks.set_tone_duration = {
 
 //时间-DS1307获取时间变量
 var MAKER17_DS1307_TIME_TYPE = [
-  ["年", "year"],
-  ["月", "month"],
-  ["日", "dayOfMonth"],
-  ["时", "hour"],
-  ["分", "minute"],
-  ["秒", "second"],
+  ["年", "Year"],
+  ["月", "Month"],
+  ["日", "Day"],
+  ["时", "Hour"],
+  ["分", "Minute"],
+  ["秒", "Second"],
   ["星期", "dayOfWeek"]
 ];
 
-// //时间-DS1307初始化
-// Blockly.Blocks.DS1307_init = {
-//   init: function() {
-//     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_INIT);
-//     this.setInputsInline(false);
-//     this.setPreviousStatement(true);
-//     this.setNextStatement(true);
-//     this.setColour(Blockly.Blocks.maker17.HUE3);
-//     this.setTooltip('');
-//     this.setHelpUrl('');
-//   }
-// };
-
+//时间-DS1307开始获取时间
+Blockly.Blocks.DS1307_start_get_time = {
+  init: function() {
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32));
+    this.appendDummyInput("").appendTitle("开始获取时间");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.setTooltip(Blockly.MAKER17_IIC);
+    this.setHelpUrl('');
+  }
+};
 //时间-DS1307获取时间
 Blockly.Blocks.DS1307_get_time = {
   init: function() {
@@ -929,7 +929,7 @@ Blockly.Blocks.DS1307_set_time = {
   }
 };
 
-//时间-DS1307设置时间
+//时间-DS1307设置日期
 Blockly.Blocks.DS1307_set_date = {
   init: function() {
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_SET_DATE);
@@ -1009,43 +1009,42 @@ Blockly.Blocks['text1'] = {
 };
 
 //MP3
-Blockly.Blocks.maker17_MP3_VOL={
-init:function(){
-   this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("")
-    .appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32))
-      .appendTitle(Blockly.MAKER17_MP3);  
-  this.appendValueInput('VOLUME',Number)
-      .setCheck(Number)
-      .appendTitle(Blockly.MAKER17_MP3_VOL);
+Blockly.Blocks.maker17_MP3_VOL = {
+  init: function() {
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32)).appendTitle(Blockly.MAKER17_MP3);
+    this.appendValueInput("PIN").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MIXLY_PIN);
+    this.appendValueInput('VOLUME', Number).setCheck(Number).appendTitle(Blockly.MAKER17_MP3_VOL);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   }
 };
 
-Blockly.Blocks.maker17_MP3_PLAY={
-init:function(){
-   this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("")
-    .appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32))
-      .appendTitle(Blockly.MAKER17_MP3);
-  this.appendValueInput('NUM',Number)
-      .setCheck(Number)
-      .appendTitle(Blockly.MAKER17_MP3_PLAY);
+Blockly.Blocks.maker17_MP3_PLAY = {
+  init: function() {
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32)).appendTitle(Blockly.MAKER17_MP3);
+    this.appendValueInput("PIN").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MIXLY_PIN);
+    this.appendValueInput('NUM', Number).setCheck(Number).appendTitle(Blockly.MAKER17_MP3_PLAY);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   }
 };
+
 Blockly.Blocks.maker17_MP3_STATE = {
   init: function() {
-   this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("")
-    .appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32))
-      .appendTitle(Blockly.MAKER17_MP3)
-      .appendTitle(Blockly.MAKER17_MP3_STATE)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.MAKER17_MP3_ONPLAY, "play()"],[Blockly.MAKER17_MP3_LOOPPLAY, "loop_play()"], [Blockly.MAKER17_MP3_RANDPLAY, "random_play()"], [Blockly.MAKER17_MP3_PAUSE, "pause()"], [Blockly.MAKER17_MP3_STOP, "stop()"]]), "STAT");
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32)).appendTitle(Blockly.MAKER17_MP3).appendTitle(Blockly.MAKER17_MP3_STATE);
+    this.appendValueInput("PIN").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MIXLY_PIN);
+    this.appendDummyInput("").appendTitle(new Blockly.FieldDropdown([
+      [Blockly.MAKER17_MP3_ONPLAY, "play()"],
+      [Blockly.MAKER17_MP3_LOOPPLAY, "loop_play()"],
+      [Blockly.MAKER17_MP3_RANDPLAY, "random_play()"],
+      [Blockly.MAKER17_MP3_PAUSE, "pause()"],
+      [Blockly.MAKER17_MP3_STOP, "stop()"]
+    ]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
