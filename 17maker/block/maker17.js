@@ -369,10 +369,7 @@ Blockly.Blocks.MAX7219_DisplayChar = {
   init: function() {
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/matrix44.png", 32, 32));
     this.appendDummyInput().appendField(Blockly.MAKER17_MAX7219_DISPLAYCHAR);
-    // this.appendValueInput("NUM").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MAX7219_DISPLAYCHAR_NUM);
-
     this.appendValueInput("Chars").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
-
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(Blockly.Blocks.maker17.HUE3);
@@ -975,7 +972,59 @@ Blockly.Blocks['math_trig1'] = {
   }
 };
 
+////////////////////////////////
+//时间-DS3231获取时间变量
+var MAKER17_DS3231_TIME_TYPE = [
+  ["年", "year"],
+  ["月", "month"],
+  ["日", "date"],
+  ["时", "hour"],
+  ["分", "minute"],
+  ["秒", "second"],
+  ["星期", "dayOfWeek"]
+];
 
+//时间-DS3231获取时间
+Blockly.Blocks.DS3231_get_time = {
+  init: function() {
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS3231_GET_TIME);
+    this.appendDummyInput("").appendTitle(new Blockly.FieldDropdown(MAKER17_DS3231_TIME_TYPE), "TIME_TYPE");
+    this.setInputsInline(true);
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.setTooltip(Blockly.MAKER17_IIC);
+    this.setHelpUrl('');
+    this.setOutput(true, Number);
+  }
+};
+//时间-DS3231设置日期时间
+Blockly.Blocks.DS3231_set_datetime = {
+  init: function() {
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS3231_SET_TIME);
+    this.setInputsInline(true);
+    this.appendValueInput("year").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_YEAR);
+    this.appendValueInput("month").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_MONTH);
+    this.appendValueInput("day").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_DAY);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_DAY_OF_WEEK);
+    this.appendValueInput("dayOfWeek").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);    
+    this.appendDummyInput("").appendField("  ");
+    this.appendValueInput("hour").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_HOUR);
+    this.appendValueInput("minute").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_MINUTE);
+    this.appendValueInput("second").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_SECOND);
+    this.setOutput(false, Number);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.setTooltip(Blockly.MAKER17_IIC);
+    this.setHelpUrl('');
+  }
+};
 
 //显示-OLED-新建页面
 Blockly.Blocks.maker17_page = {

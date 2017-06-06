@@ -190,3 +190,7 @@ Blockly.MAKER17_MP3_LOOPPLAY='循环播放';
 Blockly.MAKER17_MP3_RANDPLAY='随机播放';
 Blockly.MAKER17_MP3_PAUSE='暂停';
 Blockly.MAKER17_MP3_STOP='停止';
+
+
+//DS3231
+Blockly.MAKER17_DS3231_SET_TIME='设置时间';
