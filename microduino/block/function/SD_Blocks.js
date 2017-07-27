@@ -11,16 +11,16 @@ Blockly.Blocks.SD_Write={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.SD_Write)
+        .appendField(Blockly.SD_Write)
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_SD.png", 60, 32))
     this.appendValueInput('File_Name')
 		.setCheck(String)
 		.setAlign(Blockly.ALIGN_RIGHT)
-		.appendTitle(Blockly.File_Name);
+		.appendField(Blockly.File_Name);
     this.appendValueInput('Content')
 		.setCheck(String)
 		.setAlign(Blockly.ALIGN_RIGHT)
-		.appendTitle(Blockly.Content);
+		.appendField(Blockly.Content);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setOutput(true, Boolean);
@@ -33,12 +33,12 @@ Blockly.Blocks.SD_Read={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.SD_Read)
+        .appendField(Blockly.SD_Read)
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_SD.png", 60, 32))
     this.appendValueInput('File_Name')
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.File_Name);
+        .appendField(Blockly.File_Name);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setOutput(true, Boolean);

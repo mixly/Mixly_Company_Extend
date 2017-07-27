@@ -20,19 +20,19 @@ Blockly.Blocks.BreathingLightH = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        //.appendTitle(Blockly.BreathingLight)
-        .appendTitle(Blockly.BreathingLightH)
-        .appendTitle(Blockly.ColorLEDPin)
-        .appendTitle(new Blockly.FieldDropdown(PWMPin), "LEDPinNumber");
+        //.appendField(Blockly.BreathingLight)
+        .appendField(Blockly.BreathingLightH)
+        .appendField(Blockly.ColorLEDPin)
+        .appendField(new Blockly.FieldDropdown(PWMPin), "LEDPinNumber");
 
 
     this.appendValueInput("LEDFrequency", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LEDBreathingTime);
+        .appendField(Blockly.LEDBreathingTime);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.GPSSeconds);
+        .appendField(Blockly.GPSSeconds);
 
 
     var tip="定义LED灯的引脚号和呼吸频率\n";
@@ -59,19 +59,19 @@ Blockly.Blocks.BreathingLightX = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        //.appendTitle(Blockly.BreathingLight)
-        .appendTitle(Blockly.BreathingLightX)
-        .appendTitle(Blockly.ColorLEDPin)
-        .appendTitle(new Blockly.FieldDropdown(PWMPin), "LEDPinNumber");
+        //.appendField(Blockly.BreathingLight)
+        .appendField(Blockly.BreathingLightX)
+        .appendField(Blockly.ColorLEDPin)
+        .appendField(new Blockly.FieldDropdown(PWMPin), "LEDPinNumber");
 
 
     this.appendValueInput("LEDFrequency", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LEDBreathingTime);
+        .appendField(Blockly.LEDBreathingTime);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.GPSSeconds);
+        .appendField(Blockly.GPSSeconds);
 
 
     var tip="定义LED灯的引脚号和呼吸频率\n";

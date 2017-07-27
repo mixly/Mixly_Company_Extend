@@ -14,12 +14,12 @@ Blockly.Blocks.DotMatrix = {
     this.setColour(colorSet);
     this.appendDummyInput()
         .appendField(new Blockly.FieldImage("../../media/Microduino/DotMatrix.png", 50, 38))
-        .appendTitle(Blockly.DotMatrix);
+        .appendField(Blockly.DotMatrix);
 
     this.appendDummyInput()
-    .appendTitle(Blockly.DotMatrixName)
+    .appendField(Blockly.DotMatrixName)
     .appendField(new Blockly.FieldTextInput("1"), "dotName")
-    .appendTitle(Blockly.DotMatrixAddress)
+    .appendField(Blockly.DotMatrixAddress)
     .appendField(new Blockly.FieldTextInput("64"), "dotAddress");
 
 
@@ -68,28 +68,28 @@ Blockly.Blocks.DotMatrixRow = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot0");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot1");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot2");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot3");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot4");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot5");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot6");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot7");
 
     //this.appendStatementInput('DO')
@@ -110,11 +110,11 @@ Blockly.Blocks.DotMatrixAddArray = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.dotMatrixAddVarArray)
-        // .appendTitle(new Blockly.FieldTextInput('Addr'), 'arrayVAR')
-        .appendTitle('[]')
-        //.appendTitle(new Blockly.FieldTextInput('3',Blockly.FieldTextInput.math_number_validator), 'SIZE')
-        .appendTitle('[]');
+      .appendField(Blockly.dotMatrixAddVarArray)
+        // .appendField(new Blockly.FieldTextInput('Addr'), 'arrayVAR')
+        .appendField('[]')
+        //.appendField(new Blockly.FieldTextInput('3',Blockly.FieldTextInput.math_number_validator), 'SIZE')
+        .appendField('[]');
     this.itemCount_ = 1;
     this.updateShape_();
     this.setPreviousStatement(true);
@@ -239,8 +239,8 @@ Blockly.Blocks.DotMatrixAddNum = {
     this.appendValueInput('addInput') 
      .setCheck(Number)
      .setAlign(Blockly.ALIGN_RIGHT)
-     .appendTitle(Blockly.dotMatrixAddVar)
-     .appendTitle(new Blockly.FieldTextInput('64'),'NUM');
+     .appendField(Blockly.dotMatrixAddVar)
+     .appendField(new Blockly.FieldTextInput('64'),'NUM');
     this.setOutput(true, Number);
     this.setTooltip(Blockly.Msg.MATH_NUMBER_TOOLTIP);
   }
@@ -251,7 +251,7 @@ Blockly.Blocks.getMatrixNum = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-    .appendTitle(Blockly.getMatrixNum);
+    .appendField(Blockly.getMatrixNum);
     this.setOutput(true, Number);
     this.setTooltip("得到一共级联了几个点阵屏");
   }
@@ -264,7 +264,7 @@ Blockly.Blocks.getMatrixDeviceAddr = {
     this.appendValueInput("MatrixIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.getDeviceAddr);
+        .appendField(Blockly.getDeviceAddr);
     var tip="得到指定点阵屏的地址\n";
     this.setTooltip(tip);
     this.setInputsInline(true);
@@ -277,7 +277,7 @@ Blockly.Blocks.getMatrixHeight = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-    .appendTitle(Blockly.getMatrixHeight);
+    .appendField(Blockly.getMatrixHeight);
     this.setOutput(true, Number);
     this.setTooltip("得到级联点阵屏的竖排个数");
   }
@@ -287,7 +287,7 @@ Blockly.Blocks.getMatrixWidth = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-    .appendTitle(Blockly.getMatrixWidth);
+    .appendField(Blockly.getMatrixWidth);
     this.setOutput(true, Number);
     this.setTooltip("得到级联点阵屏的横排个数");
   }
@@ -301,27 +301,27 @@ Blockly.Blocks.setMatrixLedColor = {
     this.appendValueInput("MatrixIndexX", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexX);
+        .appendField(Blockly.MatrixIndexX);
 
     this.appendValueInput("MatrixIndexY", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexY);
+        .appendField(Blockly.MatrixIndexY);
 
     this.appendValueInput("MatrixIndexRed", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexRed);
+        .appendField(Blockly.MatrixIndexRed);
 
     this.appendValueInput("MatrixIndexGreen", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexGreen);
+        .appendField(Blockly.MatrixIndexGreen);
 
     this.appendValueInput("MatrixIndexBlue", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexBlue);
+        .appendField(Blockly.MatrixIndexBlue);
 
     var tip="设置点阵屏中指定LED的颜色\n";
     this.setTooltip(tip);
@@ -338,7 +338,7 @@ Blockly.Blocks.clearMatrixDisplay = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.clearMatrixDisplay);
+    .appendField(Blockly.clearMatrixDisplay);
 
 
     var tip="清屏\n";
@@ -359,17 +359,17 @@ Blockly.Blocks.setMatrixColor = {
     this.appendValueInput("MatrixRed", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexRed);
+        .appendField(Blockly.MatrixIndexRed);
 
     this.appendValueInput("MatrixGreen", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexGreen);
+        .appendField(Blockly.MatrixIndexGreen);
 
     this.appendValueInput("MatrixBlue", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexBlue);
+        .appendField(Blockly.MatrixIndexBlue);
 
     var tip="设置点阵屏显示颜色\n";
     this.setTooltip(tip);
@@ -387,7 +387,7 @@ Blockly.Blocks.clearMatrixColor = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.clearMatrixColor);
+    .appendField(Blockly.clearMatrixColor);
 
 
     var tip="清除颜色\n";
@@ -409,21 +409,21 @@ Blockly.Blocks.MatrixWriteString = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-      // .appendTitle(Blockly.MatrixShowMode)
+      // .appendField(Blockly.MatrixShowMode)
       // .appendField(new Blockly.FieldDropdown(MatrixShowMode), 'MatrixShowMode')
-      .appendTitle(Blockly.stringVar)
+      .appendField(Blockly.stringVar)
       .appendField(new Blockly.FieldTextInput('microduino'),'stringVar');
 
 
     this.appendValueInput("startMatrixT", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.startMatrixT);
+        .appendField(Blockly.startMatrixT);
 
     this.appendValueInput("startMatrixXY", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.startMatrixXY);
+        .appendField(Blockly.startMatrixXY);
 
 
     var tip="在点阵屏上显示字符串\n";
@@ -448,26 +448,26 @@ Blockly.Blocks.MD_Matrix_GeometryLine = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDGeomPointLineArea)
+        .appendField(Blockly.OLEDGeomPointLineArea)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
     this.appendValueInput("x0", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x0:");
+        .appendField("x0:");
     this.appendValueInput("y0", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y0:");
+        .appendField("y0:");
 
     this.appendValueInput("x1w", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x1(w):");
+        .appendField("x1(w):");
     this.appendValueInput("y1h", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y1(h):");
+        .appendField("y1(h):");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -494,26 +494,26 @@ Blockly.Blocks.MD_Matrix_GeometryCircle = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDGeomCircle)
+        .appendField(Blockly.OLEDGeomCircle)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
 
     // this.appendDummyInput("")
-    //     .appendTitle(Blockly.MD_OLEDArc)
+    //     .appendField(Blockly.MD_OLEDArc)
     //     .appendField(new Blockly.FieldDropdown(ArcType), 'ArcType');
 
     this.appendValueInput("x", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x:");
+        .appendField("x:");
     this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y:");
+        .appendField("y:");
     this.appendValueInput("rw", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("r:");
+        .appendField("r:");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 //    this.setTooltip("test");  

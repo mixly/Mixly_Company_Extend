@@ -15,11 +15,11 @@ Blockly.Blocks.Zigbee_AT = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.Zigbee)
+      .appendField(Blockly.Zigbee)
     .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-    .appendTitle("#")
-      .appendTitle(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
-    .appendTitle(Blockly.Zigbee_SetAT);
+    .appendField("#")
+      .appendField(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
+    .appendField(Blockly.Zigbee_SetAT);
   this.setInputsInline(true);
   }
 };
@@ -28,14 +28,14 @@ Blockly.Blocks.Zigbee_Init = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.Zigbee_Init)
+         .appendField(Blockly.Zigbee_Init)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-         .appendTitle("#")
-          .appendTitle(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
+         .appendField("#")
+          .appendField(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
     this.appendValueInput("BRate", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.Zigbee_Baud);
+        .appendField(Blockly.Zigbee_Baud);
   this.setInputsInline(true);
       this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -47,10 +47,10 @@ Blockly.Blocks.Zigbee_Available = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.Zigbee)
+      .appendField(Blockly.Zigbee)
     .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-    .appendTitle("#")
-    .appendTitle(Blockly.Zigbee_Available);
+    .appendField("#")
+    .appendField(Blockly.Zigbee_Available);
     this.setOutput(true, Boolean);
   this.setInputsInline(true);
   }
@@ -60,14 +60,14 @@ Blockly.Blocks.Zigbee_Send = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.Zigbee)
+      .appendField(Blockly.Zigbee)
     .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-    .appendTitle("#")
-    .appendTitle(Blockly.Zigbee_Send);
+    .appendField("#")
+    .appendField(Blockly.Zigbee_Send);
   this.appendValueInput('text')
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("Text:");
+        .appendField("Text:");
     //this.setOutput(true, Boolean);
     //  this.setInputsInline(true);
       this.setPreviousStatement(true, null);
@@ -79,10 +79,10 @@ Blockly.Blocks.Zigbee_Read = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.Zigbee)
+      .appendField(Blockly.Zigbee)
       .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-      .appendTitle("#")
-      .appendTitle(Blockly.Zigbee_Read);
+      .appendField("#")
+      .appendField(Blockly.Zigbee_Read);
   this.setOutput(true,String);
   }
 };
@@ -95,11 +95,11 @@ Blockly.Blocks.VariableIs = {
     this.appendValueInput('VariableName', String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.VariableName);
+        .appendField(Blockly.VariableName);
   this.appendValueInput('VariableIs', String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.VariableIs);
+        .appendField(Blockly.VariableIs);
     this.setOutput(true, Boolean);
   this.setInputsInline(true);
   }

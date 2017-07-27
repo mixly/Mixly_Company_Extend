@@ -17,16 +17,16 @@ Blockly.Blocks.IRSenderCode = {
     this.setColour(colorSet);
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/IR_S.png", 40, 30))
-      .appendTitle(Blockly.MIXLY_IR_SEND_NEC1)
+      .appendField(Blockly.MIXLY_IR_SEND_NEC1)
       .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE')
-      // .appendTitle(Blockly.LKL_IR_SEND_NEC2)
-      // .appendTitle(new Blockly.FieldDropdown([["3", "3"],["6", "6"],["8", "8"]]), "PIN");
+      // .appendField(Blockly.LKL_IR_SEND_NEC2)
+      // .appendField(new Blockly.FieldDropdown([["3", "3"],["6", "6"],["8", "8"]]), "PIN");
     this.appendValueInput('data')
       .setCheck(Number)
-      .appendTitle(' '+Blockly.MIXLY_DATA);
+      .appendField(' '+Blockly.MIXLY_DATA);
     this.appendValueInput('bits')
       .setCheck(Number)
-      .appendTitle(' '+Blockly.MIXLY_BITS);
+      .appendField(' '+Blockly.MIXLY_BITS);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -42,17 +42,17 @@ Blockly.Blocks.IRSenderRaw = {
 
   this.appendDummyInput("")
   .appendField(new Blockly.FieldImage("../../media/Microduino/IR_S.png", 40, 30))
-      .appendTitle(Blockly.MIXLY_IR_SEND_RAW);
-  //     .appendTitle(new Blockly.FieldDropdown([["3", "3"],["6", "6"],["8", "8"]]), "PIN");
+      .appendField(Blockly.MIXLY_IR_SEND_RAW);
+  //     .appendField(new Blockly.FieldDropdown([["3", "3"],["6", "6"],["8", "8"]]), "PIN");
     this.appendDummyInput("")
-        .appendTitle(' '+Blockly.MIXLY_LIST_NAME)
-        .appendTitle(new Blockly.FieldTextInput('0,0,0'), 'TEXT');
+        .appendField(' '+Blockly.MIXLY_LIST_NAME)
+        .appendField(new Blockly.FieldTextInput('0,0,0'), 'TEXT');
   this.appendValueInput('length')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.MIXLY_LIST_LENGTH);
+        .appendField(' '+Blockly.MIXLY_LIST_LENGTH);
   this.appendValueInput('freq')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.MIXLY_FREQUENCY);
+        .appendField(' '+Blockly.MIXLY_FREQUENCY);
   this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -67,13 +67,13 @@ Blockly.Blocks.IRReciver = {
     this.setColour(colorSet);
   this.appendValueInput("PIN", Number)
   .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 40, 30))
-    .appendTitle(new Blockly.FieldTextInput('ir_item'), 'VAR')
-        .appendTitle(Blockly.MIXLY_IR_RECEIVE)
+    .appendField(new Blockly.FieldTextInput('ir_item'), 'VAR')
+        .appendField(Blockly.MIXLY_IR_RECEIVE)
         .setCheck(Number);
   this.appendStatementInput('DO')
-        .appendTitle(Blockly.MIXLY_IR_RECEIVE_YES);
+        .appendField(Blockly.MIXLY_IR_RECEIVE_YES);
   this.appendStatementInput('DO2')
-        .appendTitle(Blockly.MIXLY_IR_RECEIVE_NO);
+        .appendField(Blockly.MIXLY_IR_RECEIVE_NO);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   this.setTooltip(Blockly.MIXLY_IR_RECIEVE_TOOLTIP);
@@ -94,7 +94,7 @@ Blockly.Blocks.IRReciverRaw = {
     this.setColour(colorSet);
   this.appendValueInput("PIN", Number)
   .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 40, 30))
-        .appendTitle(Blockly.MIXLY_IR_RECEIVE_RAW)
+        .appendField(Blockly.MIXLY_IR_RECEIVE_RAW)
         .setCheck(Number);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -108,7 +108,7 @@ Blockly.Blocks.IRReciverEnable = {
     this.setColour(colorSet);
   this.appendValueInput("PIN", Number)
   .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 40, 30))
-        .appendTitle(Blockly.IRReciverEnable)
+        .appendField(Blockly.IRReciverEnable)
         .setCheck(Number);
     this.setPreviousStatement(true);
     this.setNextStatement(true);

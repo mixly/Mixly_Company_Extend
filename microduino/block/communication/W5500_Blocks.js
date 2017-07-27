@@ -11,10 +11,10 @@ Blockly.Blocks.W5500_Init = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.W5500)
+      .appendField(Blockly.W5500)
     .appendField(new Blockly.FieldImage("../../media/Microduino/Zigbee.jpg", 45, 32))
-    .appendTitle("#")
-    .appendTitle(Blockly.W5500_Init);
+    .appendField("#")
+    .appendField(Blockly.W5500_Init);
     this.setOutput(true, Boolean);
   this.setInputsInline(true);
  // this.setPreviousStatement(true, null);

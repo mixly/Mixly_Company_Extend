@@ -16,11 +16,11 @@ Blockly.Blocks.OLED_begin = {
     //this.setColour(Blockly.Blocks.Microduino.HUE);
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDBegin)
+        .appendField(Blockly.OLEDBegin)
     this.appendDummyInput("")
-		.appendTitle(Blockly.OLEDFlip)
+		.appendField(Blockly.OLEDFlip)
 		.appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')
-        .appendTitle(Blockly.OLEDBeginEnd)
+        .appendField(Blockly.OLEDBeginEnd)
 	this.appendStatementInput('DO')
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -36,22 +36,22 @@ Blockly.Blocks.OLED_print = {
     // this.setColour(Blockly.Blocks.Microduino.HUE);
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDPrint)
+        .appendField(Blockly.OLEDPrint)
     this.appendDummyInput("")
-		.appendTitle(Blockly.OLEDFont)
+		.appendField(Blockly.OLEDFont)
 		.appendField(new Blockly.FieldDropdown(TYPE), 'TYPE')
 	this.appendValueInput("x", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x:");
+        .appendField("x:");
 	this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y:");
+        .appendField("y:");
 	this.appendValueInput("text", String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.OLEDContext);
+        .appendField(Blockly.OLEDContext);
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 //    this.setTooltip("test");	
@@ -67,22 +67,22 @@ Blockly.Blocks.OLED_print_roll = {
     // this.setColour(Blockly.Blocks.Microduino.HUE);
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDRoll)
+        .appendField(Blockly.OLEDRoll)
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDFont)
+        .appendField(Blockly.OLEDFont)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE')
     this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y:");
+        .appendField("y:");
     this.appendValueInput("x", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.startMatrixT);
+        .appendField(Blockly.startMatrixT);
     this.appendValueInput("text", String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.OLEDContext);
+        .appendField(Blockly.OLEDContext);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 //    this.setTooltip("test");  
@@ -98,12 +98,12 @@ Blockly.Blocks.OLED_simplePrint = {
     // this.setColour(Blockly.Blocks.Microduino.HUE);
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDPrint)
+        .appendField(Blockly.OLEDPrint)
 
     this.appendValueInput("text", String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.OLEDContext);
+        .appendField(Blockly.OLEDContext);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 //    this.setTooltip("test");  
@@ -128,35 +128,35 @@ Blockly.Blocks.MD_OLED_GeometryLine = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDGeomPointLineArea)
+        .appendField(Blockly.OLEDGeomPointLineArea)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
     this.appendValueInput("x0", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x0:");
+        .appendField("x0:");
     this.appendValueInput("y0", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y0:");
+        .appendField("y0:");
 
     this.appendValueInput("x1w", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x1(w):");
+        .appendField("x1(w):");
     this.appendValueInput("y1h", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y1(h):");
+        .appendField("y1(h):");
 
     // this.appendValueInput("x2r", Number)
     //     .setCheck(Number)
     //     .setAlign(Blockly.ALIGN_RIGHT)
-    //     .appendTitle("x2(r):");
+    //     .appendField("x2(r):");
     // this.appendValueInput("y2", Number)
     //     .setCheck(Number)
     //     .setAlign(Blockly.ALIGN_RIGHT)
-    //     .appendTitle("y2:");
+    //     .appendField("y2:");
 
 
     this.setPreviousStatement(true, null);
@@ -186,30 +186,30 @@ Blockly.Blocks.MD_OLED_GeometryCircle = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDGeomCircle)
+        .appendField(Blockly.OLEDGeomCircle)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.MD_OLEDArc)
+        .appendField(Blockly.MD_OLEDArc)
         .appendField(new Blockly.FieldDropdown(ArcType), 'ArcType');
 
     this.appendValueInput("x", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x:");
+        .appendField("x:");
     this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y:");
+        .appendField("y:");
     this.appendValueInput("rw", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("r:");
+        .appendField("r:");
     // this.appendValueInput("h", Number)
     //     .setCheck(Number)
     //     .setAlign(Blockly.ALIGN_RIGHT)
-    //     .appendTitle("h:");
+    //     .appendField("h:");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -227,7 +227,7 @@ Blockly.Blocks.MD_OLED_getWidthHigh = {
             ];
     this.setColour(colorSet);
     this.appendDummyInput("")
-    .appendTitle(Blockly.getOLEDWidthHigh)
+    .appendField(Blockly.getOLEDWidthHigh)
     .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
     this.setOutput(true, Number);
     this.setTooltip("");

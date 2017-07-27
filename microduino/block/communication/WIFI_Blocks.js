@@ -96,7 +96,7 @@ Blockly.Blocks.BLYNK_READ = {
     this.appendValueInput("blynkReadInput", [Number,String])
     .setCheck([Number,String])
     .setAlign(Blockly.ALIGN_RIGHT)
-    .appendTitle(Blockly.inputValue);
+    .appendField(Blockly.inputValue);
 
     var tip="发送数据到Blynk\n";
     tip+="发送频率请在你的APP中设置\n";
@@ -128,7 +128,7 @@ Blockly.Blocks.BLYNK_WRITE = {
     // this.appendValueInput("blynkReadInput", [Number,String])
     // .setCheck([Number,String])
     // .setAlign(Blockly.ALIGN_RIGHT)
-    // .appendTitle("inputValue");
+    // .appendField("inputValue");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -142,9 +142,9 @@ Blockly.Blocks.BLYNKParamOne = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.SoloParam)
-        .appendTitle(Blockly.paramType)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.BLYNKString, "asStr()"], 
+        .appendField(Blockly.SoloParam)
+        .appendField(Blockly.paramType)
+        .appendField(new Blockly.FieldDropdown([[Blockly.BLYNKString, "asStr()"], 
             [Blockly.BLYNKInt, "asInt()"], [Blockly.BLYNKDouble, "asDouble()"]]),'paramType');
 
 
@@ -165,16 +165,16 @@ Blockly.Blocks.BLYNKParamArray = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.ArrayParam)
-        .appendTitle(Blockly.paramType)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.BLYNKString, "asStr()"], 
+        .appendField(Blockly.ArrayParam)
+        .appendField(Blockly.paramType)
+        .appendField(new Blockly.FieldDropdown([[Blockly.BLYNKString, "asStr()"], 
             [Blockly.BLYNKInt, "asInt()"], [Blockly.BLYNKDouble, "asDouble()"]]),'paramType');
 
 
     this.appendValueInput("paramNum", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.paramIndex);
+        .appendField(Blockly.paramIndex);
 
 
 
@@ -195,11 +195,11 @@ Blockly.Blocks.WiFiBlynkTimer = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.BlynkTimer)
-        .appendTitle(Blockly.timerName)
-        .appendTitle(new Blockly.FieldTextInput("tempture"), "timerName")
-        .appendTitle(Blockly.interval)
-        .appendTitle(new Blockly.FieldTextInput("1000"), "duration");
+        .appendField(Blockly.BlynkTimer)
+        .appendField(Blockly.timerName)
+        .appendField(new Blockly.FieldTextInput("tempture"), "timerName")
+        .appendField(Blockly.interval)
+        .appendField(new Blockly.FieldTextInput("1000"), "duration");
 
     this.appendStatementInput("blynkTimerDoing");
 
@@ -220,15 +220,15 @@ Blockly.Blocks.WiFiBlynkVirtualWrite = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.BLYNK_READ)
-        .appendTitle(Blockly.virtualPort)
-        .appendTitle(new Blockly.FieldTextInput("V0"), "virtualPort");
+        .appendField(Blockly.BLYNK_READ)
+        .appendField(Blockly.virtualPort)
+        .appendField(new Blockly.FieldTextInput("V0"), "virtualPort");
 
 
     this.appendValueInput("senderDataToBlynk", [Number,String])
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.inputValue);
+        .appendField(Blockly.inputValue);
 
 
     var tip="上传数据到Blynk\n";

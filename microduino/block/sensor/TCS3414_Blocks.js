@@ -42,7 +42,7 @@ Blockly.Blocks.ColorGet_TCS3414 = {
 
     this.appendDummyInput()
     .appendField(Blockly.TCS3414Get)
-    .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+    .appendField(new Blockly.FieldDropdown(getType), "getType");
 
 
     this.setOutput(true, Number);

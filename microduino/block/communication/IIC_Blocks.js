@@ -20,16 +20,16 @@ Blockly.Blocks.microduinoIICSendToSlaver = {
     this.appendValueInput("numSlaver", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IICMasterSendToSlaver);
+        .appendField(Blockly.IICMasterSendToSlaver);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICMasterSendType)
+        .appendField(Blockly.IICMasterSendType)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
     this.appendValueInput("numByte", String)
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IICMasterSendData);
+        .appendField(Blockly.IICMasterSendData);
 
     this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -45,21 +45,21 @@ Blockly.Blocks.microduinoIICRequest = {
     this.appendValueInput("numSlaver", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IICMasterTo);
+        .appendField(Blockly.IICMasterTo);
 
     this.appendValueInput("numByte", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.NumberSlaverRequest);
+        .appendField(Blockly.NumberSlaverRequest);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICByteData);
+        .appendField(Blockly.IICByteData);
 
     this.appendStatementInput("success")
-        .appendTitle(Blockly.IICIfSuccess);
+        .appendField(Blockly.IICIfSuccess);
 
     this.appendStatementInput("fail")
-        .appendTitle(Blockly.IICIfFail);
+        .appendField(Blockly.IICIfFail);
 
     this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -72,7 +72,7 @@ Blockly.Blocks.microduinoIICReadCache = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICReadByte);
+        .appendField(Blockly.IICReadByte);
     this.setInputsInline(true);
     this.setOutput(true, String);
   }
@@ -83,7 +83,7 @@ Blockly.Blocks.microduinoIICCacheLen = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICCacheLen);
+        .appendField(Blockly.IICCacheLen);
     this.setInputsInline(true);
     this.setOutput(true, Number);
   }
@@ -96,10 +96,10 @@ Blockly.Blocks.microduinoIMIICSlaver = {
     this.appendValueInput("numSlaver", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IAMIIC);
+        .appendField(Blockly.IAMIIC);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICNumberSlaver);
+        .appendField(Blockly.IICNumberSlaver);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -113,7 +113,7 @@ Blockly.Blocks.reciverIICMasterRequest = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICReciverMasterRequest);
+        .appendField(Blockly.IICReciverMasterRequest);
 
     this.appendStatementInput("requireEventDo");
 
@@ -132,13 +132,13 @@ Blockly.Blocks.microduinoIICSendToMaster = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICMasterSendType)
+        .appendField(Blockly.IICMasterSendType)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
     this.appendValueInput("numByte", String)
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IICSendtoMaster);
+        .appendField(Blockly.IICSendtoMaster);
 
     //this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -151,7 +151,7 @@ Blockly.Blocks.reciverIICMasterData = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.reciverIICMasterData);
+        .appendField(Blockly.reciverIICMasterData);
 
     this.appendStatementInput("reciverEventDo");
 

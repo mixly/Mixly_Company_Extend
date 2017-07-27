@@ -18,19 +18,19 @@ init:function(){
     var mCookie_DEVICE =[[Blockly.flashMemory, "DEVICE_FLASH"], [Blockly.tfCard, "DEVICE_TF"]];
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.chooseAudioPlay);
+        .appendField(Blockly.chooseAudioPlay);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.chooseAudioSerial)
-        .appendTitle(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
-        .appendTitle(Blockly.memoryDevice)
-        .appendTitle(new Blockly.FieldDropdown(mCookie_DEVICE), "PIN1")
-        .appendTitle(Blockly.playMode)
-        .appendTitle(new Blockly.FieldDropdown(mCookie_MODE), "PIN2")
+        .appendField(Blockly.chooseAudioSerial)
+        .appendField(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
+        .appendField(Blockly.memoryDevice)
+        .appendField(new Blockly.FieldDropdown(mCookie_DEVICE), "PIN1")
+        .appendField(Blockly.playMode)
+        .appendField(new Blockly.FieldDropdown(mCookie_MODE), "PIN2")
     this.appendValueInput("Vol", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.volume);
+        .appendField(Blockly.volume);
     //this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -41,7 +41,7 @@ Blockly.Blocks.mCookie_Audio_Play={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioPlay)
+         .appendField(Blockly.AudioPlay)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -51,7 +51,7 @@ Blockly.Blocks.mCookie_Audio_Pose={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioPause)
+         .appendField(Blockly.AudioPause)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -61,7 +61,7 @@ Blockly.Blocks.mCookie_Audio_Next={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioNext)
+         .appendField(Blockly.AudioNext)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -71,7 +71,7 @@ Blockly.Blocks.mCookie_Audio_Prev={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioPrev)
+         .appendField(Blockly.AudioPrev)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -81,7 +81,7 @@ Blockly.Blocks.mCookie_Audio_VolUp={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioVolUp)
+         .appendField(Blockly.AudioVolUp)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -91,7 +91,7 @@ Blockly.Blocks.mCookie_Audio_VolDown={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioVolDown)
+         .appendField(Blockly.AudioVolDown)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -114,8 +114,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.RTCAudioControl)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.RTCAudioControl)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -129,7 +129,7 @@ Blockly.Blocks.mCookie_Audio_Choose = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.chooseAudioNum)
+        .appendField(Blockly.chooseAudioNum)
     this.appendValueInput("audioNumber", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);

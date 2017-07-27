@@ -17,9 +17,9 @@ Blockly.Blocks.bluetoothMicroduinoBegin = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.bluePrepare)
-        .appendTitle(Blockly.productType)
-        .appendTitle(new Blockly.FieldDropdown(mCookie_PORTS), "PIN");
+        .appendField(Blockly.bluePrepare)
+        .appendField(Blockly.productType)
+        .appendField(new Blockly.FieldDropdown(mCookie_PORTS), "PIN");
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -34,7 +34,7 @@ Blockly.Blocks.bluetoothMicroduinoReciver = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.microduinoBlueReciver);
+        .appendField(Blockly.microduinoBlueReciver);
     
     this.appendStatementInput("reciverDataInput");
 
@@ -49,7 +49,7 @@ Blockly.Blocks.btMicroduinoReciverData = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.BTReciverData);
+        .appendField(Blockly.BTReciverData);
 
 	this.setOutput(true, String);
   }
@@ -61,12 +61,12 @@ Blockly.Blocks.btMicroduinoSenderData = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.BTSenderData);
+        .appendField(Blockly.BTSenderData);
 
     this.appendValueInput('senderText')
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.BTSende);
+        .appendField(Blockly.BTSende);
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -87,9 +87,9 @@ Blockly.Blocks.bluetoothmtankBegin = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.blueMtank)
-        .appendTitle(Blockly.productType)
-        .appendTitle(new Blockly.FieldDropdown(Type_md_mc), "Type_md_mc");
+        .appendField(Blockly.blueMtank)
+        .appendField(Blockly.productType)
+        .appendField(new Blockly.FieldDropdown(Type_md_mc), "Type_md_mc");
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -101,7 +101,7 @@ Blockly.Blocks.bluetoothmTankReciver = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.mTankBlueReciver);
+        .appendField(Blockly.mTankBlueReciver);
         
     
     this.appendStatementInput("reciverDataInput");
@@ -128,7 +128,7 @@ Blockly.Blocks.bluetoothmTankdata= {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.mTankchannel)
+        .appendField(Blockly.mTankchannel)
         .appendField(new Blockly.FieldDropdown(mTankchooseNumber), 'mTankchooseNumber');
 
     this.setOutput(true, Number);
@@ -141,9 +141,9 @@ Blockly.Blocks.bluetoothcolorled = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.blueled)
+        .appendField(Blockly.blueled)
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.ColorLEDControl)
+        .appendField(Blockly.ColorLEDControl)
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDBegin.png", 80, 32));
 
     this.setPreviousStatement(true);

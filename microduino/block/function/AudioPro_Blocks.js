@@ -25,8 +25,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioProPrepare)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.AudioProPrepare)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -52,8 +52,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioProInstrument)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.AudioProInstrument)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -70,24 +70,24 @@ Blockly.Blocks.audioProControl = {
                 ];
 
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioProControl)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.AudioProControl)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
 
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.audioProMelody)
+        .appendField(Blockly.audioProMelody)
     this.appendValueInput("audioProMelody", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.audioProVolume)
+        .appendField(Blockly.audioProVolume)
     this.appendValueInput("audioProVolume", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.audioProDuration)
+        .appendField(Blockly.audioProDuration)
     this.appendValueInput("audioProDuration", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);

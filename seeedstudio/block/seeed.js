@@ -11,18 +11,18 @@ Blockly.Blocks.seeed_servo_move = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
 	this.appendValueInput("PIN", Number)
-		.appendTitle(Blockly.MIXLY_SERVO)
-		.appendTitle(new Blockly.FieldImage("../../media/seeed/seeed_servo.png", 30, 32))
-		.appendTitle(Blockly.MIXLY_PIN)
+		.appendField(Blockly.MIXLY_SERVO)
+		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_servo.png", 30, 32))
+		.appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
     this.appendValueInput("DEGREE", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MIXLY_DEGREE_0_180);
+        .appendField(Blockly.MIXLY_DEGREE_0_180);
     this.appendValueInput("DELAY_TIME", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MIXLY_DELAY+'('+Blockly.MIXLY_DELAY_MS+')');
+        .appendField(Blockly.MIXLY_DELAY+'('+Blockly.MIXLY_DELAY_MS+')');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip('');
@@ -33,14 +33,14 @@ Blockly.Blocks.seeed_servo_read_degrees = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_SERVO)
+        .appendField(Blockly.MIXLY_SERVO)
 		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_servo.png", 30, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
     this.appendDummyInput("")
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MIXLY_READ_DEGREES)
+        .appendField(Blockly.MIXLY_READ_DEGREES)
     this.setOutput(true, Number);
 	this.setInputsInline(true);
     this.setTooltip('');
@@ -51,14 +51,14 @@ Blockly.Blocks.seeed_led = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_DF_LED)
+	    .appendField(Blockly.MIXLY_DF_LED)
 		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_led.jpg", 37, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.appendDummyInput("")
-      	.appendTitle(Blockly.MIXLY_STAT)
-      	.appendTitle(new Blockly.FieldDropdown([[Blockly.MIXLY_ON, "HIGH"], [Blockly.MIXLY_OFF, "LOW"]]), "STAT");
+      	.appendField(Blockly.MIXLY_STAT)
+      	.appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_ON, "HIGH"], [Blockly.MIXLY_OFF, "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -68,14 +68,14 @@ Blockly.Blocks.seeed_buzzer = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_DF_BUZZER)
+	    .appendField(Blockly.MIXLY_DF_BUZZER)
 		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_buzzer.jpg", 30, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.appendDummyInput("")
-      	.appendTitle(Blockly.MIXLY_STAT)
-      	.appendTitle(new Blockly.FieldDropdown([[Blockly.MIXLY_ON, "HIGH"], [Blockly.MIXLY_OFF, "LOW"]]), "STAT");
+      	.appendField(Blockly.MIXLY_STAT)
+      	.appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_ON, "HIGH"], [Blockly.MIXLY_OFF, "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -85,14 +85,14 @@ Blockly.Blocks.seeed_relay = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-	    .appendTitle(Blockly.MIXLY_DF_RELAY)
+	    .appendField(Blockly.MIXLY_DF_RELAY)
 		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_relay.jpg", 45, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);	
 	this.appendDummyInput("")
-      	.appendTitle(Blockly.MIXLY_STAT)
-      	.appendTitle(new Blockly.FieldDropdown([[Blockly.MIXLY_HIGH, "HIGH"], [Blockly.MIXLY_LOW, "LOW"]]), "STAT");
+      	.appendField(Blockly.MIXLY_STAT)
+      	.appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_HIGH, "HIGH"], [Blockly.MIXLY_LOW, "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -102,10 +102,10 @@ Blockly.Blocks.seeed_btn = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-	      .appendTitle(Blockly.MIXLY_DF_BTN)
+	      .appendField(Blockly.MIXLY_DF_BTN)
 		  .appendField(new Blockly.FieldImage("../../media/seeed/seeed_btn.jpg", 38, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Boolean);
@@ -117,10 +117,10 @@ Blockly.Blocks.seeed_tilt = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-	      .appendTitle(Blockly.MIXLY_DF_TILT)
+	      .appendField(Blockly.MIXLY_DF_TILT)
 		  .appendField(new Blockly.FieldImage("../../media/seeed/seeed_tilt.jpg", 39, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Boolean);
@@ -132,10 +132,10 @@ Blockly.Blocks.seeed_touch = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-	      .appendTitle(Blockly.MIXLY_DF_TOUCH)
+	      .appendField(Blockly.MIXLY_DF_TOUCH)
 		  .appendField(new Blockly.FieldImage("../../media/seeed/seeed_touch.png", 32, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Boolean);
@@ -147,10 +147,10 @@ Blockly.Blocks.seeed_rotation = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_DF_ROTATION)
+        .appendField(Blockly.MIXLY_DF_ROTATION)
 		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_rotation.jpg", 31, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -162,10 +162,10 @@ Blockly.Blocks.seeed_sound = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_DF_SOUND)
+        .appendField(Blockly.MIXLY_DF_SOUND)
 		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_sound.jpg", 32, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -177,10 +177,10 @@ Blockly.Blocks.seeed_light = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_DF_LIGHT)
+        .appendField(Blockly.MIXLY_DF_LIGHT)
 		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_light.png", 31, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -192,10 +192,10 @@ Blockly.Blocks.seeed_temperature = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MIXLY_DF_TEMPERATURE)
+        .appendField(Blockly.MIXLY_DF_TEMPERATURE)
 		.appendField(new Blockly.FieldImage("../../media/seeed/seeed_temperature.png", 37, 32));
 	this.appendValueInput("PIN", Number)
-        .appendTitle(Blockly.MIXLY_PIN)
+        .appendField(Blockly.MIXLY_PIN)
         .setCheck(Number);
 	this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -207,7 +207,7 @@ Blockly.Blocks.grove_serial_lcd_print = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_LCD_RGB_BACKLIGHT)
+        .appendField(Blockly.MIXLY_LCD_RGB_BACKLIGHT)
         .appendField(new Blockly.FieldImage("../../media/seeed/seeed_lcd.png", 58, 32));
     this.appendValueInput("TEXT", String)
         .setCheck([String,Number])
@@ -226,7 +226,7 @@ Blockly.Blocks.grove_serial_lcd_print2 = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_LCD_RGB_BACKLIGHT)
+        .appendField(Blockly.MIXLY_LCD_RGB_BACKLIGHT)
         .appendField(new Blockly.FieldImage("../../media/seeed/seeed_lcd.png", 58, 32));
 	this.appendValueInput("row", Number)
         .setCheck(Number)
@@ -250,9 +250,9 @@ Blockly.Blocks.grove_serial_lcd_setrgb = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_LCD_RGB_BACKLIGHT)
+        .appendField(Blockly.MIXLY_LCD_RGB_BACKLIGHT)
         .appendField(new Blockly.FieldImage("../../media/seeed/seeed_lcd.png", 58, 32))
-		.appendTitle(Blockly.MIXLY_LCD_SETCOLOR);
+		.appendField(Blockly.MIXLY_LCD_SETCOLOR);
     this.appendValueInput("R", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
@@ -274,7 +274,7 @@ Blockly.Blocks.grove_serial_lcd_power = {
   init: function() {
     this.setColour(Blockly.Blocks.seeed.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_LCD_RGB_BACKLIGHT)
+        .appendField(Blockly.MIXLY_LCD_RGB_BACKLIGHT)
         .appendField(new Blockly.FieldImage("../../media/seeed/seeed_lcd.png", 58, 32))
 		.appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_LCD_STAT_ON, "display"], [Blockly.MIXLY_LCD_STAT_OFF, "noDisplay"], [Blockly.MIXLY_LCD_STAT_CURSOR, "cursor"], [Blockly.MIXLY_LCD_STAT_NOCURSOR, "noCursor"], [Blockly.MIXLY_LCD_STAT_BLINK, "blink"], [Blockly.MIXLY_LCD_STAT_NOBLINK, "noBlink"], [Blockly.MIXLY_LCD_STAT_CLEAR, "clear"]]), "STAT");
     this.setInputsInline(true);

@@ -15,17 +15,17 @@ Blockly.Blocks.ws2812Begin = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDBegin.png", 40, 30))
-        .appendTitle(Blockly.ColorLEDInit)
+        .appendField(Blockly.ColorLEDInit)
         
 
     this.appendValueInput("LEDNumber", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDNumber);
+        .appendField(Blockly.ColorLEDNumber);
     this.appendValueInput("LEDPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDPin);
+        .appendField(Blockly.ColorLEDPin);
 
 
     var tip="定义彩灯所需的库函数和对象\n";
@@ -47,13 +47,13 @@ Blockly.Blocks.ws2812Doing = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDCntrol.png", 40, 30))
-        .appendTitle(Blockly.ColorLEDControl)
+        .appendField(Blockly.ColorLEDControl)
     this.appendValueInput("LEDIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDIndex);
+        .appendField(Blockly.ColorLEDIndex);
     this.appendDummyInput("")
-        .appendTitle(Blockly.ColorSet)
+        .appendField(Blockly.ColorSet)
         .appendField(new Blockly.FieldColour("#FF0000"), "colorRGB");
     var tip="定义彩灯序号和颜色\n";
     tip+="数字接口\n";
@@ -72,23 +72,23 @@ Blockly.Blocks.ws2812DoingRGB = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDCntrol.png", 40, 30))
-        .appendTitle(Blockly.ColorLEDControl)
+        .appendField(Blockly.ColorLEDControl)
     this.appendValueInput("LEDIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDIndex);
+        .appendField(Blockly.ColorLEDIndex);
     this.appendValueInput("red", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDRed);
+        .appendField(Blockly.ColorLEDRed);
     this.appendValueInput("green", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDGreen);
+        .appendField(Blockly.ColorLEDGreen);
     this.appendValueInput("blue", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDBlue);
+        .appendField(Blockly.ColorLEDBlue);
 
 
     var tip="定义彩灯序号和颜色\n";
@@ -108,23 +108,23 @@ Blockly.Blocks.ws2812BreathRGB = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDCntrol.png", 40, 30))
-        .appendTitle(Blockly.ColorLEDBreath)
+        .appendField(Blockly.ColorLEDBreath)
     this.appendValueInput("LEDIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDIndex);
+        .appendField(Blockly.ColorLEDIndex);
     this.appendValueInput("red", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDRed);
+        .appendField(Blockly.ColorLEDRed);
     this.appendValueInput("green", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDGreen);
+        .appendField(Blockly.ColorLEDGreen);
     this.appendValueInput("blue", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDBlue);
+        .appendField(Blockly.ColorLEDBlue);
 
 
     var tip="定义彩灯序号和颜色\n";

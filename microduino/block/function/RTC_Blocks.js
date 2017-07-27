@@ -13,26 +13,26 @@ Blockly.Blocks.mCookie_RTC_set = {
 	this.appendValueInput('Year')
 		.setCheck(Number)
     .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_RTC.png", 45, 32))
-		.appendTitle(Blockly.SetRTCTime)
-		.appendTitle(Blockly.RTCYear);
+		.appendField(Blockly.SetRTCTime)
+		.appendField(Blockly.RTCYear);
 	this.appendValueInput('Mouth')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCMouth);
+		.appendField(Blockly.RTCMouth);
 	this.appendValueInput('Day')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCDay);
+		.appendField(Blockly.RTCDay);
 	this.appendValueInput('Week')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCWeek);
+		.appendField(Blockly.RTCWeek);
     this.appendValueInput('Hour')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCHour);
+		.appendField(Blockly.RTCHour);
 	this.appendValueInput('Minute')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCMinute);
+		.appendField(Blockly.RTCMinute);
     this.appendValueInput('Second')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCSecond);	
+		.appendField(Blockly.RTCSecond);	
     this.setPreviousStatement(true);
     this.setNextStatement(true);
 	//this.setInputsInline(true);
@@ -44,7 +44,7 @@ Blockly.Blocks.mCookie_RTC_time={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.RTCFormatTime)
+         .appendField(Blockly.RTCFormatTime)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -57,7 +57,7 @@ Blockly.Blocks.mCookie_RTC_date={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatDate)
+	     .appendField(Blockly.RTCFormatDate)
     this.setOutput(true, String);
     this.setInputsInline(true);
   }
@@ -69,7 +69,7 @@ Blockly.Blocks.mCookie_RTC_Week={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatWeek)
+	     .appendField(Blockly.RTCFormatWeek)
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -79,7 +79,7 @@ Blockly.Blocks.mCookie_RTC_Hour={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatHour)
+	     .appendField(Blockly.RTCFormatHour)
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -89,7 +89,7 @@ Blockly.Blocks.mCookie_RTC_Minute={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatMinute)
+	     .appendField(Blockly.RTCFormatMinute)
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -99,7 +99,7 @@ Blockly.Blocks.mCookie_RTC_Second={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatSecond)
+	     .appendField(Blockly.RTCFormatSecond)
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -122,8 +122,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.RTCFormatGetInfo)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.RTCFormatGetInfo)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     this.setOutput(true);
   }

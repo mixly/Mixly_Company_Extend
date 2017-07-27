@@ -15,7 +15,7 @@ Blockly.Blocks.BuzzerTone = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Buzzer.png", 40, 30))
-        .appendTitle(Blockly.Buzzer)
+        .appendField(Blockly.Buzzer)
 		
     // .appendField(Blockly.BuzzerNum)
     // .appendField(new Blockly.FieldTextInput("1"), "buzzerNumber")
@@ -23,11 +23,11 @@ Blockly.Blocks.BuzzerTone = {
   	this.appendValueInput("BuzzerPin", Number)
   		.setCheck(Number)
   		.setAlign(Blockly.ALIGN_RIGHT)
-  		.appendTitle(Blockly.BuzzerPin);
+  		.appendField(Blockly.BuzzerPin);
   	this.appendValueInput("Frequency", Number)
   		.setCheck(Number)
   		.setAlign(Blockly.ALIGN_RIGHT)
-  		.appendTitle(Blockly.Frequency);
+  		.appendField(Blockly.Frequency);
 
     var tip="定义控制蜂鸣器的引脚\n";
     tip+="数字接口\n";
@@ -56,17 +56,17 @@ Blockly.Blocks.BuzzerToneMelody = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Buzzer.png", 40, 30))
-        .appendTitle(Blockly.Buzzer)
+        .appendField(Blockly.Buzzer)
     
 
     this.appendValueInput("BuzzerPin", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.BuzzerPin);
+      .appendField(Blockly.BuzzerPin);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.BuzzerMelody)
-    .appendTitle(new Blockly.FieldDropdown(buzzerMelody), "buzzerMelody")
+    .appendField(Blockly.BuzzerMelody)
+    .appendField(new Blockly.FieldDropdown(buzzerMelody), "buzzerMelody")
 
     var tip="定义控制蜂鸣器的引脚和旋律\n";
     tip+="数字接口\n";
@@ -90,17 +90,17 @@ Blockly.Blocks.BuzzerToneSong = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Buzzer.png", 40, 30))
-        .appendTitle(Blockly.Buzzer)
+        .appendField(Blockly.Buzzer)
     
 
     this.appendValueInput("BuzzerPin", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.BuzzerPin);
+      .appendField(Blockly.BuzzerPin);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.BuzzerSong)
-    .appendTitle(new Blockly.FieldDropdown(buzzerSong), "buzzerSong")
+    .appendField(Blockly.BuzzerSong)
+    .appendField(new Blockly.FieldDropdown(buzzerSong), "buzzerSong")
 
     var tip="定义控制蜂鸣器的引脚和曲目\n";
     tip+="数字接口\n";
@@ -122,7 +122,7 @@ Blockly.Blocks.BuzzerNoTone = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Buzzer.png", 40, 30))
-        .appendTitle(Blockly.BuzzerNoTone)
+        .appendField(Blockly.BuzzerNoTone)
     
     // .appendField(Blockly.BuzzerNum)
     // .appendField(new Blockly.FieldTextInput("1"), "buzzerNumber")
@@ -130,7 +130,7 @@ Blockly.Blocks.BuzzerNoTone = {
     this.appendValueInput("BuzzerPin", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.BuzzerPin);
+      .appendField(Blockly.BuzzerPin);
 
     var tip="定义控制蜂鸣器的引脚\n";
     tip+="数字接口\n";

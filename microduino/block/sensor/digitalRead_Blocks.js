@@ -15,16 +15,16 @@ Blockly.Blocks.microduinoCrash = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Crash.png", 40, 30))
-        .appendTitle(Blockly.Keyget_Pin)
+        .appendField(Blockly.Keyget_Pin)
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
 
     this.appendDummyInput()
-    .appendTitle(Blockly.crashButton)
+    .appendField(Blockly.crashButton)
     
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "down"], [Blockly.KeyInputRELEASE, "up"]]),'action');
+    .appendField(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "down"], [Blockly.KeyInputRELEASE, "up"]]),'action');
 
 
     this.setInputsInline(true);
@@ -45,15 +45,15 @@ Blockly.Blocks.microduinoTuch = {
 
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/Touch.png", 40, 30))
-        .appendTitle(Blockly.Keyget_Pin)
+        .appendField(Blockly.Keyget_Pin)
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
 
     this.appendDummyInput()
-    .appendTitle(Blockly.touchButton)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "down"], [Blockly.KeyInputRELEASE, "up"]]),'action');
+    .appendField(Blockly.touchButton)
+    .appendField(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "down"], [Blockly.KeyInputRELEASE, "up"]]),'action');
 
     this.setInputsInline(true);
     var tip="获取一个数字值\n";
@@ -73,14 +73,14 @@ Blockly.Blocks.microduinoPIR = {
 
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/PIR.png", 40, 30))
-    .appendTitle(Blockly.Keyget_Pin)
+    .appendField(Blockly.Keyget_Pin)
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput()
-    .appendTitle(Blockly.PIRSensor)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.personAction, "high"], [Blockly.personNoAction, "low"]]),'action');
+    .appendField(Blockly.PIRSensor)
+    .appendField(new Blockly.FieldDropdown([[Blockly.personAction, "high"], [Blockly.personNoAction, "low"]]),'action');
 
     this.setInputsInline(true);
     var tip="获取一个数字值\n";
@@ -99,15 +99,15 @@ Blockly.Blocks.microduinoMic = {
 
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/MIC.png", 40, 30))
-    .appendTitle(Blockly.Keyget_Pin)
+    .appendField(Blockly.Keyget_Pin)
         
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput()
-    .appendTitle(Blockly.MicSensor)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.sonudHigh, "high"], [Blockly.noSound, "low"]]),'action');
+    .appendField(Blockly.MicSensor)
+    .appendField(new Blockly.FieldDropdown([[Blockly.sonudHigh, "high"], [Blockly.noSound, "low"]]),'action');
 
     this.setInputsInline(true);
     var tip="获取一个数字值\n";
@@ -125,15 +125,15 @@ Blockly.Blocks.microduinoLight = {
 
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/ALight.png", 40, 30))
-    .appendTitle(Blockly.Keyget_Pin)
+    .appendField(Blockly.Keyget_Pin)
         
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput()
-    .appendTitle(Blockly.LightSensor)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.lightHigh, "high"], [Blockly.lightLow, "low"]]),'action');
+    .appendField(Blockly.LightSensor)
+    .appendField(new Blockly.FieldDropdown([[Blockly.lightHigh, "high"], [Blockly.lightLow, "low"]]),'action');
 
     this.setInputsInline(true);
     var tip="获取一个数字值\n";

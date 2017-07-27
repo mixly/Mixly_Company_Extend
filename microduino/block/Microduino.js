@@ -18,9 +18,9 @@ Blockly.Blocks.bluetoothMicroduinoBegin = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.bluePrepare)
-        .appendTitle(Blockly.productType)
-        .appendTitle(new Blockly.FieldDropdown(mCookie_PORTS), "PIN");
+        .appendField(Blockly.bluePrepare)
+        .appendField(Blockly.productType)
+        .appendField(new Blockly.FieldDropdown(mCookie_PORTS), "PIN");
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -35,7 +35,7 @@ Blockly.Blocks.bluetoothMicroduinoReciver = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.microduinoBlueReciver);
+        .appendField(Blockly.microduinoBlueReciver);
     
     this.appendStatementInput("reciverDataInput");
 
@@ -50,7 +50,7 @@ Blockly.Blocks.btMicroduinoReciverData = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.BTReciverData);
+        .appendField(Blockly.BTReciverData);
 
 	this.setOutput(true, String);
   }
@@ -62,12 +62,12 @@ Blockly.Blocks.btMicroduinoSenderData = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.BTSenderData);
+        .appendField(Blockly.BTSenderData);
 
     this.appendValueInput('senderText')
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.BTSende);
+        .appendField(Blockly.BTSende);
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -88,9 +88,9 @@ Blockly.Blocks.bluetoothmtankBegin = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.blueMtank)
-        .appendTitle(Blockly.productType)
-        .appendTitle(new Blockly.FieldDropdown(Type_md_mc), "Type_md_mc");
+        .appendField(Blockly.blueMtank)
+        .appendField(Blockly.productType)
+        .appendField(new Blockly.FieldDropdown(Type_md_mc), "Type_md_mc");
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -102,7 +102,7 @@ Blockly.Blocks.bluetoothmTankReciver = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.mTankBlueReciver);
+        .appendField(Blockly.mTankBlueReciver);
         
     
     this.appendStatementInput("reciverDataInput");
@@ -129,7 +129,7 @@ Blockly.Blocks.bluetoothmTankdata= {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.mTankchannel)
+        .appendField(Blockly.mTankchannel)
         .appendField(new Blockly.FieldDropdown(mTankchooseNumber), 'mTankchooseNumber');
 
     this.setOutput(true, Number);
@@ -142,9 +142,9 @@ Blockly.Blocks.bluetoothcolorled = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.blueled)
+        .appendField(Blockly.blueled)
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_BT.png", 45, 32))
-        .appendTitle(Blockly.ColorLEDControl)
+        .appendField(Blockly.ColorLEDControl)
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDBegin.png", 80, 32));
 
     this.setPreviousStatement(true);
@@ -169,15 +169,15 @@ Blockly.Blocks.GSM_SMS = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.GSM)
+         .appendField(Blockly.GSM)
          .appendField(new Blockly.FieldImage("../../media/Microduino/GSM.jpg", 45, 32))
-         .appendTitle(Blockly.GSM_SMS)
-         .appendTitle(new Blockly.FieldTextInput('xxxxxxxxxxx'),'TELNUM')
-         .appendTitle(Blockly.GSM_Read);
+         .appendField(Blockly.GSM_SMS)
+         .appendField(new Blockly.FieldTextInput('xxxxxxxxxxx'),'TELNUM')
+         .appendField(Blockly.GSM_Read);
     this.appendValueInput('text')
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.GSM_CONTENT);
+        .appendField(Blockly.GSM_CONTENT);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   }
@@ -205,16 +205,16 @@ Blockly.Blocks.microduinoIICSendToSlaver = {
     this.appendValueInput("numSlaver", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IICMasterSendToSlaver);
+        .appendField(Blockly.IICMasterSendToSlaver);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICMasterSendType)
+        .appendField(Blockly.IICMasterSendType)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
     this.appendValueInput("numByte", String)
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IICMasterSendData);
+        .appendField(Blockly.IICMasterSendData);
 
     this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -230,21 +230,21 @@ Blockly.Blocks.microduinoIICRequest = {
     this.appendValueInput("numSlaver", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IICMasterTo);
+        .appendField(Blockly.IICMasterTo);
 
     this.appendValueInput("numByte", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.NumberSlaverRequest);
+        .appendField(Blockly.NumberSlaverRequest);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICByteData);
+        .appendField(Blockly.IICByteData);
 
     this.appendStatementInput("success")
-        .appendTitle(Blockly.IICIfSuccess);
+        .appendField(Blockly.IICIfSuccess);
 
     this.appendStatementInput("fail")
-        .appendTitle(Blockly.IICIfFail);
+        .appendField(Blockly.IICIfFail);
 
     this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -257,7 +257,7 @@ Blockly.Blocks.microduinoIICReadCache = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICReadByte);
+        .appendField(Blockly.IICReadByte);
     this.setInputsInline(true);
     this.setOutput(true, String);
   }
@@ -268,7 +268,7 @@ Blockly.Blocks.microduinoIICCacheLen = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICCacheLen);
+        .appendField(Blockly.IICCacheLen);
     this.setInputsInline(true);
     this.setOutput(true, Number);
   }
@@ -281,10 +281,10 @@ Blockly.Blocks.microduinoIMIICSlaver = {
     this.appendValueInput("numSlaver", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IAMIIC);
+        .appendField(Blockly.IAMIIC);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICNumberSlaver);
+        .appendField(Blockly.IICNumberSlaver);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -298,7 +298,7 @@ Blockly.Blocks.reciverIICMasterRequest = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICReciverMasterRequest);
+        .appendField(Blockly.IICReciverMasterRequest);
 
     this.appendStatementInput("requireEventDo");
 
@@ -317,13 +317,13 @@ Blockly.Blocks.microduinoIICSendToMaster = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.IICMasterSendType)
+        .appendField(Blockly.IICMasterSendType)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
     this.appendValueInput("numByte", String)
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.IICSendtoMaster);
+        .appendField(Blockly.IICSendtoMaster);
 
     //this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -336,7 +336,7 @@ Blockly.Blocks.reciverIICMasterData = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.reciverIICMasterData);
+        .appendField(Blockly.reciverIICMasterData);
 
     this.appendStatementInput("reciverEventDo");
 
@@ -364,16 +364,16 @@ Blockly.Blocks.IRSenderCode = {
     this.setColour(colorSet);
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/IR_S.png", 40, 30))
-      .appendTitle(Blockly.MIXLY_IR_SEND_NEC1)
+      .appendField(Blockly.MIXLY_IR_SEND_NEC1)
       .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE')
-      // .appendTitle(Blockly.LKL_IR_SEND_NEC2)
-      // .appendTitle(new Blockly.FieldDropdown([["3", "3"],["6", "6"],["8", "8"]]), "PIN");
+      // .appendField(Blockly.LKL_IR_SEND_NEC2)
+      // .appendField(new Blockly.FieldDropdown([["3", "3"],["6", "6"],["8", "8"]]), "PIN");
     this.appendValueInput('data')
       .setCheck(Number)
-      .appendTitle(' '+Blockly.MIXLY_DATA);
+      .appendField(' '+Blockly.MIXLY_DATA);
     this.appendValueInput('bits')
       .setCheck(Number)
-      .appendTitle(' '+Blockly.MIXLY_BITS);
+      .appendField(' '+Blockly.MIXLY_BITS);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -389,17 +389,17 @@ Blockly.Blocks.IRSenderRaw = {
 
   this.appendDummyInput("")
   .appendField(new Blockly.FieldImage("../../media/Microduino/IR_S.png", 40, 30))
-      .appendTitle(Blockly.MIXLY_IR_SEND_RAW);
-  //     .appendTitle(new Blockly.FieldDropdown([["3", "3"],["6", "6"],["8", "8"]]), "PIN");
+      .appendField(Blockly.MIXLY_IR_SEND_RAW);
+  //     .appendField(new Blockly.FieldDropdown([["3", "3"],["6", "6"],["8", "8"]]), "PIN");
     this.appendDummyInput("")
-        .appendTitle(' '+Blockly.MIXLY_LIST_NAME)
-        .appendTitle(new Blockly.FieldTextInput('0,0,0'), 'TEXT');
+        .appendField(' '+Blockly.MIXLY_LIST_NAME)
+        .appendField(new Blockly.FieldTextInput('0,0,0'), 'TEXT');
   this.appendValueInput('length')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.MIXLY_LIST_LENGTH);
+        .appendField(' '+Blockly.MIXLY_LIST_LENGTH);
   this.appendValueInput('freq')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.MIXLY_FREQUENCY);
+        .appendField(' '+Blockly.MIXLY_FREQUENCY);
   this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -414,13 +414,13 @@ Blockly.Blocks.IRReciver = {
     this.setColour(colorSet);
   this.appendValueInput("PIN", Number)
   .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 40, 30))
-    .appendTitle(new Blockly.FieldTextInput('ir_item'), 'VAR')
-        .appendTitle(Blockly.MIXLY_IR_RECEIVE)
+    .appendField(new Blockly.FieldTextInput('ir_item'), 'VAR')
+        .appendField(Blockly.MIXLY_IR_RECEIVE)
         .setCheck(Number);
   this.appendStatementInput('DO')
-        .appendTitle(Blockly.MIXLY_IR_RECEIVE_YES);
+        .appendField(Blockly.MIXLY_IR_RECEIVE_YES);
   this.appendStatementInput('DO2')
-        .appendTitle(Blockly.MIXLY_IR_RECEIVE_NO);
+        .appendField(Blockly.MIXLY_IR_RECEIVE_NO);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
   this.setTooltip(Blockly.MIXLY_IR_RECIEVE_TOOLTIP);
@@ -441,7 +441,7 @@ Blockly.Blocks.IRReciverRaw = {
     this.setColour(colorSet);
   this.appendValueInput("PIN", Number)
   .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 40, 30))
-        .appendTitle(Blockly.MIXLY_IR_RECEIVE_RAW)
+        .appendField(Blockly.MIXLY_IR_RECEIVE_RAW)
         .setCheck(Number);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -455,7 +455,7 @@ Blockly.Blocks.IRReciverEnable = {
     this.setColour(colorSet);
   this.appendValueInput("PIN", Number)
   .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 40, 30))
-        .appendTitle(Blockly.IRReciverEnable)
+        .appendField(Blockly.IRReciverEnable)
         .setCheck(Number);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -476,9 +476,9 @@ Blockly.Blocks.NFC_Format = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.NFC)
+         .appendField(Blockly.NFC)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_NFC.png", 45, 32))
-         .appendTitle(Blockly.NFC_Format_Classic);
+         .appendField(Blockly.NFC_Format_Classic);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -489,9 +489,9 @@ Blockly.Blocks.NFC_Read = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.NFC)
+         .appendField(Blockly.NFC)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_NFC.png", 45, 32))
-         .appendTitle(Blockly.NFC_Read);
+         .appendField(Blockly.NFC_Read);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -512,12 +512,12 @@ Blockly.Blocks.nRF_Init = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.nRF_Init)
+         .appendField(Blockly.nRF_Init)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_nRF24.png", 45, 32))
-         .appendTitle(Blockly.nRF_Interval)
+         .appendField(Blockly.nRF_Interval)
          .appendField(new Blockly.FieldTextInput('200'), 'INTERVAL')
-         .appendTitle(Blockly.nRF_Channel)
-         .appendTitle(new Blockly.FieldTextInput('70'),'CHANNEL');
+         .appendField(Blockly.nRF_Channel)
+         .appendField(new Blockly.FieldTextInput('70'),'CHANNEL');
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -528,7 +528,7 @@ Blockly.Blocks.nRF_Send = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.nRF_Send)
+         .appendField(Blockly.nRF_Send)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_nRF24.png", 45, 32));
    // this.setInputsInline(true);
     this.appendStatementInput("DO");
@@ -541,11 +541,11 @@ Blockly.Blocks.nRF_Read = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.nRF_Read)
+         .appendField(Blockly.nRF_Read)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_nRF24.png", 45, 32));
-         // .appendTitle("#")
-         // .appendTitle(Blockly.Read_INFO)
-         // .appendTitle(new Blockly.FieldTextInput('Structure name'),'Struct_Name');
+         // .appendField("#")
+         // .appendField(Blockly.Read_INFO)
+         // .appendField(new Blockly.FieldTextInput('Structure name'),'Struct_Name');
    // this.setInputsInline(true);
    this.appendStatementInput("DO");
     this.setPreviousStatement(true);
@@ -582,17 +582,17 @@ Blockly.Blocks.smartRF_Init_Send = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-    	   .appendTitle(Blockly.smartRF)
+    	   .appendField(Blockly.smartRF)
         .appendField(new Blockly.FieldImage("../../media/Microduino/smartRF.jpg", 45, 32))
-        .appendTitle(Blockly.smartRF_Init_Send)
-        .appendTitle(Blockly.Zigbee_Baud)
+        .appendField(Blockly.smartRF_Init_Send)
+        .appendField(Blockly.Zigbee_Baud)
         .appendField(new Blockly.FieldDropdown(BAUD), 'BAUD')
-		    .appendTitle(Blockly.Frequency)
+		    .appendField(Blockly.Frequency)
         .appendField(new Blockly.FieldDropdown(FREQ), 'FREQ')
-        .appendTitle(Blockly.SENDADDR)
-        .appendTitle(new Blockly.FieldTextInput('4'),'SenderADDRESS')
-        .appendTitle(Blockly.RECADDR)
-        .appendTitle(new Blockly.FieldTextInput('5'),'ReceiverADDRESS');
+        .appendField(Blockly.SENDADDR)
+        .appendField(new Blockly.FieldTextInput('4'),'SenderADDRESS')
+        .appendField(Blockly.RECADDR)
+        .appendField(new Blockly.FieldTextInput('5'),'ReceiverADDRESS');
     //this.appendStatementInput('DO')
    	 this.setPreviousStatement(true, null);
    	 this.setNextStatement(true, null);
@@ -618,15 +618,15 @@ Blockly.Blocks.smartRF_Init_Read = {
                     ['915', 'CFREQ_915']];
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.smartRF)
+        .appendField(Blockly.smartRF)
         .appendField(new Blockly.FieldImage("../../media/Microduino/smartRF.jpg", 45, 32))
-        .appendTitle(Blockly.smartRF_Init_Read)
-        .appendTitle(Blockly.Zigbee_Baud)
+        .appendField(Blockly.smartRF_Init_Read)
+        .appendField(Blockly.Zigbee_Baud)
         .appendField(new Blockly.FieldDropdown(BAUD), 'BAUD')
-        .appendTitle(Blockly.Frequency)
+        .appendField(Blockly.Frequency)
         .appendField(new Blockly.FieldDropdown(FREQ), 'FREQ')
-        .appendTitle(Blockly.RECADDR)
-        .appendTitle(new Blockly.FieldTextInput('5'),'ReceiverADDRESS');
+        .appendField(Blockly.RECADDR)
+        .appendField(new Blockly.FieldTextInput('5'),'ReceiverADDRESS');
     //this.appendStatementInput('DO')
      this.setPreviousStatement(true, null);
      this.setNextStatement(true, null);
@@ -638,12 +638,12 @@ Blockly.Blocks.smartRF_Send = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.smartRF)
+      .appendField(Blockly.smartRF)
       .appendField(new Blockly.FieldImage("../../media/Microduino/smartRF.jpg", 45, 32))
-      .appendTitle(Blockly.smartRF_Send)
-      .appendTitle(new Blockly.FieldTextInput('data'),'smartRF_Data')
-      .appendTitle(Blockly.smartRF_Send_Length)
-      .appendTitle(new Blockly.FieldTextInput('length'),'smartRF_Data_Length');
+      .appendField(Blockly.smartRF_Send)
+      .appendField(new Blockly.FieldTextInput('data'),'smartRF_Data')
+      .appendField(Blockly.smartRF_Send_Length)
+      .appendField(new Blockly.FieldTextInput('length'),'smartRF_Data_Length');
     this.appendStatementInput('DO');
     //this.setOutput(true, Boolean);
     this.setPreviousStatement(true, null);
@@ -656,10 +656,10 @@ Blockly.Blocks.smartRF_Read = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.smartRF)
+      .appendField(Blockly.smartRF)
       .appendField(new Blockly.FieldImage("../../media/Microduino/smartRF.jpg", 45, 32))
-      .appendTitle(Blockly.smartRF_Read)
-      .appendTitle(new Blockly.FieldTextInput('data'),'smartRF_REC_Data')
+      .appendField(Blockly.smartRF_Read)
+      .appendField(new Blockly.FieldTextInput('data'),'smartRF_REC_Data')
     //this.appendStatementInput('DO');
     //this.setOutput(true, Boolean);
     this.setPreviousStatement(true, null);
@@ -682,10 +682,10 @@ Blockly.Blocks.W5500_Init = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.W5500)
+      .appendField(Blockly.W5500)
     .appendField(new Blockly.FieldImage("../../media/Microduino/Zigbee.jpg", 45, 32))
-    .appendTitle("#")
-    .appendTitle(Blockly.W5500_Init);
+    .appendField("#")
+    .appendField(Blockly.W5500_Init);
     this.setOutput(true, Boolean);
   this.setInputsInline(true);
  // this.setPreviousStatement(true, null);
@@ -791,7 +791,7 @@ Blockly.Blocks.BLYNK_READ = {
     this.appendValueInput("blynkReadInput", [Number,String])
     .setCheck([Number,String])
     .setAlign(Blockly.ALIGN_RIGHT)
-    .appendTitle(Blockly.inputValue);
+    .appendField(Blockly.inputValue);
 
     var tip="发送数据到Blynk\n";
     tip+="发送频率请在你的APP中设置\n";
@@ -823,7 +823,7 @@ Blockly.Blocks.BLYNK_WRITE = {
     // this.appendValueInput("blynkReadInput", [Number,String])
     // .setCheck([Number,String])
     // .setAlign(Blockly.ALIGN_RIGHT)
-    // .appendTitle("inputValue");
+    // .appendField("inputValue");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -837,9 +837,9 @@ Blockly.Blocks.BLYNKParamOne = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.SoloParam)
-        .appendTitle(Blockly.paramType)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.BLYNKString, "asStr()"], 
+        .appendField(Blockly.SoloParam)
+        .appendField(Blockly.paramType)
+        .appendField(new Blockly.FieldDropdown([[Blockly.BLYNKString, "asStr()"], 
             [Blockly.BLYNKInt, "asInt()"], [Blockly.BLYNKDouble, "asDouble()"]]),'paramType');
 
 
@@ -860,16 +860,16 @@ Blockly.Blocks.BLYNKParamArray = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.ArrayParam)
-        .appendTitle(Blockly.paramType)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.BLYNKString, "asStr()"], 
+        .appendField(Blockly.ArrayParam)
+        .appendField(Blockly.paramType)
+        .appendField(new Blockly.FieldDropdown([[Blockly.BLYNKString, "asStr()"], 
             [Blockly.BLYNKInt, "asInt()"], [Blockly.BLYNKDouble, "asDouble()"]]),'paramType');
 
 
     this.appendValueInput("paramNum", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.paramIndex);
+        .appendField(Blockly.paramIndex);
 
 
 
@@ -890,11 +890,11 @@ Blockly.Blocks.WiFiBlynkTimer = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.BlynkTimer)
-        .appendTitle(Blockly.timerName)
-        .appendTitle(new Blockly.FieldTextInput("tempture"), "timerName")
-        .appendTitle(Blockly.interval)
-        .appendTitle(new Blockly.FieldTextInput("1000"), "duration");
+        .appendField(Blockly.BlynkTimer)
+        .appendField(Blockly.timerName)
+        .appendField(new Blockly.FieldTextInput("tempture"), "timerName")
+        .appendField(Blockly.interval)
+        .appendField(new Blockly.FieldTextInput("1000"), "duration");
 
     this.appendStatementInput("blynkTimerDoing");
 
@@ -915,15 +915,15 @@ Blockly.Blocks.WiFiBlynkVirtualWrite = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.BLYNK_READ)
-        .appendTitle(Blockly.virtualPort)
-        .appendTitle(new Blockly.FieldTextInput("V0"), "virtualPort");
+        .appendField(Blockly.BLYNK_READ)
+        .appendField(Blockly.virtualPort)
+        .appendField(new Blockly.FieldTextInput("V0"), "virtualPort");
 
 
     this.appendValueInput("senderDataToBlynk", [Number,String])
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.inputValue);
+        .appendField(Blockly.inputValue);
 
 
     var tip="上传数据到Blynk\n";
@@ -954,11 +954,11 @@ Blockly.Blocks.Zigbee_AT = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.Zigbee)
+      .appendField(Blockly.Zigbee)
     .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-    .appendTitle("#")
-      .appendTitle(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
-    .appendTitle(Blockly.Zigbee_SetAT);
+    .appendField("#")
+      .appendField(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
+    .appendField(Blockly.Zigbee_SetAT);
   this.setInputsInline(true);
   }
 };
@@ -967,14 +967,14 @@ Blockly.Blocks.Zigbee_Init = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.Zigbee_Init)
+         .appendField(Blockly.Zigbee_Init)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-         .appendTitle("#")
-          .appendTitle(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
+         .appendField("#")
+          .appendField(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
     this.appendValueInput("BRate", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.Zigbee_Baud);
+        .appendField(Blockly.Zigbee_Baud);
   this.setInputsInline(true);
       this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -986,10 +986,10 @@ Blockly.Blocks.Zigbee_Available = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.Zigbee)
+      .appendField(Blockly.Zigbee)
     .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-    .appendTitle("#")
-    .appendTitle(Blockly.Zigbee_Available);
+    .appendField("#")
+    .appendField(Blockly.Zigbee_Available);
     this.setOutput(true, Boolean);
   this.setInputsInline(true);
   }
@@ -999,14 +999,14 @@ Blockly.Blocks.Zigbee_Send = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.Zigbee)
+      .appendField(Blockly.Zigbee)
     .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-    .appendTitle("#")
-    .appendTitle(Blockly.Zigbee_Send);
+    .appendField("#")
+    .appendField(Blockly.Zigbee_Send);
   this.appendValueInput('text')
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("Text:");
+        .appendField("Text:");
     //this.setOutput(true, Boolean);
     //  this.setInputsInline(true);
       this.setPreviousStatement(true, null);
@@ -1018,10 +1018,10 @@ Blockly.Blocks.Zigbee_Read = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.Zigbee)
+      .appendField(Blockly.Zigbee)
       .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Zigbee.png", 45, 32))
-      .appendTitle("#")
-      .appendTitle(Blockly.Zigbee_Read);
+      .appendField("#")
+      .appendField(Blockly.Zigbee_Read);
   this.setOutput(true,String);
   }
 };
@@ -1034,11 +1034,11 @@ Blockly.Blocks.VariableIs = {
     this.appendValueInput('VariableName', String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.VariableName);
+        .appendField(Blockly.VariableName);
   this.appendValueInput('VariableIs', String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.VariableIs);
+        .appendField(Blockly.VariableIs);
     this.setOutput(true, Boolean);
   this.setInputsInline(true);
   }
@@ -1074,7 +1074,7 @@ Blockly.Blocks.serialBegin = {
 
     this.appendDummyInput("")
         //.appendField(new Blockly.FieldImage("../../media/Microduino/CoreUSB.png", 60, 90))
-        .appendTitle(Blockly.serialSetup)
+        .appendField(Blockly.serialSetup)
         
         .appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')
 
@@ -1094,10 +1094,10 @@ Blockly.Blocks.serialPrint = {
     this.setColour(colorSet);
     
     this.appendValueInput("serialData")
-    .appendTitle(Blockly.serialPrint);
+    .appendField(Blockly.serialPrint);
 
     // this.appendDummyInput("")
-    //     .appendTitle(Blockly.serialPrint)
+    //     .appendField(Blockly.serialPrint)
 
     //this.appendStatementInput('DO')
     // this.setPreviousStatement(true, null);
@@ -1115,7 +1115,7 @@ Blockly.Blocks.serialPrintln = {
     this.setColour(colorSet);
     
     this.appendValueInput("serialData")
-    .appendTitle(Blockly.serialPrintln);
+    .appendField(Blockly.serialPrintln);
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -1137,14 +1137,14 @@ Blockly.Blocks.microduinoAnaloyWrite = {
 
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.MIXLY_ANALOGWRITE_PIN)
-    .appendTitle(new Blockly.FieldDropdown(mCookie_pwmPin), "mCookie_pwmPin")
-    .appendTitle(Blockly.MIXLY_VALUE2);
+    .appendField(Blockly.MIXLY_ANALOGWRITE_PIN)
+    .appendField(new Blockly.FieldDropdown(mCookie_pwmPin), "mCookie_pwmPin")
+    .appendField(Blockly.MIXLY_VALUE2);
     
     this.appendValueInput("pwmNumber", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.LKL_VALUE2);
+      .appendField(Blockly.LKL_VALUE2);
 
 
     var tip="设置指定管脚值(0~255)\n";
@@ -1163,7 +1163,7 @@ Blockly.Blocks.microduinoWatting = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.microduinoWatting)
+        .appendField(Blockly.microduinoWatting)
     this.appendValueInput('wait')
         .setCheck([Number,Boolean]);
 
@@ -1181,14 +1181,14 @@ Blockly.Blocks.microduinoWhile = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.microduinoWhile);
+        .appendField(Blockly.microduinoWhile);
     this.appendValueInput('wait')
         .setCheck([Number,Boolean]);
     this.appendDummyInput("")
-        .appendTitle(Blockly.microduinoSo);
+        .appendField(Blockly.microduinoSo);
 
     this.appendStatementInput('DO')
-    .appendTitle(Blockly.microduinoRepeatDoing);
+    .appendField(Blockly.microduinoRepeatDoing);
 
     var tip="当满足条件时重复执行...\n";
     this.setTooltip(tip);
@@ -1204,24 +1204,24 @@ Blockly.Blocks.microduinoFor = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput()
-        .appendTitle(Blockly.MicroduinoForPerTime)
-        .appendTitle(new Blockly.FieldTextInput('i'), 'VAR');
+        .appendField(Blockly.MicroduinoForPerTime)
+        .appendField(new Blockly.FieldTextInput('i'), 'VAR');
     this.appendValueInput('FROM')
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LANG_CONTROLS_FOR_INPUT_FROM);
+        .appendField(Blockly.LANG_CONTROLS_FOR_INPUT_FROM);
     this.appendValueInput('TO')
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LANG_CONTROLS_FOR_INPUT_TO);
+        .appendField(Blockly.LANG_CONTROLS_FOR_INPUT_TO);
     this.appendDummyInput()
-        .appendTitle(Blockly.MicroduinoEvery)
-        .appendTitle(new Blockly.FieldTextInput('1',
+        .appendField(Blockly.MicroduinoEvery)
+        .appendField(new Blockly.FieldTextInput('1',
         Blockly.FieldTextInput.math_number_validator), 'STEP');
     this.appendDummyInput()
-        .appendTitle(Blockly.MicroduinoStep);
+        .appendField(Blockly.MicroduinoStep);
     this.appendStatementInput('DO')
-        .appendTitle(Blockly.LANG_CONTROLS_FOR_INPUT_DO);
+        .appendField(Blockly.LANG_CONTROLS_FOR_INPUT_DO);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -1272,8 +1272,8 @@ Blockly.Blocks.microduinoSerailAvailable = {
     this.setColour(colorSet);
 
     this.appendDummyInput()
-    .appendTitle(new Blockly.FieldDropdown(serailType), "serailType")
-    .appendTitle(Blockly.serailAvalibleLength);
+    .appendField(new Blockly.FieldDropdown(serailType), "serailType")
+    .appendField(Blockly.serailAvalibleLength);
 
     var tip="获取串口数据长度\n";
     tip+="返回一个数字值\n";
@@ -1302,17 +1302,17 @@ Blockly.Blocks.ws2812Begin = {
     this.setColour(Blockly.Blocks.Microduino.HUE);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.ColorLEDInit)
+        .appendField(Blockly.ColorLEDInit)
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDBegin.png", 80, 32))
 
     this.appendValueInput("LEDNumber", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDNumber);
+        .appendField(Blockly.ColorLEDNumber);
     this.appendValueInput("LEDPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDPin);
+        .appendField(Blockly.ColorLEDPin);
 
     //this.appendStatementInput('DO')
     this.setPreviousStatement(true, null);
@@ -1333,26 +1333,26 @@ Blockly.Blocks.ws2812Doing = {
 
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.ColorLEDControl)
+        .appendField(Blockly.ColorLEDControl)
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDCntrol.png", 40, 32))
 
     this.appendValueInput("LEDIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDIndex);
+        .appendField(Blockly.ColorLEDIndex);
 
     this.appendValueInput("R", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDRed);
+        .appendField(Blockly.ColorLEDRed);
     this.appendValueInput("G", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDGreen);
+        .appendField(Blockly.ColorLEDGreen);
     this.appendValueInput("B", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDBlue);
+        .appendField(Blockly.ColorLEDBlue);
 
 
     //this.appendStatementInput('DO')
@@ -1379,12 +1379,12 @@ Blockly.Blocks.DotMatrix = {
     this.setColour(colorSet);
     this.appendDummyInput()
         .appendField(new Blockly.FieldImage("../../media/Microduino/DotMatrix.png", 50, 38))
-        .appendTitle(Blockly.DotMatrix);
+        .appendField(Blockly.DotMatrix);
 
     this.appendDummyInput()
-    .appendTitle(Blockly.DotMatrixName)
+    .appendField(Blockly.DotMatrixName)
     .appendField(new Blockly.FieldTextInput("1"), "dotName")
-    .appendTitle(Blockly.DotMatrixAddress)
+    .appendField(Blockly.DotMatrixAddress)
     .appendField(new Blockly.FieldTextInput("64"), "dotAddress");
 
 
@@ -1433,28 +1433,28 @@ Blockly.Blocks.DotMatrixRow = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot0");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot1");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot2");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot3");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot4");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot5");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot6");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot7");
 
     //this.appendStatementInput('DO')
@@ -1475,11 +1475,11 @@ Blockly.Blocks.DotMatrixAddArray = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-      .appendTitle(Blockly.dotMatrixAddVarArray)
-        // .appendTitle(new Blockly.FieldTextInput('Addr'), 'arrayVAR')
-        .appendTitle('[]')
-        //.appendTitle(new Blockly.FieldTextInput('3',Blockly.FieldTextInput.math_number_validator), 'SIZE')
-        .appendTitle('[]');
+      .appendField(Blockly.dotMatrixAddVarArray)
+        // .appendField(new Blockly.FieldTextInput('Addr'), 'arrayVAR')
+        .appendField('[]')
+        //.appendField(new Blockly.FieldTextInput('3',Blockly.FieldTextInput.math_number_validator), 'SIZE')
+        .appendField('[]');
     this.itemCount_ = 1;
     this.updateShape_();
     this.setPreviousStatement(true);
@@ -1604,8 +1604,8 @@ Blockly.Blocks.DotMatrixAddNum = {
     this.appendValueInput('addInput') 
      .setCheck(Number)
      .setAlign(Blockly.ALIGN_RIGHT)
-     .appendTitle(Blockly.dotMatrixAddVar)
-     .appendTitle(new Blockly.FieldTextInput('64'),'NUM');
+     .appendField(Blockly.dotMatrixAddVar)
+     .appendField(new Blockly.FieldTextInput('64'),'NUM');
     this.setOutput(true, Number);
     this.setTooltip(Blockly.Msg.MATH_NUMBER_TOOLTIP);
   }
@@ -1616,7 +1616,7 @@ Blockly.Blocks.getMatrixNum = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-    .appendTitle(Blockly.getMatrixNum);
+    .appendField(Blockly.getMatrixNum);
     this.setOutput(true, Number);
     this.setTooltip("得到一共级联了几个点阵屏");
   }
@@ -1629,7 +1629,7 @@ Blockly.Blocks.getMatrixDeviceAddr = {
     this.appendValueInput("MatrixIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.getDeviceAddr);
+        .appendField(Blockly.getDeviceAddr);
     var tip="得到指定点阵屏的地址\n";
     this.setTooltip(tip);
     this.setInputsInline(true);
@@ -1642,7 +1642,7 @@ Blockly.Blocks.getMatrixHeight = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-    .appendTitle(Blockly.getMatrixHeight);
+    .appendField(Blockly.getMatrixHeight);
     this.setOutput(true, Number);
     this.setTooltip("得到级联点阵屏的竖排个数");
   }
@@ -1652,7 +1652,7 @@ Blockly.Blocks.getMatrixWidth = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-    .appendTitle(Blockly.getMatrixWidth);
+    .appendField(Blockly.getMatrixWidth);
     this.setOutput(true, Number);
     this.setTooltip("得到级联点阵屏的横排个数");
   }
@@ -1666,27 +1666,27 @@ Blockly.Blocks.setMatrixLedColor = {
     this.appendValueInput("MatrixIndexX", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexX);
+        .appendField(Blockly.MatrixIndexX);
 
     this.appendValueInput("MatrixIndexY", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexY);
+        .appendField(Blockly.MatrixIndexY);
 
     this.appendValueInput("MatrixIndexRed", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexRed);
+        .appendField(Blockly.MatrixIndexRed);
 
     this.appendValueInput("MatrixIndexGreen", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexGreen);
+        .appendField(Blockly.MatrixIndexGreen);
 
     this.appendValueInput("MatrixIndexBlue", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexBlue);
+        .appendField(Blockly.MatrixIndexBlue);
 
     var tip="设置点阵屏中指定LED的颜色\n";
     this.setTooltip(tip);
@@ -1703,7 +1703,7 @@ Blockly.Blocks.clearMatrixDisplay = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.clearMatrixDisplay);
+    .appendField(Blockly.clearMatrixDisplay);
 
 
     var tip="清屏\n";
@@ -1724,17 +1724,17 @@ Blockly.Blocks.setMatrixColor = {
     this.appendValueInput("MatrixRed", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexRed);
+        .appendField(Blockly.MatrixIndexRed);
 
     this.appendValueInput("MatrixGreen", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexGreen);
+        .appendField(Blockly.MatrixIndexGreen);
 
     this.appendValueInput("MatrixBlue", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MatrixIndexBlue);
+        .appendField(Blockly.MatrixIndexBlue);
 
     var tip="设置点阵屏显示颜色\n";
     this.setTooltip(tip);
@@ -1752,7 +1752,7 @@ Blockly.Blocks.clearMatrixColor = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.clearMatrixColor);
+    .appendField(Blockly.clearMatrixColor);
 
 
     var tip="清除颜色\n";
@@ -1774,21 +1774,21 @@ Blockly.Blocks.MatrixWriteString = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-      // .appendTitle(Blockly.MatrixShowMode)
+      // .appendField(Blockly.MatrixShowMode)
       // .appendField(new Blockly.FieldDropdown(MatrixShowMode), 'MatrixShowMode')
-      .appendTitle(Blockly.stringVar)
+      .appendField(Blockly.stringVar)
       .appendField(new Blockly.FieldTextInput('microduino'),'stringVar');
 
 
     this.appendValueInput("startMatrixT", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.startMatrixT);
+        .appendField(Blockly.startMatrixT);
 
     this.appendValueInput("startMatrixXY", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.startMatrixXY);
+        .appendField(Blockly.startMatrixXY);
 
 
     var tip="在点阵屏上显示字符串\n";
@@ -1813,26 +1813,26 @@ Blockly.Blocks.MD_Matrix_GeometryLine = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDGeomPointLineArea)
+        .appendField(Blockly.OLEDGeomPointLineArea)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
     this.appendValueInput("x0", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x0:");
+        .appendField("x0:");
     this.appendValueInput("y0", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y0:");
+        .appendField("y0:");
 
     this.appendValueInput("x1w", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x1(w):");
+        .appendField("x1(w):");
     this.appendValueInput("y1h", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y1(h):");
+        .appendField("y1(h):");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -1859,26 +1859,26 @@ Blockly.Blocks.MD_Matrix_GeometryCircle = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDGeomCircle)
+        .appendField(Blockly.OLEDGeomCircle)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
 
     // this.appendDummyInput("")
-    //     .appendTitle(Blockly.MD_OLEDArc)
+    //     .appendField(Blockly.MD_OLEDArc)
     //     .appendField(new Blockly.FieldDropdown(ArcType), 'ArcType');
 
     this.appendValueInput("x", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x:");
+        .appendField("x:");
     this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y:");
+        .appendField("y:");
     this.appendValueInput("rw", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("r:");
+        .appendField("r:");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 //    this.setTooltip("test");  
@@ -1903,7 +1903,7 @@ Blockly.Blocks.MotorBegin = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Motor.png", 45, 32))
-        .appendTitle(Blockly.CubeCar)
+        .appendField(Blockly.CubeCar)
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -1915,7 +1915,7 @@ Blockly.Blocks.MotorBeginchange = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Motor.png", 45, 32))
-        .appendTitle(Blockly.N20begin)
+        .appendField(Blockly.N20begin)
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -1932,7 +1932,7 @@ Blockly.Blocks.Motor_run = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.N20choose)
+        .appendField(Blockly.N20choose)
         .appendField(new Blockly.FieldDropdown(Break_left_right), 'Break_left_right');
     // this.appendDummyInput("")
     //     .appendField(Blockly.motor_ctrl)
@@ -1940,7 +1940,7 @@ Blockly.Blocks.Motor_run = {
 
           this.appendValueInput('speed')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.carSpeed);
+        .appendField(' '+Blockly.carSpeed);
 
 
 
@@ -1960,7 +1960,7 @@ Blockly.Blocks.MotorBreak = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.N20Break)
+        .appendField(Blockly.N20Break)
         .appendField(new Blockly.FieldDropdown(Break_left_right), 'Break_left_right');
 
     //this.setOutput(true, Number);
@@ -1980,7 +1980,7 @@ Blockly.Blocks.MotorFree = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.N20Free)
+        .appendField(Blockly.N20Free)
         .appendField(new Blockly.FieldDropdown(Free_left_right), 'Free_left_right');
 
     //this.setOutput(true, Number);
@@ -1998,14 +1998,14 @@ Blockly.Blocks.microduinoCarControl = {
 
     this.setColour(colorSet);
         this.appendDummyInput("")
-        .appendTitle(Blockly.motor_ctrl);
+        .appendField(Blockly.motor_ctrl);
 
   this.appendValueInput('leftSpeed')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.leftSpeed);
+        .appendField(' '+Blockly.leftSpeed);
   this.appendValueInput('rightSpeed')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.rightSpeed);
+        .appendField(' '+Blockly.rightSpeed);
         
     //this.setOutput(true, Number);
     this.setPreviousStatement(true);
@@ -2067,11 +2067,11 @@ Blockly.Blocks.OLED_begin = {
     //this.setColour(Blockly.Blocks.Microduino.HUE);
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDBegin)
+        .appendField(Blockly.OLEDBegin)
     this.appendDummyInput("")
-		.appendTitle(Blockly.OLEDFlip)
+		.appendField(Blockly.OLEDFlip)
 		.appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')
-        .appendTitle(Blockly.OLEDBeginEnd)
+        .appendField(Blockly.OLEDBeginEnd)
 	this.appendStatementInput('DO')
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2087,22 +2087,22 @@ Blockly.Blocks.OLED_print = {
     // this.setColour(Blockly.Blocks.Microduino.HUE);
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDPrint)
+        .appendField(Blockly.OLEDPrint)
     this.appendDummyInput("")
-		.appendTitle(Blockly.OLEDFont)
+		.appendField(Blockly.OLEDFont)
 		.appendField(new Blockly.FieldDropdown(TYPE), 'TYPE')
 	this.appendValueInput("x", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x:");
+        .appendField("x:");
 	this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y:");
+        .appendField("y:");
 	this.appendValueInput("text", String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.OLEDContext);
+        .appendField(Blockly.OLEDContext);
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 //    this.setTooltip("test");	
@@ -2118,22 +2118,22 @@ Blockly.Blocks.OLED_print_roll = {
     // this.setColour(Blockly.Blocks.Microduino.HUE);
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDRoll)
+        .appendField(Blockly.OLEDRoll)
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDFont)
+        .appendField(Blockly.OLEDFont)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE')
     this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y:");
+        .appendField("y:");
     this.appendValueInput("x", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.startMatrixT);
+        .appendField(Blockly.startMatrixT);
     this.appendValueInput("text", String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.OLEDContext);
+        .appendField(Blockly.OLEDContext);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 //    this.setTooltip("test");  
@@ -2149,12 +2149,12 @@ Blockly.Blocks.OLED_simplePrint = {
     // this.setColour(Blockly.Blocks.Microduino.HUE);
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDPrint)
+        .appendField(Blockly.OLEDPrint)
 
     this.appendValueInput("text", String)
         .setCheck([Number,String])
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.OLEDContext);
+        .appendField(Blockly.OLEDContext);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 //    this.setTooltip("test");  
@@ -2179,35 +2179,35 @@ Blockly.Blocks.MD_OLED_GeometryLine = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDGeomPointLineArea)
+        .appendField(Blockly.OLEDGeomPointLineArea)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
     this.appendValueInput("x0", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x0:");
+        .appendField("x0:");
     this.appendValueInput("y0", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y0:");
+        .appendField("y0:");
 
     this.appendValueInput("x1w", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x1(w):");
+        .appendField("x1(w):");
     this.appendValueInput("y1h", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y1(h):");
+        .appendField("y1(h):");
 
     // this.appendValueInput("x2r", Number)
     //     .setCheck(Number)
     //     .setAlign(Blockly.ALIGN_RIGHT)
-    //     .appendTitle("x2(r):");
+    //     .appendField("x2(r):");
     // this.appendValueInput("y2", Number)
     //     .setCheck(Number)
     //     .setAlign(Blockly.ALIGN_RIGHT)
-    //     .appendTitle("y2:");
+    //     .appendField("y2:");
 
 
     this.setPreviousStatement(true, null);
@@ -2237,30 +2237,30 @@ Blockly.Blocks.MD_OLED_GeometryCircle = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.OLEDGeomCircle)
+        .appendField(Blockly.OLEDGeomCircle)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
 
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.MD_OLEDArc)
+        .appendField(Blockly.MD_OLEDArc)
         .appendField(new Blockly.FieldDropdown(ArcType), 'ArcType');
 
     this.appendValueInput("x", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("x:");
+        .appendField("x:");
     this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("y:");
+        .appendField("y:");
     this.appendValueInput("rw", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle("r:");
+        .appendField("r:");
     // this.appendValueInput("h", Number)
     //     .setCheck(Number)
     //     .setAlign(Blockly.ALIGN_RIGHT)
-    //     .appendTitle("h:");
+    //     .appendField("h:");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2278,7 +2278,7 @@ Blockly.Blocks.MD_OLED_getWidthHigh = {
             ];
     this.setColour(colorSet);
     this.appendDummyInput("")
-    .appendTitle(Blockly.getOLEDWidthHigh)
+    .appendField(Blockly.getOLEDWidthHigh)
     .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
     this.setOutput(true, Number);
     this.setTooltip("");
@@ -2301,7 +2301,7 @@ Blockly.Blocks.mdStepperBegin = {
    init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MDStpperBegin);
+        .appendField(Blockly.MDStpperBegin);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -2323,12 +2323,12 @@ Blockly.Blocks.mdStepperControl = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.StepperChoice)
+        .appendField(Blockly.StepperChoice)
         .appendField(new Blockly.FieldDropdown(StepperChoice), 'StepperChoice');
 
   	this.appendValueInput('speed')
         .setCheck(Number)
-        .appendTitle(Blockly.StepperSpeed);
+        .appendField(Blockly.StepperSpeed);
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2357,19 +2357,19 @@ init:function(){
     var mCookie_DEVICE =[[Blockly.flashMemory, "DEVICE_FLASH"], [Blockly.tfCard, "DEVICE_TF"]];
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.chooseAudioPlay);
+        .appendField(Blockly.chooseAudioPlay);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.chooseAudioSerial)
-        .appendTitle(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
-        .appendTitle(Blockly.memoryDevice)
-        .appendTitle(new Blockly.FieldDropdown(mCookie_DEVICE), "PIN1")
-        .appendTitle(Blockly.playMode)
-        .appendTitle(new Blockly.FieldDropdown(mCookie_MODE), "PIN2")
+        .appendField(Blockly.chooseAudioSerial)
+        .appendField(new Blockly.FieldDropdown(mCookie_PORTS), "PIN")
+        .appendField(Blockly.memoryDevice)
+        .appendField(new Blockly.FieldDropdown(mCookie_DEVICE), "PIN1")
+        .appendField(Blockly.playMode)
+        .appendField(new Blockly.FieldDropdown(mCookie_MODE), "PIN2")
     this.appendValueInput("Vol", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.volume);
+        .appendField(Blockly.volume);
     //this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2380,7 +2380,7 @@ Blockly.Blocks.mCookie_Audio_Play={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioPlay)
+         .appendField(Blockly.AudioPlay)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2390,7 +2390,7 @@ Blockly.Blocks.mCookie_Audio_Pose={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioPause)
+         .appendField(Blockly.AudioPause)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2400,7 +2400,7 @@ Blockly.Blocks.mCookie_Audio_Next={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioNext)
+         .appendField(Blockly.AudioNext)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2410,7 +2410,7 @@ Blockly.Blocks.mCookie_Audio_Prev={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioPrev)
+         .appendField(Blockly.AudioPrev)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2420,7 +2420,7 @@ Blockly.Blocks.mCookie_Audio_VolUp={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioVolUp)
+         .appendField(Blockly.AudioVolUp)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2430,7 +2430,7 @@ Blockly.Blocks.mCookie_Audio_VolDown={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioVolDown)
+         .appendField(Blockly.AudioVolDown)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2453,8 +2453,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.RTCAudioControl)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.RTCAudioControl)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2468,7 +2468,7 @@ Blockly.Blocks.mCookie_Audio_Choose = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.chooseAudioNum)
+        .appendField(Blockly.chooseAudioNum)
     this.appendValueInput("audioNumber", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
@@ -2511,8 +2511,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioProPrepare)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.AudioProPrepare)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2538,8 +2538,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioProInstrument)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.AudioProInstrument)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -2556,24 +2556,24 @@ Blockly.Blocks.audioProControl = {
                 ];
 
     this.appendDummyInput("")
-         .appendTitle(Blockly.AudioProControl)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.AudioProControl)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
 
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.audioProMelody)
+        .appendField(Blockly.audioProMelody)
     this.appendValueInput("audioProMelody", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.audioProVolume)
+        .appendField(Blockly.audioProVolume)
     this.appendValueInput("audioProVolume", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.audioProDuration)
+        .appendField(Blockly.audioProDuration)
     this.appendValueInput("audioProDuration", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
@@ -2892,7 +2892,7 @@ Blockly.Blocks.motionAccGyro = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/motion.png", 45, 32))
-        .appendTitle(Blockly.motionInit);
+        .appendField(Blockly.motionInit);
         
 
     this.setPreviousStatement(true, null);
@@ -2917,8 +2917,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.GetMotion)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.GetMotion)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     // this.setPreviousStatement(true);
     // this.setNextStatement(true);
@@ -2933,7 +2933,7 @@ Blockly.Blocks.motionDMP = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/motion.png", 45, 32))
-        .appendTitle(Blockly.motionDMP);
+        .appendField(Blockly.motionDMP);
         
 
     this.setPreviousStatement(true, null);
@@ -2956,12 +2956,12 @@ Blockly.Blocks.motionSoft = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/motion.png", 45, 32))
-        .appendTitle(Blockly.motionSoft);
+        .appendField(Blockly.motionSoft);
         
 
     this.appendDummyInput("")
-         .appendTitle(Blockly.motionIsMagic)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.motionIsMagic)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -2981,8 +2981,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.GetMotionDegree)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.GetMotionDegree)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     // this.setPreviousStatement(true);
     // this.setNextStatement(true);
@@ -3005,26 +3005,26 @@ Blockly.Blocks.mCookie_RTC_set = {
 	this.appendValueInput('Year')
 		.setCheck(Number)
     .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_RTC.png", 45, 32))
-		.appendTitle(Blockly.SetRTCTime)
-		.appendTitle(Blockly.RTCYear);
+		.appendField(Blockly.SetRTCTime)
+		.appendField(Blockly.RTCYear);
 	this.appendValueInput('Mouth')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCMouth);
+		.appendField(Blockly.RTCMouth);
 	this.appendValueInput('Day')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCDay);
+		.appendField(Blockly.RTCDay);
 	this.appendValueInput('Week')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCWeek);
+		.appendField(Blockly.RTCWeek);
     this.appendValueInput('Hour')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCHour);
+		.appendField(Blockly.RTCHour);
 	this.appendValueInput('Minute')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCMinute);
+		.appendField(Blockly.RTCMinute);
     this.appendValueInput('Second')
 		.setCheck(Number)
-		.appendTitle(Blockly.RTCSecond);	
+		.appendField(Blockly.RTCSecond);	
     this.setPreviousStatement(true);
     this.setNextStatement(true);
 	//this.setInputsInline(true);
@@ -3036,7 +3036,7 @@ Blockly.Blocks.mCookie_RTC_time={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.RTCFormatTime)
+         .appendField(Blockly.RTCFormatTime)
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -3049,7 +3049,7 @@ Blockly.Blocks.mCookie_RTC_date={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatDate)
+	     .appendField(Blockly.RTCFormatDate)
     this.setOutput(true, String);
     this.setInputsInline(true);
   }
@@ -3061,7 +3061,7 @@ Blockly.Blocks.mCookie_RTC_Week={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatWeek)
+	     .appendField(Blockly.RTCFormatWeek)
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -3071,7 +3071,7 @@ Blockly.Blocks.mCookie_RTC_Hour={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatHour)
+	     .appendField(Blockly.RTCFormatHour)
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -3081,7 +3081,7 @@ Blockly.Blocks.mCookie_RTC_Minute={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatMinute)
+	     .appendField(Blockly.RTCFormatMinute)
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -3091,7 +3091,7 @@ Blockly.Blocks.mCookie_RTC_Second={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-	     .appendTitle(Blockly.RTCFormatSecond)
+	     .appendField(Blockly.RTCFormatSecond)
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -3114,8 +3114,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.RTCFormatGetInfo)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.RTCFormatGetInfo)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     this.setOutput(true);
   }
@@ -3138,16 +3138,16 @@ Blockly.Blocks.SD_Write={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.SD_Write)
+        .appendField(Blockly.SD_Write)
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_SD.png", 60, 32))
     this.appendValueInput('File_Name')
 		.setCheck(String)
 		.setAlign(Blockly.ALIGN_RIGHT)
-		.appendTitle(Blockly.File_Name);
+		.appendField(Blockly.File_Name);
     this.appendValueInput('Content')
 		.setCheck(String)
 		.setAlign(Blockly.ALIGN_RIGHT)
-		.appendTitle(Blockly.Content);
+		.appendField(Blockly.Content);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setOutput(true, Boolean);
@@ -3160,12 +3160,12 @@ Blockly.Blocks.SD_Read={
 init:function(){
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.SD_Read)
+        .appendField(Blockly.SD_Read)
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_SD.png", 60, 32))
     this.appendValueInput('File_Name')
         .setCheck(String)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.File_Name);
+        .appendField(Blockly.File_Name);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setOutput(true, Boolean);
@@ -3194,8 +3194,8 @@ Blockly.Blocks.microduinoMicAnal = {
     .appendField(new Blockly.FieldImage("../../media/Microduino/MIC.png", 40, 30))
     .appendField(Blockly.Keyget_Pin)
     .appendField(new Blockly.FieldTextInput("A0"), "analogPin")
-    .appendTitle(Blockly.MicSensor)
-    .appendTitle(Blockly.MicSensorValue);
+    .appendField(Blockly.MicSensor)
+    .appendField(Blockly.MicSensorValue);
 
     var tip="获取一个模拟值\n";
     tip+="返回一个模拟值\n";
@@ -3215,8 +3215,8 @@ Blockly.Blocks.microduinoLightAnal = {
     .appendField(new Blockly.FieldImage("../../media/Microduino/ALight.png", 40, 30))
     .appendField(Blockly.Keyget_Pin)
     .appendField(new Blockly.FieldTextInput("A0"), "analogPin")
-    .appendTitle(Blockly.LightSensor)
-    .appendTitle(Blockly.LightSensorValue);
+    .appendField(Blockly.LightSensor)
+    .appendField(Blockly.LightSensorValue);
 
     var tip="获取一个模拟值\n";
     tip+="返回一个模拟值\n";
@@ -3237,8 +3237,8 @@ Blockly.Blocks.microduinoIRRactAnal = {
     .appendField(new Blockly.FieldImage("../../media/Microduino/gray.png", 40, 30))
     .appendField(Blockly.Keyget_Pin)
     .appendField(new Blockly.FieldTextInput("A0"), "analogPin")
-    .appendTitle(Blockly.IRRaction)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.IRRactionDistance, "distance"], [Blockly.IRRactionBlack, "gray"]]),'action');
+    .appendField(Blockly.IRRaction)
+    .appendField(new Blockly.FieldDropdown([[Blockly.IRRactionDistance, "distance"], [Blockly.IRRactionBlack, "gray"]]),'action');
 
     var tip="获取一个模拟值\n";
     tip+="返回一个模拟值\n";
@@ -3258,7 +3258,7 @@ Blockly.Blocks.MD_Potentiometer = {
     .appendField(new Blockly.FieldImage("../../media/Microduino/potentiometer.png", 40, 30))
     .appendField(Blockly.Keyget_Pin)
     .appendField(new Blockly.FieldTextInput("A0"), "analogPin")
-    .appendTitle(Blockly.MicroduinoPotentiometer);
+    .appendField(Blockly.MicroduinoPotentiometer);
 
 
     var tip="获取一个模拟值\n";
@@ -3292,19 +3292,19 @@ Blockly.Blocks.BreathingLightH = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        //.appendTitle(Blockly.BreathingLight)
-        .appendTitle(Blockly.BreathingLightH)
-        .appendTitle(Blockly.ColorLEDPin)
-        .appendTitle(new Blockly.FieldDropdown(PWMPin), "LEDPinNumber");
+        //.appendField(Blockly.BreathingLight)
+        .appendField(Blockly.BreathingLightH)
+        .appendField(Blockly.ColorLEDPin)
+        .appendField(new Blockly.FieldDropdown(PWMPin), "LEDPinNumber");
 
 
     this.appendValueInput("LEDFrequency", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LEDBreathingTime);
+        .appendField(Blockly.LEDBreathingTime);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.GPSSeconds);
+        .appendField(Blockly.GPSSeconds);
 
 
     var tip="定义LED灯的引脚号和呼吸频率\n";
@@ -3331,19 +3331,19 @@ Blockly.Blocks.BreathingLightX = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        //.appendTitle(Blockly.BreathingLight)
-        .appendTitle(Blockly.BreathingLightX)
-        .appendTitle(Blockly.ColorLEDPin)
-        .appendTitle(new Blockly.FieldDropdown(PWMPin), "LEDPinNumber");
+        //.appendField(Blockly.BreathingLight)
+        .appendField(Blockly.BreathingLightX)
+        .appendField(Blockly.ColorLEDPin)
+        .appendField(new Blockly.FieldDropdown(PWMPin), "LEDPinNumber");
 
 
     this.appendValueInput("LEDFrequency", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LEDBreathingTime);
+        .appendField(Blockly.LEDBreathingTime);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.GPSSeconds);
+        .appendField(Blockly.GPSSeconds);
 
 
     var tip="定义LED灯的引脚号和呼吸频率\n";
@@ -3375,7 +3375,7 @@ Blockly.Blocks.BuzzerTone = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Buzzer.png", 40, 30))
-        .appendTitle(Blockly.Buzzer)
+        .appendField(Blockly.Buzzer)
 		
     // .appendField(Blockly.BuzzerNum)
     // .appendField(new Blockly.FieldTextInput("1"), "buzzerNumber")
@@ -3383,11 +3383,11 @@ Blockly.Blocks.BuzzerTone = {
   	this.appendValueInput("BuzzerPin", Number)
   		.setCheck(Number)
   		.setAlign(Blockly.ALIGN_RIGHT)
-  		.appendTitle(Blockly.BuzzerPin);
+  		.appendField(Blockly.BuzzerPin);
   	this.appendValueInput("Frequency", Number)
   		.setCheck(Number)
   		.setAlign(Blockly.ALIGN_RIGHT)
-  		.appendTitle(Blockly.Frequency);
+  		.appendField(Blockly.Frequency);
 
     var tip="定义控制蜂鸣器的引脚\n";
     tip+="数字接口\n";
@@ -3416,17 +3416,17 @@ Blockly.Blocks.BuzzerToneMelody = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Buzzer.png", 40, 30))
-        .appendTitle(Blockly.Buzzer)
+        .appendField(Blockly.Buzzer)
     
 
     this.appendValueInput("BuzzerPin", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.BuzzerPin);
+      .appendField(Blockly.BuzzerPin);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.BuzzerMelody)
-    .appendTitle(new Blockly.FieldDropdown(buzzerMelody), "buzzerMelody")
+    .appendField(Blockly.BuzzerMelody)
+    .appendField(new Blockly.FieldDropdown(buzzerMelody), "buzzerMelody")
 
     var tip="定义控制蜂鸣器的引脚和旋律\n";
     tip+="数字接口\n";
@@ -3450,17 +3450,17 @@ Blockly.Blocks.BuzzerToneSong = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Buzzer.png", 40, 30))
-        .appendTitle(Blockly.Buzzer)
+        .appendField(Blockly.Buzzer)
     
 
     this.appendValueInput("BuzzerPin", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.BuzzerPin);
+      .appendField(Blockly.BuzzerPin);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.BuzzerSong)
-    .appendTitle(new Blockly.FieldDropdown(buzzerSong), "buzzerSong")
+    .appendField(Blockly.BuzzerSong)
+    .appendField(new Blockly.FieldDropdown(buzzerSong), "buzzerSong")
 
     var tip="定义控制蜂鸣器的引脚和曲目\n";
     tip+="数字接口\n";
@@ -3482,7 +3482,7 @@ Blockly.Blocks.BuzzerNoTone = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Buzzer.png", 40, 30))
-        .appendTitle(Blockly.BuzzerNoTone)
+        .appendField(Blockly.BuzzerNoTone)
     
     // .appendField(Blockly.BuzzerNum)
     // .appendField(new Blockly.FieldTextInput("1"), "buzzerNumber")
@@ -3490,7 +3490,7 @@ Blockly.Blocks.BuzzerNoTone = {
     this.appendValueInput("BuzzerPin", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.BuzzerPin);
+      .appendField(Blockly.BuzzerPin);
 
     var tip="定义控制蜂鸣器的引脚\n";
     tip+="数字接口\n";
@@ -3527,17 +3527,17 @@ Blockly.Blocks.ws2812Begin = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDBegin.png", 40, 30))
-        .appendTitle(Blockly.ColorLEDInit)
+        .appendField(Blockly.ColorLEDInit)
         
 
     this.appendValueInput("LEDNumber", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDNumber);
+        .appendField(Blockly.ColorLEDNumber);
     this.appendValueInput("LEDPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDPin);
+        .appendField(Blockly.ColorLEDPin);
 
 
     var tip="定义彩灯所需的库函数和对象\n";
@@ -3559,13 +3559,13 @@ Blockly.Blocks.ws2812Doing = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDCntrol.png", 40, 30))
-        .appendTitle(Blockly.ColorLEDControl)
+        .appendField(Blockly.ColorLEDControl)
     this.appendValueInput("LEDIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDIndex);
+        .appendField(Blockly.ColorLEDIndex);
     this.appendDummyInput("")
-        .appendTitle(Blockly.ColorSet)
+        .appendField(Blockly.ColorSet)
         .appendField(new Blockly.FieldColour("#FF0000"), "colorRGB");
     var tip="定义彩灯序号和颜色\n";
     tip+="数字接口\n";
@@ -3584,23 +3584,23 @@ Blockly.Blocks.ws2812DoingRGB = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDCntrol.png", 40, 30))
-        .appendTitle(Blockly.ColorLEDControl)
+        .appendField(Blockly.ColorLEDControl)
     this.appendValueInput("LEDIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDIndex);
+        .appendField(Blockly.ColorLEDIndex);
     this.appendValueInput("red", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDRed);
+        .appendField(Blockly.ColorLEDRed);
     this.appendValueInput("green", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDGreen);
+        .appendField(Blockly.ColorLEDGreen);
     this.appendValueInput("blue", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDBlue);
+        .appendField(Blockly.ColorLEDBlue);
 
 
     var tip="定义彩灯序号和颜色\n";
@@ -3620,23 +3620,23 @@ Blockly.Blocks.ws2812BreathRGB = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDCntrol.png", 40, 30))
-        .appendTitle(Blockly.ColorLEDBreath)
+        .appendField(Blockly.ColorLEDBreath)
     this.appendValueInput("LEDIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDIndex);
+        .appendField(Blockly.ColorLEDIndex);
     this.appendValueInput("red", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDRed);
+        .appendField(Blockly.ColorLEDRed);
     this.appendValueInput("green", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDGreen);
+        .appendField(Blockly.ColorLEDGreen);
     this.appendValueInput("blue", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDBlue);
+        .appendField(Blockly.ColorLEDBlue);
 
 
     var tip="定义彩灯序号和颜色\n";
@@ -3668,16 +3668,16 @@ Blockly.Blocks.microduinoCrash = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Crash.png", 40, 30))
-        .appendTitle(Blockly.Keyget_Pin)
+        .appendField(Blockly.Keyget_Pin)
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
 
     this.appendDummyInput()
-    .appendTitle(Blockly.crashButton)
+    .appendField(Blockly.crashButton)
     
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "down"], [Blockly.KeyInputRELEASE, "up"]]),'action');
+    .appendField(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "down"], [Blockly.KeyInputRELEASE, "up"]]),'action');
 
 
     this.setInputsInline(true);
@@ -3698,15 +3698,15 @@ Blockly.Blocks.microduinoTuch = {
 
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/Touch.png", 40, 30))
-        .appendTitle(Blockly.Keyget_Pin)
+        .appendField(Blockly.Keyget_Pin)
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
 
     this.appendDummyInput()
-    .appendTitle(Blockly.touchButton)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "down"], [Blockly.KeyInputRELEASE, "up"]]),'action');
+    .appendField(Blockly.touchButton)
+    .appendField(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "down"], [Blockly.KeyInputRELEASE, "up"]]),'action');
 
     this.setInputsInline(true);
     var tip="获取一个数字值\n";
@@ -3726,14 +3726,14 @@ Blockly.Blocks.microduinoPIR = {
 
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/PIR.png", 40, 30))
-    .appendTitle(Blockly.Keyget_Pin)
+    .appendField(Blockly.Keyget_Pin)
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput()
-    .appendTitle(Blockly.PIRSensor)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.personAction, "high"], [Blockly.personNoAction, "low"]]),'action');
+    .appendField(Blockly.PIRSensor)
+    .appendField(new Blockly.FieldDropdown([[Blockly.personAction, "high"], [Blockly.personNoAction, "low"]]),'action');
 
     this.setInputsInline(true);
     var tip="获取一个数字值\n";
@@ -3752,15 +3752,15 @@ Blockly.Blocks.microduinoMic = {
 
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/MIC.png", 40, 30))
-    .appendTitle(Blockly.Keyget_Pin)
+    .appendField(Blockly.Keyget_Pin)
         
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput()
-    .appendTitle(Blockly.MicSensor)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.sonudHigh, "high"], [Blockly.noSound, "low"]]),'action');
+    .appendField(Blockly.MicSensor)
+    .appendField(new Blockly.FieldDropdown([[Blockly.sonudHigh, "high"], [Blockly.noSound, "low"]]),'action');
 
     this.setInputsInline(true);
     var tip="获取一个数字值\n";
@@ -3778,15 +3778,15 @@ Blockly.Blocks.microduinoLight = {
 
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/ALight.png", 40, 30))
-    .appendTitle(Blockly.Keyget_Pin)
+    .appendField(Blockly.Keyget_Pin)
         
     this.appendValueInput("digitalPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT);
 
     this.appendDummyInput()
-    .appendTitle(Blockly.LightSensor)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.lightHigh, "high"], [Blockly.lightLow, "low"]]),'action');
+    .appendField(Blockly.LightSensor)
+    .appendField(new Blockly.FieldDropdown([[Blockly.lightHigh, "high"], [Blockly.lightLow, "low"]]),'action');
 
     this.setInputsInline(true);
     var tip="获取一个数字值\n";
@@ -3813,12 +3813,12 @@ Blockly.Blocks.Microduino_ir_remote_begin = {
     this.setColour(colorSet);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.ir_r_Init)
+        .appendField(Blockly.ir_r_Init)
         .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 50, 50))
   this.appendValueInput("Pin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDPin);
+        .appendField(Blockly.ColorLEDPin);
     //this.appendStatementInput('DO')
     this.setPreviousStatement(true, null);
     //this.setNextStatement(true, null); 
@@ -3832,10 +3832,10 @@ Blockly.Blocks.Microduino_ir_remote= {
     this.setColour(colorSet);        
    	this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 50, 50))
-	      .appendTitle(Blockly.LKL_MBOT_IR_REMOTE)
-	      .appendTitle("#")
-		    .appendTitle(new Blockly.FieldDropdown([["power", "0XFFA25D"], ["MENU", "0XFFE21D"],["TEST", "0XFF22DD"],["+", "0XFF02FD"],["back", "0XFFC23D"], ["<<", "0XFFE01F"],[">", "0XFFA857"],[">>", "0XFF906F"],["0", "0XFF6897"],["-", "0XFF9867"],["C", "0XFFB04F"],["1", "0XFF30CF"],["2", "0XFF18E7"],["3", "0XFF7A85"],["4", "0XFF10EF"],["5", "0XFF38C7"],["6", "0XFF5AA5"],["7", "0XFF42BD"],["8", "0XFF4AB5"],["9", "0XFF52AD"]]), "btn")
-		    .appendTitle(Blockly.LKL_MBOT_IR_REMOTE_PRESSED);
+	      .appendField(Blockly.LKL_MBOT_IR_REMOTE)
+	      .appendField("#")
+		    .appendField(new Blockly.FieldDropdown([["power", "0XFFA25D"], ["MENU", "0XFFE21D"],["TEST", "0XFF22DD"],["+", "0XFF02FD"],["back", "0XFFC23D"], ["<<", "0XFFE01F"],[">", "0XFFA857"],[">>", "0XFF906F"],["0", "0XFF6897"],["-", "0XFF9867"],["C", "0XFFB04F"],["1", "0XFF30CF"],["2", "0XFF18E7"],["3", "0XFF7A85"],["4", "0XFF10EF"],["5", "0XFF38C7"],["6", "0XFF5AA5"],["7", "0XFF42BD"],["8", "0XFF4AB5"],["9", "0XFF52AD"]]), "btn")
+		    .appendField(Blockly.LKL_MBOT_IR_REMOTE_PRESSED);
     this.setOutput(true, Boolean);
   }
 };
@@ -3849,13 +3849,13 @@ Blockly.Blocks.IRSend= {
     this.setColour(colorSet);        
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/IR_R.png", 50, 50))
-        .appendTitle(Blockly.IRSnd)
-        .appendTitle("#")
-        .appendTitle(Blockly.IRSend_content)
-        .appendTitle(new Blockly.FieldTextInput('0xa90'),'IRCONTENT')
-        .appendTitle(Blockly.IRSend_byte)
-        .appendTitle(new Blockly.FieldTextInput('12'),'IRLENGTH')
-        .appendTitle(Blockly.IRTYPE)
+        .appendField(Blockly.IRSnd)
+        .appendField("#")
+        .appendField(Blockly.IRSend_content)
+        .appendField(new Blockly.FieldTextInput('0xa90'),'IRCONTENT')
+        .appendField(Blockly.IRSend_byte)
+        .appendField(new Blockly.FieldTextInput('12'),'IRLENGTH')
+        .appendField(Blockly.IRTYPE)
         .appendField(new Blockly.FieldDropdown(TYPE), 'TYPE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null); 
@@ -3883,7 +3883,7 @@ Blockly.Blocks.xyJoystick = {
     .appendField(Blockly.Keyget_Pin)
     .appendField(new Blockly.FieldTextInput("A0"), "analogPin")
     .appendField(Blockly.KeygetJoystic)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.Horizontal, "x"], [Blockly.Vertical, "y"]]),'direction')
+    .appendField(new Blockly.FieldDropdown([[Blockly.Horizontal, "x"], [Blockly.Vertical, "y"]]),'direction')
     .appendField(Blockly.coordinate);
 
 
@@ -3912,7 +3912,7 @@ Blockly.Blocks.microduinoJoystick = {
     .appendField(Blockly.Keyget_Pin)
     .appendField(new Blockly.FieldTextInput("A0"), "analogPin")
     .appendField(Blockly.KeygetJoystic)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "0"], 
+    .appendField(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "0"], 
                                             [Blockly.KeyDownDir, "1"],
                                             [Blockly.KeyLeftDir, "2"],
                                             [Blockly.KeyUpDir, "3"],
@@ -3949,12 +3949,12 @@ Blockly.Blocks.Microduino_KEYDigital = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Crash.png", 40, 30))
-		.appendTitle(Blockly.Keyget)
-        .appendTitle(Blockly.Keyget_Pin)
-        .appendTitle(new Blockly.FieldTextInput('4'),'KPin');
+		.appendField(Blockly.Keyget)
+        .appendField(Blockly.Keyget_Pin)
+        .appendField(new Blockly.FieldTextInput('4'),'KPin');
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget_Check)
-        .appendTitle(new Blockly.FieldDropdown(CHECK), "CHECK");
+        .appendField(Blockly.Keyget_Check)
+        .appendField(new Blockly.FieldDropdown(CHECK), "CHECK");
 
     //this.setOutput(true, Boolean);
 
@@ -3976,18 +3976,18 @@ Blockly.Blocks.Microduino_KEYAnalog = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Joystick.png", 40, 30))
-        .appendTitle(new Blockly.FieldTextInput('left'),'joyStickAction')
-        .appendTitle(Blockly.KeygetJoystic)
-        .appendTitle(Blockly.Keyget_Pin)
-        .appendTitle(new Blockly.FieldTextInput('A0'),'KPin');
+        .appendField(new Blockly.FieldTextInput('left'),'joyStickAction')
+        .appendField(Blockly.KeygetJoystic)
+        .appendField(Blockly.Keyget_Pin)
+        .appendField(new Blockly.FieldTextInput('A0'),'KPin');
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget_Analog)
-        .appendTitle(new Blockly.FieldTextInput('0'),'MIN')
-        .appendTitle(Blockly.Keyget_To)
-        .appendTitle(new Blockly.FieldTextInput('1023'),'MAX');
+        .appendField(Blockly.Keyget_Analog)
+        .appendField(new Blockly.FieldTextInput('0'),'MIN')
+        .appendField(Blockly.Keyget_To)
+        .appendField(new Blockly.FieldTextInput('1023'),'MAX');
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget_Check)
-        .appendTitle(new Blockly.FieldDropdown(CHECK), "CHECK");
+        .appendField(Blockly.Keyget_Check)
+        .appendField(new Blockly.FieldDropdown(CHECK), "CHECK");
 
     //this.setOutput(true, Boolean);
 
@@ -4008,11 +4008,11 @@ Blockly.Blocks.oldKEYDigital = {
                     [Blockly.KeyInputPRESS, 'PRESS']];                   
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget)
-        .appendTitle(Blockly.Keyget_Pin)
-        .appendTitle(new Blockly.FieldTextInput('4'),'KPin')
-        .appendTitle(Blockly.Keyget_Check)
-        .appendTitle(new Blockly.FieldDropdown(CHECK), "CHECK");
+        .appendField(Blockly.Keyget)
+        .appendField(Blockly.Keyget_Pin)
+        .appendField(new Blockly.FieldTextInput('4'),'KPin')
+        .appendField(Blockly.Keyget_Check)
+        .appendField(new Blockly.FieldDropdown(CHECK), "CHECK");
 
     this.setOutput(true, Boolean);
 
@@ -4029,13 +4029,13 @@ Blockly.Blocks.oldKEYAnalog = {
   init: function() {                  
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget)
-        .appendTitle(Blockly.Keyget_Pin)
-        .appendTitle(new Blockly.FieldTextInput('A0'),'KPin')
-        .appendTitle(Blockly.Keyget_Analog)
-        .appendTitle(new Blockly.FieldTextInput('0'),'MIN')
-        .appendTitle(Blockly.Keyget_To)
-        .appendTitle(new Blockly.FieldTextInput('1023'),'MAX');
+        .appendField(Blockly.Keyget)
+        .appendField(Blockly.Keyget_Pin)
+        .appendField(new Blockly.FieldTextInput('A0'),'KPin')
+        .appendField(Blockly.Keyget_Analog)
+        .appendField(new Blockly.FieldTextInput('0'),'MIN')
+        .appendField(Blockly.Keyget_To)
+        .appendField(new Blockly.FieldTextInput('1023'),'MAX');
 
     this.setOutput(true, Boolean);
 
@@ -4153,7 +4153,7 @@ Blockly.Blocks.ColorGet_TCS3414 = {
 
     this.appendDummyInput()
     .appendField(Blockly.TCS3414Get)
-    .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+    .appendField(new Blockly.FieldDropdown(getType), "getType");
 
 
     this.setOutput(true, Number);
@@ -4183,10 +4183,10 @@ Blockly.Blocks.mCookie_AM2321 = {
     this.setColour(colorSet);
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/AM2321.png", 40, 30))
-	    .appendTitle(Blockly.BLE_AM2321)
-	    .appendTitle("#")
-	    .appendTitle(new Blockly.FieldDropdown([[Blockly.BLE_Tem, "1"], [Blockly.BLE_Hum, "2"]]),'direction')
-		.appendTitle(Blockly.BLE_Hum_Tem);
+	    .appendField(Blockly.BLE_AM2321)
+	    .appendField("#")
+	    .appendField(new Blockly.FieldDropdown([[Blockly.BLE_Tem, "1"], [Blockly.BLE_Hum, "2"]]),'direction')
+		.appendField(Blockly.BLE_Hum_Tem);
 
     var tip="获取一个温湿度值\n";
     tip+="返回一个数字值\n";
@@ -4205,9 +4205,9 @@ Blockly.Blocks.mCookie_SHT2 = {
     this.setColour(colorSet);
     this.appendDummyInput("")
     .appendField(new Blockly.FieldImage("../../media/Microduino/SHT2.png", 40, 30))
-        .appendTitle(Blockly.BLE_AM2321)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.BLE_Tem, "1"], [Blockly.BLE_Hum, "2"]]),'direction')
-        .appendTitle(Blockly.BLE_Hum_Tem);
+        .appendField(Blockly.BLE_AM2321)
+        .appendField(new Blockly.FieldDropdown([[Blockly.BLE_Tem, "1"], [Blockly.BLE_Hum, "2"]]),'direction')
+        .appendField(Blockly.BLE_Hum_Tem);
 
     var tip="获取一个温湿度值,采用SHT2芯片\n";
     tip+="返回一个数字值\n";
@@ -4237,19 +4237,19 @@ Blockly.Blocks.MicroduinoTimer = {
 
   this.setColour(colorSet);
   this.appendDummyInput("")
-    .appendTitle(Blockly.interalTime)
-    .appendTitle(Blockly.timerName)
-    .appendTitle(new Blockly.FieldTextInput('timer1'),'timerName');
-		// .appendTitle("interval")
-  //       .appendTitle(new Blockly.FieldTextInput('2000'),'intervalTime');
+    .appendField(Blockly.interalTime)
+    .appendField(Blockly.timerName)
+    .appendField(new Blockly.FieldTextInput('timer1'),'timerName');
+		// .appendField("interval")
+  //       .appendField(new Blockly.FieldTextInput('2000'),'intervalTime');
 
   	this.appendValueInput("intervalTime", Number)
   		.setCheck(Number)
   		.setAlign(Blockly.ALIGN_RIGHT)
-  		.appendTitle(Blockly.interval);
+  		.appendField(Blockly.interval);
 
   	this.appendDummyInput("")
-		.appendTitle(Blockly.interalMILLIS);
+		.appendField(Blockly.interalMILLIS);
 
 
     var tip="定义执行的间隔时间\n";
@@ -4269,17 +4269,17 @@ Blockly.Blocks.MicroduinoTimerBegin = {
 
     this.setColour(colorSet);
   this.appendDummyInput("")
-    .appendTitle(Blockly.timeOutBegin)
-    .appendTitle(Blockly.timerName)
-    .appendTitle(new Blockly.FieldTextInput('timer1'),'timerName');
+    .appendField(Blockly.timeOutBegin)
+    .appendField(Blockly.timerName)
+    .appendField(new Blockly.FieldTextInput('timer1'),'timerName');
 
     // this.appendValueInput("intervalTime", Number)
     //   .setCheck(Number)
     //   .setAlign(Blockly.ALIGN_RIGHT)
-    //   .appendTitle(Blockly.interval);
+    //   .appendField(Blockly.interval);
 
     // this.appendDummyInput("")
-    // .appendTitle(Blockly.interalMILLIS);
+    // .appendField(Blockly.interalMILLIS);
 
 
 
@@ -4300,16 +4300,16 @@ Blockly.Blocks.MicroduinoTimerOut = {
 
     this.setColour(colorSet);
   this.appendDummyInput("")
-    .appendTitle(Blockly.timeOutDoing)
-    .appendTitle(Blockly.timerName)
-        .appendTitle(new Blockly.FieldTextInput('timer1'),'timerName');
+    .appendField(Blockly.timeOutDoing)
+    .appendField(Blockly.timerName)
+        .appendField(new Blockly.FieldTextInput('timer1'),'timerName');
     this.appendValueInput("intervalTime", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.timeOutDuration);
+      .appendField(Blockly.timeOutDuration);
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.interalMILLIS);
+    .appendField(Blockly.interalMILLIS);
 
     this.setOutput(true, Boolean);
 
@@ -4330,9 +4330,9 @@ Blockly.Blocks.MicroduinoTimerDuration = {
 
     this.setColour(colorSet);
   this.appendDummyInput("")
-    .appendTitle(Blockly.MIXLY_DURATION)
-    .appendTitle(Blockly.timerName)
-    .appendTitle(new Blockly.FieldTextInput('timer1'),'timerName');
+    .appendField(Blockly.MIXLY_DURATION)
+    .appendField(Blockly.timerName)
+    .appendField(new Blockly.FieldTextInput('timer1'),'timerName');
 
     this.setOutput(true, Number);
 
@@ -4414,12 +4414,12 @@ Blockly.Blocks.Defination = {
     this.appendValueInput('VALUE') 
          .setCheck(Number)                          //as string
          .setAlign(Blockly.ALIGN_RIGHT)             //right side
-         .appendTitle(Blockly.GLOBAL_DECLARE)
-         .appendTitle(new Blockly.FieldTextInput('item'),'NAME')//put a text label
-         .appendTitle(Blockly.LKL_AS)
+         .appendField(Blockly.GLOBAL_DECLARE)
+         .appendField(new Blockly.FieldTextInput('item'),'NAME')//put a text label
+         .appendField(Blockly.LKL_AS)
      // .appendField(new Blockly.FieldImage("../../media/Microduino/CoreUSB.png", 60, 90))
-         .appendTitle(new Blockly.FieldDropdown(FLIP), 'FLIP')//put a menu label
-         .appendTitle(Blockly.LKL_VALUE);
+         .appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')//put a menu label
+         .appendField(Blockly.LKL_VALUE);
     //this.appendStatementInput('DO')
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
@@ -4434,11 +4434,11 @@ Blockly.Blocks.Structure = {
     this.setColour(colorSet);  //module color
       this.appendDummyInput("")
          .setAlign(Blockly.ALIGN_RIGHT)             //right side
-         .appendTitle(Blockly.LKL_DECLARE)
-         .appendTitle(new Blockly.FieldTextInput('item'),'Struct_NAME')//put a text label
-         .appendTitle(Blockly.Struct)
-         .appendTitle(Blockly.Struct_DEF)
-         .appendTitle(new Blockly.FieldTextInput('ite_m'),'Struct_DEF');//put a text label
+         .appendField(Blockly.LKL_DECLARE)
+         .appendField(new Blockly.FieldTextInput('item'),'Struct_NAME')//put a text label
+         .appendField(Blockly.Struct)
+         .appendField(Blockly.Struct_DEF)
+         .appendField(new Blockly.FieldTextInput('ite_m'),'Struct_DEF');//put a text label
      // .appendField(new Blockly.FieldImage("../../media/Microduino/CoreUSB.png", 60, 90))
     this.appendStatementInput('DO');
     this.setPreviousStatement(true, null);    
@@ -4463,12 +4463,12 @@ Blockly.Blocks.Var_Definations = {
     this.appendValueInput('VALUE') 
          .setCheck(Number)                          //as string
          .setAlign(Blockly.ALIGN_RIGHT)             //right side
-         .appendTitle(Blockly.LKL_DECLARE_STRUCT)
-         .appendTitle(new Blockly.FieldTextInput('item'),'NAME')//put a text label
-         .appendTitle(Blockly.LKL_AS)
+         .appendField(Blockly.LKL_DECLARE_STRUCT)
+         .appendField(new Blockly.FieldTextInput('item'),'NAME')//put a text label
+         .appendField(Blockly.LKL_AS)
      // .appendField(new Blockly.FieldImage("../../media/Microduino/CoreUSB.png", 60, 90))
-         .appendTitle(new Blockly.FieldDropdown(FLIP), 'FLIP')//put a menu label
-         .appendTitle(Blockly.LKL_VALUE);
+         .appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')//put a menu label
+         .appendField(Blockly.LKL_VALUE);
     //this.appendStatementInput('DO')
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
@@ -4481,11 +4481,11 @@ Blockly.Blocks.Struct_Var_Definations = {
   init: function() {
     this.setColour(colorSet);  //module color
       this.appendValueInput("VARI")
-         .appendTitle(Blockly.STRUCT_CLASS)
-         .appendTitle(new Blockly.FieldTextInput('item'),'Struct_NAME')//put a text label
-         .appendTitle(Blockly.Struct_TEMP)
-         .appendTitle(new Blockly.FieldTextInput('ite_m'),'Struct_Member')//put a text label
-         .appendTitle(Blockly.Struct_IS);
+         .appendField(Blockly.STRUCT_CLASS)
+         .appendField(new Blockly.FieldTextInput('item'),'Struct_NAME')//put a text label
+         .appendField(Blockly.Struct_TEMP)
+         .appendField(new Blockly.FieldTextInput('ite_m'),'Struct_Member')//put a text label
+         .appendField(Blockly.Struct_IS);
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
 //    this.setTooltip("test");  
@@ -4500,7 +4500,7 @@ Blockly.Blocks.IntDefine = {
     this.setColour(colorSet);
 
     this.appendValueInput("intValue")
-    .appendTitle(Blockly.INT)
+    .appendField(Blockly.INT)
     .setCheck(Number)
     .appendField(new Blockly.FieldTextInput("i"), "intName");
 
@@ -4514,7 +4514,7 @@ Blockly.Blocks.BooleanDefine = {
     this.setColour(colorSet);
 
     this.appendValueInput("booleanValue")
-    .appendTitle(Blockly.BOOLEAN)
+    .appendField(Blockly.BOOLEAN)
     .setCheck(Boolean)
     .appendField(new Blockly.FieldTextInput("b"), "booleanName");
 
@@ -4556,7 +4556,7 @@ Blockly.Blocks.melodyBuzzer = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.BuzzerMelody)
+        .appendField(Blockly.BuzzerMelody)
         .appendField(new Blockly.FieldDropdown(melodyFraqance), 'melodyFraqance');
 
     this.setOutput(true, Number);
@@ -4575,7 +4575,7 @@ Blockly.Blocks.rhythmBuzzer = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.BuzzerMelody)
+        .appendField(Blockly.BuzzerMelody)
         .appendField(new Blockly.FieldDropdown(rhythmNumber), 'rhythmNumber');
 
     this.setOutput(true, Number);
@@ -4589,7 +4589,7 @@ Blockly.Blocks.nrfDataStructDefine = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.nrfDataStructDefine);
+        .appendField(Blockly.nrfDataStructDefine);
 
     this.appendStatementInput('DO');
     this.setPreviousStatement(true, null);    
@@ -4616,11 +4616,11 @@ Blockly.Blocks.nrfDataMemberDefine = {
     this.appendValueInput('VALUE') 
          .setCheck([Number,String])
          .setAlign(Blockly.ALIGN_RIGHT)
-         .appendTitle(Blockly.nrfDataMemberDefine)
-         .appendTitle(Blockly.nrfDataMemberType)
-         .appendTitle(new Blockly.FieldDropdown(FLIP), 'FLIP')
-         .appendTitle(Blockly.nrfDataMemberName)
-         .appendTitle(new Blockly.FieldTextInput('item'),'NAME');
+         .appendField(Blockly.nrfDataMemberDefine)
+         .appendField(Blockly.nrfDataMemberType)
+         .appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')
+         .appendField(Blockly.nrfDataMemberName)
+         .appendField(new Blockly.FieldTextInput('item'),'NAME');
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
     //this.setInputsInline(true);
@@ -4632,7 +4632,7 @@ Blockly.Blocks.nrfDataSender = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.nrfDataSender);
+        .appendField(Blockly.nrfDataSender);
 
     this.appendStatementInput('DO');
     this.setPreviousStatement(true, null);    
@@ -4650,7 +4650,7 @@ Blockly.Blocks.nrfDataMemberSender = {
     this.appendValueInput('VALUE') 
          .setCheck([Number,String])
          .setAlign(Blockly.ALIGN_RIGHT)
-         .appendTitle(Blockly.nrfDataMemberSender);
+         .appendField(Blockly.nrfDataMemberSender);
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
     //this.setInputsInline(true);
@@ -4662,8 +4662,8 @@ Blockly.Blocks.nrfDataMemberReciver = {
   init: function() {
     this.setColour(colorSet);  //module color
     this.appendDummyInput("")
-         .appendTitle(Blockly.nrfDataMemberReciver)
-         .appendTitle(new Blockly.FieldTextInput('ite_m'),'Struct_Member');
+         .appendField(Blockly.nrfDataMemberReciver)
+         .appendField(new Blockly.FieldTextInput('ite_m'),'Struct_Member');
     // this.setPreviousStatement(true, null);    
     // this.setNextStatement(true, null);
 //    this.setTooltip("test");  

@@ -14,7 +14,7 @@ Blockly.Blocks.MotorBegin = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Motor.png", 45, 32))
-        .appendTitle(Blockly.CubeCar)
+        .appendField(Blockly.CubeCar)
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -26,7 +26,7 @@ Blockly.Blocks.MotorBeginchange = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_Motor.png", 45, 32))
-        .appendTitle(Blockly.N20begin)
+        .appendField(Blockly.N20begin)
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -43,7 +43,7 @@ Blockly.Blocks.Motor_run = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.N20choose)
+        .appendField(Blockly.N20choose)
         .appendField(new Blockly.FieldDropdown(Break_left_right), 'Break_left_right');
     // this.appendDummyInput("")
     //     .appendField(Blockly.motor_ctrl)
@@ -51,7 +51,7 @@ Blockly.Blocks.Motor_run = {
 
           this.appendValueInput('speed')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.carSpeed);
+        .appendField(' '+Blockly.carSpeed);
 
 
 
@@ -71,7 +71,7 @@ Blockly.Blocks.MotorBreak = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.N20Break)
+        .appendField(Blockly.N20Break)
         .appendField(new Blockly.FieldDropdown(Break_left_right), 'Break_left_right');
 
     //this.setOutput(true, Number);
@@ -91,7 +91,7 @@ Blockly.Blocks.MotorFree = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.N20Free)
+        .appendField(Blockly.N20Free)
         .appendField(new Blockly.FieldDropdown(Free_left_right), 'Free_left_right');
 
     //this.setOutput(true, Number);
@@ -109,14 +109,14 @@ Blockly.Blocks.microduinoCarControl = {
 
     this.setColour(colorSet);
         this.appendDummyInput("")
-        .appendTitle(Blockly.motor_ctrl);
+        .appendField(Blockly.motor_ctrl);
 
   this.appendValueInput('leftSpeed')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.leftSpeed);
+        .appendField(' '+Blockly.leftSpeed);
   this.appendValueInput('rightSpeed')
         .setCheck(Number)
-        .appendTitle(' '+Blockly.rightSpeed);
+        .appendField(' '+Blockly.rightSpeed);
         
     //this.setOutput(true, Number);
     this.setPreviousStatement(true);

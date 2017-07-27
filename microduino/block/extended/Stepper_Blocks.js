@@ -12,7 +12,7 @@ Blockly.Blocks.mdStepperBegin = {
    init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.MDStpperBegin);
+        .appendField(Blockly.MDStpperBegin);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -34,12 +34,12 @@ Blockly.Blocks.mdStepperControl = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.StepperChoice)
+        .appendField(Blockly.StepperChoice)
         .appendField(new Blockly.FieldDropdown(StepperChoice), 'StepperChoice');
 
   	this.appendValueInput('speed')
         .setCheck(Number)
-        .appendTitle(Blockly.StepperSpeed);
+        .appendField(Blockly.StepperSpeed);
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);

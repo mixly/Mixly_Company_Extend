@@ -43,11 +43,11 @@ Blockly.Blocks.Nova_digital_write = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_DIGITAL_OUT)
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(Blockly.LKL_NOVA_STAT)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_HIGH, "HIGH"], [Blockly.LKL_NOVA_LOW, "LOW"]]), "STAT");
+      .appendField(Blockly.LKL_DIGITAL_OUT)
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(Blockly.LKL_NOVA_STAT)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_HIGH, "HIGH"], [Blockly.LKL_NOVA_LOW, "LOW"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -58,10 +58,10 @@ Blockly.Blocks.Nova_digital_read = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_DIGITAL_IN)
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_HIGH, "1"], [Blockly.LKL_NOVA_LOW, "0"]]), "STAT");
+        .appendField(Blockly.LKL_DIGITAL_IN)
+      .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_HIGH, "1"], [Blockly.LKL_NOVA_LOW, "0"]]), "STAT");
     this.setOutput(true, Boolean);
     this.setTooltip('');
   }
@@ -72,11 +72,11 @@ Blockly.Blocks.Nova_analog_write = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_ANALOG_WRITE)
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(PWM_PORTS), "PIN")
+      .appendField(Blockly.LKL_NOVA_ANALOG_WRITE)
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(PWM_PORTS), "PIN")
    this.appendValueInput("NUM", Number)   
-        .appendTitle(Blockly.LKL_NOVA_PWM_SET)
+        .appendField(Blockly.LKL_NOVA_PWM_SET)
         .setCheck(Number);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -89,9 +89,9 @@ Blockly.Blocks.Nova_analog_read={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_ANALOG_READ)
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_ANALOG_READ)
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -102,12 +102,12 @@ Blockly.Blocks.Nova_Led = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_LED)
+      .appendField(Blockly.LKL_NOVA_LED)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_led.jpg", 68, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(Blockly.LKL_NOVA_STAT)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_LED_ON, "on()"], [Blockly.LKL_NOVA_LED_OFF, "off()"]]), "STAT");
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(Blockly.LKL_NOVA_STAT)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_LED_ON, "on()"], [Blockly.LKL_NOVA_LED_OFF, "off()"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -118,13 +118,13 @@ Blockly.Blocks.Nova_Led_PWM = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_LED)
+      .appendField(Blockly.LKL_NOVA_LED)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_led.jpg", 68, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(PWM_PORTS), "PIN")
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(PWM_PORTS), "PIN")
    this.appendValueInput("NUM", Number)
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_LED_PWM);
+        .appendField(Blockly.LKL_NOVA_LED_PWM);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -136,12 +136,12 @@ Blockly.Blocks.Nova_GLLED = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_GLLED)
+      .appendField(Blockly.LKL_NOVA_GLLED)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_HIGHLIGHT.jpg", 43, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
-        .appendTitle(Blockly.LKL_NOVA_STAT)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_GLLED_ON, "on()"], [Blockly.LKL_NOVA_GLLED_OFF, "off()"]]), "STAT");
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
+        .appendField(Blockly.LKL_NOVA_STAT)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_GLLED_ON, "on()"], [Blockly.LKL_NOVA_GLLED_OFF, "off()"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -151,13 +151,13 @@ Blockly.Blocks.Nova_GLLED_PWM = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_GLLED)
+      .appendField(Blockly.LKL_NOVA_GLLED)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_HIGHLIGHT.jpg", 43, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
    this.appendValueInput("NUM", Number)
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_GLLED_PWM);
+        .appendField(Blockly.LKL_NOVA_GLLED_PWM);
     this.setInputsInline(true);
     this.setPreviousStatement(true,null);
     this.setNextStatement(true,null);
@@ -169,11 +169,11 @@ Blockly.Blocks.Nova_Button = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_BTN)
+        .appendField(Blockly.LKL_NOVA_BTN)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_Button.jpg", 54, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_BUTTON_PRESSED, "1"],[Blockly.LKL_NOVA_BUTTON_RELEASED, "0"]]), "STAT");
+      .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_BUTTON_PRESSED, "1"],[Blockly.LKL_NOVA_BUTTON_RELEASED, "0"]]), "STAT");
     this.setOutput(true, Number);
     this.setTooltip('');
   }
@@ -184,14 +184,14 @@ Blockly.Blocks.Nova_4Button = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_BTN)
+        .appendField(Blockly.LKL_NOVA_BTN)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_4ADButton.jpg", 47.5, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
+      .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_ABCD)
-        .appendTitle(new Blockly.FieldDropdown([["A", "buttonAState()"], ["B", "buttonBState()"], ["C", "buttonCState()"], ["D", "buttonDState()"]]), "ABCD")
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_BUTTON_PRESSED, "1"],[Blockly.LKL_NOVA_BUTTON_RELEASED, "0"]]), "STAT");
+      .appendField(Blockly.LKL_NOVA_ABCD)
+        .appendField(new Blockly.FieldDropdown([["A", "buttonAState()"], ["B", "buttonBState()"], ["C", "buttonCState()"], ["D", "buttonDState()"]]), "ABCD")
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_BUTTON_PRESSED, "1"],[Blockly.LKL_NOVA_BUTTON_RELEASED, "0"]]), "STAT");
     this.setOutput(true, Number);
     this.setTooltip('');
   }
@@ -202,11 +202,11 @@ Blockly.Blocks.Nova_TiltSwitch = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_TILTSWITCH)
+        .appendField(Blockly.LKL_NOVA_TILTSWITCH)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_TiltSwitch.jpg", 49, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-      .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_TiltSwitch_UP, "1"],[Blockly.LKL_NOVA_TiltSwitch_DOWN, "0"]]), "STAT");
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+      .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_TiltSwitch_UP, "1"],[Blockly.LKL_NOVA_TiltSwitch_DOWN, "0"]]), "STAT");
     this.setOutput(true, Number);
     this.setTooltip('');
   }
@@ -217,10 +217,10 @@ Blockly.Blocks.Nova_Sound = {
   init: function() {
       this.setColour(Blockly.Blocks.nova.HUE);
       this.appendDummyInput("")
-          .appendTitle(Blockly.LKL_NOVA_SOUND)
+          .appendField(Blockly.LKL_NOVA_SOUND)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_Sound.jpg", 49.5, 32))
-          .appendTitle(Blockly.LKL_NOVA_PORT)
-          .appendTitle(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
+          .appendField(Blockly.LKL_NOVA_PORT)
+          .appendField(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
     this.setOutput(true, Number);
     this.setInputsInline(true);
     }
@@ -231,11 +231,11 @@ Blockly.Blocks.Nova_LimitSwitch = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_LIMISWICTH)
+        .appendField(Blockly.LKL_NOVA_LIMISWICTH)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_LimitSwitch.jpg", 58, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_BUTTON_PRESSED, "1"],[Blockly.LKL_NOVA_BUTTON_RELEASED, "0"]]), "STAT");
+      .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_BUTTON_PRESSED, "1"],[Blockly.LKL_NOVA_BUTTON_RELEASED, "0"]]), "STAT");
     this.setOutput(true, Number);
     this.setTooltip('');
   }
@@ -246,10 +246,10 @@ Blockly.Blocks.Nova_Light={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_LIGHT)
+        .appendField(Blockly.LKL_NOVA_LIGHT)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Light.jpg", 44, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -260,16 +260,16 @@ Blockly.Blocks.Nova_Buzzer = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_BUZZER)
+      .appendField(Blockly.LKL_NOVA_BUZZER)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Buzzer.jpg", 54, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
     this.appendValueInput('FREQUENCY')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_FREQUENCY);
+        .appendField(Blockly.LKL_NOVA_FREQUENCY);
     this.appendValueInput('DURATION')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_LKL_DURATION);
+        .appendField(Blockly.LKL_NOVA_LKL_DURATION);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -281,10 +281,10 @@ Blockly.Blocks.Nova_Ultrasonic={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_ULTRASONIC)
+        .appendField(Blockly.LKL_NOVA_ULTRASONIC)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Ultrasonic.jpg", 62.5, 30))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -295,13 +295,13 @@ Blockly.Blocks.Nova_DHTxx={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_DHT11)
+        .appendField(Blockly.LKL_NOVA_DHT11)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_DHTxx.jpg", 54, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_TYPE)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_DHT11_H, "readHumidity()"], [Blockly.LKL_NOVA_DHT11_T, "readTemperature()"]]), "dht");
+      .appendField(Blockly.LKL_NOVA_TYPE)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_DHT11_H, "readHumidity()"], [Blockly.LKL_NOVA_DHT11_T, "readTemperature()"]]), "dht");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -312,13 +312,13 @@ Blockly.Blocks.Nova_DS18B20={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_DS18B20)
+        .appendField(Blockly.LKL_NOVA_DS18B20)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_DS18B20.jpg", 64.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_TYPE)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_DS18B20_getTemp, "getTemp()"]]),  "ds18b20");
+        .appendField(Blockly.LKL_NOVA_TYPE)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_DS18B20_getTemp, "getTemp()"]]),  "ds18b20");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -329,13 +329,13 @@ Blockly.Blocks.Nova_2LineFinder = {
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_LINEFINDER)
+        .appendField(Blockly.LKL_NOVA_LINEFINDER)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_2LineFinder.jpg", 45.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_GET_STAT)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_L, "stateL()"], [Blockly.LKL_NOVA_R, "stateR()"]]), "linefinder");
+      .appendField(Blockly.LKL_NOVA_GET_STAT)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_L, "stateL()"], [Blockly.LKL_NOVA_R, "stateR()"]]), "linefinder");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -345,12 +345,12 @@ Blockly.Blocks.Nova_2LineFinder_readLineState = {
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_LINEFINDER)
+        .appendField(Blockly.LKL_NOVA_LINEFINDER)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_2LineFinder.jpg", 45.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_READ);
+      .appendField(Blockly.LKL_NOVA_READ);
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -362,14 +362,14 @@ Blockly.Blocks.Nova_4DigitDisplay={
 init:function(){
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_4DIGITDISPLAY)
+        .appendField(Blockly.LKL_NOVA_4DIGITDISPLAY)
         .appendField(new Blockly.FieldImage("../../media/nova/Nova_4DigitDisplay.jpg", 75, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_NUMBER, "displayFloat"],[Blockly.LKL_NOVA_TIME, "displayTime"]]), "STAT");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_NUMBER, "displayFloat"],[Blockly.LKL_NOVA_TIME, "displayTime"]]), "STAT");
     this.appendValueInput('num')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_DISPLAY_NUMBER);
+        .appendField(Blockly.LKL_NOVA_DISPLAY_NUMBER);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -380,13 +380,13 @@ Blockly.Blocks.Nova_4DigitDisplay_Clear={
 init:function(){
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_4DIGITDISPLAY)
+      .appendField(Blockly.LKL_NOVA_4DIGITDISPLAY)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_4DigitDisplay.jpg", 75, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendValueInput('bit')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_DISPLAY_CLEAR);
+        .appendField(Blockly.LKL_NOVA_DISPLAY_CLEAR);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -399,13 +399,13 @@ Blockly.Blocks.Nova_RTC={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_RTC)
+        .appendField(Blockly.LKL_NOVA_RTC)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_RTC.jpg", 40.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_GET_STAT)
-        .appendTitle(new Blockly.FieldDropdown(RTC_TIME), "RTC");
+        .appendField(Blockly.LKL_NOVA_GET_STAT)
+        .appendField(new Blockly.FieldDropdown(RTC_TIME), "RTC");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -415,19 +415,19 @@ Blockly.Blocks.Nova_RTC_SetHMS={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_RTC)
+        .appendField(Blockly.LKL_NOVA_RTC)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_RTC.jpg", 40.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendValueInput('Hour')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_RTC_SET_HOUR);
+        .appendField(Blockly.LKL_NOVA_RTC_SET_HOUR);
     this.appendValueInput('Min')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_RTC_SET_MIN);
+        .appendField(Blockly.LKL_NOVA_RTC_SET_MIN);
     this.appendValueInput('Sec')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_RTC_SET_SEC);
+        .appendField(Blockly.LKL_NOVA_RTC_SET_SEC);
     //this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -438,19 +438,19 @@ Blockly.Blocks.Nova_RTC_SetYMD={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_RTC)
+        .appendField(Blockly.LKL_NOVA_RTC)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_RTC.jpg", 40.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendValueInput('Year')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_RTC_SET_YEAR);
+        .appendField(Blockly.LKL_NOVA_RTC_SET_YEAR);
     this.appendValueInput('Month')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_RTC_SET_MON);
+        .appendField(Blockly.LKL_NOVA_RTC_SET_MON);
     this.appendValueInput('Day')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_RTC_SET_DAY);
+        .appendField(Blockly.LKL_NOVA_RTC_SET_DAY);
     //this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -461,13 +461,13 @@ Blockly.Blocks.Nova_RTC_SetWeek={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_RTC)
+        .appendField(Blockly.LKL_NOVA_RTC)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_RTC.jpg", 40.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendValueInput('Week',Number)
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_RTC_SET_WEEK);
+        .appendField(Blockly.LKL_NOVA_RTC_SET_WEEK);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -480,10 +480,10 @@ Blockly.Blocks.Nova_IrRev_Available={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_IR_REC_AVAILABLE)
+        .appendField(Blockly.LKL_NOVA_IR_REC_AVAILABLE)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_IrRev.jpg", 46.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
   this.setOutput(true, Boolean);
   }
 };
@@ -492,10 +492,10 @@ Blockly.Blocks.Nova_IrRev={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_IR_REC)
+        .appendField(Blockly.LKL_NOVA_IR_REC)
         .appendField(new Blockly.FieldImage("../../media/nova/Nova_IrRev.jpg", 46.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -506,10 +506,10 @@ init: function() {
 //   init: function() {
 //     this.setColour(Blockly.Blocks.nova.HUE);
 //     this.appendDummyInput("")
-//       .appendTitle(Blockly.LKL_NOVA_BLUETOOTH_AVAILABLE)
+//       .appendField(Blockly.LKL_NOVA_BLUETOOTH_AVAILABLE)
 //       .appendField(new Blockly.FieldImage("../../media/nova/Nova_BlueTooth.jpg", 50.5, 32))
-//       .appendTitle(Blockly.LKL_NOVA_PORT)
-//       .appendTitle(new Blockly.FieldDropdown(BLUETOOTH_PORTS), "PIN");
+//       .appendField(Blockly.LKL_NOVA_PORT)
+//       .appendField(new Blockly.FieldDropdown(BLUETOOTH_PORTS), "PIN");
 //   this.setOutput(true, Boolean);
 //   this.setInputsInline(true);
 //   }
@@ -519,10 +519,10 @@ init: function() {
 //   init: function() {
 //     this.setColour(Blockly.Blocks.nova.HUE);
 //     this.appendDummyInput("")
-//       .appendTitle(Blockly.LKL_NOVA_BLUETOOTH_READ_STR)
+//       .appendField(Blockly.LKL_NOVA_BLUETOOTH_READ_STR)
 //       .appendField(new Blockly.FieldImage("../../media/nova/Nova_BlueTooth.jpg", 50.5, 32))
-//       .appendTitle(Blockly.LKL_NOVA_PORT)
-//       .appendTitle(new Blockly.FieldDropdown(BLUETOOTH_PORTS), "PIN");
+//       .appendField(Blockly.LKL_NOVA_PORT)
+//       .appendField(new Blockly.FieldDropdown(BLUETOOTH_PORTS), "PIN");
 //   this.setOutput(true, Boolean);
 //   this.setInputsInline(true);
 //   }
@@ -532,10 +532,10 @@ Blockly.Blocks.Nova_Bluetooth_readAppKey = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_BLUETOOTH_READ_NUM)
+      .appendField(Blockly.LKL_NOVA_BLUETOOTH_READ_NUM)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_BlueTooth.jpg", 50.5, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(BLUETOOTH_PORTS), "PIN");
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(BLUETOOTH_PORTS), "PIN");
     this.setOutput(true, Number);
     this.setInputsInline(true);
   }
@@ -546,18 +546,18 @@ Blockly.Blocks.Nova_Servo = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_SERVO)
+        .appendField(Blockly.LKL_NOVA_SERVO)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Servo.png", 39, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(SERVO_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(SERVO_PORTS), "PIN");
     this.appendValueInput("DEGREE", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LKL_NOVA_DEGREE_0_180);
+        .appendField(Blockly.LKL_NOVA_DEGREE_0_180);
     // this.appendValueInput("DELAY_TIME", Number)
         // .setCheck(Number)
         // .setAlign(Blockly.ALIGN_RIGHT)
-        // .appendTitle(Blockly.LKL_NOVA_DELAY+'('+Blockly.LKL_NOVA_DELAY_MS+')');
+        // .appendField(Blockly.LKL_NOVA_DELAY+'('+Blockly.LKL_NOVA_DELAY_MS+')');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -568,17 +568,17 @@ Blockly.Blocks.Nova_Servo_Big = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-    .appendTitle(Blockly.LKL_NOVA_SERVO_BIG)
+    .appendField(Blockly.LKL_NOVA_SERVO_BIG)
     .appendField(new Blockly.FieldImage("../../media/nova/Big_Servo.jpg", 43, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-    .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
-    .appendTitle(Blockly.LKL_NOVA_SERVO_BRANCH)
-   // .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_SERVO_BRANCH1, "S1"], [Blockly.LKL_NOVA_SERVO_BRANCH2, "S2"]]), "BRANCH");
-    .appendTitle(new Blockly.FieldDropdown([["S1", "S1"],["S2", "S2"]]), "BRANCH");
+    .appendField(Blockly.LKL_NOVA_PORT)
+    .appendField(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
+    .appendField(Blockly.LKL_NOVA_SERVO_BRANCH)
+   // .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_SERVO_BRANCH1, "S1"], [Blockly.LKL_NOVA_SERVO_BRANCH2, "S2"]]), "BRANCH");
+    .appendField(new Blockly.FieldDropdown([["S1", "S1"],["S2", "S2"]]), "BRANCH");
     this.appendValueInput("DEGREE", Number)
     .setCheck(Number)
     .setAlign(Blockly.ALIGN_RIGHT)
-    .appendTitle(Blockly.LKL_NOVA_DEGREE_0_180);
+    .appendField(Blockly.LKL_NOVA_DEGREE_0_180);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -590,13 +590,13 @@ Blockly.Blocks.Nova_Motor = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-    .appendTitle(Blockly.LKL_NOVA_MOTOR)
+    .appendField(Blockly.LKL_NOVA_MOTOR)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Motor.jpg", 59.5, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-    .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
+    .appendField(Blockly.LKL_NOVA_PORT)
+    .appendField(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN")
     this.appendValueInput('speed')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_MOTOR_SPEED);
+        .appendField(Blockly.LKL_NOVA_MOTOR_SPEED);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -609,26 +609,26 @@ Blockly.Blocks.Nova_RGB= {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
 	this.appendDummyInput("")
-		.appendTitle(Blockly.LKL_NOVA_RGB)
+		.appendField(Blockly.LKL_NOVA_RGB)
 		.appendField(new Blockly.FieldImage("../../media/nova/Nova_RGB.jpg", 59.5, 32))
-		.appendTitle(Blockly.LKL_NOVA_PORT)
-		.appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");  
+		.appendField(Blockly.LKL_NOVA_PORT)
+		.appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN");  
     this.appendValueInput("_LED_")
 		.setCheck(Number)
 		.setAlign(Blockly.ALIGN_RIGHT)
-		.appendTitle(Blockly.LKL_NOVA_RGB_NUM);	
+		.appendField(Blockly.LKL_NOVA_RGB_NUM);	
 	this.appendValueInput("RVALUE")
 		.setCheck(Number)
 		.setAlign(Blockly.ALIGN_RIGHT)
-		.appendTitle(Blockly.LKL_NOVA_RGB_R);  
+		.appendField(Blockly.LKL_NOVA_RGB_R);  
 	this.appendValueInput("GVALUE")
 		.setCheck(Number)
 		.setAlign(Blockly.ALIGN_RIGHT)
-		.appendTitle(Blockly.LKL_NOVA_RGB_G);	
+		.appendField(Blockly.LKL_NOVA_RGB_G);	
 	this.appendValueInput("BVALUE")
 		.setCheck(Number)
 		.setAlign(Blockly.ALIGN_RIGHT)
-		.appendTitle(Blockly.LKL_NOVA_RGB_B);
+		.appendField(Blockly.LKL_NOVA_RGB_B);
 	this.setInputsInline(true);
 	this.setPreviousStatement(true, null);
 	this.setNextStatement(true, null);
@@ -639,10 +639,10 @@ Blockly.Blocks.Nova_RGB2 = {
 	init: function() {
 	this.setColour(Blockly.Blocks.nova.HUE);
 	this.appendDummyInput("")
-		.appendTitle(Blockly.LKL_NOVA_RGB)
+		.appendField(Blockly.LKL_NOVA_RGB)
 		.appendField(new Blockly.FieldImage("../../media/nova/Nova_RGB.jpg", 55, 32))
-		.appendTitle(Blockly.LKL_NOVA_PORT)
-		.appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");       
+		.appendField(Blockly.LKL_NOVA_PORT)
+		.appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN");       
     this.appendValueInput("_LED_")
         .setCheck(Number)
 		.setAlign(Blockly.ALIGN_RIGHT)
@@ -662,11 +662,11 @@ Blockly.Blocks.Nova_Vibration = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_VIBRATION)
+        .appendField(Blockly.LKL_NOVA_VIBRATION)
         .appendField(new Blockly.FieldImage("../../media/nova/Nova_Vibration.jpg", 43.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_Vibration_Vibrating, "1"],[Blockly.LKL_NOVA_Vibration_NoVibrating, "0"]]), "STAT");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_Vibration_Vibrating, "1"],[Blockly.LKL_NOVA_Vibration_NoVibrating, "0"]]), "STAT");
     this.setOutput(true, Number);
     this.setTooltip('');
   }
@@ -677,10 +677,10 @@ Blockly.Blocks.Nova_MQ={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_MQ)
+        .appendField(Blockly.LKL_NOVA_MQ)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_MQ.jpg", 39.5, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -691,12 +691,12 @@ Blockly.Blocks.Nova_Gyro = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_GYRO)
+        .appendField(Blockly.LKL_NOVA_GYRO)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_Gyro.jpg", 46, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
-	  .appendTitle(Blockly.LKL_NOVA_GYRO_STATE)
-      .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_GYRO_X, "getAngleX()"], [Blockly.LKL_NOVA_GYRO_Y, "getAngleY()"]]), "STAT");
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
+	  .appendField(Blockly.LKL_NOVA_GYRO_STATE)
+      .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_GYRO_X, "getAngleX()"], [Blockly.LKL_NOVA_GYRO_Y, "getAngleY()"]]), "STAT");
     this.setOutput(true, Number);
     this.setInputsInline(true);
   }
@@ -705,10 +705,10 @@ Blockly.Blocks.Nova_Gyro_update = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_GYRO_UPDATE)
+        .appendField(Blockly.LKL_NOVA_GYRO_UPDATE)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_Gyro.jpg", 46, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
 	this.setPreviousStatement(true);
 	this.setNextStatement(true);
   }
@@ -719,16 +719,16 @@ Blockly.Blocks.Nova_Matrix_POS = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
  this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_Nova_Matrix_POS)
+      .appendField(Blockly.LKL_Nova_Matrix_POS)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Matrix.jpg", 36.5, 32))
-	.appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
+	.appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");
     this.appendValueInput('XVALUE', Number)
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_Matrix_x);
+        .appendField(Blockly.LKL_NOVA_Matrix_x);
     this.appendValueInput("YVALUE", Number)
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_Matrix_y);
+        .appendField(Blockly.LKL_NOVA_Matrix_y);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -738,13 +738,13 @@ Blockly.Blocks.Nova_Matrix={
 init:function(){
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_Matrix)
+      .appendField(Blockly.LKL_NOVA_Matrix)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_Matrix.jpg", 36.5, 32))
-	  .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");  
+	  .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN");  
 	this.appendValueInput('Str',String)
       .setCheck(String)
-      .appendTitle(Blockly.LKL_NOVA_Matrix_Str);
+      .appendField(Blockly.LKL_NOVA_Matrix_Str);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -754,11 +754,11 @@ Blockly.Blocks.Nova_DotMatrix = {
   init: function() {
 	this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-		.appendTitle(Blockly.LKL_Nova_DotMatrix)
+		.appendField(Blockly.LKL_Nova_DotMatrix)
         .appendField(new Blockly.FieldImage("../../media/nova/Nova_Matrix.jpg", 36.5, 32))
-		.appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
-		.appendTitle(Blockly.LKL_NOVA_DotMatrixName)
+		.appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(FOUR_PORTS), "PIN")
+		.appendField(Blockly.LKL_NOVA_DotMatrixName)
 		.appendField(new Blockly.FieldTextInput("1"), "dotName"); 
     this.appendValueInput("row0", String)
         .setCheck([String,Number])
@@ -803,28 +803,28 @@ Blockly.Blocks.DotMatrixRow = {
     this.setColour(Blockly.Blocks.nova.HUE);
 
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot0");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot1");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot2");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot3");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot4");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot5");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot6");
     this.appendDummyInput("")
-    	.appendTitle(" ")
+    	.appendField(" ")
         .appendField(new Blockly.FieldColour("#000000"), "Dot7");
 
     this.setInputsInline(true);
@@ -837,13 +837,13 @@ Blockly.Blocks.Nova_Stepper={
 init:function(){
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_STEPPER)
+      .appendField(Blockly.LKL_NOVA_STEPPER)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_Stepper.jpg", 39, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN");  
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN");  
 	this.appendValueInput('POSITION')
       .setCheck(Number)
-      .appendTitle(Blockly.LKL_NOVA_POSITION);
+      .appendField(Blockly.LKL_NOVA_POSITION);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -853,10 +853,10 @@ Blockly.Blocks.Nova_Stepper_run = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_STEPPER_RUN)
+      .appendField(Blockly.LKL_NOVA_STEPPER_RUN)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Stepper.jpg", 39, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN");
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(MOTOR_PORTS), "PIN");
     this.setPreviousStatement(true);
 	this.setNextStatement(true);
   }
@@ -867,13 +867,13 @@ Blockly.Blocks.Nova_MP3_VOL={
 init:function(){
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_MP3)
+      .appendField(Blockly.LKL_NOVA_MP3)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_MP3.jpg", 48, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");  
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN");  
 	this.appendValueInput('VOLUME',Number)
       .setCheck(Number)
-      .appendTitle(Blockly.LKL_NOVA_VOL);
+      .appendField(Blockly.LKL_NOVA_VOL);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -883,13 +883,13 @@ Blockly.Blocks.Nova_MP3_PLAY={
 init:function(){
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_MP3)
+      .appendField(Blockly.LKL_NOVA_MP3)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_MP3.jpg", 48, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN");  
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN");  
 	this.appendValueInput('NUM',Number)
       .setCheck(Number)
-      .appendTitle(Blockly.LKL_NOVA_PLAY);
+      .appendField(Blockly.LKL_NOVA_PLAY);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -899,12 +899,12 @@ Blockly.Blocks.Nova_MP3_STATE = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_MP3)
+      .appendField(Blockly.LKL_NOVA_MP3)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_MP3.jpg", 48, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(Blockly.LKL_NOVA_MP3_STATE)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_MP3_ONPLAY, "play()"],[Blockly.LKL_NOVA_MP3_LOOPPLAY, "loop_play()"], [Blockly.LKL_NOVA_MP3_RANDPLAY, "random_play()"], [Blockly.LKL_NOVA_MP3_PAUSE, "pause()"], [Blockly.LKL_NOVA_MP3_STOP, "stop()"]]), "STAT");
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(Blockly.LKL_NOVA_MP3_STATE)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_MP3_ONPLAY, "play()"],[Blockly.LKL_NOVA_MP3_LOOPPLAY, "loop_play()"], [Blockly.LKL_NOVA_MP3_RANDPLAY, "random_play()"], [Blockly.LKL_NOVA_MP3_PAUSE, "pause()"], [Blockly.LKL_NOVA_MP3_STOP, "stop()"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -915,21 +915,21 @@ Blockly.Blocks.Nova_Dual_Motor={
 init:function(){
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_DUAL_MOTOR)
+      .appendField(Blockly.LKL_NOVA_DUAL_MOTOR)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_Dual_Motor.jpg", 54, 32))
-      .appendTitle(Blockly.LKL_NOVA_DUAL_MOTORA)
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS), "PINA");  
+      .appendField(Blockly.LKL_NOVA_DUAL_MOTORA)
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(MOTOR_PORTS), "PINA");  
     this.appendValueInput('speedA')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_DUAL_MOTOR_SPEEDA);
+        .appendField(Blockly.LKL_NOVA_DUAL_MOTOR_SPEEDA);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_DUAL_MOTORB)
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(MOTOR_PORTS_2), "PINB");
+        .appendField(Blockly.LKL_NOVA_DUAL_MOTORB)
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(MOTOR_PORTS_2), "PINB");
     this.appendValueInput('speedB')
         .setCheck(Number)
-        .appendTitle(Blockly.LKL_NOVA_DUAL_MOTOR_SPEEDB);
+        .appendField(Blockly.LKL_NOVA_DUAL_MOTOR_SPEEDB);
    // this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -941,10 +941,10 @@ Blockly.Blocks.Nova_Flame={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_FLAME)
+        .appendField(Blockly.LKL_NOVA_FLAME)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Flame.jpg", 54, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -955,11 +955,11 @@ Blockly.Blocks.Nova_Hall = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_HALL)
+        .appendField(Blockly.LKL_NOVA_HALL)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_Hall.jpg", 46, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_Hall_Magnetic, "1"],[Blockly.LKL_NOVA_Hall_NoMagnetic, "0"]]), "STAT");
+      .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_Hall_Magnetic, "1"],[Blockly.LKL_NOVA_Hall_NoMagnetic, "0"]]), "STAT");
     this.setOutput(true, Number);
     this.setTooltip('');
   }
@@ -970,13 +970,13 @@ Blockly.Blocks.Nova_Joystick={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_Joystick)
+        .appendField(Blockly.LKL_NOVA_Joystick)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Joystick.jpg", 39, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(Joystick_PORT), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(Joystick_PORT), "PIN");
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_GET_STAT)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_readX, "readX()"], [Blockly.LKL_NOVA_readY, "readY()"]]), "Joystick");
+      .appendField(Blockly.LKL_NOVA_GET_STAT)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_readX, "readX()"], [Blockly.LKL_NOVA_readY, "readY()"]]), "Joystick");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -987,11 +987,11 @@ Blockly.Blocks.Nova_ITR = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_ITR)
+        .appendField(Blockly.LKL_NOVA_ITR)
       .appendField(new Blockly.FieldImage("../../media/nova/Nova_ITR.jpg", 50, 32))
-      .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_ITR_Shelter, "1"],[Blockly.LKL_NOVA_ITR_Noshelter, "0"]]), "STAT");
+      .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_ITR_Shelter, "1"],[Blockly.LKL_NOVA_ITR_Noshelter, "0"]]), "STAT");
     this.setOutput(true, Number);
     this.setTooltip('');
   }
@@ -1002,10 +1002,10 @@ Blockly.Blocks.Nova_Potentiometer={
 init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-        .appendTitle(Blockly.LKL_NOVA_POTENTIOMETER)
+        .appendField(Blockly.LKL_NOVA_POTENTIOMETER)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Potentiometer.jpg", 35, 32))
-        .appendTitle(Blockly.LKL_NOVA_PORT)
-        .appendTitle(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
+        .appendField(Blockly.LKL_NOVA_PORT)
+        .appendField(new Blockly.FieldDropdown(ANALOG_PORTS), "PIN");
   this.setOutput(true, Number);
   this.setInputsInline(true);
   }
@@ -1016,12 +1016,12 @@ Blockly.Blocks.Nova_Relay = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput("")
-      .appendTitle(Blockly.LKL_NOVA_RELAY)
+      .appendField(Blockly.LKL_NOVA_RELAY)
     .appendField(new Blockly.FieldImage("../../media/nova/Nova_Relay.jpg", 43.5, 32))
-    .appendTitle(Blockly.LKL_NOVA_PORT)
-      .appendTitle(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
-        .appendTitle(Blockly.LKL_NOVA_STAT)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_LED_ON, "on()"], [Blockly.LKL_NOVA_LED_OFF, "off()"]]), "STAT");
+    .appendField(Blockly.LKL_NOVA_PORT)
+      .appendField(new Blockly.FieldDropdown(THREE_PORTS), "PIN")
+        .appendField(Blockly.LKL_NOVA_STAT)
+        .appendField(new Blockly.FieldDropdown([[Blockly.LKL_NOVA_LED_ON, "on()"], [Blockly.LKL_NOVA_LED_OFF, "off()"]]), "STAT");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -1033,7 +1033,7 @@ Blockly.Blocks.Nova_lcd_print = {
 	this.appendValueInput('device')
         .setCheck(Number)
 		.setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LKL_LCD_ADDRESS);
+        .appendField(Blockly.LKL_LCD_ADDRESS);
     this.appendValueInput("TEXT", String)
         .setCheck([String,Number])
         .setAlign(Blockly.ALIGN_RIGHT)
@@ -1053,7 +1053,7 @@ Blockly.Blocks.Nova_lcd_power = {
 	this.appendValueInput('device')
         .setCheck(Number)
 		.setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LKL_LCD_ADDRESS);
+        .appendField(Blockly.LKL_LCD_ADDRESS);
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([[Blockly.LKL_LCD_STAT_ON, "display"], [Blockly.LKL_LCD_STAT_OFF, "noDisplay"], [Blockly.LKL_LCD_STAT_CURSOR, "cursor"], [Blockly.LKL_LCD_STAT_NOCURSOR, "noCursor"], [Blockly.LKL_LCD_STAT_BLINK, "blink"], [Blockly.LKL_LCD_STAT_NOBLINK, "noBlink"], [Blockly.LKL_LCD_STAT_CLEAR, "clear"]]), "STAT");
     this.setInputsInline(true);
@@ -1067,12 +1067,12 @@ Blockly.Blocks.Nova_ethernet_init_begin = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_BEGIN)
-        .appendTitle(new Blockly.FieldDropdown([[Blockly.MIXLY_ETHERNET, 'Ethernet'],[Blockly.MIXLY_ETHERNET2,'Ethernet2']]), "Ethernet");
+        .appendField(Blockly.MIXLY_ETHERNET_BEGIN)
+        .appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_ETHERNET, 'Ethernet'],[Blockly.MIXLY_ETHERNET2,'Ethernet2']]), "Ethernet");
 	 this.appendValueInput('MAC')
 		.setCheck(Array)
 		.setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MIXLY_ETHERNET_MAC_ADDRESS);
+        .appendField(Blockly.MIXLY_ETHERNET_MAC_ADDRESS);
     this.setOutput(true, Number);
   }
 };
@@ -1082,15 +1082,15 @@ Blockly.Blocks.Nova_ethernet_mac_address={
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput()
 		.appendField(new Blockly.FieldTextInput('DE'), 'VAR1')
-        .appendTitle('-')
+        .appendField('-')
 		.appendField(new Blockly.FieldTextInput('AD'), 'VAR2')
-        .appendTitle('-')
+        .appendField('-')
 		.appendField(new Blockly.FieldTextInput('BE'), 'VAR3')
-        .appendTitle('-')
+        .appendField('-')
 		.appendField(new Blockly.FieldTextInput('EF'), 'VAR4')
-        .appendTitle('-')
+        .appendField('-')
 		.appendField(new Blockly.FieldTextInput('FE'), 'VAR5')
-        .appendTitle('-')
+        .appendField('-')
 		.appendField(new Blockly.FieldTextInput('ED'), 'VAR6');
     this.setOutput(true, Array);
   }
@@ -1100,7 +1100,7 @@ Blockly.Blocks.Nova_ethernet_init_local_ip = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_LOCALIP);
+        .appendField(Blockly.MIXLY_ETHERNET_LOCALIP);
     this.setOutput(true, 'IPAddress');
   }
 };
@@ -1109,14 +1109,14 @@ Blockly.Blocks.Nova_ethernet_client_connect_server={
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_CONNECT_SERVER)
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_CONNECT_SERVER)
 		.appendField(this.newQuote_(true))
         .appendField(new Blockly.FieldTextInput('mixly.org'), 'SERVER')
         .appendField(this.newQuote_(false));
 	this.appendValueInput('PORT')
 		.setCheck(Number)
 		.setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_PORT);
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_PORT);
     this.setOutput(true, Number);
 	this.setInputsInline(true);
   },
@@ -1134,7 +1134,7 @@ Blockly.Blocks.Nova_ethernet_client_stop = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_STOP);
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_STOP);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -1144,7 +1144,7 @@ Blockly.Blocks.Nova_ethernet_client_connected = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_CONNECTED);
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_CONNECTED);
     this.setOutput(true, Number);
   }
 };
@@ -1153,7 +1153,7 @@ Blockly.Blocks.Nova_ethernet_client_available= {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_AVAILABLE);
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_AVAILABLE);
     this.setOutput(true, Number);
   }
 };
@@ -1163,7 +1163,7 @@ Blockly.Blocks.Nova_ethernet_client_print= {
     this.setColour(Blockly.Blocks.nova.HUE);
 	this.appendValueInput('TEXT')
 		.setCheck(String)
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_PRINT);
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_PRINT);
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -1174,7 +1174,7 @@ Blockly.Blocks.Nova_ethernet_client_println = {
     this.setColour(Blockly.Blocks.nova.HUE);
 	this.appendValueInput('TEXT')
 		.setCheck(String)
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_PRINTLN);
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_PRINTLN);
 	this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
   }
@@ -1184,7 +1184,7 @@ Blockly.Blocks.Nova_ethernet_client_read = {
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_READ);
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_READ);
     this.setOutput(true, Number);
   }
 };
@@ -1194,14 +1194,14 @@ Blockly.Blocks.Nova_ethernet_client_get_request={
   init: function() {
     this.setColour(Blockly.Blocks.nova.HUE);
 	this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_GET_REQUEST);
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_GET_REQUEST);
     this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_URL)
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_URL)
 		.appendField(this.newQuote_(true))
         .appendField(new Blockly.FieldTextInput(''), 'URL')
         .appendField(this.newQuote_(false));
 	this.appendDummyInput()
-        .appendTitle(Blockly.MIXLY_ETHERNET_CLINET_SERVER)
+        .appendField(Blockly.MIXLY_ETHERNET_CLINET_SERVER)
 		.appendField(this.newQuote_(true))
         .appendField(new Blockly.FieldTextInput(''), 'SERVER')
         .appendField(this.newQuote_(false));

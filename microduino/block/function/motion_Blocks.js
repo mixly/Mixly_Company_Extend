@@ -15,7 +15,7 @@ Blockly.Blocks.motionAccGyro = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/motion.png", 45, 32))
-        .appendTitle(Blockly.motionInit);
+        .appendField(Blockly.motionInit);
         
 
     this.setPreviousStatement(true, null);
@@ -40,8 +40,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.GetMotion)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.GetMotion)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     // this.setPreviousStatement(true);
     // this.setNextStatement(true);
@@ -56,7 +56,7 @@ Blockly.Blocks.motionDMP = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/motion.png", 45, 32))
-        .appendTitle(Blockly.motionDMP);
+        .appendField(Blockly.motionDMP);
         
 
     this.setPreviousStatement(true, null);
@@ -79,12 +79,12 @@ Blockly.Blocks.motionSoft = {
 
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/motion.png", 45, 32))
-        .appendTitle(Blockly.motionSoft);
+        .appendField(Blockly.motionSoft);
         
 
     this.appendDummyInput("")
-         .appendTitle(Blockly.motionIsMagic)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.motionIsMagic)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -104,8 +104,8 @@ init:function(){
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.GetMotionDegree)
-         .appendTitle(new Blockly.FieldDropdown(getType), "getType");
+         .appendField(Blockly.GetMotionDegree)
+         .appendField(new Blockly.FieldDropdown(getType), "getType");
     this.setInputsInline(true);
     // this.setPreviousStatement(true);
     // this.setNextStatement(true);

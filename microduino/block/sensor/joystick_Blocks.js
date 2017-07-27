@@ -19,7 +19,7 @@ Blockly.Blocks.xyJoystick = {
     .appendField(Blockly.Keyget_Pin)
     .appendField(new Blockly.FieldTextInput("A0"), "analogPin")
     .appendField(Blockly.KeygetJoystic)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.Horizontal, "x"], [Blockly.Vertical, "y"]]),'direction')
+    .appendField(new Blockly.FieldDropdown([[Blockly.Horizontal, "x"], [Blockly.Vertical, "y"]]),'direction')
     .appendField(Blockly.coordinate);
 
 
@@ -48,7 +48,7 @@ Blockly.Blocks.microduinoJoystick = {
     .appendField(Blockly.Keyget_Pin)
     .appendField(new Blockly.FieldTextInput("A0"), "analogPin")
     .appendField(Blockly.KeygetJoystic)
-    .appendTitle(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "0"], 
+    .appendField(new Blockly.FieldDropdown([[Blockly.KeyInputPRESS, "0"], 
                                             [Blockly.KeyDownDir, "1"],
                                             [Blockly.KeyLeftDir, "2"],
                                             [Blockly.KeyUpDir, "3"],

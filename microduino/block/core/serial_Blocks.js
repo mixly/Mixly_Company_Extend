@@ -28,7 +28,7 @@ Blockly.Blocks.serialBegin = {
 
     this.appendDummyInput("")
         //.appendField(new Blockly.FieldImage("../../media/Microduino/CoreUSB.png", 60, 90))
-        .appendTitle(Blockly.serialSetup)
+        .appendField(Blockly.serialSetup)
         
         .appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')
 
@@ -48,10 +48,10 @@ Blockly.Blocks.serialPrint = {
     this.setColour(colorSet);
     
     this.appendValueInput("serialData")
-    .appendTitle(Blockly.serialPrint);
+    .appendField(Blockly.serialPrint);
 
     // this.appendDummyInput("")
-    //     .appendTitle(Blockly.serialPrint)
+    //     .appendField(Blockly.serialPrint)
 
     //this.appendStatementInput('DO')
     // this.setPreviousStatement(true, null);
@@ -69,7 +69,7 @@ Blockly.Blocks.serialPrintln = {
     this.setColour(colorSet);
     
     this.appendValueInput("serialData")
-    .appendTitle(Blockly.serialPrintln);
+    .appendField(Blockly.serialPrintln);
 
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -91,14 +91,14 @@ Blockly.Blocks.microduinoAnaloyWrite = {
 
 
     this.appendDummyInput("")
-    .appendTitle(Blockly.MIXLY_ANALOGWRITE_PIN)
-    .appendTitle(new Blockly.FieldDropdown(mCookie_pwmPin), "mCookie_pwmPin")
-    .appendTitle(Blockly.MIXLY_VALUE2);
+    .appendField(Blockly.MIXLY_ANALOGWRITE_PIN)
+    .appendField(new Blockly.FieldDropdown(mCookie_pwmPin), "mCookie_pwmPin")
+    .appendField(Blockly.MIXLY_VALUE2);
     
     this.appendValueInput("pwmNumber", Number)
       .setCheck(Number)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendTitle(Blockly.LKL_VALUE2);
+      .appendField(Blockly.LKL_VALUE2);
 
 
     var tip="设置指定管脚值(0~255)\n";
@@ -117,7 +117,7 @@ Blockly.Blocks.microduinoWatting = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.microduinoWatting)
+        .appendField(Blockly.microduinoWatting)
     this.appendValueInput('wait')
         .setCheck([Number,Boolean]);
 
@@ -135,14 +135,14 @@ Blockly.Blocks.microduinoWhile = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.microduinoWhile);
+        .appendField(Blockly.microduinoWhile);
     this.appendValueInput('wait')
         .setCheck([Number,Boolean]);
     this.appendDummyInput("")
-        .appendTitle(Blockly.microduinoSo);
+        .appendField(Blockly.microduinoSo);
 
     this.appendStatementInput('DO')
-    .appendTitle(Blockly.microduinoRepeatDoing);
+    .appendField(Blockly.microduinoRepeatDoing);
 
     var tip="当满足条件时重复执行...\n";
     this.setTooltip(tip);
@@ -158,24 +158,24 @@ Blockly.Blocks.microduinoFor = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput()
-        .appendTitle(Blockly.MicroduinoForPerTime)
-        .appendTitle(new Blockly.FieldTextInput('i'), 'VAR');
+        .appendField(Blockly.MicroduinoForPerTime)
+        .appendField(new Blockly.FieldTextInput('i'), 'VAR');
     this.appendValueInput('FROM')
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LANG_CONTROLS_FOR_INPUT_FROM);
+        .appendField(Blockly.LANG_CONTROLS_FOR_INPUT_FROM);
     this.appendValueInput('TO')
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.LANG_CONTROLS_FOR_INPUT_TO);
+        .appendField(Blockly.LANG_CONTROLS_FOR_INPUT_TO);
     this.appendDummyInput()
-        .appendTitle(Blockly.MicroduinoEvery)
-        .appendTitle(new Blockly.FieldTextInput('1',
+        .appendField(Blockly.MicroduinoEvery)
+        .appendField(new Blockly.FieldTextInput('1',
         Blockly.FieldTextInput.math_number_validator), 'STEP');
     this.appendDummyInput()
-        .appendTitle(Blockly.MicroduinoStep);
+        .appendField(Blockly.MicroduinoStep);
     this.appendStatementInput('DO')
-        .appendTitle(Blockly.LANG_CONTROLS_FOR_INPUT_DO);
+        .appendField(Blockly.LANG_CONTROLS_FOR_INPUT_DO);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setInputsInline(true);
@@ -226,8 +226,8 @@ Blockly.Blocks.microduinoSerailAvailable = {
     this.setColour(colorSet);
 
     this.appendDummyInput()
-    .appendTitle(new Blockly.FieldDropdown(serailType), "serailType")
-    .appendTitle(Blockly.serailAvalibleLength);
+    .appendField(new Blockly.FieldDropdown(serailType), "serailType")
+    .appendField(Blockly.serailAvalibleLength);
 
     var tip="获取串口数据长度\n";
     tip+="返回一个数字值\n";

@@ -16,17 +16,17 @@ Blockly.Blocks.ws2812Begin = {
     this.setColour(Blockly.Blocks.Microduino.HUE);
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.ColorLEDInit)
+        .appendField(Blockly.ColorLEDInit)
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDBegin.png", 80, 32))
 
     this.appendValueInput("LEDNumber", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDNumber);
+        .appendField(Blockly.ColorLEDNumber);
     this.appendValueInput("LEDPin", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDPin);
+        .appendField(Blockly.ColorLEDPin);
 
     //this.appendStatementInput('DO')
     this.setPreviousStatement(true, null);
@@ -47,26 +47,26 @@ Blockly.Blocks.ws2812Doing = {
 
 
     this.appendDummyInput("")
-        .appendTitle(Blockly.ColorLEDControl)
+        .appendField(Blockly.ColorLEDControl)
         .appendField(new Blockly.FieldImage("../../media/Microduino/colorLEDCntrol.png", 40, 32))
 
     this.appendValueInput("LEDIndex", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDIndex);
+        .appendField(Blockly.ColorLEDIndex);
 
     this.appendValueInput("R", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDRed);
+        .appendField(Blockly.ColorLEDRed);
     this.appendValueInput("G", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDGreen);
+        .appendField(Blockly.ColorLEDGreen);
     this.appendValueInput("B", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendTitle(Blockly.ColorLEDBlue);
+        .appendField(Blockly.ColorLEDBlue);
 
 
     //this.appendStatementInput('DO')

@@ -14,12 +14,12 @@ Blockly.Blocks.Microduino_KEYDigital = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Crash.png", 40, 30))
-		.appendTitle(Blockly.Keyget)
-        .appendTitle(Blockly.Keyget_Pin)
-        .appendTitle(new Blockly.FieldTextInput('4'),'KPin');
+		.appendField(Blockly.Keyget)
+        .appendField(Blockly.Keyget_Pin)
+        .appendField(new Blockly.FieldTextInput('4'),'KPin');
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget_Check)
-        .appendTitle(new Blockly.FieldDropdown(CHECK), "CHECK");
+        .appendField(Blockly.Keyget_Check)
+        .appendField(new Blockly.FieldDropdown(CHECK), "CHECK");
 
     //this.setOutput(true, Boolean);
 
@@ -41,18 +41,18 @@ Blockly.Blocks.Microduino_KEYAnalog = {
     this.setColour(colorSet);
     this.appendDummyInput("")
         .appendField(new Blockly.FieldImage("../../media/Microduino/Joystick.png", 40, 30))
-        .appendTitle(new Blockly.FieldTextInput('left'),'joyStickAction')
-        .appendTitle(Blockly.KeygetJoystic)
-        .appendTitle(Blockly.Keyget_Pin)
-        .appendTitle(new Blockly.FieldTextInput('A0'),'KPin');
+        .appendField(new Blockly.FieldTextInput('left'),'joyStickAction')
+        .appendField(Blockly.KeygetJoystic)
+        .appendField(Blockly.Keyget_Pin)
+        .appendField(new Blockly.FieldTextInput('A0'),'KPin');
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget_Analog)
-        .appendTitle(new Blockly.FieldTextInput('0'),'MIN')
-        .appendTitle(Blockly.Keyget_To)
-        .appendTitle(new Blockly.FieldTextInput('1023'),'MAX');
+        .appendField(Blockly.Keyget_Analog)
+        .appendField(new Blockly.FieldTextInput('0'),'MIN')
+        .appendField(Blockly.Keyget_To)
+        .appendField(new Blockly.FieldTextInput('1023'),'MAX');
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget_Check)
-        .appendTitle(new Blockly.FieldDropdown(CHECK), "CHECK");
+        .appendField(Blockly.Keyget_Check)
+        .appendField(new Blockly.FieldDropdown(CHECK), "CHECK");
 
     //this.setOutput(true, Boolean);
 
@@ -73,11 +73,11 @@ Blockly.Blocks.oldKEYDigital = {
                     [Blockly.KeyInputPRESS, 'PRESS']];                   
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget)
-        .appendTitle(Blockly.Keyget_Pin)
-        .appendTitle(new Blockly.FieldTextInput('4'),'KPin')
-        .appendTitle(Blockly.Keyget_Check)
-        .appendTitle(new Blockly.FieldDropdown(CHECK), "CHECK");
+        .appendField(Blockly.Keyget)
+        .appendField(Blockly.Keyget_Pin)
+        .appendField(new Blockly.FieldTextInput('4'),'KPin')
+        .appendField(Blockly.Keyget_Check)
+        .appendField(new Blockly.FieldDropdown(CHECK), "CHECK");
 
     this.setOutput(true, Boolean);
 
@@ -94,13 +94,13 @@ Blockly.Blocks.oldKEYAnalog = {
   init: function() {                  
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.Keyget)
-        .appendTitle(Blockly.Keyget_Pin)
-        .appendTitle(new Blockly.FieldTextInput('A0'),'KPin')
-        .appendTitle(Blockly.Keyget_Analog)
-        .appendTitle(new Blockly.FieldTextInput('0'),'MIN')
-        .appendTitle(Blockly.Keyget_To)
-        .appendTitle(new Blockly.FieldTextInput('1023'),'MAX');
+        .appendField(Blockly.Keyget)
+        .appendField(Blockly.Keyget_Pin)
+        .appendField(new Blockly.FieldTextInput('A0'),'KPin')
+        .appendField(Blockly.Keyget_Analog)
+        .appendField(new Blockly.FieldTextInput('0'),'MIN')
+        .appendField(Blockly.Keyget_To)
+        .appendField(new Blockly.FieldTextInput('1023'),'MAX');
 
     this.setOutput(true, Boolean);
 

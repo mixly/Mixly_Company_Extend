@@ -19,12 +19,12 @@ Blockly.Blocks.Defination = {
     this.appendValueInput('VALUE') 
          .setCheck(Number)                          //as string
          .setAlign(Blockly.ALIGN_RIGHT)             //right side
-         .appendTitle(Blockly.GLOBAL_DECLARE)
-         .appendTitle(new Blockly.FieldTextInput('item'),'NAME')//put a text label
-         .appendTitle(Blockly.LKL_AS)
+         .appendField(Blockly.GLOBAL_DECLARE)
+         .appendField(new Blockly.FieldTextInput('item'),'NAME')//put a text label
+         .appendField(Blockly.LKL_AS)
      // .appendField(new Blockly.FieldImage("../../media/Microduino/CoreUSB.png", 60, 90))
-         .appendTitle(new Blockly.FieldDropdown(FLIP), 'FLIP')//put a menu label
-         .appendTitle(Blockly.LKL_VALUE);
+         .appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')//put a menu label
+         .appendField(Blockly.LKL_VALUE);
     //this.appendStatementInput('DO')
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
@@ -39,11 +39,11 @@ Blockly.Blocks.Structure = {
     this.setColour(colorSet);  //module color
       this.appendDummyInput("")
          .setAlign(Blockly.ALIGN_RIGHT)             //right side
-         .appendTitle(Blockly.LKL_DECLARE)
-         .appendTitle(new Blockly.FieldTextInput('item'),'Struct_NAME')//put a text label
-         .appendTitle(Blockly.Struct)
-         .appendTitle(Blockly.Struct_DEF)
-         .appendTitle(new Blockly.FieldTextInput('ite_m'),'Struct_DEF');//put a text label
+         .appendField(Blockly.LKL_DECLARE)
+         .appendField(new Blockly.FieldTextInput('item'),'Struct_NAME')//put a text label
+         .appendField(Blockly.Struct)
+         .appendField(Blockly.Struct_DEF)
+         .appendField(new Blockly.FieldTextInput('ite_m'),'Struct_DEF');//put a text label
      // .appendField(new Blockly.FieldImage("../../media/Microduino/CoreUSB.png", 60, 90))
     this.appendStatementInput('DO');
     this.setPreviousStatement(true, null);    
@@ -68,12 +68,12 @@ Blockly.Blocks.Var_Definations = {
     this.appendValueInput('VALUE') 
          .setCheck(Number)                          //as string
          .setAlign(Blockly.ALIGN_RIGHT)             //right side
-         .appendTitle(Blockly.LKL_DECLARE_STRUCT)
-         .appendTitle(new Blockly.FieldTextInput('item'),'NAME')//put a text label
-         .appendTitle(Blockly.LKL_AS)
+         .appendField(Blockly.LKL_DECLARE_STRUCT)
+         .appendField(new Blockly.FieldTextInput('item'),'NAME')//put a text label
+         .appendField(Blockly.LKL_AS)
      // .appendField(new Blockly.FieldImage("../../media/Microduino/CoreUSB.png", 60, 90))
-         .appendTitle(new Blockly.FieldDropdown(FLIP), 'FLIP')//put a menu label
-         .appendTitle(Blockly.LKL_VALUE);
+         .appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')//put a menu label
+         .appendField(Blockly.LKL_VALUE);
     //this.appendStatementInput('DO')
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
@@ -86,11 +86,11 @@ Blockly.Blocks.Struct_Var_Definations = {
   init: function() {
     this.setColour(colorSet);  //module color
       this.appendValueInput("VARI")
-         .appendTitle(Blockly.STRUCT_CLASS)
-         .appendTitle(new Blockly.FieldTextInput('item'),'Struct_NAME')//put a text label
-         .appendTitle(Blockly.Struct_TEMP)
-         .appendTitle(new Blockly.FieldTextInput('ite_m'),'Struct_Member')//put a text label
-         .appendTitle(Blockly.Struct_IS);
+         .appendField(Blockly.STRUCT_CLASS)
+         .appendField(new Blockly.FieldTextInput('item'),'Struct_NAME')//put a text label
+         .appendField(Blockly.Struct_TEMP)
+         .appendField(new Blockly.FieldTextInput('ite_m'),'Struct_Member')//put a text label
+         .appendField(Blockly.Struct_IS);
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
 //    this.setTooltip("test");  
@@ -105,7 +105,7 @@ Blockly.Blocks.IntDefine = {
     this.setColour(colorSet);
 
     this.appendValueInput("intValue")
-    .appendTitle(Blockly.INT)
+    .appendField(Blockly.INT)
     .setCheck(Number)
     .appendField(new Blockly.FieldTextInput("i"), "intName");
 
@@ -119,7 +119,7 @@ Blockly.Blocks.BooleanDefine = {
     this.setColour(colorSet);
 
     this.appendValueInput("booleanValue")
-    .appendTitle(Blockly.BOOLEAN)
+    .appendField(Blockly.BOOLEAN)
     .setCheck(Boolean)
     .appendField(new Blockly.FieldTextInput("b"), "booleanName");
 
@@ -161,7 +161,7 @@ Blockly.Blocks.melodyBuzzer = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.BuzzerMelody)
+        .appendField(Blockly.BuzzerMelody)
         .appendField(new Blockly.FieldDropdown(melodyFraqance), 'melodyFraqance');
 
     this.setOutput(true, Number);
@@ -180,7 +180,7 @@ Blockly.Blocks.rhythmBuzzer = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.BuzzerMelody)
+        .appendField(Blockly.BuzzerMelody)
         .appendField(new Blockly.FieldDropdown(rhythmNumber), 'rhythmNumber');
 
     this.setOutput(true, Number);
@@ -194,7 +194,7 @@ Blockly.Blocks.nrfDataStructDefine = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.nrfDataStructDefine);
+        .appendField(Blockly.nrfDataStructDefine);
 
     this.appendStatementInput('DO');
     this.setPreviousStatement(true, null);    
@@ -221,11 +221,11 @@ Blockly.Blocks.nrfDataMemberDefine = {
     this.appendValueInput('VALUE') 
          .setCheck([Number,String])
          .setAlign(Blockly.ALIGN_RIGHT)
-         .appendTitle(Blockly.nrfDataMemberDefine)
-         .appendTitle(Blockly.nrfDataMemberType)
-         .appendTitle(new Blockly.FieldDropdown(FLIP), 'FLIP')
-         .appendTitle(Blockly.nrfDataMemberName)
-         .appendTitle(new Blockly.FieldTextInput('item'),'NAME');
+         .appendField(Blockly.nrfDataMemberDefine)
+         .appendField(Blockly.nrfDataMemberType)
+         .appendField(new Blockly.FieldDropdown(FLIP), 'FLIP')
+         .appendField(Blockly.nrfDataMemberName)
+         .appendField(new Blockly.FieldTextInput('item'),'NAME');
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
     //this.setInputsInline(true);
@@ -237,7 +237,7 @@ Blockly.Blocks.nrfDataSender = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-        .appendTitle(Blockly.nrfDataSender);
+        .appendField(Blockly.nrfDataSender);
 
     this.appendStatementInput('DO');
     this.setPreviousStatement(true, null);    
@@ -255,7 +255,7 @@ Blockly.Blocks.nrfDataMemberSender = {
     this.appendValueInput('VALUE') 
          .setCheck([Number,String])
          .setAlign(Blockly.ALIGN_RIGHT)
-         .appendTitle(Blockly.nrfDataMemberSender);
+         .appendField(Blockly.nrfDataMemberSender);
     this.setPreviousStatement(true, null);    
     this.setNextStatement(true, null);
     //this.setInputsInline(true);
@@ -267,8 +267,8 @@ Blockly.Blocks.nrfDataMemberReciver = {
   init: function() {
     this.setColour(colorSet);  //module color
     this.appendDummyInput("")
-         .appendTitle(Blockly.nrfDataMemberReciver)
-         .appendTitle(new Blockly.FieldTextInput('ite_m'),'Struct_Member');
+         .appendField(Blockly.nrfDataMemberReciver)
+         .appendField(new Blockly.FieldTextInput('ite_m'),'Struct_Member');
     // this.setPreviousStatement(true, null);    
     // this.setNextStatement(true, null);
 //    this.setTooltip("test");  

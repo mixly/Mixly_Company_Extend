@@ -12,12 +12,12 @@ Blockly.Blocks.nRF_Init = {
 
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.nRF_Init)
+         .appendField(Blockly.nRF_Init)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_nRF24.png", 45, 32))
-         .appendTitle(Blockly.nRF_Interval)
+         .appendField(Blockly.nRF_Interval)
          .appendField(new Blockly.FieldTextInput('200'), 'INTERVAL')
-         .appendTitle(Blockly.nRF_Channel)
-         .appendTitle(new Blockly.FieldTextInput('70'),'CHANNEL');
+         .appendField(Blockly.nRF_Channel)
+         .appendField(new Blockly.FieldTextInput('70'),'CHANNEL');
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -28,7 +28,7 @@ Blockly.Blocks.nRF_Send = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.nRF_Send)
+         .appendField(Blockly.nRF_Send)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_nRF24.png", 45, 32));
    // this.setInputsInline(true);
     this.appendStatementInput("DO");
@@ -41,11 +41,11 @@ Blockly.Blocks.nRF_Read = {
   init: function() {
     this.setColour(colorSet);
     this.appendDummyInput("")
-         .appendTitle(Blockly.nRF_Read)
+         .appendField(Blockly.nRF_Read)
          .appendField(new Blockly.FieldImage("../../media/Microduino/mCookie_nRF24.png", 45, 32));
-         // .appendTitle("#")
-         // .appendTitle(Blockly.Read_INFO)
-         // .appendTitle(new Blockly.FieldTextInput('Structure name'),'Struct_Name');
+         // .appendField("#")
+         // .appendField(Blockly.Read_INFO)
+         // .appendField(new Blockly.FieldTextInput('Structure name'),'Struct_Name');
    // this.setInputsInline(true);
    this.appendStatementInput("DO");
     this.setPreviousStatement(true);
