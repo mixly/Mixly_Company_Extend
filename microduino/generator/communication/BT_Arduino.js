@@ -6,7 +6,7 @@ goog.require('Blockly.Arduino');
 
 
 Blockly.Arduino.bluetoothMicroduinoBegin = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_Software'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_blueReciveInfo'] = 'String currentInfo="";';
 

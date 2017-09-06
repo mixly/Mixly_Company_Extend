@@ -98,7 +98,7 @@ Blockly.Arduino.mCookie_RTC_Second = function() {
 
 Blockly.Arduino.mCookie_RTC_Output = function() {
 
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
   var code='dateTime.'+getType;
   return [code, Blockly.Arduino.ORDER_ATOMIC]|| '0';
 };

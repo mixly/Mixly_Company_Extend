@@ -64,10 +64,10 @@ Blockly.Arduino.sense_rgbled = function() {
 }
 Blockly.Arduino.sense_traffic_led = function() {
 	Blockly.Arduino.definitions_['define_config'] = '#include <Config.h>';
-	var direction = this.getTitleValue('direction');
-	var stat_r = this.getTitleValue('stat_r');
-	var stat_y = this.getTitleValue('stat_y');
-	var stat_g = this.getTitleValue('stat_g');
+	var direction = this.getFieldValue('direction');
+	var stat_r = this.getFieldValue('stat_r');
+	var stat_y = this.getFieldValue('stat_y');
+	var stat_g = this.getFieldValue('stat_g');
 	Blockly.Arduino.setups_['setup_output_PIN_NORTH_LED_R'] = 'pinMode(PIN_NORTH_LED_R, OUTPUT);';
 	Blockly.Arduino.setups_['setup_output_PIN_NORTH_LED_Y'] = 'pinMode(PIN_NORTH_LED_Y, OUTPUT);';
 	Blockly.Arduino.setups_['setup_output_PIN_NORTH_LED_G'] = 'pinMode(PIN_NORTH_LED_G, OUTPUT);';
@@ -86,7 +86,7 @@ Blockly.Arduino.sense_traffic_led = function() {
 Blockly.Arduino.sense_buzzer = function() {
 	Blockly.Arduino.definitions_['define_config'] = '#include <Config.h>';
 	Blockly.Arduino.setups_['setup_output_PIN_BUZZER'] = 'pinMode(PIN_BUZZER, OUTPUT);';
-	var stat = this.getTitleValue('stat');
+	var stat = this.getFieldValue('stat');
 	var code='digitalWrite(PIN_BUZZER, '+stat+');\n';
 	return code;
 }
@@ -190,7 +190,7 @@ Blockly.Arduino.sense_ir = function() {
 	Blockly.Arduino.definitions_['define_config'] = '#include <Config.h>';
 	Blockly.Arduino.definitions_['var_ir_recv_PIN_INFRARED'] = 'IRrecv sense_irrecv(PIN_INFRARED);\ndecode_results sense_results;\n';
     Blockly.Arduino.setups_['setup_ir_recv_PIN_INFRARED'] = 'sense_irrecv.enableIRIn();';
-	var variable = Blockly.Arduino.variableDB_.getName(this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
+	var variable = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 	var branch = Blockly.Arduino.statementToCode(this, 'DO');
 	var code="if (sense_irrecv.decode(&sense_results)) {\n"
     code += '  '+variable+'=sense_results.value;\n';
@@ -213,7 +213,7 @@ Blockly.Arduino.sense_button = function() {
 	Blockly.Arduino.setups_['setup_input_PIN_BT_LEFT'] = 'pinMode(PIN_BT_LEFT, INPUT);';
 	Blockly.Arduino.setups_['setup_input_PIN_BT_RIGHT'] = 'pinMode(PIN_BT_RIGHT, INPUT);';
 	Blockly.Arduino.setups_['setup_input_PIN_BT_MID'] = 'pinMode(PIN_BT_MID, INPUT);';
-	var stat = this.getTitleValue('stat');
+	var stat = this.getFieldValue('stat');
 	var code='!digitalRead(PIN_BT_'+stat+')';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
 }

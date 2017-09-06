@@ -15,7 +15,7 @@ function hexToRgb(hex) {
 
 Blockly.Arduino.ruilong_lamp = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN',Blockly.Arduino.ORDER_ATOMIC);
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_stat = this.getFieldValue('STAT');
   var code = "";
   if(window.isNaN(dropdown_pin)){
     code = code+'pinMode('+dropdown_pin+', OUTPUT);\n';
@@ -104,7 +104,7 @@ Blockly.Arduino.ruilong_lcd_print = function() {
 };
 
 Blockly.Arduino.ruilong_lcd_power = function() {
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_stat = this.getFieldValue('STAT');
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_df_lcd'] = '#include <LiquidCrystal_I2C.h>';
   Blockly.Arduino.definitions_['var_df_lcd'] = 'LiquidCrystal_I2C df_lcd(0x20,16,2);';

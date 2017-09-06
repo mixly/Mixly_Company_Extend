@@ -19,7 +19,7 @@ return code;
 
 
 Blockly.Arduino.BuzzerToneMelody = function() {
-	var buzzerMelody = this.getTitleValue('buzzerMelody');
+	var buzzerMelody = this.getFieldValue('buzzerMelody');
 	var BuzzerPin = Blockly.Arduino.valueToCode(this, 'BuzzerPin', Blockly.Arduino.ORDER_ATOMIC)
 	Blockly.Arduino.definitions_['define_BuzzerPin'+BuzzerPin] = '#define BuzzerPin'+BuzzerPin+' '+BuzzerPin;
 
@@ -33,7 +33,7 @@ Blockly.Arduino.BuzzerToneMelody = function() {
 
 
 Blockly.Arduino.BuzzerToneSong = function() {
-	var buzzerSong = this.getTitleValue('buzzerSong');
+	var buzzerSong = this.getFieldValue('buzzerSong');
 	var BuzzerPin = Blockly.Arduino.valueToCode(this, 'BuzzerPin', Blockly.Arduino.ORDER_ATOMIC);
 	Blockly.Arduino.definitions_['define_BuzzerPin'+BuzzerPin] = '#define BuzzerPin'+BuzzerPin+' '+BuzzerPin;
 	

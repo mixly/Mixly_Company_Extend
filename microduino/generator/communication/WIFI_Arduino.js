@@ -188,7 +188,7 @@ Blockly.Arduino.BLYNK_WRITE = function() {
 };
 
 Blockly.Arduino.BLYNKParamOne = function() {
-  var paramType = this.getTitleValue('paramType');
+  var paramType = this.getFieldValue('paramType');
   var code='';
   code+='param.'+paramType;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -197,7 +197,7 @@ Blockly.Arduino.BLYNKParamOne = function() {
 
 Blockly.Arduino.BLYNKParamArray = function() {
   var paramNum = Blockly.Arduino.valueToCode(this, 'paramNum', Blockly.Arduino.ORDER_ATOMIC)
-  var paramType = this.getTitleValue('paramType');
+  var paramType = this.getFieldValue('paramType');
   var code='';
   code+='param['+paramNum+'].'+paramType;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -207,8 +207,8 @@ Blockly.Arduino.WiFiBlynkTimer = function() {
 
   var branch = Blockly.Arduino.statementToCode(this, 'blynkTimerDoing');
   Blockly.Arduino.definitions_['BlynkTimerInclude'] = '#include <SimpleTimer.h>';
-  var timerName = this.getTitleValue('timerName');
-  var duration = this.getTitleValue('duration');
+  var timerName = this.getFieldValue('timerName');
+  var duration = this.getFieldValue('duration');
   
   Blockly.Arduino.definitions_['BlynkTimerDefine'+timerName] = 'SimpleTimer '+timerName+'Timer;';
 

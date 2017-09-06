@@ -52,7 +52,7 @@ Blockly.Arduino.serialPrintln = function() {
 
 
 Blockly.Arduino.microduinoAnaloyWrite = function() {
-  var mCookie_pwmPin = this.getTitleValue('mCookie_pwmPin');
+  var mCookie_pwmPin = this.getFieldValue('mCookie_pwmPin');
   var pwmNumber = Blockly.Arduino.valueToCode(this, 'pwmNumber', Blockly.Arduino.ORDER_ATOMIC)
 
   var code='';
@@ -86,12 +86,12 @@ Blockly.Arduino.microduinoWhile = function() {
 Blockly.Arduino.microduinoFor = function() {
   // For loop.
   var variable0 = Blockly.Arduino.variableDB_.getName(
-      this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
+      this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Arduino.valueToCode(this, 'FROM',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var argument1 = Blockly.Arduino.valueToCode(this, 'TO',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var step =  window.parseFloat(this.getTitleValue('STEP'));
+  var step =  window.parseFloat(this.getFieldValue('STEP'));
   var branch = Blockly.Arduino.statementToCode(this, 'DO');
   if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
     branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
@@ -127,7 +127,7 @@ Blockly.Arduino.microduinoAnaloyRead = function() {
 
 
 Blockly.Arduino.microduinoSerailAvailable = function() {
-  var serailType = this.getTitleValue('serailType');
+  var serailType = this.getFieldValue('serailType');
 
 
   var code='';

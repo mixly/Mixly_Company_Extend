@@ -32,7 +32,7 @@ Blockly.Arduino.seeed_servo_read_degrees = function() {
 
 Blockly.Arduino.seeed_led = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN',Blockly.Arduino.ORDER_ATOMIC);
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_stat = this.getFieldValue('STAT');
   Blockly.Arduino.setups_['setup_output_'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
   var code = 'digitalWrite('+dropdown_pin+','+dropdown_stat+');\n'
   return code;
@@ -101,7 +101,7 @@ Blockly.Arduino.grove_serial_lcd_setrgb = function() {
 };
 
 Blockly.Arduino.grove_serial_lcd_power = function() {
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_stat = this.getFieldValue('STAT');
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_rgb_lcd'] = '#include <rgb_lcd.h>';
   Blockly.Arduino.definitions_['var_lcd_rgb'] = 'rgb_lcd lcd;';

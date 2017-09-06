@@ -16,7 +16,7 @@ Blockly.Arduino.mbot_move = function() {
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
 	Blockly.Arduino.definitions_['var_MeDCMotor_motor'] = 'MeDCMotor motor(0);';//
-	var direction = this.getTitleValue('direction');
+	var direction = this.getFieldValue('direction');
 	var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var code="motor.move("+direction+","+speed+");\n";
 	return code;
@@ -33,7 +33,7 @@ Blockly.Arduino.mbot_motor = function() {
 	Blockly.Arduino.definitions_['define_MeDCMotor'] = '#include "MeDCMotor.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var port = this.getTitleValue('PORT');
+	var port = this.getFieldValue('PORT');
 	Blockly.Arduino.definitions_['var_MeDCMotor_motor_'+port] = 'MeDCMotor motor_'+port+'('+port+');';//
 	var speed=Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var code='motor_'+port+'.run(('+port+')==M1?-('+speed+'):('+speed+'));\n';
@@ -50,8 +50,8 @@ Blockly.Arduino.mbot_servo_move = function() {
 	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var port = this.getTitleValue('PIN');
-	var slot = this.getTitleValue('PIN2');
+	var port = this.getFieldValue('PIN');
+	var slot = this.getFieldValue('PIN2');
 	Blockly.Arduino.definitions_['var_Servo_servo_'+port+'_'+slot] = 'Servo servo_'+port+'_'+slot+';';//
 	Blockly.Arduino.definitions_['var_MePort_port_'+port] = 'MePort port_'+port+'('+port+');';//
 	var DEGREE=Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC) || '0';
@@ -70,8 +70,8 @@ Blockly.Arduino.mbot_led = function() {
 	Blockly.Arduino.definitions_['define_MeRGBLed'] = '#include "MeRGBLed.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var pin1 = this.getTitleValue('PIN');
-	var pin2 = this.getTitleValue('PIN2');
+	var pin1 = this.getFieldValue('PIN');
+	var pin2 = this.getFieldValue('PIN2');
 	Blockly.Arduino.definitions_['var_MeRGBLed_rgbled_'+pin1] = 'MeRGBLed rgbled_'+pin1+'('+pin1+');';//
 	var R=Blockly.Arduino.valueToCode(this, 'R', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var G=Blockly.Arduino.valueToCode(this, 'G', Blockly.Arduino.ORDER_ATOMIC) || '0';
@@ -124,7 +124,7 @@ Blockly.Arduino.mbot_showface_text = function() {
 	Blockly.Arduino.definitions_['define_MeLEDMatrix'] = '#include "MeLEDMatrix.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var pin = this.getTitleValue('PIN');
+	var pin = this.getFieldValue('PIN');
 	Blockly.Arduino.definitions_['var_MeLEDMatrix_ledMtx_'+pin] = 'MeLEDMatrix ledMtx_'+pin+'('+pin+');';//
 	var x=Blockly.Arduino.valueToCode(this, 'x', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var y=Blockly.Arduino.valueToCode(this, 'y', Blockly.Arduino.ORDER_ATOMIC) || '0';
@@ -145,7 +145,7 @@ Blockly.Arduino.mbot_showface_time = function() {
 	Blockly.Arduino.definitions_['define_MeLEDMatrix'] = '#include "MeLEDMatrix.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var pin = this.getTitleValue('PIN');
+	var pin = this.getFieldValue('PIN');
 	Blockly.Arduino.definitions_['var_MeLEDMatrix_ledMtx_'+pin] = 'MeLEDMatrix ledMtx_'+pin+'('+pin+');';//
 	var h=Blockly.Arduino.valueToCode(this, 'h', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var m=Blockly.Arduino.valueToCode(this, 'm', Blockly.Arduino.ORDER_ATOMIC) || '0';
@@ -163,7 +163,7 @@ Blockly.Arduino.mbot_display = function() {
 	Blockly.Arduino.definitions_['define_Me7SegmentDisplay'] = '#include <Me7SegmentDisplay.h>';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var pin = this.getTitleValue('PIN');
+	var pin = this.getFieldValue('PIN');
 	Blockly.Arduino.definitions_['var_Me7SegmentDisplay_seg7_'+pin] = 'Me7SegmentDisplay seg7_'+pin+'('+pin+');';//
 	var value=Blockly.Arduino.valueToCode(this, 'value', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var code='seg7_'+pin+'.display((double)'+value+');\n';
@@ -180,9 +180,9 @@ Blockly.Arduino.mbot_set_light_senser_led = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var pin = this.getTitleValue('PIN');
+	var pin = this.getFieldValue('PIN');
 	Blockly.Arduino.definitions_['var_MePort_lightsensor_'+pin] = 'MePort lightsensor_'+pin+'('+pin+');';//
-	var stat=this.getTitleValue('STAT');
+	var stat=this.getFieldValue('STAT');
 	var code='lightsensor_'+pin+'.dWrite1('+stat+');\n';
 	return code;
 }
@@ -198,9 +198,9 @@ Blockly.Arduino.mbot_set_camera = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var pin = this.getTitleValue('PIN');
+	var pin = this.getFieldValue('PIN');
 	Blockly.Arduino.definitions_['var_MePort_shutter_'+pin] = 'MePort shutter_'+pin+'('+pin+');';//
-	var stat = this.getTitleValue('STAT');
+	var stat = this.getFieldValue('STAT');
 	var code='shutter_'+pin+'.dWrite1('+stat+');\n';
 	return code;
 }
@@ -216,7 +216,7 @@ Blockly.Arduino.mbot_light_sensor = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
+	var PORT = this.getFieldValue('PORT');
 	Blockly.Arduino.definitions_['var_MePort_lightsensor_'+PORT] = 'MePort lightsensor_'+PORT+'('+PORT+');';//
 	var code='lightsensor_'+PORT+'.aRead2()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -233,7 +233,7 @@ Blockly.Arduino.mbot_button = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var STAT = this.getTitleValue('STAT');
+	var STAT = this.getFieldValue('STAT');
 	var code='('+STAT+'^(analogRead(A7)>10?0:1))';
 	Blockly.Arduino.setups_['setup_input_A7'] = 'pinMode(A7,INPUT);';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -250,7 +250,7 @@ Blockly.Arduino.mbot_chaoshengbo = function() {
 	Blockly.Arduino.definitions_['define_MeUltrasonic'] = '#include "MeUltrasonic.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
+	var PORT = this.getFieldValue('PORT');
 	Blockly.Arduino.definitions_['var_MeUltrasonic_ultrasonic_'+PORT] = 'MeUltrasonic ultrasonic_'+PORT+'('+PORT+');';//
 	var code="ultrasonic_"+PORT+".distanceCm()";
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -267,7 +267,7 @@ Blockly.Arduino.mbot_line_follower = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
+	var PORT = this.getFieldValue('PORT');
 	Blockly.Arduino.definitions_['var_MePort_linefollower_'+PORT] = 'MePort linefollower_'+PORT+'('+PORT+');';//
 	var code='linefollower_'+PORT+'.dRead1()*2+linefollower_'+PORT+'.dRead2()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -284,8 +284,8 @@ Blockly.Arduino.mbot_joystick = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
-	var axis = this.getTitleValue('axis');
+	var PORT = this.getFieldValue('PORT');
+	var axis = this.getFieldValue('axis');
 	Blockly.Arduino.definitions_['var_MePort_joystick_'+PORT] = 'MePort joystick_'+PORT+'('+PORT+');';//
 	var code='joystick_'+PORT+'.aRead'+axis+'()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -302,7 +302,7 @@ Blockly.Arduino.mbot_potentiometer = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
+	var PORT = this.getFieldValue('PORT');
 	Blockly.Arduino.definitions_['var_MePort_potentiometer_'+PORT] = 'MePort potentiometer_'+PORT+'('+PORT+');';//
 	var code='potentiometer_'+PORT+'.aRead2()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -319,7 +319,7 @@ Blockly.Arduino.mbot_sound_sensor = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
+	var PORT = this.getFieldValue('PORT');
 	Blockly.Arduino.definitions_['var_MePort_soundsensor_'+PORT] = 'MePort soundsensor_'+PORT+'('+PORT+');';//
 	var code='soundsensor_'+PORT+'.aRead2()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -336,8 +336,8 @@ Blockly.Arduino.mbot_limit_switch = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
-	var SLOT = this.getTitleValue('SLOT');
+	var PORT = this.getFieldValue('PORT');
+	var SLOT = this.getFieldValue('SLOT');
 	Blockly.Arduino.definitions_['var_MePort_sw_'+PORT+'_'+SLOT] = 'MePort sw_'+PORT+'_'+SLOT+'('+PORT+');';//
 	var code='sw_'+PORT+'_'+SLOT+'.dpRead'+SLOT+'()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -354,8 +354,8 @@ Blockly.Arduino.mbot_temperature = function() {
 	Blockly.Arduino.definitions_['define_MeTemperature'] = '#include "MeTemperature.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
-	var SLOT = this.getTitleValue('SLOT');
+	var PORT = this.getFieldValue('PORT');
+	var SLOT = this.getFieldValue('SLOT');
 	Blockly.Arduino.definitions_['var_MeTemperature_temperature_'+PORT+'_'+SLOT] = 'MeTemperature temperature_'+PORT+'_'+SLOT+'('+PORT+','+SLOT+');';//
 	var code='temperature_'+PORT+'_'+SLOT+'.temperature()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -372,7 +372,7 @@ Blockly.Arduino.mbot_pir_motion_sensor = function() {
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getTitleValue('PORT');
+	var PORT = this.getFieldValue('PORT');
 	Blockly.Arduino.definitions_['var_MePort_pir_'+PORT] = 'MePort pir_'+PORT+'('+PORT+');';//
 	var code='pir_'+PORT+'.aRead2()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -389,7 +389,7 @@ Blockly.Arduino.mbot_ir_remote = function() {
 	Blockly.Arduino.definitions_['define_MeIR'] = '#include "MeIR.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var btn = this.getTitleValue('btn');
+	var btn = this.getFieldValue('btn');
 	Blockly.Arduino.definitions_['var_MeIR_ir'] = 'MeIR ir;';//
 	Blockly.Arduino.setups_['setup_ir_begin'] = 'ir.begin();';
 	//var code='ir.keyPressed('+btn+');\nir.loop()';

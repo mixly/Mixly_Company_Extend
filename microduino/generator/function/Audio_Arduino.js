@@ -5,9 +5,9 @@ goog.provide('Blockly.Arduino.Microduino');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.mCookie_Audio_Serial = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var DEVICE = this.getTitleValue('PIN1');
-  var MODE = this.getTitleValue('PIN2');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var DEVICE = this.getFieldValue('PIN1');
+  var MODE = this.getFieldValue('PIN2');
   var Volce = Blockly.Arduino.valueToCode(this, 'Vol', Blockly.Arduino.ORDER_ATOMIC);
 
   Blockly.Arduino.definitions_['define_Software'] = '#include <SoftwareSerial.h>\n';
@@ -61,7 +61,7 @@ Blockly.Arduino.mCookie_Audio_VolDown = function() {
 
 Blockly.Arduino.mCookie_Audio_Control = function() {
 
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
 
   var code='AUDIO.'+getType+';';
 

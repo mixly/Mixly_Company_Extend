@@ -158,8 +158,8 @@ Blockly.Arduino.microduinoCarControl = function() {
 
 
 // Blockly.Arduino.mCookie_bluetooth_Robot_Direction = function() {
-//   var dropdown_pin = this.getTitleValue('PIN')
-//   var BLE_Run_stye = this.getTitleValue('direction')
+//   var dropdown_pin = this.getFieldValue('PIN')
+//   var BLE_Run_stye = this.getFieldValue('direction')
 //   var code='BLE_Joystick('+BLE_Run_stye+')';
 
 //   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';

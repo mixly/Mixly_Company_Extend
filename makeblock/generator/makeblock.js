@@ -5,8 +5,8 @@ goog.provide('Blockly.Arduino.makeblock');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.mb_servo_move = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var dropdown_pin2 = this.getTitleValue('PIN2');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_pin2 = this.getFieldValue('PIN2');
   var value_degree = Blockly.Arduino.valueToCode(this, 'DEGREE', Blockly.Arduino.ORDER_ATOMIC);
   var delay_time = Blockly.Arduino.valueToCode(this, 'DELAY_TIME', Blockly.Arduino.ORDER_ATOMIC) || '0'
   Blockly.Arduino.definitions_['define_servo'] = '#include <Servo.h>';
@@ -21,7 +21,7 @@ Blockly.Arduino.mb_servo_move = function() {
 };
 
 Blockly.Arduino.mb_bluetooth_readString = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -32,7 +32,7 @@ Blockly.Arduino.mb_bluetooth_readString = function() {
 };
 
 Blockly.Arduino.mb_bluetooth_available = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -43,7 +43,7 @@ Blockly.Arduino.mb_bluetooth_available = function() {
 };
 
 Blockly.Arduino.mb_display = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var num = Blockly.Arduino.valueToCode(this, 'num',Blockly.Arduino.ORDER_ATOMIC) || '0';
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
@@ -56,7 +56,7 @@ Blockly.Arduino.mb_display = function() {
 };
 
 Blockly.Arduino.mb_motor = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var speed = Blockly.Arduino.valueToCode(this, 'speed',Blockly.Arduino.ORDER_ATOMIC) || '0';
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
@@ -67,7 +67,7 @@ Blockly.Arduino.mb_motor = function() {
 };
 
 Blockly.Arduino.mb_sound = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -77,8 +77,8 @@ Blockly.Arduino.mb_sound = function() {
 };
 
 Blockly.Arduino.mb_temperature = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var dropdown_pin2 = this.getTitleValue('PIN2');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_pin2 = this.getFieldValue('PIN2');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -89,8 +89,8 @@ Blockly.Arduino.mb_temperature = function() {
 };
 
 Blockly.Arduino.mb_joystick = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_stat = this.getFieldValue('STAT');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -100,7 +100,7 @@ Blockly.Arduino.mb_joystick = function() {
 };
 
 Blockly.Arduino.mb_potentiometer = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -110,7 +110,7 @@ Blockly.Arduino.mb_potentiometer = function() {
 };
 
 Blockly.Arduino.mb_pyroelectric_infrared = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -120,8 +120,8 @@ Blockly.Arduino.mb_pyroelectric_infrared = function() {
 };
 
 Blockly.Arduino.mb_chaoshengbo = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var dropdown_pin2 = this.getTitleValue('PIN2');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_pin2 = this.getFieldValue('PIN2');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -131,7 +131,7 @@ Blockly.Arduino.mb_chaoshengbo = function() {
 };
 
 Blockly.Arduino.mb_light_grayscale = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';
@@ -141,8 +141,8 @@ Blockly.Arduino.mb_light_grayscale = function() {
 };
 
 Blockly.Arduino.mb_light_grayscale_led = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_stat = this.getFieldValue('STAT');
   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_makeblock'] = '#include <Makeblock.h>';

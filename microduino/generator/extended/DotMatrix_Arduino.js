@@ -132,7 +132,7 @@ Blockly.Arduino.DotMatrixRow = function() {
 Blockly.Arduino.DotMatrixAddArray = function() {
 
 
-  //var size=window.parseFloat(this.getTitleValue('SIZE'));
+  //var size=window.parseFloat(this.getFieldValue('SIZE'));
   var code = new Array(this.itemCount_);
   for (var n = 0; n < this.itemCount_; n++) {
     code[n] = Blockly.Arduino.valueToCode(this, 'ADD' + n,
@@ -161,7 +161,7 @@ Blockly.Arduino.DotMatrixAddArray = function() {
 
 Blockly.Arduino.DotMatrixAddNum = function() {
   var addInput = Blockly.Arduino.valueToCode(this, 'addInput', Blockly.Arduino.ORDER_ATOMIC) || '';
-  var thisNum=this.getTitleValue('NUM');
+  var thisNum=this.getFieldValue('NUM');
   var code = '';
   code +=thisNum;
   if(addInput!='') {

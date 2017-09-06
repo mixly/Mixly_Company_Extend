@@ -5,7 +5,7 @@ goog.provide('Blockly.Arduino.Microduino');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.Zigbee_AT = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_Software'] = '#include <SoftwareSerial.h>';
   if(dropdown_pin=='Serial'||dropdown_pin=='Serial1')
   Blockly.Arduino.definitions_['define_mySerial'] = '#define my_Serial '+dropdown_pin+'';
@@ -43,7 +43,7 @@ Blockly.Arduino.Zigbee_AT = function() {
 };
 
 Blockly.Arduino.Zigbee_Init = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var BRate = Blockly.Arduino.valueToCode(this, 'BRate', Blockly.Arduino.ORDER_ATOMIC)
   Blockly.Arduino.definitions_['define_SoftwareSerials'] = '#include <SoftwareSerial.h>';
 

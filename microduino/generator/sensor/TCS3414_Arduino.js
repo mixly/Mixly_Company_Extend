@@ -39,7 +39,7 @@ Blockly.Arduino.ColorDetPrepare_TCS3414 = function() {
 
 
 Blockly.Arduino.ColorGet_TCS3414 = function() {
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
   var code=getType;
 
   return [code, Blockly.Arduino.ORDER_ATOMIC];

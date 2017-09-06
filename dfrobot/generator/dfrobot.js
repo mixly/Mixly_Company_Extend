@@ -5,7 +5,7 @@ goog.provide('Blockly.Arduino.dfrobot');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.df_romeo_motor=function(){
-   var dropdown_pin = this.getTitleValue('PIN');
+   var dropdown_pin = this.getFieldValue('PIN');
    var speed = Blockly.Arduino.valueToCode(this, 'speed',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
    var code='setRomeoMotor('+dropdown_pin+', '+speed+');\n';
@@ -47,7 +47,7 @@ Blockly.Arduino.df_romeo_motor=function(){
 };
 
 Blockly.Arduino.df_romeo_motor_stop=function(){
-   var dropdown_pin = this.getTitleValue('PIN');
+   var dropdown_pin = this.getFieldValue('PIN');
    var code='setRomeoMotor('+dropdown_pin+', 0);\n';
    Blockly.Arduino.setups_['setup_output_4'] = 'pinMode(4, OUTPUT);';
    Blockly.Arduino.setups_['setup_output_5'] = 'pinMode(5, OUTPUT);';
@@ -88,7 +88,7 @@ Blockly.Arduino.df_romeo_motor_stop=function(){
 
 Blockly.Arduino.df_led = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN',Blockly.Arduino.ORDER_ATOMIC);
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_stat = this.getFieldValue('STAT');
   Blockly.Arduino.setups_['setup_output_'+dropdown_pin] = 'pinMode('+dropdown_pin+', OUTPUT);';
   var code = 'digitalWrite('+dropdown_pin+','+dropdown_stat+');\n'
   return code;
@@ -177,7 +177,7 @@ Blockly.Arduino.df_lcd_print = function() {
 };
 
 Blockly.Arduino.df_lcd_power = function() {
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_stat = this.getFieldValue('STAT');
   Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['define_df_lcd'] = '#include <LiquidCrystal_I2C.h>';
   Blockly.Arduino.definitions_['var_df_lcd'] = 'LiquidCrystal_I2C df_lcd(0x20,16,2);';

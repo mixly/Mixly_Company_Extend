@@ -23,7 +23,7 @@ Blockly.Arduino.IRSenderRaw = function() {
   Blockly.Arduino.definitions_['var_ir_send'] = 'IRsend irsend;\n';
   var length = Blockly.Arduino.valueToCode(this, 'length',Blockly.Arduino.ORDER_ATOMIC) || '0';
   var freq = Blockly.Arduino.valueToCode(this, 'freq',Blockly.Arduino.ORDER_ATOMIC) || '0';
-  var text = this.getTitleValue('TEXT');
+  var text = this.getFieldValue('TEXT');
   var code='unsigned int buf_raw['+length+']={'+text+'};\n'
   code=code+'irsend.sendRaw(buf_raw,'+length+','+freq+');\n';
   return code;
@@ -31,7 +31,7 @@ Blockly.Arduino.IRSenderRaw = function() {
 };
 
 Blockly.Arduino.IRReciver = function() {
-   var variable = Blockly.Arduino.variableDB_.getName(this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
+   var variable = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
    Blockly.Arduino.definitions_['var_declare'+variable] = 'long '+variable+';';
    var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN',Blockly.Arduino.ORDER_ATOMIC);
    var branch = Blockly.Arduino.statementToCode(this, 'DO');

@@ -7,7 +7,7 @@ goog.require('Blockly.Arduino');
 
 Blockly.Arduino.microduinoCrash = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 
   //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
   var code='';
@@ -23,7 +23,7 @@ Blockly.Arduino.microduinoCrash = function() {
 
 Blockly.Arduino.microduinoTuch = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 
   //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
   var code='';
@@ -39,7 +39,7 @@ Blockly.Arduino.microduinoTuch = function() {
 
 Blockly.Arduino.microduinoPIR = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 
   //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
   var code='';
@@ -55,7 +55,7 @@ Blockly.Arduino.microduinoPIR = function() {
 
 Blockly.Arduino.microduinoMic = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
 
   var code='';
@@ -70,7 +70,7 @@ Blockly.Arduino.microduinoMic = function() {
 
 Blockly.Arduino.microduinoLight = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 
 
   //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';

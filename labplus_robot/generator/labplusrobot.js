@@ -21,7 +21,7 @@ Blockly.Arduino.labplusrobot_movement = function() {
 	Blockly.Arduino.definitions_['var_byte_proess_count'] = 'byte proess_count;';
 	Blockly.Arduino.definitions_['var_Adafruit_8x16matrix_matrix'] = 'Adafruit_8x16matrix  matrix = Adafruit_8x16matrix();';
 	Blockly.Arduino.setups_['setup_hal_init'] = 'Hal_Init();';
-	var STAT = this.getTitleValue('STAT');
+	var STAT = this.getFieldValue('STAT');
 	var code='blu_'+STAT+'();\n';
 	return code;
 }
@@ -45,7 +45,7 @@ Blockly.Arduino.labplusrobot_turn = function() {
 	Blockly.Arduino.definitions_['var_byte_proess_count'] = 'byte proess_count;';
 	Blockly.Arduino.definitions_['var_Adafruit_8x16matrix_matrix'] = 'Adafruit_8x16matrix  matrix = Adafruit_8x16matrix();';
 	Blockly.Arduino.setups_['setup_hal_init'] = 'Hal_Init();';
-	var STAT = this.getTitleValue('STAT');
+	var STAT = this.getFieldValue('STAT');
 	var degree = Blockly.Arduino.valueToCode(this, 'degree', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var code=STAT+'_anyAngle('+degree+');\n';
 	return code;
@@ -70,7 +70,7 @@ Blockly.Arduino.labplusrobot_display = function() {
 	Blockly.Arduino.definitions_['var_byte_proess_count'] = 'byte proess_count;';
 	Blockly.Arduino.definitions_['var_Adafruit_8x16matrix_matrix'] = 'Adafruit_8x16matrix  matrix = Adafruit_8x16matrix();';
 	Blockly.Arduino.setups_['setup_hal_init'] = 'Hal_Init();';
-	var STAT = this.getTitleValue('STAT');
+	var STAT = this.getFieldValue('STAT');
 	var code='blu_display_'+STAT+'();\n';
 	return code;
 }
@@ -94,7 +94,7 @@ Blockly.Arduino.labplusrobot_led_top = function() {
 	Blockly.Arduino.definitions_['var_byte_proess_count'] = 'byte proess_count;';
 	Blockly.Arduino.definitions_['var_Adafruit_8x16matrix_matrix'] = 'Adafruit_8x16matrix  matrix = Adafruit_8x16matrix();';
 	Blockly.Arduino.setups_['setup_hal_init'] = 'Hal_Init();';
-	var STAT = this.getTitleValue('STAT');
+	var STAT = this.getFieldValue('STAT');
 	var code='blu_buttLED_'+STAT+'();\n';
 	return code;
 }

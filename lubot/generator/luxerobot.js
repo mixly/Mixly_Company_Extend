@@ -3,7 +3,7 @@ goog.provide('Blockly.Arduino.luxerobot');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.luxerobot_on_off = function() {
-  var code = this.getTitleValue('STAT');
+  var code = this.getFieldValue('STAT');
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -13,40 +13,40 @@ Blockly.Arduino.luxerobot_motor_dir=Blockly.Arduino.luxerobot_on_off;
 Blockly.Arduino.luxerobot_notes=Blockly.Arduino.luxerobot_on_off;
 
 Blockly.Arduino.luxerobot_led = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_stat = this.getFieldValue('STAT');
   var code = dropdown_pin+"."+dropdown_stat+"();\n";
   return code;
 };
 
 Blockly.Arduino.luxerobot_led_change = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var code = dropdown_pin+".change();\n";
   return code;
 };
 
 Blockly.Arduino.luxerobot_motor = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var value_num = Blockly.Arduino.valueToCode(this, 'STAT', Blockly.Arduino.ORDER_ATOMIC);
   var code = dropdown_pin+'.setSpeed('+value_num+');\n';
   return code;
 };
 
 Blockly.Arduino.luxerobot_motor2 = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var dropdown_stat = this.getFieldValue('STAT');
   var code = dropdown_pin+'.setDirection('+dropdown_stat+');\n'
   return code;
 };
 
 Blockly.Arduino.luxerobot_motor_change_dir = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var code = dropdown_pin+'.changeDirection();\n'
   return code;
 };
 
 Blockly.Arduino.luxerobot_motor_stop = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var code = dropdown_pin+'.stop();\n'
   return code;
 };

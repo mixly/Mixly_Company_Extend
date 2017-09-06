@@ -7,7 +7,7 @@ goog.require('Blockly.Arduino');
 
 Blockly.Arduino.audioProPrepare = function() {
 
-	var getType = this.getTitleValue('getType');
+	var getType = this.getFieldValue('getType');
 
 	var audioProDefine='';
 	audioProDefine+='#include <SPI.h>\n';
@@ -102,14 +102,14 @@ Blockly.Arduino.audioProPrepare = function() {
 };
 
 Blockly.Arduino.audioProInstrument = function() {
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
   var code='midiSetInstrument(0, '+getType+');\n';
   return code;
 };
 
 Blockly.Arduino.audioProControl = function() {
 
-	var getType = this.getTitleValue('getType');
+	var getType = this.getFieldValue('getType');
 
 
 	var audioProMelody = Blockly.Arduino.valueToCode(this, 'audioProMelody', Blockly.Arduino.ORDER_ATOMIC);

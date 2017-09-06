@@ -6,7 +6,7 @@ goog.require('Blockly.Arduino');
 
 
 Blockly.Arduino.Microduino_ir_remote_begin = function() {
-var btn_ir = this.getTitleValue('btn');
+var btn_ir = this.getFieldValue('btn');
 var ir_r_Pin = Blockly.Arduino.valueToCode(this, 'Pin', Blockly.Arduino.ORDER_ATOMIC)|| '0';
 Blockly.Arduino.definitions_['IRremote'] = '#include <IRremote.h>';
 Blockly.Arduino.definitions_['RECV_PIN'] = 'IRrecv irrecv('+ir_r_Pin+');';
@@ -23,7 +23,7 @@ return [code, Blockly.Arduino.ORDER_ATOMIC]||'0';
 };
 
 Blockly.Arduino.Microduino_ir_remote = function() {
-var btn_ir = this.getTitleValue('btn');
+var btn_ir = this.getFieldValue('btn');
 Blockly.Arduino.definitions_['IRremote'] = '#include <IRremote.h>';
 Blockly.Arduino.definitions_['results'] = 'decode_results results;\n';
 //Blockly.Arduino.setups_['setup_mCookie_Serial'] = 'Serial.begin(9600);';

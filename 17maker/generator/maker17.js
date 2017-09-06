@@ -85,7 +85,7 @@ Blockly.Arduino.maker17_LM35temp = function() {
 
 //执行器-电机转动
 Blockly.Arduino.maker17_motor = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var code = 'setRomeoMotor(' + dropdown_pin + ', ' + speed + ');\n';
   Blockly.Arduino.setups_['setup_output_4'] = 'pinMode(4, OUTPUT);';
@@ -104,7 +104,7 @@ Blockly.Arduino.maker17_motor = function() {
 
 //执行器-电机停止
 Blockly.Arduino.maker17_motor_stop = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var code = 'setRomeoMotor(' + dropdown_pin + ', 0);\n';
   Blockly.Arduino.setups_['setup_output_4'] = 'pinMode(4, OUTPUT);';
   Blockly.Arduino.setups_['setup_output_5'] = 'pinMode(5, OUTPUT);';
@@ -425,8 +425,8 @@ Blockly.Arduino.maker17_oled_page = function() {
 Blockly.Arduino.maker17_oled_showBitmap = function() {
   var start_x = Blockly.Arduino.valueToCode(this, 'START_X', Blockly.Arduino.ORDER_ATOMIC);
   var start_y = Blockly.Arduino.valueToCode(this, 'START_Y', Blockly.Arduino.ORDER_ATOMIC);
-  var Height = this.getTitleValue('HEIGHT');
-  var WIDTH = this.getTitleValue('WIDTH');
+  var Height = this.getFieldValue('HEIGHT');
+  var WIDTH = this.getFieldValue('WIDTH');
   var data_name = Blockly.Arduino.valueToCode(this, 'bitmap_name', Blockly.Arduino.ORDER_ATOMIC);
   data_name = data_name.replace(/\"/g, ""); //过滤引号
   var code = "";
@@ -479,7 +479,7 @@ Blockly.Arduino.maker17_oled_draw_Str_Line = function() {
   var start_x = Blockly.Arduino.valueToCode(this, 'START_X', Blockly.Arduino.ORDER_ATOMIC);
   var start_y = Blockly.Arduino.valueToCode(this, 'START_Y', Blockly.Arduino.ORDER_ATOMIC);
   var length = Blockly.Arduino.valueToCode(this, 'LENGTH', Blockly.Arduino.ORDER_ATOMIC);
-  var TYPE = this.getTitleValue('TYPE');
+  var TYPE = this.getFieldValue('TYPE');
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(start_x) && start_x < 128 && start_x >= 0) || (isNaN(start_x))) {
@@ -534,7 +534,7 @@ Blockly.Arduino.maker17_oled_drawFrame = function() {
   var D0_y = Blockly.Arduino.valueToCode(this, 'D0_Y', Blockly.Arduino.ORDER_ATOMIC);
   var Width = Blockly.Arduino.valueToCode(this, 'WIDTH', Blockly.Arduino.ORDER_ATOMIC);
   var Height = Blockly.Arduino.valueToCode(this, 'HEIGHT', Blockly.Arduino.ORDER_ATOMIC);
-  var type = this.getTitleValue('TYPE');
+  var type = this.getFieldValue('TYPE');
   var code = "";
 
   //x和y可以是变量也可以是数字，对此做判断
@@ -557,7 +557,7 @@ Blockly.Arduino.maker17_oled_drawRFrame = function() {
   var Width = Blockly.Arduino.valueToCode(this, 'WIDTH', Blockly.Arduino.ORDER_ATOMIC);
   var Height = Blockly.Arduino.valueToCode(this, 'HEIGHT', Blockly.Arduino.ORDER_ATOMIC);
   var Rauius = Blockly.Arduino.valueToCode(this, 'RADIUS', Blockly.Arduino.ORDER_ATOMIC);
-  var type = this.getTitleValue('TYPE');
+  var type = this.getFieldValue('TYPE');
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(D0_x) && D0_x < 128 && D0_x >= 0) || (isNaN(D0_x))) 
@@ -579,8 +579,8 @@ Blockly.Arduino.maker17_oled_drawCircle = function() {
   var D0_x = Blockly.Arduino.valueToCode(this, 'D0_X', Blockly.Arduino.ORDER_ATOMIC);
   var D0_y = Blockly.Arduino.valueToCode(this, 'D0_Y', Blockly.Arduino.ORDER_ATOMIC);
   var Rauius = Blockly.Arduino.valueToCode(this, 'RADIUS', Blockly.Arduino.ORDER_ATOMIC);
-  var type = this.getTitleValue('TYPE');
-  var opt = this.getTitleValue('OPT');
+  var type = this.getFieldValue('TYPE');
+  var opt = this.getFieldValue('OPT');
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(D0_x) && D0_x < 128 && D0_x >= 0) || (isNaN(D0_x))) 
@@ -599,8 +599,8 @@ Blockly.Arduino.maker17_oled_drawEllipse = function() {
   var D0_y = Blockly.Arduino.valueToCode(this, 'D0_Y', Blockly.Arduino.ORDER_ATOMIC);
   var Rauius_X = Blockly.Arduino.valueToCode(this, 'RADIUS_X', Blockly.Arduino.ORDER_ATOMIC);
   var Rauius_Y = Blockly.Arduino.valueToCode(this, 'RADIUS_Y', Blockly.Arduino.ORDER_ATOMIC);
-  var type = this.getTitleValue('TYPE');
-  var opt = this.getTitleValue('OPT');
+  var type = this.getFieldValue('TYPE');
+  var opt = this.getFieldValue('OPT');
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(D0_x) && D0_x < 128 && D0_x >= 0) || (isNaN(D0_x))) 
@@ -620,7 +620,7 @@ Blockly.Arduino.maker17_oled_drawStr = function() {
   var POS_x = Blockly.Arduino.valueToCode(this, 'POS_X', Blockly.Arduino.ORDER_ATOMIC);
   var POS_y = Blockly.Arduino.valueToCode(this, 'POS_Y', Blockly.Arduino.ORDER_ATOMIC);
   var TEXT = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_ATOMIC);
-  var rad = this.getTitleValue('RAD');
+  var rad = this.getFieldValue('RAD');
   var code = "";
     //x和y可以是变量也可以是数字，对此做判断
     if ((!isNaN(POS_x) && POS_x < 128 && POS_x >= 0) || (isNaN(POS_x))) 
@@ -648,9 +648,9 @@ Blockly.Arduino.maker17_oled_print = function() {
 
 //显示-OLED-oled设置字体
 Blockly.Arduino.maker17_oled_setFont = function() {
-  var type = this.getTitleValue('TYPE');
-  var style = this.getTitleValue('STYLE');
-  var size = this.getTitleValue('SIZE');
+  var type = this.getFieldValue('TYPE');
+  var style = this.getFieldValue('STYLE');
+  var size = this.getFieldValue('SIZE');
   var code = "";
   if (type == "Adobe" && size == "11") {
     code = "u8g.setFont(u8g_font_cour" + style.toUpperCase() + "14);\n";
@@ -699,7 +699,7 @@ Blockly.Arduino.maker17_4digitdisplay_showDot = function() {
 
 //显示-TM1650-设置亮度
 Blockly.Arduino.Maker17_4DigitDisplay_Brightness = function() {
-  var BRIGHTNESS = this.getTitleValue('BRIGHTNESS');
+  var BRIGHTNESS = this.getFieldValue('BRIGHTNESS');
   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['include_tm1650'] = '#include "TM1650.h"';
   Blockly.Arduino.definitions_['var_tm_4display'] = 'TM1650 tm_4display;';
@@ -766,7 +766,7 @@ Blockly.Arduino.maker17_TM1637_displayTime = function() {
 };
 //显示-TM1637-停表
 Blockly.Arduino.maker17_TM1637_Stopwatch = function() {
-  var STAT = this.getTitleValue('STAT');
+  var STAT = this.getFieldValue('STAT');
   Blockly.Arduino.definitions_['include_EEPROM'] = '#include <EEPROM.h>';
   Blockly.Arduino.definitions_['include_timerone'] = '#include <TimerOne.h>';
   Blockly.Arduino.definitions_['include_pgmspace'] = '#include <avr/pgmspace.h>';
@@ -794,7 +794,7 @@ Blockly.Arduino.maker17_TM1637_Stopwatch = function() {
 };
 //显示-TM1637-设置亮度
 Blockly.Arduino.Maker17_TM1637_Brightness = function() {
-  var BRIGHTNESS = this.getTitleValue('BRIGHTNESS');
+  var BRIGHTNESS = this.getFieldValue('BRIGHTNESS');
   var code = ' tm1637.set(' + BRIGHTNESS + ');\n';
   return code;
 };
@@ -821,7 +821,7 @@ Blockly.Arduino.DS1307_get_time = function() {
   Blockly.Arduino.definitions_['include_TimeLib'] = '#include <TimeLib.h>';
   Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);  while (!Serial) ;  \ndelay(200);  \n';
   Blockly.Arduino.definitions_['tmElements_t'] = 'tmElements_t tm;\n';
-  var dropdown_type = this.getTitleValue('TIME_TYPE');
+  var dropdown_type = this.getFieldValue('TIME_TYPE');
   var code = '  ';
   if (dropdown_type == "Year") code += 'tmYearToCalendar(tm.Year);';
   else code += 'tm.' + dropdown_type;
@@ -902,7 +902,7 @@ Blockly.Arduino.maker17_MP3_PLAY = function() {
 
 Blockly.Arduino.maker17_MP3_STATE = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
-  var dropdown_stat = this.getTitleValue('STAT');
+  var dropdown_stat = this.getFieldValue('STAT');
   Blockly.Arduino.definitions_['include_Maker17_MP3'] = '#include "maker17_MP3.h"';
   Blockly.Arduino.definitions_['var_nova_MP3_PLAY' + dropdown_pin] = 'MP3  MP3_' + dropdown_pin + '' + '(' + dropdown_pin + ');';
   Blockly.Arduino.setups_['setup_MP3_PLAY' + dropdown_pin] = 'MP3_' + dropdown_pin + '.begin(9600);\n';
@@ -915,7 +915,7 @@ Blockly.Arduino.DS3231_get_time = function() {
   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['include_ds3231'] = '#include "Sodaq_DS3231.h"';
   Blockly.Arduino.setups_['setup_init_rtc'] = 'Wire.begin();\n  rtc.begin();';
-  var dropdown_type = this.getTitleValue('TIME_TYPE');
+  var dropdown_type = this.getFieldValue('TIME_TYPE');
   var code = '';
   code += 'rtc.now().' + dropdown_type + '()';
   // return code;

@@ -8,7 +8,7 @@ goog.require('Blockly.Arduino');
 
 Blockly.Arduino.xyJoystick = function() {
   var analogPin = this.getFieldValue('analogPin');
-  var direction = this.getTitleValue('direction');
+  var direction = this.getFieldValue('direction');
 
   Blockly.Arduino.definitions_['var_Anolg'+analogPin+direction] = '#define Pin_'+analogPin+direction+' '+analogPin;
   //Blockly.Arduino.setups_['setup_'+analogPin+direction] = 'pinMode(Pin_'+analogPin+direction+',INPUT);';
@@ -20,7 +20,7 @@ Blockly.Arduino.xyJoystick = function() {
 
 Blockly.Arduino.microduinoJoystick = function() {
   var analogPin = this.getFieldValue('analogPin');
-  var type = this.getTitleValue('type');
+  var type = this.getFieldValue('type');
 
   var microduinoJoysitcFun='';
   microduinoJoysitcFun+='boolean joy_stick(int pin, int mode) {\n';

@@ -5,7 +5,7 @@ goog.provide('Blockly.Arduino.Microduino');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.mCookie_AM2321 = function() {
-var Tem_Hum = this.getTitleValue('direction');
+var Tem_Hum = this.getFieldValue('direction');
 
 var code='readByAM2321('+Tem_Hum+')';
 
@@ -39,7 +39,7 @@ var code1 = 'float ' +joyName+'(int num) {\n';
 
 
 Blockly.Arduino.mCookie_SHT2 = function() {
-var Tem_Hum = this.getTitleValue('direction');
+var Tem_Hum = this.getFieldValue('direction');
 
 Blockly.Arduino.definitions_['Wire'] = '#include <Wire.h>';
 Blockly.Arduino.definitions_['SHT2x'] = '#include <SHT2x.h>';

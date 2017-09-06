@@ -35,7 +35,7 @@ Blockly.Arduino.motionAccGyro = function() {
 
 Blockly.Arduino.getMotionValue = function() {
 
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
 
   var code=getType;
 
@@ -73,7 +73,7 @@ Blockly.Arduino.motionDMP = function() {
 
 Blockly.Arduino.motionSoft = function() {
 
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
 
   Blockly.Arduino.definitions_['define_MPU6050_6Axis_Microduino'] = '#include "MPU6050_6Axis_Microduino.h"';
   Blockly.Arduino.definitions_['define_HMC5883L'] = '#include "HMC5883L.h"';
@@ -136,7 +136,7 @@ Blockly.Arduino.motionSoft = function() {
 
 
 Blockly.Arduino.getMotionYawPitchRoll = function() {
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
 
   var code='';
   if(getType=='ypr\[2\]') {

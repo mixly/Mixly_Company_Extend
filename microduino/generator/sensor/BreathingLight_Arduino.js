@@ -9,7 +9,7 @@ goog.require('Blockly.Arduino');
 Blockly.Arduino.BreathingLightH = function() {
   //var branch = Blockly.Arduino.statementToCode(this, 'DO');
 
-  var LEDPinNumber = this.getTitleValue('LEDPinNumber');
+  var LEDPinNumber = this.getFieldValue('LEDPinNumber');
   var LEDFrequency = Blockly.Arduino.valueToCode(this, 'LEDFrequency', Blockly.Arduino.ORDER_ATOMIC)
 
   var code='';
@@ -25,7 +25,7 @@ Blockly.Arduino.BreathingLightH = function() {
 Blockly.Arduino.BreathingLightX = function() {
   //var branch = Blockly.Arduino.statementToCode(this, 'DO');
 
-  var LEDPinNumber = this.getTitleValue('LEDPinNumber');
+  var LEDPinNumber = this.getFieldValue('LEDPinNumber');
   var LEDFrequency = Blockly.Arduino.valueToCode(this, 'LEDFrequency', Blockly.Arduino.ORDER_ATOMIC)
 
   var code='';
