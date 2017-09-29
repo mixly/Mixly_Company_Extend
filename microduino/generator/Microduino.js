@@ -7,7 +7,7 @@ goog.require('Blockly.Arduino');
 
 
 Blockly.Arduino.bluetoothMicroduinoBegin = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_Software'] = '#include <SoftwareSerial.h>';
   Blockly.Arduino.definitions_['define_blueReciveInfo'] = 'String currentInfo="";';
 
@@ -392,7 +392,7 @@ Blockly.Arduino.IRSenderRaw = function() {
   Blockly.Arduino.definitions_['var_ir_send'] = 'IRsend irsend;\n';
   var length = Blockly.Arduino.valueToCode(this, 'length',Blockly.Arduino.ORDER_ATOMIC) || '0';
   var freq = Blockly.Arduino.valueToCode(this, 'freq',Blockly.Arduino.ORDER_ATOMIC) || '0';
-  var text = this.getTitleValue('TEXT');
+  var text = this.getFieldValue('TEXT');
   var code='unsigned int buf_raw['+length+']={'+text+'};\n'
   code=code+'irsend.sendRaw(buf_raw,'+length+','+freq+');\n';
   return code;
@@ -400,7 +400,7 @@ Blockly.Arduino.IRSenderRaw = function() {
 };
 
 Blockly.Arduino.IRReciver = function() {
-   var variable = Blockly.Arduino.variableDB_.getName(this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
+   var variable = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
    Blockly.Arduino.definitions_['var_declare'+variable] = 'long '+variable+';';
    var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN',Blockly.Arduino.ORDER_ATOMIC);
    var branch = Blockly.Arduino.statementToCode(this, 'DO');
@@ -1104,7 +1104,7 @@ Blockly.Arduino.BLYNK_WRITE = function() {
 };
 
 Blockly.Arduino.BLYNKParamOne = function() {
-  var paramType = this.getTitleValue('paramType');
+  var paramType = this.getFieldValue('paramType');
   var code='';
   code+='param.'+paramType;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -1113,7 +1113,7 @@ Blockly.Arduino.BLYNKParamOne = function() {
 
 Blockly.Arduino.BLYNKParamArray = function() {
   var paramNum = Blockly.Arduino.valueToCode(this, 'paramNum', Blockly.Arduino.ORDER_ATOMIC)
-  var paramType = this.getTitleValue('paramType');
+  var paramType = this.getFieldValue('paramType');
   var code='';
   code+='param['+paramNum+'].'+paramType;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -1123,8 +1123,8 @@ Blockly.Arduino.WiFiBlynkTimer = function() {
 
   var branch = Blockly.Arduino.statementToCode(this, 'blynkTimerDoing');
   Blockly.Arduino.definitions_['BlynkTimerInclude'] = '#include <SimpleTimer.h>';
-  var timerName = this.getTitleValue('timerName');
-  var duration = this.getTitleValue('duration');
+  var timerName = this.getFieldValue('timerName');
+  var duration = this.getFieldValue('duration');
   
   Blockly.Arduino.definitions_['BlynkTimerDefine'+timerName] = 'SimpleTimer '+timerName+'Timer;';
 
@@ -1162,7 +1162,7 @@ goog.provide('Blockly.Arduino.Microduino');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.Zigbee_AT = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   Blockly.Arduino.definitions_['define_Software'] = '#include <SoftwareSerial.h>';
   if(dropdown_pin=='Serial'||dropdown_pin=='Serial1')
   Blockly.Arduino.definitions_['define_mySerial'] = '#define my_Serial '+dropdown_pin+'';
@@ -1200,7 +1200,7 @@ Blockly.Arduino.Zigbee_AT = function() {
 };
 
 Blockly.Arduino.Zigbee_Init = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
+  var dropdown_pin = this.getFieldValue('PIN');
   var BRate = Blockly.Arduino.valueToCode(this, 'BRate', Blockly.Arduino.ORDER_ATOMIC)
   Blockly.Arduino.definitions_['define_SoftwareSerials'] = '#include <SoftwareSerial.h>';
 
@@ -1307,7 +1307,7 @@ Blockly.Arduino.serialPrintln = function() {
 
 
 Blockly.Arduino.microduinoAnaloyWrite = function() {
-  var mCookie_pwmPin = this.getTitleValue('mCookie_pwmPin');
+  var mCookie_pwmPin = this.getFieldValue('mCookie_pwmPin');
   var pwmNumber = Blockly.Arduino.valueToCode(this, 'pwmNumber', Blockly.Arduino.ORDER_ATOMIC)
 
   var code='';
@@ -1341,12 +1341,12 @@ Blockly.Arduino.microduinoWhile = function() {
 Blockly.Arduino.microduinoFor = function() {
   // For loop.
   var variable0 = Blockly.Arduino.variableDB_.getName(
-      this.getTitleValue('VAR'), Blockly.Variables.NAME_TYPE);
+      this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Arduino.valueToCode(this, 'FROM',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
   var argument1 = Blockly.Arduino.valueToCode(this, 'TO',
       Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var step =  window.parseFloat(this.getTitleValue('STEP'));
+  var step =  window.parseFloat(this.getFieldValue('STEP'));
   var branch = Blockly.Arduino.statementToCode(this, 'DO');
   if (Blockly.Arduino.INFINITE_LOOP_TRAP) {
     branch = Blockly.Arduino.INFINITE_LOOP_TRAP.replace(/%1/g,
@@ -1382,7 +1382,7 @@ Blockly.Arduino.microduinoAnaloyRead = function() {
 
 
 Blockly.Arduino.microduinoSerailAvailable = function() {
-  var serailType = this.getTitleValue('serailType');
+  var serailType = this.getFieldValue('serailType');
 
 
   var code='';
@@ -1577,7 +1577,7 @@ Blockly.Arduino.DotMatrixRow = function() {
 Blockly.Arduino.DotMatrixAddArray = function() {
 
 
-  //var size=window.parseFloat(this.getTitleValue('SIZE'));
+  //var size=window.parseFloat(this.getFieldValue('SIZE'));
   var code = new Array(this.itemCount_);
   for (var n = 0; n < this.itemCount_; n++) {
     code[n] = Blockly.Arduino.valueToCode(this, 'ADD' + n,
@@ -1606,7 +1606,7 @@ Blockly.Arduino.DotMatrixAddArray = function() {
 
 Blockly.Arduino.DotMatrixAddNum = function() {
   var addInput = Blockly.Arduino.valueToCode(this, 'addInput', Blockly.Arduino.ORDER_ATOMIC) || '';
-  var thisNum=this.getTitleValue('NUM');
+  var thisNum=this.getFieldValue('NUM');
   var code = '';
   code +=thisNum;
   if(addInput!='') {
@@ -1899,8 +1899,8 @@ Blockly.Arduino.microduinoCarControl = function() {
 
 
 // Blockly.Arduino.mCookie_bluetooth_Robot_Direction = function() {
-//   var dropdown_pin = this.getTitleValue('PIN')
-//   var BLE_Run_stye = this.getTitleValue('direction')
+//   var dropdown_pin = this.getFieldValue('PIN')
+//   var BLE_Run_stye = this.getFieldValue('direction')
 //   var code='BLE_Joystick('+BLE_Run_stye+')';
 
 //   Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
@@ -2165,9 +2165,9 @@ goog.provide('Blockly.Arduino.Microduino');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.mCookie_Audio_Serial = function() {
-  var dropdown_pin = this.getTitleValue('PIN');
-  var DEVICE = this.getTitleValue('PIN1');
-  var MODE = this.getTitleValue('PIN2');
+  var dropdown_pin = this.getFieldValue('PIN');
+  var DEVICE = this.getFieldValue('PIN1');
+  var MODE = this.getFieldValue('PIN2');
   var Volce = Blockly.Arduino.valueToCode(this, 'Vol', Blockly.Arduino.ORDER_ATOMIC);
 
   Blockly.Arduino.definitions_['define_Software'] = '#include <SoftwareSerial.h>\n';
@@ -2221,7 +2221,7 @@ Blockly.Arduino.mCookie_Audio_VolDown = function() {
 
 Blockly.Arduino.mCookie_Audio_Control = function() {
 
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
 
   var code='AUDIO.'+getType+';';
 
@@ -2246,7 +2246,7 @@ goog.require('Blockly.Arduino');
 
 Blockly.Arduino.audioProPrepare = function() {
 
-	var getType = this.getTitleValue('getType');
+	var getType = this.getFieldValue('getType');
 
 	var audioProDefine='';
 	audioProDefine+='#include <SPI.h>\n';
@@ -2341,14 +2341,14 @@ Blockly.Arduino.audioProPrepare = function() {
 };
 
 Blockly.Arduino.audioProInstrument = function() {
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
   var code='midiSetInstrument(0, '+getType+');\n';
   return code;
 };
 
 Blockly.Arduino.audioProControl = function() {
 
-	var getType = this.getTitleValue('getType');
+	var getType = this.getFieldValue('getType');
 
 
 	var audioProMelody = Blockly.Arduino.valueToCode(this, 'audioProMelody', Blockly.Arduino.ORDER_ATOMIC);
@@ -2594,7 +2594,7 @@ Blockly.Arduino.motionAccGyro = function() {
 
 Blockly.Arduino.getMotionValue = function() {
 
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
 
   var code=getType;
 
@@ -2632,7 +2632,7 @@ Blockly.Arduino.motionDMP = function() {
 
 Blockly.Arduino.motionSoft = function() {
 
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
 
   Blockly.Arduino.definitions_['define_MPU6050_6Axis_Microduino'] = '#include "MPU6050_6Axis_Microduino.h"';
   Blockly.Arduino.definitions_['define_HMC5883L'] = '#include "HMC5883L.h"';
@@ -2695,7 +2695,7 @@ Blockly.Arduino.motionSoft = function() {
 
 
 Blockly.Arduino.getMotionYawPitchRoll = function() {
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
 
   var code='';
   if(getType=='ypr\[2\]') {
@@ -2808,7 +2808,7 @@ Blockly.Arduino.mCookie_RTC_Second = function() {
 
 Blockly.Arduino.mCookie_RTC_Output = function() {
 
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
   var code='dateTime.'+getType;
   return [code, Blockly.Arduino.ORDER_ATOMIC]|| '0';
 };
@@ -2936,7 +2936,7 @@ goog.require('Blockly.Arduino');
 Blockly.Arduino.BreathingLightH = function() {
   //var branch = Blockly.Arduino.statementToCode(this, 'DO');
 
-  var LEDPinNumber = this.getTitleValue('LEDPinNumber');
+  var LEDPinNumber = this.getFieldValue('LEDPinNumber');
   var LEDFrequency = Blockly.Arduino.valueToCode(this, 'LEDFrequency', Blockly.Arduino.ORDER_ATOMIC)
 
   var code='';
@@ -2952,7 +2952,7 @@ Blockly.Arduino.BreathingLightH = function() {
 Blockly.Arduino.BreathingLightX = function() {
   //var branch = Blockly.Arduino.statementToCode(this, 'DO');
 
-  var LEDPinNumber = this.getTitleValue('LEDPinNumber');
+  var LEDPinNumber = this.getFieldValue('LEDPinNumber');
   var LEDFrequency = Blockly.Arduino.valueToCode(this, 'LEDFrequency', Blockly.Arduino.ORDER_ATOMIC)
 
   var code='';
@@ -2985,7 +2985,7 @@ return code;
 
 
 Blockly.Arduino.BuzzerToneMelody = function() {
-	var buzzerMelody = this.getTitleValue('buzzerMelody');
+	var buzzerMelody = this.getFieldValue('buzzerMelody');
 	var BuzzerPin = Blockly.Arduino.valueToCode(this, 'BuzzerPin', Blockly.Arduino.ORDER_ATOMIC)
 	Blockly.Arduino.definitions_['define_BuzzerPin'+BuzzerPin] = '#define BuzzerPin'+BuzzerPin+' '+BuzzerPin;
 
@@ -2999,7 +2999,7 @@ Blockly.Arduino.BuzzerToneMelody = function() {
 
 
 Blockly.Arduino.BuzzerToneSong = function() {
-	var buzzerSong = this.getTitleValue('buzzerSong');
+	var buzzerSong = this.getFieldValue('buzzerSong');
 	var BuzzerPin = Blockly.Arduino.valueToCode(this, 'BuzzerPin', Blockly.Arduino.ORDER_ATOMIC);
 	Blockly.Arduino.definitions_['define_BuzzerPin'+BuzzerPin] = '#define BuzzerPin'+BuzzerPin+' '+BuzzerPin;
 	
@@ -3178,7 +3178,7 @@ goog.require('Blockly.Arduino');
 
 Blockly.Arduino.microduinoCrash = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 
   //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
   var code='';
@@ -3194,7 +3194,7 @@ Blockly.Arduino.microduinoCrash = function() {
 
 Blockly.Arduino.microduinoTuch = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 
   //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
   var code='';
@@ -3210,7 +3210,7 @@ Blockly.Arduino.microduinoTuch = function() {
 
 Blockly.Arduino.microduinoPIR = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 
   //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
   var code='';
@@ -3226,7 +3226,7 @@ Blockly.Arduino.microduinoPIR = function() {
 
 Blockly.Arduino.microduinoMic = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
 
   var code='';
@@ -3241,7 +3241,7 @@ Blockly.Arduino.microduinoMic = function() {
 
 Blockly.Arduino.microduinoLight = function() {
   var digitalPin = Blockly.Arduino.valueToCode(this, 'digitalPin', Blockly.Arduino.ORDER_ATOMIC);
-  var action = this.getTitleValue('action');
+  var action = this.getFieldValue('action');
 
 
   //Blockly.Arduino.setups_['setup_'+digitalPin] = 'pinMode('+digitalPin+',INPUT);';
@@ -3265,7 +3265,7 @@ goog.require('Blockly.Arduino');
 
 
 Blockly.Arduino.Microduino_ir_remote_begin = function() {
-var btn_ir = this.getTitleValue('btn');
+var btn_ir = this.getFieldValue('btn');
 var ir_r_Pin = Blockly.Arduino.valueToCode(this, 'Pin', Blockly.Arduino.ORDER_ATOMIC)|| '0';
 Blockly.Arduino.definitions_['IRremote'] = '#include <IRremote.h>';
 Blockly.Arduino.definitions_['RECV_PIN'] = 'IRrecv irrecv('+ir_r_Pin+');';
@@ -3282,7 +3282,7 @@ return [code, Blockly.Arduino.ORDER_ATOMIC]||'0';
 };
 
 Blockly.Arduino.Microduino_ir_remote = function() {
-var btn_ir = this.getTitleValue('btn');
+var btn_ir = this.getFieldValue('btn');
 Blockly.Arduino.definitions_['IRremote'] = '#include <IRremote.h>';
 Blockly.Arduino.definitions_['results'] = 'decode_results results;\n';
 //Blockly.Arduino.setups_['setup_mCookie_Serial'] = 'Serial.begin(9600);';
@@ -3332,7 +3332,7 @@ goog.require('Blockly.Arduino');
 
 Blockly.Arduino.xyJoystick = function() {
   var analogPin = this.getFieldValue('analogPin');
-  var direction = this.getTitleValue('direction');
+  var direction = this.getFieldValue('direction');
 
   Blockly.Arduino.definitions_['var_Anolg'+analogPin+direction] = '#define Pin_'+analogPin+direction+' '+analogPin;
   //Blockly.Arduino.setups_['setup_'+analogPin+direction] = 'pinMode(Pin_'+analogPin+direction+',INPUT);';
@@ -3344,7 +3344,7 @@ Blockly.Arduino.xyJoystick = function() {
 
 Blockly.Arduino.microduinoJoystick = function() {
   var analogPin = this.getFieldValue('analogPin');
-  var type = this.getTitleValue('type');
+  var type = this.getFieldValue('type');
 
   var microduinoJoysitcFun='';
   microduinoJoysitcFun+='boolean joy_stick(int pin, int mode) {\n';
@@ -3601,7 +3601,7 @@ Blockly.Arduino.ColorDetPrepare_TCS3414 = function() {
 
 
 Blockly.Arduino.ColorGet_TCS3414 = function() {
-  var getType = this.getTitleValue('getType');
+  var getType = this.getFieldValue('getType');
   var code=getType;
 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
@@ -3614,7 +3614,7 @@ goog.provide('Blockly.Arduino.Microduino');
 goog.require('Blockly.Arduino');
 
 Blockly.Arduino.mCookie_AM2321 = function() {
-var Tem_Hum = this.getTitleValue('direction');
+var Tem_Hum = this.getFieldValue('direction');
 
 var code='readByAM2321('+Tem_Hum+')';
 
@@ -3648,7 +3648,7 @@ var code1 = 'float ' +joyName+'(int num) {\n';
 
 
 Blockly.Arduino.mCookie_SHT2 = function() {
-var Tem_Hum = this.getTitleValue('direction');
+var Tem_Hum = this.getFieldValue('direction');
 
 Blockly.Arduino.definitions_['Wire'] = '#include <Wire.h>';
 Blockly.Arduino.definitions_['SHT2x'] = '#include <SHT2x.h>';
