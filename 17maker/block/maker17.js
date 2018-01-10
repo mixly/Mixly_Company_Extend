@@ -8,31 +8,31 @@ Blockly.Blocks.maker17.HUE2 = 120; //绿色
 Blockly.Blocks.maker17.HUE3 = 180; //青色
 Blockly.Blocks.maker17.HUE4 = 240; //蓝色
 Blockly.Blocks.maker17.HUE5 = 300; //紫色
-
+Blockly.Blocks.maker17.ICON_WIDTH = 20; //传感器图标宽度
+Blockly.Blocks.maker17.ICON_HEIGHT = 20; //传感器图标高度
 //蜂鸣器频率
 var TONE_NOTES = [
-  ["NOTE_C3", "131"],
-  ["NOTE_D3", "147"],
-  ["NOTE_E3", "165"],
-  ["NOTE_F3", "175"],
-  ["NOTE_G3", "196"],
-  ["NOTE_A3", "220"],
-  ["NOTE_B3", "247"],
-  ["NOTE_C4", "262"],
-  ["NOTE_D4", "294"],
-  ["NOTE_E4", "330"],
-  ["NOTE_F4", "349"],
-  ["NOTE_G4", "392"],
-  ["NOTE_A4", "440"],
-  ["NOTE_B4", "494"],
-  ["NOTE_C5", "532"],
+   ["NOTE_C5", "532"],
   ["NOTE_D5", "587"],
   ["NOTE_E5", "659"],
   ["NOTE_F5", "698"],
   ["NOTE_G5", "784"],
   ["NOTE_A5", "880"],
-  ["NOTE_B5", "988"]
-];
+  ["NOTE_B5", "988"],
+  ["NOTE_C6", "1048"],
+  ["NOTE_D6", "1176"],
+  ["NOTE_E6", "1320"],
+  ["NOTE_F6", "1396"],
+  ["NOTE_G6", "1568"],
+  ["NOTE_A6", "1760"],
+  ["NOTE_B6", "1976"],
+  ["NOTE_C7", "2096"],
+  ["NOTE_D7", "2352"],
+  ["NOTE_E7", "2640"],
+  ["NOTE_F7", "2792"],
+  ["NOTE_G7", "3136"],
+  ["NOTE_A7", "3520"],
+  ["NOTE_B7", "3952"]];
 
 //执行器-蜂鸣器的频率选择
 Blockly.Blocks.maker17_tone_notes = {
@@ -47,7 +47,7 @@ Blockly.Blocks.maker17_tone_notes = {
 Blockly.Blocks.maker17_tone = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/buzzer.png", 32, 32)).appendField(Blockly.MAKER17_BUZZER);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/buzzer.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_BUZZER);
     this.appendValueInput("PIN", Number).appendField(Blockly.MIXLY_PIN).setCheck(Number);
     this.appendValueInput('FREQUENCY').setCheck(Number).appendField(Blockly.MIXLY_FREQUENCY);
     this.appendValueInput('DURATION', Number).setCheck(Number).appendField(Blockly.MIXLY_DURATION).appendField("(ms)");
@@ -61,7 +61,7 @@ Blockly.Blocks.maker17_tone = {
 Blockly.Blocks.maker17_newNoTone = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/buzzer.png", 32, 32)).appendField(Blockly.MAKER17_NEWNOTONE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/buzzer.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_NEWNOTONE);
     this.appendValueInput("PIN", Number).appendField(Blockly.MIXLY_PIN).setCheck(Number);
     this.appendValueInput("DELAY_TIME", Number).appendField(Blockly.MIXLY_DELAY).setCheck(Number).appendField("(ms)");
     this.setInputsInline(true);
@@ -72,15 +72,15 @@ Blockly.Blocks.maker17_newNoTone = {
 
 //电机选择变量
 var MAKER17_MOTERSELECT = [
-  ["A", "1"],
-  ["B", "2"]
+  ["M1", "1"],
+  ["M2", "2"]
 ];
 
 //执行器-电机转速
 Blockly.Blocks.maker17_motor = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/motor.png", 32, 32)).appendField(Blockly.MAKER17_MOTOR).appendField("#").appendField(new Blockly.FieldDropdown(MAKER17_MOTERSELECT), "PIN");
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/motor.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_MOTOR).appendField("#").appendField(new Blockly.FieldDropdown(MAKER17_MOTERSELECT), "PIN");
     this.appendValueInput('speed').setCheck(Number).appendField(Blockly.MAKER17_MOTOR_SPEED);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -92,7 +92,7 @@ Blockly.Blocks.maker17_motor = {
 Blockly.Blocks.maker17_motor_stop = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/motor.png", 32, 32)).appendField(Blockly.MAKER17_MOTOR).appendField("#").appendField(new Blockly.FieldDropdown(MAKER17_MOTERSELECT), "PIN").appendField(Blockly.MIXLY_STOP);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/motor.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_MOTOR).appendField("#").appendField(new Blockly.FieldDropdown(MAKER17_MOTERSELECT), "PIN").appendField(Blockly.MIXLY_STOP);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -107,7 +107,7 @@ Blockly.Blocks.maker17_dht11 = {
       [Blockly.MIXLY_DHT11_H, 'humidity']
     ];
     this.setColour(Blockly.Blocks.maker17.HUE1);
-    this.appendValueInput("PIN", Number).appendField(new Blockly.FieldImage("../../media/maker17/dht11.png", 32, 32)).appendField(Blockly.MAKER17_DHT11).appendField(Blockly.MIXLY_PIN).setCheck(Number);
+    this.appendValueInput("PIN", Number).appendField(new Blockly.FieldImage("../../media/maker17/dht11.png", Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_DHT11).appendField(Blockly.MIXLY_PIN).setCheck(Number);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(WHAT), "WHAT");
     this.setOutput(true, Number);
   }
@@ -121,7 +121,7 @@ Blockly.Blocks.maker17_dht22 = {
       [Blockly.MIXLY_DHT11_H, 'Humidity']
     ];
     this.setColour(Blockly.Blocks.maker17.HUE1);
-    this.appendValueInput("PIN", Number).appendField(new Blockly.FieldImage("../../media/maker17/dht11.png", 32, 32)).appendField(Blockly.MAKER17_DHT22).appendField(Blockly.MIXLY_PIN).setCheck(Number);
+    this.appendValueInput("PIN", Number).appendField(new Blockly.FieldImage("../../media/maker17/dht11.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_DHT22).appendField(Blockly.MIXLY_PIN).setCheck(Number);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(WHAT), "WHAT");
     this.setOutput(true, Number);
   }
@@ -138,7 +138,7 @@ var MAKER17_ADXL345_SELECT = [
 Blockly.Blocks.maker17_ADXL345 = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE1);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/adxl345.png", 32, 32)).appendField(Blockly.MAKER17_ADXL345).appendField("IIC接口").appendField(new Blockly.FieldDropdown(MAKER17_ADXL345_SELECT), "TYPE");
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/adxl345.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_ADXL345).appendField("IIC接口").appendField(new Blockly.FieldDropdown(MAKER17_ADXL345_SELECT), "TYPE");
     this.setInputsInline(true);
     this.setOutput(true, Number);
     this.setTooltip(Blockly.MAKER17_ADXL345_TIP);
@@ -158,7 +158,7 @@ Blockly.Blocks.maker17_IICSCAN = {
 Blockly.Blocks.maker17_LM35temp = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE1);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/LM35.png", 32, 32)).appendField(Blockly.MAKER17_LM35TEMP);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/LM35.png", Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_LM35TEMP);
     this.appendValueInput("PIN", Number).appendField(Blockly.MIXLY_PIN).setCheck(Number);
     this.setInputsInline(true);
     this.setOutput(true, Number);
@@ -171,7 +171,7 @@ Blockly.Blocks.maker17_LM35temp = {
 Blockly.Blocks.maker17_4digitdisplay_power = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/tm1650.png", 32, 32)).appendField(Blockly.MAKER17_4DIGITDISPLAY).appendField(new Blockly.FieldDropdown([
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/tm1650.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_4DIGITDISPLAY).appendField(new Blockly.FieldDropdown([
       [Blockly.MIXLY_LCD_STAT_ON, "displayOn"],
       [Blockly.MIXLY_LCD_STAT_OFF, "displayOff"],
       [Blockly.MIXLY_LCD_STAT_CLEAR, "clear"]
@@ -186,7 +186,7 @@ Blockly.Blocks.maker17_4digitdisplay_power = {
 Blockly.Blocks.maker17_4digitdisplay_displayString = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/tm1650.png", 32, 32)).appendField(Blockly.MAKER17_4DIGITDISPLAY);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/tm1650.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_4DIGITDISPLAY);
     this.appendValueInput("VALUE").setCheck(String).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_4DIGITDISPLAY_DISPLAYSTRING);
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
@@ -199,7 +199,7 @@ Blockly.Blocks.maker17_4digitdisplay_displayString = {
 Blockly.Blocks.maker17_4digitdisplay_showDot = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/tm1650.png", 32, 32)).appendField(Blockly.MAKER17_4DIGITDISPLAY).appendField(Blockly.MAKER17_4DIGITDISPLAY_NOMBER1).appendField(new Blockly.FieldDropdown([
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/tm1650.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_4DIGITDISPLAY).appendField(Blockly.MAKER17_4DIGITDISPLAY_NOMBER1).appendField(new Blockly.FieldDropdown([
       ["1", "0"],
       ["2", "1"],
       ["3", "2"],
@@ -218,7 +218,7 @@ Blockly.Blocks.maker17_4digitdisplay_showDot = {
 Blockly.Blocks.Maker17_4DigitDisplay_Brightness = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/tm1650.png", 32, 32)).appendField(Blockly.MAKER17_4DIGITDISPLAY);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/tm1650.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_4DIGITDISPLAY);
     this.appendDummyInput("").appendField(Blockly.MAKER17_BRIGHTNESS).appendField(new Blockly.FieldDropdown([
       ["7", "7"],
       ["6", "6"],
@@ -239,7 +239,7 @@ Blockly.Blocks.Maker17_4DigitDisplay_Brightness = {
 //显示-TM1637初始化
 Blockly.Blocks.Maker17_TM1637_init = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83, 32));
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83,   Blockly.Blocks.maker17.ICON_HEIGHT));
     this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_TM1637_INIT).appendField("CLK").appendField(Blockly.MIXLY_PIN);
     this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField("DIO").appendField(Blockly.MIXLY_PIN);
     this.setPreviousStatement(true, null);
@@ -255,7 +255,7 @@ Blockly.Blocks.Maker17_TM1637_init = {
 Blockly.Blocks.maker17_TM1637_displayString = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83, 32)).appendField(Blockly.MAKER17_TM1637);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_TM1637);
     this.appendValueInput("VALUE").setCheck(String).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_TM1637_DISPLAYSTRING);
     this.appendValueInput("Speed").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_SPEED);
     this.setInputsInline(true);
@@ -269,7 +269,7 @@ Blockly.Blocks.maker17_TM1637_displayString = {
 Blockly.Blocks.maker17_TM1637_displayTime = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83, 32)).appendField(Blockly.MAKER17_TM1637_DISPLAYTIME);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_TM1637_DISPLAYTIME);
     this.appendValueInput("hour").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
     this.appendDummyInput("").appendField(Blockly.MAKER17_HOUR);
     this.appendValueInput("minute").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
@@ -287,7 +287,7 @@ Blockly.Blocks.maker17_TM1637_displayTime = {
 Blockly.Blocks.maker17_TM1637_Stopwatch = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83, 32)).appendField(Blockly.MAKER17_TM1637);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_TM1637);
     this.appendDummyInput("").appendField(Blockly.MAKER17_STOPWATCH).appendField(new Blockly.FieldDropdown([
       [Blockly.MAKER17_STOPWATCH_START, "stopwatchStart"],
       [Blockly.MAKER17_STOPWATCH_PAUSE, "stopwatchPause"],
@@ -302,7 +302,7 @@ Blockly.Blocks.maker17_TM1637_Stopwatch = {
 Blockly.Blocks.Maker17_TM1637_Brightness = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83, 32)).appendField(Blockly.MAKER17_TM1637);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/TM1637.png", 83,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_TM1637);
     this.appendDummyInput("").appendField(Blockly.MAKER17_BRIGHTNESS).appendField(new Blockly.FieldDropdown([
       ["7", "7"],
       ["6", "6"],
@@ -322,7 +322,7 @@ Blockly.Blocks.Maker17_TM1637_Brightness = {
 //显示-MAX7219-初始化
 Blockly.Blocks.MAX7219_init = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/matrix44.png", 32, 32));
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/matrix44.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT));
     this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MAX7219_INIT).appendField("DIN").appendField(Blockly.MIXLY_PIN);
     this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField("CS").appendField(Blockly.MIXLY_PIN);
     this.appendValueInput("PIN3").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField("CLK").appendField(Blockly.MIXLY_PIN);
@@ -339,7 +339,7 @@ Blockly.Blocks.MAX7219_init = {
 //显示-MAX7219-滚动字符串
 Blockly.Blocks.MAX7219_putString = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/matrix44.png", 32, 32));
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/matrix44.png", Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT));
     this.appendValueInput("String", String).setCheck([String, Number]).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MAX7219_PUTSTR);
     this.appendValueInput("Speed").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_SPEED);
     this.setPreviousStatement(true, null);
@@ -367,7 +367,7 @@ Blockly.Blocks.MAX7219_putString = {
 //显示-MAX7219-LED点阵显示图案
 Blockly.Blocks.MAX7219_DisplayChar = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/matrix44.png", 32, 32));
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/matrix44.png", Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT));
     this.appendDummyInput().appendField(Blockly.MAKER17_MAX7219_DISPLAYCHAR);
     this.appendValueInput("Chars").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true, null);
@@ -511,7 +511,7 @@ var MAKER17_FONT_SIZE_SELECT = [
 Blockly.Blocks.maker17_oled_init = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_INIT);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_INIT);
     this.appendValueInput("CLK", Number).appendField("CLK").setCheck(Number);
     this.appendValueInput("DIN", Number).appendField("DIN").setCheck(Number);
     this.appendValueInput("DC", Number).appendField("D/C").setCheck(Number);
@@ -527,7 +527,7 @@ Blockly.Blocks.maker17_oled_init = {
 Blockly.Blocks.maker17_oled_init2 = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_INIT2);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_INIT2);
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -535,12 +535,12 @@ Blockly.Blocks.maker17_oled_init2 = {
   }
 };
 
-//显示-OLED-获取高度宽度
+//显示-OLED-获取高度/宽度
 Blockly.Blocks.maker17_oled_getHeight_or_Width = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
 
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLEDGET).appendField(new Blockly.FieldDropdown(WorH), "WHAT");
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLEDGET).appendField(new Blockly.FieldDropdown(WorH), "WHAT");
     this.setOutput(true, Number);
     this.setTooltip(Blockly.MAKER17_OLED_GET_HEIGHT_TOOLTIP);
   }
@@ -593,7 +593,7 @@ Blockly.Blocks['maker17_oled_define_bitmap_data'] = {
 Blockly.Blocks.maker17_oled_showBitmap = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_BITMAP);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_BITMAP);
     this.appendValueInput("START_X", Number).appendField(Blockly.MAKER17_OLED_POSX).setCheck(Number);
     this.appendValueInput("START_Y", Number).appendField(Blockly.MAKER17_OLED_POSY).setCheck(Number);
     this.appendDummyInput("").appendField(Blockly.MAKER17_OLED_WIDTH).appendField(new Blockly.FieldDropdown(MAKER17_OLED_BITMAP_WIDTH_SELECT), "WIDTH");
@@ -609,7 +609,7 @@ Blockly.Blocks.maker17_oled_showBitmap = {
 Blockly.Blocks.maker17_oled_drawPixe = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAWPIXE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAWPIXE);
     this.appendValueInput("POS_X", Number).appendField(Blockly.MAKER17_OLED_POSX).setCheck(Number);
     this.appendValueInput("POS_Y", Number).appendField(Blockly.MAKER17_OLED_POSY).setCheck(Number);
     this.setInputsInline(true);
@@ -623,7 +623,7 @@ Blockly.Blocks.maker17_oled_drawPixe = {
 Blockly.Blocks.maker17_oled_drawLine = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAWLINE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAWLINE);
     this.appendValueInput("START_X", Number).appendField(Blockly.MAKER17_OLED_START_X).setCheck(Number);
     this.appendValueInput("START_Y", Number).appendField(Blockly.MAKER17_OLED_START_Y).setCheck(Number);
     this.appendValueInput("END_X", Number).appendField(Blockly.MAKER17_OLED_END_X).setCheck(Number);
@@ -639,7 +639,7 @@ Blockly.Blocks.maker17_oled_drawLine = {
 Blockly.Blocks.maker17_oled_draw_Str_Line = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAWSTRLINE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAWSTRLINE);
     this.appendValueInput("START_X", Number).appendField(Blockly.MAKER17_OLED_START_X).setCheck(Number);
     this.appendValueInput("START_Y", Number).appendField(Blockly.MAKER17_OLED_START_Y).setCheck(Number);
     this.appendValueInput("LENGTH", Number).appendField(Blockly.MAKER17_OLED_LENGTH).setCheck(Number);
@@ -667,7 +667,7 @@ Blockly.Blocks.maker17_oled_page = {
 Blockly.Blocks.maker17_oled_drawTriangle = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAW_TRIANGLE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAW_TRIANGLE);
     this.appendValueInput("D0_X", Number).appendField(Blockly.MAKER17_OLED_D0_X).setCheck(Number);
     this.appendValueInput("D0_Y", Number).appendField(Blockly.MAKER17_OLED_D0_Y).setCheck(Number);
     this.appendValueInput("D1_X", Number).appendField(Blockly.MAKER17_OLED_D1_X).setCheck(Number);
@@ -685,7 +685,7 @@ Blockly.Blocks.maker17_oled_drawTriangle = {
 Blockly.Blocks.maker17_oled_drawFrame = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAW_RECTANGLE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAW_RECTANGLE);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_FRAMESELECT), "TYPE");
     this.appendValueInput("D0_X", Number).appendField(Blockly.MAKER17_OLED_L_U_X).setCheck(Number);
     this.appendValueInput("D0_Y", Number).appendField(Blockly.MAKER17_OLED_L_U_Y).setCheck(Number);
@@ -702,7 +702,7 @@ Blockly.Blocks.maker17_oled_drawFrame = {
 Blockly.Blocks.maker17_oled_drawRFrame = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAW_RAD_RECTANGLE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAW_RAD_RECTANGLE);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_RADSELECT), "TYPE");
     this.appendValueInput("D0_X", Number).appendField(Blockly.MAKER17_OLED_L_U_X).setCheck(Number);
     this.appendValueInput("D0_Y", Number).appendField(Blockly.MAKER17_OLED_L_U_Y).setCheck(Number);
@@ -720,7 +720,7 @@ Blockly.Blocks.maker17_oled_drawRFrame = {
 Blockly.Blocks.maker17_oled_drawCircle = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAW_CIRCLE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAW_CIRCLE);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_CIRCLESELECT), "TYPE");
     this.appendValueInput("D0_X", Number).appendField(Blockly.MAKER17_OLED_CENTER_CIRCLE_X).setCheck(Number);
     this.appendValueInput("D0_Y", Number).appendField(Blockly.MAKER17_OLED_CENTER_CIRCLE_Y).setCheck(Number);
@@ -737,7 +737,7 @@ Blockly.Blocks.maker17_oled_drawCircle = {
 Blockly.Blocks.maker17_oled_drawEllipse = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAW_ELLIPSE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAW_ELLIPSE);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_ELLIPSESELECT), "TYPE");
     this.appendValueInput("D0_X", Number).appendField(Blockly.MAKER17_OLED_CENTER_CIRCLE_X).setCheck(Number);
     this.appendValueInput("D0_Y", Number).appendField(Blockly.MAKER17_OLED_CENTER_CIRCLE_Y).setCheck(Number);
@@ -751,11 +751,11 @@ Blockly.Blocks.maker17_oled_drawEllipse = {
   }
 };
 
-//显示-OLED-显示字符
+//显示-OLED-显示字符串
 Blockly.Blocks.maker17_oled_drawStr = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_DRAWSTR);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_DRAWSTR);
     this.appendValueInput("POS_X", Number).appendField(Blockly.MAKER17_OLED_START_X).setCheck(Number);
     this.appendValueInput("POS_Y", Number).appendField(Blockly.MAKER17_OLED_START_Y).setCheck(Number);
     this.appendValueInput("TEXT", String).appendField(Blockly.MAKER17_OLED_STRING).setCheck([Number, String]);
@@ -771,7 +771,7 @@ Blockly.Blocks.maker17_oled_drawStr = {
 Blockly.Blocks.maker17_oled_setFont = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_SET_FONT);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_SET_FONT);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_FONT_TYPE_SELECT), "TYPE");
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_FONT_STYLE_SELECT), "STYLE");
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_FONT_SIZE_SELECT), "SIZE");
@@ -786,7 +786,7 @@ Blockly.Blocks.maker17_oled_setFont = {
 Blockly.Blocks.maker17_oled_print = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE3);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_OLED_PRINT_VAR);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_OLED_PRINT_VAR);
     this.appendValueInput("POS_X", Number).appendField(Blockly.MAKER17_OLED_START_X).setCheck(Number);
     this.appendValueInput("POS_Y", Number).appendField(Blockly.MAKER17_OLED_START_Y).setCheck(Number);
     this.appendValueInput("TEXT", String).appendField(Blockly.MAKER17_OLED_STRING).setCheck([Number, String]);
@@ -800,7 +800,7 @@ Blockly.Blocks.maker17_oled_print = {
 //显示-OLED-显示多行文本
 Blockly.Blocks.maker17_oled_draw4Str = {
   init: function() {
-    this.appendDummyInput().appendField(new Blockly.FieldImage("../../media/maker17/oled.png", 32, 32)).appendField(Blockly.MAKER17_oled_draw4Str);
+    this.appendDummyInput().appendField(new Blockly.FieldImage("../../media/maker17/oled.png",  Blockly.Blocks.maker17.ICON_WIDTH,  Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_oled_draw4Str);
     this.appendDummyInput().appendField(Blockly.MAKER17_OLED_PRINT);
     this.appendValueInput("Text_line1", 'String').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_OLED_LINE1);
     this.appendValueInput("Text_line2", 'String').setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_OLED_LINE2);
@@ -846,6 +846,18 @@ Blockly.Blocks.set_highlist = {
     this.setTooltip(Blockly.MIXLY_TOOLTIP_LISTS_CREATE_WITH_TEXT);
   }
 };
+
+//执行器-设置音高
+Blockly.Blocks.set_updownlist = {
+  init: function() {
+    this.setColour(Blockly.Blocks.maker17.HUE2);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_PLAYMUSIC_SET_UPDOWN).appendField(new Blockly.FieldTextInput('mylist'), 'VAR').appendField('[').appendField(new Blockly.FieldTextInput('3', Blockly.FieldTextInput.math_number_validator), 'SIZE').appendField(']').appendField(new Blockly.FieldTextInput('0,0,0'), 'TEXT')
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.MIXLY_TOOLTIP_LISTS_CREATE_WITH_TEXT);
+  }
+};
+
 //执行器-设置时值
 Blockly.Blocks.set_rhythmlist = {
   init: function() {
@@ -857,16 +869,27 @@ Blockly.Blocks.set_rhythmlist = {
   }
 };
 
-//执行器-设置每拍时长
-Blockly.Blocks.set_tone_duration = {
+//执行器-设置每分钟拍数
+Blockly.Blocks.set_tone_speed = {
   init: function() {
     this.setColour(Blockly.Blocks.maker17.HUE2);
-    this.appendDummyInput("").appendField(Blockly.MAKER17_PLAYMUSIC_SET_DUR).appendField(new Blockly.FieldTextInput('varName'), 'VAR').appendField("为").appendField(new Blockly.FieldTextInput('500'), 'NUMBER').appendField(Blockly.MIXLY_MILLIS);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_PLAYMUSIC_SET_SPEED).appendField(new Blockly.FieldTextInput('varName'), 'VAR').appendField("为").appendField(new Blockly.FieldTextInput('120'), 'NUMBER').appendField("拍/分钟");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip(Blockly.MIXLY_TOOLTIP_LISTS_CREATE_WITH_TEXT);
   }
 };
+//执行器-设置updown
+Blockly.Blocks.set_tone_updown = {
+  init: function() {
+    this.setColour(Blockly.Blocks.maker17.HUE2);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_PLAYMUSIC_SET_UPDOWN).appendField(new Blockly.FieldTextInput('varName'), 'VAR').appendField("为").appendField(new Blockly.FieldTextInput('0'), 'NUMBER').appendField("");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.MIXLY_TOOLTIP_LISTS_CREATE_WITH_TEXT);
+  }
+};
+
 
 //时间-DS1307获取时间变量
 var MAKER17_DS1307_TIME_TYPE = [
@@ -882,7 +905,7 @@ var MAKER17_DS1307_TIME_TYPE = [
 //时间-DS1307开始获取时间
 Blockly.Blocks.DS1307_start_get_time = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32));
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT));
     this.appendDummyInput("").appendField("开始获取时间");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -895,7 +918,7 @@ Blockly.Blocks.DS1307_start_get_time = {
 //时间-DS1307获取时间
 Blockly.Blocks.DS1307_get_time = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_GET_TIME);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_DS1307_GET_TIME);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_DS1307_TIME_TYPE), "TIME_TYPE");
     this.setInputsInline(true);
     this.setColour(Blockly.Blocks.maker17.HUE3);
@@ -908,7 +931,7 @@ Blockly.Blocks.DS1307_get_time = {
 //时间-DS1307设置时间
 Blockly.Blocks.DS1307_set_time = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_SET_TIME);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_DS1307_SET_TIME);
     this.setInputsInline(true);
     this.appendValueInput("hour").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
     this.appendDummyInput("").appendField(Blockly.MAKER17_HOUR);
@@ -929,7 +952,7 @@ Blockly.Blocks.DS1307_set_time = {
 //时间-DS1307设置日期
 Blockly.Blocks.DS1307_set_date = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS1307_SET_DATE);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_DS1307_SET_DATE);
     this.setInputsInline(true);
     this.appendValueInput("year").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
     this.appendDummyInput("").appendField(Blockly.MAKER17_YEAR);
@@ -950,7 +973,7 @@ Blockly.Blocks.DS1307_set_date = {
 //时间-DS1307设置时间
 Blockly.Blocks.title1 = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/title1.png", 32, 32));
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/title1.png", Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT));
     this.setInputsInline(true);
     this.appendValueInput("year").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
     this.setOutput(true, Number);
@@ -987,7 +1010,7 @@ var MAKER17_DS3231_TIME_TYPE = [
 //时间-DS3231获取时间
 Blockly.Blocks.DS3231_get_time = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS3231_GET_TIME);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_DS3231_GET_TIME);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_DS3231_TIME_TYPE), "TIME_TYPE");
     this.setInputsInline(true);
     this.setColour(Blockly.Blocks.maker17.HUE3);
@@ -999,7 +1022,7 @@ Blockly.Blocks.DS3231_get_time = {
 //时间-DS3231设置日期时间
 Blockly.Blocks.DS3231_set_datetime = {
   init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png", 32, 32)).appendField(Blockly.MAKER17_DS3231_SET_TIME);
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/RTC.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_DS3231_SET_TIME);
     this.setInputsInline(true);
     this.appendValueInput("year").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT);
     this.appendDummyInput("").appendField(Blockly.MAKER17_YEAR);
@@ -1060,7 +1083,7 @@ Blockly.Blocks['text1'] = {
 //MP3
 Blockly.Blocks.maker17_MP3_VOL = {
   init: function() {
-    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.setColour(Blockly.Blocks.maker17.HUE2);
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32)).appendField(Blockly.MAKER17_MP3);
     this.appendValueInput("PIN").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MIXLY_PIN);
     this.appendValueInput('VOLUME', Number).setCheck(Number).appendField(Blockly.MAKER17_MP3_VOL);
@@ -1072,7 +1095,7 @@ Blockly.Blocks.maker17_MP3_VOL = {
 
 Blockly.Blocks.maker17_MP3_PLAY = {
   init: function() {
-    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.setColour(Blockly.Blocks.maker17.HUE2);
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32)).appendField(Blockly.MAKER17_MP3);
     this.appendValueInput("PIN").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MIXLY_PIN);
     this.appendValueInput('NUM', Number).setCheck(Number).appendField(Blockly.MAKER17_MP3_PLAY);
@@ -1084,7 +1107,7 @@ Blockly.Blocks.maker17_MP3_PLAY = {
 
 Blockly.Blocks.maker17_MP3_STATE = {
   init: function() {
-    this.setColour(Blockly.Blocks.maker17.HUE3);
+    this.setColour(Blockly.Blocks.maker17.HUE2);
     this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/Maker17/MP3.png", 32, 32)).appendField(Blockly.MAKER17_MP3).appendField(Blockly.MAKER17_MP3_STATE);
     this.appendValueInput("PIN").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MIXLY_PIN);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown([
@@ -1098,3 +1121,4 @@ Blockly.Blocks.maker17_MP3_STATE = {
     this.setNextStatement(true, null);
   }
 };
+

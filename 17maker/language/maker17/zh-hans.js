@@ -112,7 +112,9 @@ Blockly.MAKER17_OLED_SHOW_BMP_TOOLTIP='设置需要显示图像/汉字的坐标�
 Blockly.MAKER17_OLED_DRAW_PIXE_TOOLTIP='设置坐标，在OLED上绘制点。';
 Blockly.MAKER17_OLED_DRAW_LINE_TOOLTIP='设置直线的起点和终点坐标，画出一条直线。';
 //playmusic函数
-Blockly.MAKER17_PLAYMUSIC_SET_DUR = '设置每拍时长';
+Blockly.MAKER17_PLAYMUSIC_SET_SPEED = '设置拍数';
+Blockly.MAKER17_PLAYMUSIC_SET_UPDOWN = '设置UPDOWN';
+
 Blockly.MAKER17_PLAYMUSIC_SET_RHYTHM = '设置时值';
 Blockly.MAKER17_PLAYMUSIC_SET_TONELIST = '设置基准音调频率';
 Blockly.MAKER17_PLAYMUSIC_SET_MUSIC = '设置音符';

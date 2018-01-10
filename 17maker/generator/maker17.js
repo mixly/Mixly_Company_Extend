@@ -3,13 +3,13 @@ goog.provide('Blockly.Arduino.maker17');
 goog.require('Blockly.Arduino');
 
 //执行器-播放音乐函数-设置每拍时长
-Blockly.Arduino.set_tone_duration = function() {
+Blockly.Arduino.set_tone_speed = function() {
   var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var num = this.getFieldValue('NUMBER');
   Blockly.Arduino.definitions_['var_long' + varName] = 'long ' + varName + '=' + num + ';\n';
   return '';
 };
-
+Blockly.Arduino.set_tone_updown = Blockly.Arduino.set_tone_speed;
 //执行器-播放音乐函数-设置音符
 Blockly.Arduino.set_musiclist = function() {
   var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
@@ -38,7 +38,7 @@ Blockly.Arduino.set_tonelist = function() {
 
 Blockly.Arduino.set_rhythmlist = Blockly.Arduino.set_musiclist;
 Blockly.Arduino.set_highlist = Blockly.Arduino.set_musiclist;
-
+Blockly.Arduino.set_updownlist = Blockly.Arduino.set_musiclist;
 //dht11温湿度传感器
 Blockly.Arduino.maker17_dht11 = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
@@ -87,7 +87,7 @@ Blockly.Arduino.maker17_LM35temp = function() {
 Blockly.Arduino.maker17_motor = function() {
   var dropdown_pin = this.getFieldValue('PIN');
   var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var code = 'setRomeoMotor(' + dropdown_pin + ', ' + speed + ');\n';
+  var code = 'setMotor(' + dropdown_pin + ', ' + speed + ');\n';
   Blockly.Arduino.setups_['setup_output_4'] = 'pinMode(4, OUTPUT);';
   Blockly.Arduino.setups_['setup_output_5'] = 'pinMode(5, OUTPUT);';
   Blockly.Arduino.setups_['setup_output_6'] = 'pinMode(6, OUTPUT);';
@@ -96,8 +96,8 @@ Blockly.Arduino.maker17_motor = function() {
   Blockly.Arduino.setups_['setup_output_w5'] = 'digitalWrite(5, LOW);';
   Blockly.Arduino.setups_['setup_output_w6'] = 'digitalWrite(6, LOW);';
   Blockly.Arduino.setups_['setup_output_w7'] = 'digitalWrite(7, LOW);';
-  var funcName = 'setRomeoMotor';
-  var code2 = 'void ' + funcName + '(int motorId, int speed) {\n' + '  int speedPin, directionPin;\n' + '  if (motorId == 1){\n' + '   speedPin = 5;\n' + '   directionPin = 4;\n' + '  } else {\n' + '   if (motorId == 2){\n' + '     speedPin = 6;\n' + '     directionPin = 7;\n' + '   } else {\n' + '     return;\n' + '   }\n' + '  }\n' + '  if (speed == 0){\n' + '   digitalWrite(speedPin, LOW);\n' + '  }\n' + '  if (speed > 0){\n' + '   digitalWrite(directionPin, HIGH);\n' + '   analogWrite(speedPin, speed);\n' + '  } else {\n' + '   digitalWrite(directionPin, LOW);\n' + '   analogWrite(speedPin, -speed);\n' + '  }\n' + '}\n';
+  var funcName = 'setMotor';
+  var code2 = 'void ' + funcName + '(int motorId, int speed) {\n' + '  int speedPin, directionPin;\n' + '  if (motorId == 1){\n' + '   speedPin = 5;\n' + '   directionPin = 4;\n' + '  } else {\n' + '   if (motorId == 2){\n' + '     speedPin = 6;\n' + '     directionPin = 7;\n' + '   } else {\n' + '     return;\n' + '   }\n' + '  }\n' + '  if (speed == 0){\n' + '   digitalWrite(speedPin, LOW);\n' + '  }\n' + '  if (speed > 0){\n' + '   digitalWrite(directionPin, LOW);\n' + '   analogWrite(speedPin, speed);\n' + '  } else {\n' + '   digitalWrite(directionPin, HIGH);\n' + '   analogWrite(speedPin, (255+speed));\n' + '  }\n' + '}\n';
   Blockly.Arduino.definitions_[funcName] = code2;
   return code;
 };
@@ -105,7 +105,7 @@ Blockly.Arduino.maker17_motor = function() {
 //执行器-电机停止
 Blockly.Arduino.maker17_motor_stop = function() {
   var dropdown_pin = this.getFieldValue('PIN');
-  var code = 'setRomeoMotor(' + dropdown_pin + ', 0);\n';
+  var code = 'setMotor(' + dropdown_pin + ', 0);\n';
   Blockly.Arduino.setups_['setup_output_4'] = 'pinMode(4, OUTPUT);';
   Blockly.Arduino.setups_['setup_output_5'] = 'pinMode(5, OUTPUT);';
   Blockly.Arduino.setups_['setup_output_6'] = 'pinMode(6, OUTPUT);';
@@ -114,8 +114,8 @@ Blockly.Arduino.maker17_motor_stop = function() {
   Blockly.Arduino.setups_['setup_output_w5'] = 'digitalWrite(5, LOW);';
   Blockly.Arduino.setups_['setup_output_w6'] = 'digitalWrite(6, LOW);';
   Blockly.Arduino.setups_['setup_output_w7'] = 'digitalWrite(7, LOW);';
-  var funcName = 'setRomeoMotor';
-  var code2 = 'void ' + funcName + '(int motorId, int speed) {\n' + '  int speedPin, directionPin;\n' + '  if (motorId == 1){\n' + '   speedPin = 5;\n' + '   directionPin = 4;\n' + '  } else {\n' + '   if (motorId == 2){\n' + '     speedPin = 6;\n' + '     directionPin = 7;\n' + '   } else {\n' + '     return;\n' + '   }\n' + '  }\n' + '  if (speed == 0){\n' + '   digitalWrite(speedPin, LOW);\n' + '  }\n' + '  if (speed > 0){\n' + '   digitalWrite(directionPin, HIGH);\n' + '   analogWrite(speedPin, speed);\n' + '  } else {\n' + '   digitalWrite(directionPin, LOW);\n' + '   analogWrite(speedPin, -speed);\n' + '  }\n' + '}\n';
+  var funcName = 'setMotor';
+  var code2 = 'void ' + funcName + '(int motorId, int speed) {\n' + '  int speedPin, directionPin;\n' + '  if (motorId == 1){\n' + '   speedPin = 5;\n' + '   directionPin = 4;\n' + '  } else {\n' + '   if (motorId == 2){\n' + '     speedPin = 6;\n' + '     directionPin = 7;\n' + '   } else {\n' + '     return;\n' + '   }\n' + '  }\n' + '  if (speed == 0){\n' + '   digitalWrite(speedPin, LOW);\n' + '  }\n' + '  if (speed > 0){\n' + '   digitalWrite(directionPin, LOW);\n' + '   analogWrite(speedPin, speed);\n' + '  } else {\n' + '   digitalWrite(directionPin, HIGH);\n' + '   analogWrite(speedPin, (255+speed));\n' + '  }\n' + '}\n';
   Blockly.Arduino.definitions_[funcName] = code2;
   return code;
 };
