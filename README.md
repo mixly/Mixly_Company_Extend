@@ -1,5 +1,5 @@
 # Mixly_Company_Extend
-Libraries for Mixly(Suitable for Mixly 0.964 or later)
+Libraries for Mixly(Suitable for Mixly 0.997 or later)
 
 1.Folder "xxx" is an empty example of library for Mixly.
 
