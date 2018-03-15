@@ -37,9 +37,9 @@ var TONE_NOTES = [
 //执行器-蜂鸣器的频率选择
 Blockly.Blocks.maker17_tone_notes = {
   init: function() {
-    this.setColour(Blockly.Blocks.blockgroup.HUE2);
+    this.setColour(Blockly.Blocks.maker17.HUE2);
     this.appendDummyInput("").appendField(new Blockly.FieldDropdown(TONE_NOTES), 'STAT');
-    this.setOutput(true, Number);
+   this.setOutput(true, Number);
   }
 };
 
@@ -126,7 +126,6 @@ Blockly.Blocks.maker17_dht22 = {
     this.setOutput(true, Number);
   }
 };
-
 
 //加速度选择变量
 var MAKER17_ADXL345_SELECT = [
