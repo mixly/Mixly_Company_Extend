@@ -10,7 +10,9 @@ website: http://wiki.17maker.org
 1.打开mixly 软件，点击导入库。
 2.选中17maker中的maker17.xml文件，稍等片刻，提示导入成功即可。
 ---
-
+### Date:2018.3.19 Version:2.2.3
+*优化playmusic函数，缩短函数的长度，便于阅读。
+---
 ### Date:2018.3.15 Version:2.2.2
 *匹配Mixly0.997版本。
 *修复音乐类无法显示的bug。

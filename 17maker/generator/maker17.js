@@ -2,43 +2,6 @@
 goog.provide('Blockly.Arduino.maker17');
 goog.require('Blockly.Arduino');
 
-//执行器-播放音乐函数-设置每拍时长
-Blockly.Arduino.set_tone_speed = function() {
-  var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-  var num = this.getFieldValue('NUMBER');
-  Blockly.Arduino.definitions_['var_long' + varName] = 'long ' + varName + '=' + num + ';\n';
-  return '';
-};
-Blockly.Arduino.set_tone_updown = Blockly.Arduino.set_tone_speed;
-//执行器-播放音乐函数-设置音符
-Blockly.Arduino.set_musiclist = function() {
-  var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-  var size = window.parseFloat(this.getFieldValue('SIZE'));
-  var text = this.getFieldValue('TEXT');
-  Blockly.Arduino.definitions_['var_lists' + varName] = 'long ' + varName + '[' + size + ']' + '=' + '{' + text + '};\n';
-  return '';
-};
-
-//执行器-播放音乐函数-设置时值
-Blockly.Arduino.set_rhythmlist = function() {
-  var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-  var size = window.parseFloat(this.getFieldValue('SIZE'));
-  var text = this.getFieldValue('TEXT');
-  Blockly.Arduino.definitions_['var_lists' + varName] = 'float ' + varName + '[' + size + ']' + '=' + '{' + text + '};\n';
-  return '';
-};
-
-//执行器-播放音乐函数-设置基准音调频率
-Blockly.Arduino.set_tonelist = function() {
-  var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-  var text = this.getFieldValue('TEXT');
-  Blockly.Arduino.definitions_['var_lists' + varName] = 'float ' + varName + '[7]' + '=' + '{' + text + '};\n';
-  return '';
-};
-
-Blockly.Arduino.set_rhythmlist = Blockly.Arduino.set_musiclist;
-Blockly.Arduino.set_highlist = Blockly.Arduino.set_musiclist;
-Blockly.Arduino.set_updownlist = Blockly.Arduino.set_musiclist;
 //dht11温湿度传感器
 Blockly.Arduino.maker17_dht11 = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
