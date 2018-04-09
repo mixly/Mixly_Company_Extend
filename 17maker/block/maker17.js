@@ -88,17 +88,6 @@ Blockly.Blocks.maker17_motor = {
   }
 };
 
-//执行器-电机停止
-Blockly.Blocks.maker17_motor_stop = {
-  init: function() {
-    this.setColour(Blockly.Blocks.maker17.HUE2);
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/maker17/motor.png",  Blockly.Blocks.maker17.ICON_WIDTH , Blockly.Blocks.maker17.ICON_HEIGHT)).appendField(Blockly.MAKER17_MOTOR).appendField("#").appendField(new Blockly.FieldDropdown(MAKER17_MOTERSELECT), "PIN").appendField(Blockly.MIXLY_STOP);
-    this.setInputsInline(true);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-  }
-};
-
 //数字传感器-DHT11传感器
 Blockly.Blocks.maker17_dht11 = {
   init: function() {

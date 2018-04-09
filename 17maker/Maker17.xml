@@ -356,7 +356,6 @@ E-mail:qiujiongtao@163.com
 			</shadow>
 		</value>
 	</block>
-	<block type="maker17_motor_stop"  name="电机停止"></block>
 </category>
 <category id="catMaker17Show" name="显示" colour="40">
 	<category id="catMaker17MAX7219" name="MAX7219点阵" colour="40">

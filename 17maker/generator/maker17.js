@@ -60,28 +60,12 @@ Blockly.Arduino.maker17_motor = function() {
   Blockly.Arduino.setups_['setup_output_w6'] = 'digitalWrite(6, LOW);';
   Blockly.Arduino.setups_['setup_output_w7'] = 'digitalWrite(7, LOW);';
   var funcName = 'setMotor';
-  var code2 = 'void ' + funcName + '(int motorId, int speed) {\n' + '  int speedPin, directionPin;\n' + '  if (motorId == 1){\n' + '   speedPin = 5;\n' + '   directionPin = 4;\n' + '  } else {\n' + '   if (motorId == 2){\n' + '     speedPin = 6;\n' + '     directionPin = 7;\n' + '   } else {\n' + '     return;\n' + '   }\n' + '  }\n' + '  if (speed == 0){\n' + '   digitalWrite(speedPin, LOW);\n' + '  }\n' + '  if (speed > 0){\n' + '   digitalWrite(directionPin, LOW);\n' + '   analogWrite(speedPin, speed);\n' + '  } else {\n' + '   digitalWrite(directionPin, HIGH);\n' + '   analogWrite(speedPin, (255+speed));\n' + '  }\n' + '}\n';
+  var code2 = 'void ' + funcName + '(int motorId, int speed) {\n' + '  int speedPin, directionPin;\n' + '  if (motorId == 1){\n' + '   speedPin = 5;\n' + '   directionPin = 4;\n' + '  } \n else if(motorId == 2){\n' + '     speedPin = 6;\n' + '     directionPin = 7;\n' + '   } \n' + 'if (speed == 0){\n' + '   digitalWrite(speedPin, LOW);\n' + '  }\n' + ' else if (speed > 0){\n' + '   digitalWrite(directionPin, LOW);\n' + '   analogWrite(speedPin, speed);\n' + '  } else {\n' + '   digitalWrite(directionPin, HIGH);\n' + '   analogWrite(speedPin, (0-speed));\n' + '  }\n' + '}\n';
   Blockly.Arduino.definitions_[funcName] = code2;
   return code;
 };
 
-//执行器-电机停止
-Blockly.Arduino.maker17_motor_stop = function() {
-  var dropdown_pin = this.getFieldValue('PIN');
-  var code = 'setMotor(' + dropdown_pin + ', 0);\n';
-  Blockly.Arduino.setups_['setup_output_4'] = 'pinMode(4, OUTPUT);';
-  Blockly.Arduino.setups_['setup_output_5'] = 'pinMode(5, OUTPUT);';
-  Blockly.Arduino.setups_['setup_output_6'] = 'pinMode(6, OUTPUT);';
-  Blockly.Arduino.setups_['setup_output_7'] = 'pinMode(7, OUTPUT);';
-  Blockly.Arduino.setups_['setup_output_w4'] = 'digitalWrite(4, LOW);';
-  Blockly.Arduino.setups_['setup_output_w5'] = 'digitalWrite(5, LOW);';
-  Blockly.Arduino.setups_['setup_output_w6'] = 'digitalWrite(6, LOW);';
-  Blockly.Arduino.setups_['setup_output_w7'] = 'digitalWrite(7, LOW);';
-  var funcName = 'setMotor';
-  var code2 = 'void ' + funcName + '(int motorId, int speed) {\n' + '  int speedPin, directionPin;\n' + '  if (motorId == 1){\n' + '   speedPin = 5;\n' + '   directionPin = 4;\n' + '  } else {\n' + '   if (motorId == 2){\n' + '     speedPin = 6;\n' + '     directionPin = 7;\n' + '   } else {\n' + '     return;\n' + '   }\n' + '  }\n' + '  if (speed == 0){\n' + '   digitalWrite(speedPin, LOW);\n' + '  }\n' + '  if (speed > 0){\n' + '   digitalWrite(directionPin, LOW);\n' + '   analogWrite(speedPin, speed);\n' + '  } else {\n' + '   digitalWrite(directionPin, HIGH);\n' + '   analogWrite(speedPin, (255+speed));\n' + '  }\n' + '}\n';
-  Blockly.Arduino.definitions_[funcName] = code2;
-  return code;
-};
+
 
 
 //执行器-蜂鸣器频率选择列表
