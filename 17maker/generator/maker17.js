@@ -702,13 +702,13 @@ Blockly.Arduino.maker17_TM1637_displayTime = function() {
   var hour = Blockly.Arduino.valueToCode(this, 'hour', Blockly.Arduino.ORDER_ATOMIC);
   var minute = Blockly.Arduino.valueToCode(this, 'minute', Blockly.Arduino.ORDER_ATOMIC);
   var second = Blockly.Arduino.valueToCode(this, 'second', Blockly.Arduino.ORDER_ATOMIC);
-  Blockly.Arduino.definitions_['include_timerone'] = '#include <TimerOne.h>';
+    Blockly.Arduino.definitions_['include_timerone'] = '#include <TimerOne.h>';
   Blockly.Arduino.definitions_['definitions_on_off'] = '#define ON 1\n#define OFF 0\n';
   Blockly.Arduino.definitions_['definitions_TimeDisp'] = 'int8_t TimeDisp[] = {0x00,0x00,0x00,0x00};\nunsigned char ClockPoint = 1;\nunsigned char Update;\nunsigned char halfsecond = 0;\nunsigned char second=' + second + ';\nunsigned char minute = ' + minute + ';\nunsigned char hour = ' + hour + ';\n';
   Blockly.Arduino.definitions_['void_TimingISR'] = 'void TimingISR()\n{\nhalfsecond ++;\nUpdate=ON;\nif(halfsecond == 2){\nsecond ++;\nif(second==60)\n{\nminute ++;\nif(minute == 60){\nhour ++;\nif(hour == 24)\nhour = 0;\nminute = 0;\n}\nsecond = 0;\n}\nhalfsecond = 0;\n}\nClockPoint=(~ClockPoint) & 0x01;\n}';
-  Blockly.Arduino.definitions_['void_TimeUpdate'] = ' void TimeUpdate(void){  if(ClockPoint)tm1637.point(POINT_ON);  else tm1637.point(POINT_OFF);   TimeDisp[0] = hour / 10;  TimeDisp[1] = hour % 10;  TimeDisp[2] = minute / 10;  TimeDisp[3] = minute % 10;  Update = OFF;}';
+  Blockly.Arduino.definitions_['void_TimeUpdate'] = ' void TimeUpdate(void){\n  if(ClockPoint)\ntm1637.point(POINT_ON);\n  else tm1637.point(POINT_OFF);\nTimeDisp[0] = hour / 10;\n  TimeDisp[1] = hour % 10;\n  TimeDisp[2] = minute / 10;\n  TimeDisp[3] = minute % 10;\n  Update = OFF;\n}\n';
   Blockly.Arduino.setups_['setup_tm1637_init'] = 'tm1637.init();\nTimer1.initialize(500000);\n  Timer1.attachInterrupt(TimingISR);\n ';
-  var code = ' if(Update == ON){TimeUpdate();tm1637.display(TimeDisp);}';
+  var code = ' if(Update == ON)\n{\nTimeUpdate();\ntm1637.display(TimeDisp);\n}';
   return code;
 };
 //显示-TM1637-停表
