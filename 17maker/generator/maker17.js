@@ -311,34 +311,31 @@ Blockly.Arduino.maker17_oled_init2 = function() {
   var DIN = Blockly.Arduino.valueToCode(this, 'DIN', Blockly.Arduino.ORDER_ATOMIC);
   var DC = Blockly.Arduino.valueToCode(this, 'DC', Blockly.Arduino.ORDER_ATOMIC);
   var CS1 = Blockly.Arduino.valueToCode(this, 'CS1', Blockly.Arduino.ORDER_ATOMIC);
-  Blockly.Arduino.definitions_['define_U8glib'] = '#include <U8glib.h>';
-  Blockly.Arduino.definitions_['define_u8g'] = ' U8GLIB_SSD1306_128X64 u8g(U8G_I2C_OPT_NONE);';
-  var oled_setup = " if ( u8g.getMode() == U8G_MODE_R3G3B2 )\nu8g.setColorIndex(255);\n";
-  oled_setup += " else if ( u8g.getMode() == U8G_MODE_GRAY2BIT )\n";
-  oled_setup += " u8g.setColorIndex(3);\n ";
-  oled_setup += " else if ( u8g.getMode() == U8G_MODE_BW )\n";
-  oled_setup += " u8g.setColorIndex(1);\n";
+  Blockly.Arduino.definitions_['define_U8g2lib'] = '#include <U8g2lib.h>';
+  Blockly.Arduino.definitions_['define_u8g2'] = ' U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2(U8G2_R0, /* clock=*/ SCL, /* data=*/ SDA, /* reset=*/ U8X8_PIN_NONE);';
+  Blockly.Arduino.definitions_['define_u8gspi'] ='#ifdef U8X8_HAVE_HW_SPI\n#include <SPI.h>\n#endif\n #ifdef U8X8_HAVE_HW_I2C\n#include <Wire.h>\n#endif'; 
+  var oled_setup = "u8g2.begin();\n\n";
+  // oled_setup += "u8g2.enableUTF8Print();\n";
   Blockly.Arduino.setups_['setup_setup'] = oled_setup;
   var code = '';
   return code;
-
 };
 //显示-OLED-oled获取高度/宽度
 Blockly.Arduino.maker17_oled_getHeight_or_Width = function() {
   var what = this.getFieldValue('WHAT');
-  var funcName = 'u8g.get' + what + '()';
+  var funcName = 'u8g2.get' + what + '()';
   return [funcName, Blockly.Arduino.ORDER_ATOMIC];
 }
-//
+//OLED显示多行文本
 Blockly.Arduino.maker17_oled_draw4Str = function() {
   var value_text_line1 = Blockly.Arduino.valueToCode(this, 'Text_line1', Blockly.Arduino.ORDER_ATOMIC) || '\'\'';
   var value_text_line2 = Blockly.Arduino.valueToCode(this, 'Text_line2', Blockly.Arduino.ORDER_ATOMIC) || '\'\'';
   var value_text_line3 = Blockly.Arduino.valueToCode(this, 'Text_line3', Blockly.Arduino.ORDER_ATOMIC) || '\'\'';
   var value_text_line4 = Blockly.Arduino.valueToCode(this, 'Text_line4', Blockly.Arduino.ORDER_ATOMIC) || '\'\'';
-  var code = 'u8g.drawStr(0, 12, ' + value_text_line1 + ');\n'
-  code += 'u8g.drawStr(0, 28, ' + value_text_line2 + ');\n'
-  code += 'u8g.drawStr(0, 44, ' + value_text_line3 + ');\n'
-  code += 'u8g.drawStr(0, 60, ' + value_text_line4 + ');\n'
+  var code = 'u8g2.drawStr(0, 12, ' + value_text_line1 + ');\n'
+  code += 'u8g2.drawStr(0, 28, ' + value_text_line2 + ');\n'
+  code += 'u8g2.drawStr(0, 44, ' + value_text_line3 + ');\n'
+  code += 'u8g2.drawStr(0, 60, ' + value_text_line4 + ');\n'
   return code;
 };
 
@@ -349,7 +346,7 @@ Blockly.Arduino.maker17_oled_drawPixe = function() {
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(pos_x) && pos_x < 128 && pos_x >= 0) || (isNaN(pos_x))) {
-    code += 'u8g.drawPixel(' + pos_x + ',';
+    code += 'u8g2.drawPixel(' + pos_x + ',';
   }
   if ((!isNaN(pos_y) && pos_y < 64 && pos_y >= 0) || (isNaN(pos_y))) {
     code += pos_y + ');\n';
@@ -363,7 +360,7 @@ Blockly.Arduino.maker17_oled_page = function() {
   var branch = Blockly.Arduino.statementToCode(this, 'DO');
   branch = branch.replace(/(^\s*)|(\s*$)/g, ""); //去除两端空格
   if (branch) {
-    var code = "  u8g.firstPage();\n do {\n" + branch + "\n} \nwhile (u8g.nextPage());\n";
+    var code = "  u8g2.firstPage();\n do {\n" + branch + "\n} \nwhile (u8g2.nextPage());\n";
     return code;
   }
 };
@@ -379,10 +376,10 @@ Blockly.Arduino.maker17_oled_showBitmap = function() {
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(start_x) && start_x < 128 && start_x >= 0) || (isNaN(start_x))) {
-    code = 'u8g.drawBitmapP(' + start_x + ',';
+    code = 'u8g2.drawXBM(' + start_x + ',';
   }
   if ((!isNaN(start_y) && start_y < 64 && start_y >= 0) || (isNaN(start_y))) {
-    code += start_y + ',' + (parseInt(WIDTH) / 8) + ' ,' + parseInt(Height) + ', ' + data_name + ');\n';
+    code += start_y + ',' + parseInt(WIDTH) + ' ,' + parseInt(Height) + ', ' + data_name + ');\n';
   }
   if (code.split(",").length == 5 && code.split(")").length == 2) 
     return code;
@@ -393,7 +390,7 @@ Blockly.Arduino.maker17_oled_showBitmap = function() {
 Blockly.Arduino.maker17_oled_define_bitmap_data = function() {
   var varName = Blockly.Arduino.variableDB_.getName(this.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var text = this.getFieldValue('TEXT');
-  Blockly.Arduino.definitions_['var_lists' + varName] = 'const uint8_t ' + varName + '[]PROGMEM={' + text + ' };\n';
+  Blockly.Arduino.definitions_['var_lists' + varName] = 'static unsigned char ' + varName + '[]={' + text + ' };\n';
   return '';
 };
 
@@ -406,7 +403,7 @@ Blockly.Arduino.maker17_oled_drawLine = function() {
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(start_x) && start_x < 128 && start_x >= 0) || (isNaN(start_x))) {
-    code = 'u8g.drawLine(' + start_x + ',';
+    code = 'u8g2.drawLine(' + start_x + ',';
   }
   if ((!isNaN(start_y) && start_y < 64 && start_y >= 0) || (isNaN(start_y))) {
     code += start_y + ',';
@@ -430,7 +427,7 @@ Blockly.Arduino.maker17_oled_draw_Str_Line = function() {
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(start_x) && start_x < 128 && start_x >= 0) || (isNaN(start_x))) {
-    code = "u8g.draw" + TYPE + "Line(" + start_x + ',';
+    code = "u8g2.draw" + TYPE + "Line(" + start_x + ',';
   }
   if ((!isNaN(start_y) && start_y < 64 && start_y >= 0) || (isNaN(start_y))) {
     code += start_y + ',';
@@ -454,7 +451,7 @@ Blockly.Arduino.maker17_oled_drawTriangle = function() {
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(D0_x) && D0_x < 128 && D0_x >= 0) || (isNaN(D0_x))) {
-    code = 'u8g.drawTriangle(' + D0_x + ',';
+    code = 'u8g2.drawTriangle(' + D0_x + ',';
   }
   if ((!isNaN(D0_y) && D0_y < 64 && D0_y >= 0) || (isNaN(D0_y))) {
     code += D0_y + ',';
@@ -486,7 +483,7 @@ Blockly.Arduino.maker17_oled_drawFrame = function() {
 
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(D0_x) && D0_x < 128 && D0_x >= 0) || (isNaN(D0_x))) 
-    code = 'u8g.'+type+'(' + D0_x + ',';
+    code = 'u8g2.'+type+'(' + D0_x + ',';
   if ((!isNaN(D0_y) && D0_y < 64 && D0_y >= 0) || (isNaN(D0_y))) 
     code += D0_y + ',';
   if ((!isNaN(Width) && Width < 128 && Width >= 0) || (isNaN(Width))) 
@@ -508,7 +505,7 @@ Blockly.Arduino.maker17_oled_drawRFrame = function() {
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(D0_x) && D0_x < 128 && D0_x >= 0) || (isNaN(D0_x))) 
-    code = 'u8g.'+type+'(' + D0_x + ',';
+    code = 'u8g2.'+type+'(' + D0_x + ',';
   if ((!isNaN(D0_y) && D0_y < 64 && D0_y >= 0) || (isNaN(D0_y))) 
     code += D0_y + ',';
   if ((!isNaN(Width) && Width < 128 && Width >= 0) || (isNaN(Width))) 
@@ -531,7 +528,7 @@ Blockly.Arduino.maker17_oled_drawCircle = function() {
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(D0_x) && D0_x < 128 && D0_x >= 0) || (isNaN(D0_x))) 
-    code = 'u8g.'+type+'(' + D0_x + ',';
+    code = 'u8g2.'+type+'(' + D0_x + ',';
   if ((!isNaN(D0_y) && D0_y < 64 && D0_y >= 0) || (isNaN(D0_y))) 
    code += D0_y + ',';
  if ((!isNaN(Rauius) && Rauius < 64 && Rauius >= 0) || (isNaN(Rauius))) 
@@ -551,7 +548,7 @@ Blockly.Arduino.maker17_oled_drawEllipse = function() {
   var code = "";
   //x和y可以是变量也可以是数字，对此做判断
   if ((!isNaN(D0_x) && D0_x < 128 && D0_x >= 0) || (isNaN(D0_x))) 
-    code = 'u8g.'+type+'(' + D0_x + ',';
+    code = 'u8g2.'+type+'(' + D0_x + ',';
   if ((!isNaN(D0_y) && D0_y < 64 && D0_y >= 0) || (isNaN(D0_y))) 
    code += D0_y + ',';
  if ((!isNaN(Rauius_X) && Rauius_X < 64 && Rauius_X >= 0) || (isNaN(Rauius_X))) 
@@ -567,11 +564,11 @@ Blockly.Arduino.maker17_oled_drawStr = function() {
   var POS_x = Blockly.Arduino.valueToCode(this, 'POS_X', Blockly.Arduino.ORDER_ATOMIC);
   var POS_y = Blockly.Arduino.valueToCode(this, 'POS_Y', Blockly.Arduino.ORDER_ATOMIC);
   var TEXT = Blockly.Arduino.valueToCode(this, 'TEXT', Blockly.Arduino.ORDER_ATOMIC);
-  var rad = this.getFieldValue('RAD');
+ 
   var code = "";
     //x和y可以是变量也可以是数字，对此做判断
     if ((!isNaN(POS_x) && POS_x < 128 && POS_x >= 0) || (isNaN(POS_x))) 
-      code = 'u8g.'+rad+'(' + POS_x + ',';
+      code = 'u8g2.drawStr(' + POS_x + ',';
     if ((!isNaN(POS_y) && POS_y < 64 && POS_y >= 0) || (isNaN(POS_y))) 
      code += POS_y + ','+ TEXT + "); \n";
    if (code.split(",").length == 3&& code.split(")").length == 2) return code;
@@ -586,26 +583,24 @@ Blockly.Arduino.maker17_oled_print = function() {
   var code = "";
  //x和y可以是变量也可以是数字，对此做判断
     if ((!isNaN(POS_x) && POS_x < 128 && POS_x >= 0) || (isNaN(POS_x))) 
-      code = 'u8g.setFontPosTop();\nu8g.setPrintPos(' + POS_x + ',';
+      code = 'u8g2.setFontPosTop();\nu8g2.setCursor(' + POS_x + ',';
     if ((!isNaN(POS_y) && POS_y < 64 && POS_y >= 0) || (isNaN(POS_y))) 
      code += POS_y + "); \n";
-     code += "u8g.print(" + TEXT + "); \n";
+     code += "u8g2.print(" + TEXT + "); \n";
   return code;
 };
 
 //显示-OLED-oled设置字体
 Blockly.Arduino.maker17_oled_setFont = function() {
   var type = this.getFieldValue('TYPE');
-  var style = this.getFieldValue('STYLE');
-  var size = this.getFieldValue('SIZE');
-  var code = "";
-  if (type == "Adobe" && size == "11") {
-    code = "u8g.setFont(u8g_font_cour" + style.toUpperCase() + "14);\n";
-  } else if (type == "Adobe" && size == "20") {
-    code = "u8g.setFont(u8g_font_cour" + style.toUpperCase() + "24);\n";
-  } else if (type == "Adobe" && size == "25") {
-    code = "u8g.setFont(u8g_font_helv" + style.toUpperCase() + "24);\n";
-  } else code = "u8g.setFont(u8g_font_" + type + style + size + ");\n";
+  var code = "u8g2.setFont(u8g2_font_"+type+");\nu8g2.setFontPosTop();\n";
+  // if (type == "Adobe" && size == "11") {
+  //   code = "u8g2.setFont(u8g2_font_" + style.toUpperCase() + "14);\n";
+  // } else if (type == "Adobe" && size == "20") {
+  //   code = "u8g2.setFont(u8g2_font_cour" + style.toUpperCase() + "24);\n";
+  // } else if (type == "Adobe" && size == "25") {
+  //   code = "u8g2.setFont(u8g2_font_helv" + style.toUpperCase() + "24);\n";
+  // } else code = "u8g2.setFont(u8g2_font_" + type + style + size + ");\n";
   return code;
 };
 
@@ -656,93 +651,45 @@ Blockly.Arduino.Maker17_4DigitDisplay_Brightness = function() {
   return code;
 };
 //显示-TM1637-初始化
-Blockly.Arduino.Maker17_TM1637_init = function() {
+Blockly.Arduino.maker17_TM1637_init = function() {
   var CLK = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
   var DIO = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
-  Blockly.Arduino.definitions_['include_tm1637'] = '#include <TM1637.h>';
-  Blockly.Arduino.definitions_['var_tm1637'] = 'TM1637 tm1637(' + CLK + ',' + DIO + ');';
-  Blockly.Arduino.setups_['setup_tm1637_init'] = ' tm1637.init();\n';
+  Blockly.Arduino.definitions_['include_tm1637'] = '#include "SevenSegmentTM1637.h"';
+  Blockly.Arduino.definitions_['var_tm1637'] = 'SevenSegmentTM1637 display(' + CLK + ',' + DIO + ');';
+  Blockly.Arduino.setups_['setup_tm1637_init'] = '  display.begin();\ndelay(1000); ';
   return '';
 };
 
 
 //显示-TM1637-显示字符串（字符，数值、变量）
 Blockly.Arduino.maker17_TM1637_displayString = function() {
-  var Speed = Blockly.Arduino.valueToCode(this, 'Speed', Blockly.Arduino.ORDER_ATOMIC);
+ 
   var value = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ATOMIC);
-  // 获取需要显示的字符串0~9，AbCdEF
-  var code = 'int8_t NumTab[]={';
-  for (var i = 1; i + 1 < value.length; i++) {
-    if (value[i].toLowerCase().charCodeAt() > 96 && value[i].toLowerCase().charCodeAt() < 103)
-    //先将输入的字符从大写字母转到小写字母，再根据字母的ascii码进行转化，将a~f字母转化成10~15
-  code += (value[i].toLowerCase().charCodeAt() - 87);
-  else if (value[i].toLowerCase().charCodeAt() > 47 && value[i].toLowerCase().charCodeAt() < 58)
-    //如果输入的是数字0~9，则直接是0~9
-  code += (value[i].toLowerCase().charCodeAt() - 48);
-  if (i + 2 < value.length) code += ',';
-    //在每个数字后面追加一个逗号，最后一个字符后面不加
-  }
-  code += '};'
-  code += '\nint8_t ListDisp[4];\n int8_t run=1;\nunsigned char i = 0;\n  unsigned char count = 0;\ndelay(150);';
-  // return num;
-  code += ' while(run)\n{\n';
-  code += 'i = count;\ncount++;\nif(sizeof(NumTab)<5)\nrun=0;\n';
-  code += 'if(count == sizeof(NumTab)) \ncount = 0;\n';
-  code += ' for(unsigned char BitSelect = 0;BitSelect <  sizeof(NumTab);BitSelect ++)\n';
-  code += '{\nListDisp[BitSelect] = NumTab[i];\n';
-  code += ' i++;\nif(i == sizeof(NumTab))\n i = 0;\n';
-  code += '}\nfor(unsigned char k = 0;k <sizeof(NumTab);k ++)\n{\ntm1637.display(k,ListDisp[k]);\n};\n';
-  code += 'delay(' + Speed + ');\n}\n';
+  var code = 'display.clear();\n display.print('+value+');\n ';
   return code;
 };
 
 //显示-TM1637-显示时间
 Blockly.Arduino.maker17_TM1637_displayTime = function() {
+   var CLK = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
+  var DIO = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
   var value = Blockly.Arduino.valueToCode(this, 'VALUE', Blockly.Arduino.ORDER_ATOMIC);
   var hour = Blockly.Arduino.valueToCode(this, 'hour', Blockly.Arduino.ORDER_ATOMIC);
   var minute = Blockly.Arduino.valueToCode(this, 'minute', Blockly.Arduino.ORDER_ATOMIC);
-  var second = Blockly.Arduino.valueToCode(this, 'second', Blockly.Arduino.ORDER_ATOMIC);
-    Blockly.Arduino.definitions_['include_timerone'] = '#include <TimerOne.h>';
-  Blockly.Arduino.definitions_['definitions_on_off'] = '#define ON 1\n#define OFF 0\n';
-  Blockly.Arduino.definitions_['definitions_TimeDisp'] = 'int8_t TimeDisp[] = {0x00,0x00,0x00,0x00};\nunsigned char ClockPoint = 1;\nunsigned char Update;\nunsigned char halfsecond = 0;\nunsigned char second=' + second + ';\nunsigned char minute = ' + minute + ';\nunsigned char hour = ' + hour + ';\n';
-  Blockly.Arduino.definitions_['void_TimingISR'] = 'void TimingISR()\n{\nhalfsecond ++;\nUpdate=ON;\nif(halfsecond == 2){\nsecond ++;\nif(second==60)\n{\nminute ++;\nif(minute == 60){\nhour ++;\nif(hour == 24)\nhour = 0;\nminute = 0;\n}\nsecond = 0;\n}\nhalfsecond = 0;\n}\nClockPoint=(~ClockPoint) & 0x01;\n}';
-  Blockly.Arduino.definitions_['void_TimeUpdate'] = ' void TimeUpdate(void){\n  if(ClockPoint)\ntm1637.point(POINT_ON);\n  else tm1637.point(POINT_OFF);\nTimeDisp[0] = hour / 10;\n  TimeDisp[1] = hour % 10;\n  TimeDisp[2] = minute / 10;\n  TimeDisp[3] = minute % 10;\n  Update = OFF;\n}\n';
-  Blockly.Arduino.setups_['setup_tm1637_init'] = 'tm1637.init();\nTimer1.initialize(500000);\n  Timer1.attachInterrupt(TimingISR);\n ';
-  var code = ' if(Update == ON)\n{\nTimeUpdate();\ntm1637.display(TimeDisp);\n}';
-  return code;
+ 
+  //  Blockly.Arduino.definitions_['var_tm1637'] = 'SevenSegmentExtended display(' + CLK + ',' + DIO + ');';
+  var code = '  byte hours ='+hour+';\n';
+  code+='  byte minutes  = '+ minute+';\n';
+  code+='  byte second  = 0;\n';
+  code+='for (; hours < 24; hours++)\n{\nfor ( ; minutes < 60; minutes++)\n{\nfor ( ; second < 60; second++)\n{\ndisplay.printTime(hours, minutes, true);\n}\nsecond=0;\n}\nminutes = 0;\n}\n';
+    return code;
 };
-//显示-TM1637-停表
-Blockly.Arduino.maker17_TM1637_Stopwatch = function() {
-  var STAT = this.getFieldValue('STAT');
-  Blockly.Arduino.definitions_['include_EEPROM'] = '#include <EEPROM.h>';
-  Blockly.Arduino.definitions_['include_timerone'] = '#include <TimerOne.h>';
-  Blockly.Arduino.definitions_['include_pgmspace'] = '#include <avr/pgmspace.h>';
-  Blockly.Arduino.definitions_['definitions_on_off'] = '#define ON 1\n#define OFF 0\n';
 
-  Blockly.Arduino.definitions_['definitions_TimeDisp'] = 'int8_t TimeDisp[] = {0x00,0x00,0x00,0x00};\nunsigned char ClockPoint = 1;\nunsigned char Update;\nunsigned char microsecond_10 = 0;\nunsigned char second;\nunsigned char _microsecond_10 = 0;\nunsigned char _second;\nunsigned int eepromaddr;\nboolean Flag_ReadTime;\n';
-
-  Blockly.Arduino.definitions_['void_TimingISR2'] = 'void TimingISR2()\n{\nmicrosecond_10 ++;\nUpdate = ON;\nif(microsecond_10 == 100)\n{\nsecond ++;\nif(second == 60)\n{\nsecond = 0;\n}\nmicrosecond_10 = 0; \n}\nClockPoint =(~ClockPoint) & 0x01;\nif(Flag_ReadTime == 0) \n {_microsecond_10 = microsecond_10;\n_second = second;  }\n}\n';
-
-  Blockly.Arduino.definitions_['void_TimeUpdate2'] = 'void TimeUpdate2(void)\n{\nif(ClockPoint)tm1637.point(POINT_ON);\nelse tm1637.point(POINT_OFF);\nTimeDisp[2] = _microsecond_10 / 10;\nTimeDisp[3] = _microsecond_10 % 10;\nTimeDisp[0] = _second / 10;\nTimeDisp[1]= _second % 10;\nUpdate = OFF;\n}\n';
-
-  Blockly.Arduino.definitions_['void_stopwatchStart'] = 'void stopwatchStart()\n{\n  Flag_ReadTime = 0;\nTCCR1B |=Timer1.clockSelectBits; \n}\n';
-  Blockly.Arduino.definitions_['void_stopwatchPause'] = 'void stopwatchPause()\n{\nTCCR1B &= ~(_BV(CS10) | _BV(CS11) | _BV(CS12));\n}\n';
-
-  Blockly.Arduino.definitions_['void_stopwatchReset'] = 'void stopwatchReset()\n{\n stopwatchPause();\nFlag_ReadTime = 0;\n_microsecond_10 = 0;\n_second = 0;\nmicrosecond_10 = 0;\nsecond = 0;\nUpdate = ON;\n}\n';
-  Blockly.Arduino.definitions_['void_saveTime'] = 'void saveTime()\n{EEPROM.write(eepromaddr ++,microsecond_10);\nEEPROM.write(eepromaddr ++,second);\n}\n';
-
-  Blockly.Arduino.definitions_['void_readTime'] = 'void readTime(){\nFlag_ReadTime = 1;\nif(eepromaddr == 0)\n{\nSerial.println("The time had been read");\n_microsecond_10 = 0;\n _second = 0;\n}\nelse{\n_second = EEPROM.read(-- eepromaddr);\n_microsecond_10 = EEPROM.read(-- eepromaddr);\nSerial.println("List the time");\n}\nUpdate = ON;\n}';
-
-  Blockly.Arduino.setups_['setup_tm1637_stopwatch'] = '  tm1637.set();\n tm1637.init();\nTimer1.initialize(10000);\n  Timer1.attachInterrupt(TimingISR2);\n ';
-
-  var code = STAT + '();\n';
-  code += 'if(Update == ON)\n{\nTimeUpdate2();\ntm1637.display(TimeDisp);\n}';
-  return code;
-};
 //显示-TM1637-设置亮度
-Blockly.Arduino.Maker17_TM1637_Brightness = function() {
-  var BRIGHTNESS = this.getFieldValue('BRIGHTNESS');
-  var code = ' tm1637.set(' + BRIGHTNESS + ');\n';
+Blockly.Arduino.maker17_TM1637_Brightness = function() {
+  var BRIGHTNESS = Blockly.Arduino.valueToCode(this, 'BRIGHTNESS', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+ // var BRIGHTNESS = this.getFieldValue('BRIGHTNESS');
+  var code = '  display.setBacklight(' + BRIGHTNESS + ');\n';
   return code;
 };
 //时间-DS1307初始化
