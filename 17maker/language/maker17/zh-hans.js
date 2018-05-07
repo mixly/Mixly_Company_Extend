@@ -24,7 +24,9 @@ Blockly.MAKER17_JOYSTICK_D = '摇杆按钮';
 
 Blockly.MAKER17_MOTOR_SPEED = '速度(-255~255)';
 Blockly.MAKER17_MOTOR = '电机';
-
+Blockly.MAKER17_MOTOR_SPEED_PIN='速度管脚';
+Blockly.MAKER17_MOTOR_DIR_PIN='方向管脚';
+Blockly.MAKER17_8833MOTOR_SPEED_PIN='8833速度管脚';
 Blockly.MAKER17_BUZZER = '蜂鸣器';
 Blockly.MAKER17_DISPLAY_CLEAR = '清除第几位(1/2/3/4)';
 
@@ -179,7 +181,7 @@ Blockly.MAKER17_ADXL345_AX='x轴加速度';
 Blockly.MAKER17_ADXL345_AY='y轴加速度';
 Blockly.MAKER17_ADXL345_AZ='z轴加速度';
 Blockly.MAKER17_ADXL345_TIP='与IIC接口相连，SCL接A5，SDA接A4。使用串口监视器时，波特率设为38400.';
-Blockly.maker17_IICSCAN='IIC设备地址查找';
+Blockly.MAKER17_IICSCAN='IIC设备地址查找';
 
 //mp3
 Blockly.MAKER17_MP3='MP3';

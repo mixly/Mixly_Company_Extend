@@ -1,60 +1,60 @@
 <!--
 type="company" 
-block="block/maker17.js"
-generator="generator/maker17.js" 
-media="media/maker17" 
+block="block/MAKER17.js"
+generator="generator/MAKER17.js" 
+media="media/MAKER17" 
 lib="U8g2"
 lib="TM1637"
 hardware="hardware/arduino" 
-language="language/maker17/"
-examples="examples/Maker17"
+language="language/MAKER17/"
+examples="examples/MAKER17"
 -->
 <!-- 
 Author :hznupeter
 Date:2017-5-30
 E-mail:qiujiongtao@163.com
 -->
-<script type="text/javascript" src="../../blocks/company/maker17.js"></script>
-<script type="text/javascript" src="../../generators/arduino/company/maker17.js"></script>
+<script type="text/javascript" src="../../blocks/company/MAKER17.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/MAKER17.js"></script>
 <!--引用所有写好的模块-->
-<category id="catMaker17" name="17Maker" colour="40">
-	<category id="catMaker17Sensor"  name="传感器" colour="40">
-		<block type="maker17_IICSCAN" name="IIC地址查找">
+<category id="catMAKER17" name="17Maker" colour="40">
+	<category id="catMAKER17Sensor"  name="传感器" colour="40">
+		<block type="MAKER17_IICSCAN" name="IIC地址查找">
 		</block>
-		<block type="maker17_LM35temp" name="LM35温度传感器">
+		<block type="MAKER17_LM35temp" name="LM35温度传感器">
 			<value name="PIN">
 				<shadow type="pins_analog"></shadow>
 			</value>
 		</block>
-		<block type="maker17_dht11" name="DHT11温湿度传感器">
+		<block type="MAKER17_dht11" name="DHT11温湿度传感器">
 			<value name="PIN">
 				<shadow type="pins_digital"></shadow>
 			</value>
 		</block>
-		<block type="maker17_dht22" name="DHT22温湿度传感器">
+		<block type="MAKER17_dht22" name="DHT22温湿度传感器">
 			<value name="PIN">
 				<shadow type="pins_digital"></shadow>
 			</value>
 		</block>
-		<block type="maker17_ADXL345" name="ADXL345三轴加速度计">
+		<block type="MAKER17_ADXL345" name="ADXL345三轴加速度计">
 			<value name="PIN">
 				<shadow type="pins_digital"></shadow>
 			</value>
 		</block> 
 	</category>
-	<category id="catMaker17Music" name="音乐" colour="40">
-		<block type="maker17_tone"  name="蜂鸣器">
+	<category id="catMAKER17Music" name="音乐" colour="40">
+		<block type="MAKER17_tone"  name="蜂鸣器">
 			<value name="PIN">
 				<shadow type="pins_digital"></shadow>
 			</value>
 			<value name="FREQUENCY">
-				<shadow type="maker17_tone_notes"  name="设置蜂鸣器频率选择"></shadow>
+				<shadow type="MAKER17_tone_notes"  name="设置蜂鸣器频率选择"></shadow>
 			</value>
 			<value name="DURATION">
 				<shadow type="math_number"></shadow>
 			</value>
 		</block>
-		<block type="maker17_newNoTone" name="停止蜂鸣器">
+		<block type="MAKER17_newNoTone" name="停止蜂鸣器">
 			<value name="PIN">
 				<shadow type="pins_digital"></shadow>
 			</value>
@@ -349,8 +349,72 @@ E-mail:qiujiongtao@163.com
 </block>
 
 </category>
-<category id="catMaker17Motion" name="动作" colour="40">
-	<block type="maker17_motor" name="电机转动">
+<category id="catMAKER17Motion" name="动作" colour="40">
+	<block type="MAKER17_motorA" name="电机A转动">
+		<value name="PIN1">
+			<shadow type="pins_digital">
+				<field name="PIN">5</field>
+			</shadow>
+		</value>
+		<value name="PIN2">
+			<shadow type="pins_digital">
+				<field name="PIN">4</field>
+			</shadow>
+		</value>
+		<value name="speed">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	</block>
+
+	<block type="MAKER17_motorB" name="电机B转动">
+		<value name="PIN1">
+			<shadow type="pins_digital">
+				<field name="PIN">6</field>
+			</shadow>
+		</value>
+		<value name="PIN2">
+			<shadow type="pins_digital">
+				<field name="PIN">7</field>
+			</shadow>
+		</value>
+		<value name="speed">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	</block>
+
+	<block type="MAKER17_8833motorA" name="8833电机A转动">
+		<value name="PIN1">
+			<shadow type="pins_digital">
+				<field name="PIN">5</field>
+			</shadow>
+		</value>
+		<value name="PIN2">
+			<shadow type="pins_digital">
+				<field name="PIN">4</field>
+			</shadow>
+		</value>
+		<value name="speed">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	</block>
+
+	<block type="MAKER17_8833motorB" name="8833电机B转动">
+		<value name="PIN1">
+			<shadow type="pins_digital">
+				<field name="PIN">6</field>
+			</shadow>
+		</value>
+		<value name="PIN2">
+			<shadow type="pins_digital">
+				<field name="PIN">7</field>
+			</shadow>
+		</value>
 		<value name="speed">
 			<shadow type="math_number">
 				<field name="NUM">0</field>
@@ -358,8 +422,8 @@ E-mail:qiujiongtao@163.com
 		</value>
 	</block>
 </category>
-<category id="catMaker17Show" name="显示" colour="40">
-	<category id="catMaker17MAX7219" name="MAX7219点阵" colour="40">
+<category id="catMAKER17Show" name="显示" colour="40">
+	<category id="catMAKER17MAX7219" name="MAX7219点阵" colour="40">
 		<block type="MAX7219_init" name="LED点阵初始化">
 			<value name="PIN1">
 				<shadow type="pins_digital">
@@ -409,9 +473,9 @@ E-mail:qiujiongtao@163.com
 		<block type="Max7219_img" name="预设图案">
 		</block>
 	</category>
-	<category id="catMaker17OLED" name="OLED" colour="40">
+	<category id="catMAKER17OLED" name="OLED" colour="40">
 		<!--  OLED 类 -->
-		<!-- <block type="maker17_oled_init" name="OLED初始化">
+		<!-- <block type="MAKER17_oled_init" name="OLED初始化">
 			<value name="CLK">
 				<shadow type="pins_digital">
 					<field name="PIN">10</field>
@@ -433,13 +497,13 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block> -->
-		<block type="maker17_oled_init2" name="OLED初始化(IIC)">
+		<block type="MAKER17_oled_init2" name="OLED初始化(IIC)">
 		</block>
-		<block type="maker17_oled_page"></block>
-		<block type="maker17_oled_getHeight_or_Width">
+		<block type="MAKER17_oled_page"></block>
+		<block type="MAKER17_oled_getHeight_or_Width">
 		</block>
-		<block type="maker17_oled_define_bitmap_data"></block>
-		<block type="maker17_oled_showBitmap" name="显示中文字符">
+		<block type="MAKER17_oled_define_bitmap_data"></block>
+		<block type="MAKER17_oled_showBitmap" name="显示中文字符">
 			<value name="START_X">
 				<shadow type="math_number">
 					<field name="NUM">0</field>
@@ -456,9 +520,9 @@ E-mail:qiujiongtao@163.com
 				</block>
 			</value>
 		</block>
-		<block type="maker17_oled_setFont" name="设置字体">
+		<block type="MAKER17_oled_setFont" name="设置字体">
 		</block>
-		<block type="maker17_oled_drawStr" name="显示字符串">
+		<block type="MAKER17_oled_drawStr" name="显示字符串">
 			<value name="POS_X">
 				<shadow type="math_number">
 					<field name="NUM">1</field>
@@ -475,7 +539,7 @@ E-mail:qiujiongtao@163.com
 				</block>
 			</value>
 		</block>
-		<block type="maker17_oled_draw4Str" name="显示多行字符串">
+		<block type="MAKER17_oled_draw4Str" name="显示多行字符串">
 			<value name="Text_line1">
 				<shadow type="text">
 					<field name="TEXT">Hello,world!</field>
@@ -497,7 +561,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block> 
-		<block type="maker17_oled_print" name="显示字符串变量">
+		<block type="MAKER17_oled_print" name="显示字符串变量">
 			<value name="POS_X">
 				<shadow type="math_number">
 					<field name="NUM">1</field>
@@ -514,7 +578,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_oled_drawPixe" name="画点">
+		<block type="MAKER17_oled_drawPixe" name="画点">
 			<value name="POS_X">
 				<shadow type="math_number">
 					<field name="NUM">64</field>
@@ -526,7 +590,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_oled_drawLine" name="画线">
+		<block type="MAKER17_oled_drawLine" name="画线">
 			<value name="START_X">
 				<shadow type="math_number">
 					<field name="NUM">1</field>
@@ -548,7 +612,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_oled_draw_Str_Line" name="画直线">
+		<block type="MAKER17_oled_draw_Str_Line" name="画直线">
 			<value name="START_X">
 				<shadow type="math_number">
 					<field name="NUM">1</field>
@@ -565,7 +629,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_oled_drawFrame" name="画矩形">
+		<block type="MAKER17_oled_drawFrame" name="画矩形">
 			<value name="D0_X">
 				<shadow type="math_number">
 					<field name="NUM">1</field>
@@ -587,7 +651,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_oled_drawRFrame" name="画圆角矩形">
+		<block type="MAKER17_oled_drawRFrame" name="画圆角矩形">
 			<value name="D0_X">
 				<shadow type="math_number">
 					<field name="NUM">1</field>
@@ -614,7 +678,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_oled_drawCircle" name="画圆">
+		<block type="MAKER17_oled_drawCircle" name="画圆">
 			<value name="D0_X">
 				<shadow type="math_number">
 					<field name="NUM">30</field>
@@ -632,7 +696,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_oled_drawEllipse" name="画椭圆">
+		<block type="MAKER17_oled_drawEllipse" name="画椭圆">
 			<value name="D0_X">
 				<shadow type="math_number">
 					<field name="NUM">30</field>
@@ -655,7 +719,7 @@ E-mail:qiujiongtao@163.com
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_oled_drawTriangle" name="画三角形">
+		<block type="MAKER17_oled_drawTriangle" name="画三角形">
 			<value name="D0_X">
 				<shadow type="math_number">
 					<field name="NUM">14</field>
@@ -688,8 +752,8 @@ E-mail:qiujiongtao@163.com
 			</value>
 		</block>
 	</category>
-	<category id="catmaker17_TM1637" name="TM1637数码管" colour="40">
-		<block type="maker17_TM1637_init" name="TM1637初始化">
+	<category id="catMAKER17_TM1637" name="TM1637数码管" colour="40">
+		<block type="MAKER17_TM1637_init" name="TM1637初始化">
 			<value name="PIN1">
 				<shadow type="pins_digital">
 					<field name="PIN">3</field>
@@ -702,14 +766,14 @@ E-mail:qiujiongtao@163.com
 			</value>
 			
 		</block>
-		<block type="maker17_TM1637_Brightness" name="设置亮度">
+		<block type="MAKER17_TM1637_Brightness" name="设置亮度">
 			<value name="BRIGHTNESS">
 				<shadow type="math_number">
 					<field name="NUM">40</field>
 				</shadow>
 			</value>
 		</block>
-		<block type="maker17_TM1637_displayString" name="显示字符">
+		<block type="MAKER17_TM1637_displayString" name="显示字符">
 			<value name="VALUE">
 				<shadow type="text">
 					<field name="TEXT">1234</field>
@@ -717,7 +781,7 @@ E-mail:qiujiongtao@163.com
 			</value>
 			
 		</block>
-		<block type="maker17_TM1637_displayTime" name="显示时间">
+		<block type="MAKER17_TM1637_displayTime" name="显示时间">
 			<value name="hour">
 				<shadow type="math_number">
 					<field name="NUM">12</field>
@@ -733,7 +797,7 @@ E-mail:qiujiongtao@163.com
 		
 	</category> 
 </category>
-<category id="catMaker17Time" name="DS1307时间模块" colour="40">
+<category id="catMAKER17Time" name="DS1307时间模块" colour="40">
 	<block type="DS1307_start_get_time" name="开始获取时间">
 	</block>
 	<block type="DS1307_get_time" name="获取时间">
@@ -773,7 +837,7 @@ E-mail:qiujiongtao@163.com
 		</value>
 	</block>
 </category>
-<category id="catMaker17TimeDS3231" name="DS3231时间模块" colour="40">
+<category id="catMAKER17TimeDS3231" name="DS3231时间模块" colour="40">
 	<block type="DS3231_get_time" name="获取时间">
 	</block>
 	<block type="DS3231_set_datetime" name="设置日期时间">
