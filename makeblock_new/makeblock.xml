@@ -1,0 +1,147 @@
+<!-- type="company" block="block/makeblock.js" generator="generator/makeblock.js"  lib="makeblock" media="media/makeblock" language="language/makeblock_new"-->
+<script type="text/javascript" src="../../blocks/company/makeblock.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/makeblock.js"></script>
+<category id="catMakeBlock" name="MakeBlock" colour="120">
+	  <block type="mb_servo_move">
+		<value name="Speed">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+	  </block>
+	  <block type="mb_servo_setAngle">
+		<value name="angle">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+	  </block>
+	   <block type="mb_setBoradLED">
+	    <value name="Rvalue">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="Gvalue">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="Bvalue">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	  </block>
+	   <block type="mb_setLED">
+	    <value name="Rvalue">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="Gvalue">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="Bvalue">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	  </block>
+	  <block type="mb_LEDMTX_setNumber">
+	  	<value name="Num">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	  </block>
+	  <!--block type="mb_LEDMTX_freeSet">
+	  	<value name="Num">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	  </block-->
+	  <block type="mb_LEDMTX_setString">
+	  	<value name="x">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="y">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+		<value name="Str">
+			<shadow type="text">
+            	<field name="TEXT">hello</field>
+          	</shadow>
+		</value>
+	  </block>
+	  <block type="mb_LEDMTX_setTime">
+	  	<value name="h">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <value name="m">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+	  </block>
+	  <block type="mb_display">
+	    <value name="num">
+			<shadow type="math_number">
+				<field name="NUM">1234</field>
+			</shadow>
+		</value>
+	  </block>
+	  <block type="mb_motor">
+		<value name="speed">
+			<shadow type="math_number">
+				<field name="NUM">0</field>
+			</shadow>
+		</value>
+	  </block>
+	  <block type="mb_sound">
+		<value name="tone">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <value name="duration">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+	  </block>
+	  <block type="mb_setLightsensor"></block>
+	  <block type="mb_camera"></block>
+	  <block type="mb_fan"></block>
+	  <block type="mb_soundsensor"></block>
+	  <block type="mb_temperature"></block>
+	  <block type="mb_joystick"></block>
+	  <block type="mb_gyro"></block>
+	  <block type="mb_potentiometer"></block>
+	  <block type="mb_pyroelectric_infrared"></block>
+	  <block type="mb_Ultrasonic"></block>
+	  <block type="mb_limitSwitch"></block>
+	  <block type="mb_DHT11"></block>
+	  <block type="mb_flamesensor"></block>
+	  <block type="mb_gasSensor"></block>
+	  <block type="mb_touchSensor"></block>
+	  <block type="mb_compass"></block>
+	  <block type="mb_button"></block>
+	  <block type="mb_ir_send">
+	  	<value name="CONTENT">
+          <shadow type="text">
+            <field name="TEXT">hello</field>
+          </shadow>
+        </value>
+   	 </block>
+	 <block type="mb_ir_receive"></block>
+</category>
