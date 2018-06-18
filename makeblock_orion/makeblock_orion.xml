@@ -1,0 +1,95 @@
+<!-- type="company" block="block/makeblock_orion.js" generator="generator/makeblock_orion.js"  lib="makeblock_orion" media="media/makeblock_orion" language="language/makeblock_orion" -->
+<script type="text/javascript" src="../../blocks/company/makeblock_orion.js"></script>
+<script type="text/javascript" src="../../generators/arduino/company/makeblock_orion.js"></script>
+<category id="catMakeBlock_Orion" name="MakeBlock(Orion)" colour="120">
+	<block type="mb_motor">
+		<value name="speed">
+		<shadow type="math_number">
+		  <field name="NUM">0</field>
+		</shadow>
+		</value>
+	</block>
+	<block type="mb_servo_move">
+		<value name="DEGREE">
+		  <shadow type="math_number">
+			<field name="NUM">0</field>
+		  </shadow>
+		</value>
+		<value name="DELAY_TIME">
+		  <shadow type="math_number">
+			<field name="NUM">0</field>
+		  </shadow>
+		</value>
+	</block>
+	<block type="mb_display">
+		<value name="num">
+			<shadow type="math_number">
+				<field name="NUM">1234</field>
+			</shadow>
+		</value>
+	</block>
+	<block type="mb_rgb_led">
+		<value name="RED">
+		<shadow type="math_number">
+		  <field name="NUM">0</field>
+		</shadow>
+		</value>
+		<value name="GREEN">
+		<shadow type="math_number">
+		  <field name="NUM">0</field>
+		</shadow>
+		</value>
+		<value name="BLUE">
+		<shadow type="math_number">
+		  <field name="NUM">0</field>
+		</shadow>
+		</value>
+    </block>
+	<block type="mb_rgb_ledstrip">
+	  <value name="PIN2">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="RED">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="GREEN">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+      <value name="BLUE">
+        <shadow type="math_number">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
+    </block>
+	<block type="mb_light_grayscale_led"></block>
+	<block type="mb_xiaofengshan"></block>
+	<block type="mb_chaoshengbo"></block>
+	<block type="MeLineFollower"></block>
+	<block type="mb_light_grayscale"></block>
+	<block type="mb_joystick"></block>
+	<block type="mb_potentiometer"></block>
+	<block type="mb_sound"></block>
+	<block type="MeInfraredReceiver"></block>
+	<block type="mb_pyroelectric_infrared"></block>
+	<block type="mb_temperature"></block>
+	<block type="mb_gyro"></block>
+	<block type="mb_gyro_update"></block>
+    <block type="controls_if">
+      <value name="IF0">
+        <block type="mb_bluetooth_available"></block>
+      </value>
+      <statement name="DO0">
+        <block type="serial_println">
+        <value name="CONTENT">
+          <block type="mb_bluetooth_readString"></block>
+        </value>
+        </block>
+      </statement>
+    </block>
+</category>
