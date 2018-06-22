@@ -3,8 +3,7 @@ type="company"
 block="block/MAKER17.js"
 generator="generator/MAKER17.js" 
 media="media/MAKER17" 
-lib="U8g2"
-lib="TM1637"
+lib="MAKER17"
 hardware="hardware/arduino" 
 language="language/MAKER17/"
 examples="examples/MAKER17"
@@ -385,7 +384,7 @@ E-mail:qiujiongtao@163.com
 			</shadow>
 		</value>
 	</block>
-
+<!-- 
 	<block type="MAKER17_8833motorA" name="8833电机A转动">
 		<value name="PIN1">
 			<shadow type="pins_digital">
@@ -420,7 +419,7 @@ E-mail:qiujiongtao@163.com
 				<field name="NUM">0</field>
 			</shadow>
 		</value>
-	</block>
+	</block> -->
 </category>
 <category id="catMAKER17Show" name="显示" colour="40">
 	<category id="catMAKER17MAX7219" name="MAX7219点阵" colour="40">
@@ -798,8 +797,7 @@ E-mail:qiujiongtao@163.com
 	</category> 
 </category>
 <category id="catMAKER17Time" name="DS1307时间模块" colour="40">
-	<block type="DS1307_start_get_time" name="开始获取时间">
-	</block>
+	
 	<block type="DS1307_get_time" name="获取时间">
 	</block>
 	<block type="DS1307_set_time" name="设置时间">
@@ -835,6 +833,8 @@ E-mail:qiujiongtao@163.com
 				<field name="NUM">10</field>
 			</shadow>
 		</value>
+	</block>
+	<block type="DS1307_set_dayOfWeek" name="设置星期">
 	</block>
 </category>
 <category id="catMAKER17TimeDS3231" name="DS3231时间模块" colour="40">

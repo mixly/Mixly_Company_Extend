@@ -23,7 +23,8 @@ Blockly.MAKER17_LCD1602 = '液晶显示屏';
 Blockly.MAKER17_JOYSTICK_D = '摇杆按钮';
 
 Blockly.MAKER17_MOTOR_SPEED = '速度(-255~255)';
-Blockly.MAKER17_MOTOR = '电机';
+Blockly.MAKER17_MOTORA = '电机A';
+Blockly.MAKER17_MOTORB = '电机B';
 Blockly.MAKER17_MOTOR_SPEED_PIN='速度管脚';
 Blockly.MAKER17_MOTOR_DIR_PIN='方向管脚';
 Blockly.MAKER17_8833MOTOR_SPEED_PIN='8833速度管脚';
@@ -164,7 +165,7 @@ Blockly.MAKER17_MAX7219_IMG='预设图案';
 
 //DS1307
 Blockly.MAKER17_DS1307_GET_TIME='获取';
-Blockly.MAKER17_DS1307_INIT='时钟模块初始化';
+Blockly.MAKER17_DS1307_SET_WEEK='设置星期';
 Blockly.MAKER17_DS1307_SET_TIME='设置时间';
 Blockly.MAKER17_DS1307_SET_DATE='设置日期';
 Blockly.MAKER17_YEAR='年';

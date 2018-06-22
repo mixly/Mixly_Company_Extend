@@ -18,7 +18,7 @@ Blockly.Arduino.MAKER17_dht11 = function() {
 Blockly.Arduino.MAKER17_dht22 = function() {
   var dropdown_pin = Blockly.Arduino.valueToCode(this, 'PIN', Blockly.Arduino.ORDER_ATOMIC);
   var what = this.getFieldValue('WHAT');
-  Blockly.Arduino.definitions_['define_dht22'] = '#include "DHT22.h"';
+  Blockly.Arduino.definitions_['define_dht22'] = '#include <DHT22.h>';
   Blockly.Arduino.setups_['setup_delay2000'] = ' delay(2000);';
   Blockly.Arduino.definitions_['var_dht22' + dropdown_pin] = 'DHT22 myDHT22(' + dropdown_pin + ');';
   var code = 'myDHT22.get' + what + '()';
@@ -51,13 +51,13 @@ Blockly.Arduino.MAKER17_motorA = function() {
   var SPEED_PIN = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
   var DIR_PIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
   var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var code = 'setMotor(' + SPEED_PIN + ', '+DIR_PIN+',' + speed + ');\n';
+  var code = 'setMotorA(' + SPEED_PIN + ', '+DIR_PIN+',' + speed + ');\n';
   Blockly.Arduino.setups_['setup_output_A_S'] = 'pinMode('+SPEED_PIN+', OUTPUT);';
   Blockly.Arduino.setups_['setup_output_A_D'] = 'pinMode('+DIR_PIN+', OUTPUT);';
   Blockly.Arduino.setups_['setup_output_A_S_W'] = 'digitalWrite('+SPEED_PIN+', LOW);';
   Blockly.Arduino.setups_['setup_output_A_D_W'] = 'digitalWrite('+DIR_PIN+', LOW);';
-  var funcName = 'setMotor';
-  var code2 =' void setMotor(int speedpin,int dirpin, int speed)\n {\nif (speed == 0)\n{\n   digitalWrite(speedpin, LOW);\n  } else if (speed > 0)\n{\n   digitalWrite(dirpin, LOW);\nanalogWrite(speedpin, speed);\n  } \nelse \n{\n digitalWrite(dirpin, HIGH);\n   analogWrite(speedpin, (0-speed));  \n}\n}\n';
+  var funcName = 'setMotorA';
+  var code2 =' void setMotorA(int speedpin,int dirpin, int speed)\n {\nif (speed == 0)\n{\n   digitalWrite(speedpin, LOW);\n  } \n else if (speed > 0)\n{\n   digitalWrite(dirpin, LOW);\nanalogWrite(speedpin, speed);\n  } \nelse \n{\n digitalWrite(dirpin, HIGH);\n   analogWrite(speedpin, (0-speed));  \n}\n}\n';
   Blockly.Arduino.definitions_[funcName] = code2;
   return code;
 };
@@ -65,51 +65,51 @@ Blockly.Arduino.MAKER17_motorB = function() {
   var SPEED_PIN = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
   var DIR_PIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
   var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  var code = 'setMotor(' + SPEED_PIN + ', '+DIR_PIN+',' + speed + ');\n';
+  var code = 'setMotorB(' + SPEED_PIN + ', '+DIR_PIN+',' + speed + ');\n';
   Blockly.Arduino.setups_['setup_output_B_S'] = 'pinMode('+SPEED_PIN+', OUTPUT);';
   Blockly.Arduino.setups_['setup_output_B_D'] = 'pinMode('+DIR_PIN+', OUTPUT);';
   Blockly.Arduino.setups_['setup_output_B_S_W'] = 'digitalWrite('+SPEED_PIN+', LOW);';
   Blockly.Arduino.setups_['setup_output_B_D_W'] = 'digitalWrite('+DIR_PIN+', LOW);';
-  var funcName = 'setMotor';
-  var code2 =' void setMotor(int speedpin,int dirpin, int speed)\n {\nif (speed == 0)\n{\n   digitalWrite(speedpin, LOW);\n  } else if (speed > 0)\n{\n   digitalWrite(dirpin, LOW);\nanalogWrite(speedpin, speed);\n  } \nelse \n{\n digitalWrite(dirpin, HIGH);\n   analogWrite(speedpin, (0-speed));  \n}\n}\n';
+  var funcName = 'setMotorB';
+  var code2 =' void setMotorB(int speedpin,int dirpin, int speed)\n {\nif (speed == 0)\n{\n   digitalWrite(speedpin, LOW);\n  }\n else if (speed > 0)\n{\n   digitalWrite(dirpin, LOW);\nanalogWrite(speedpin, speed);\n  } \nelse \n{\n digitalWrite(dirpin, HIGH);\n   analogWrite(speedpin, (0-speed));  \n}\n}\n';
   Blockly.Arduino.definitions_[funcName] = code2;
   return code;
 };
 
 
-//执行器-电机转动
-Blockly.Arduino.MAKER17_8833motorA = function() {
-  var SPEED_PIN = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
-  var DIR_PIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
-  var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  Blockly.Arduino.definitions_['define_8833LIB'] = '#include <DRV8833.h>';
-  Blockly.Arduino.definitions_['define8833driver'] = 'DRV8833 driver = DRV8833();';
-  Blockly.Arduino.setups_['setup_output_A'] = 'driver.attachMotorA('+SPEED_PIN+', '+DIR_PIN+');';
-  var code;
-  if(speed>0)
-    code ='driver.motorAForward('+speed+');\n';
-  else if(speed<0)
-    code ='driver.motorAReverse('+(0-speed)+');\n';
-  else
-    code ='driver.motorAStop();\n';
-  return code;
-};
-Blockly.Arduino.MAKER17_8833motorB = function() {
-   var SPEED_PIN = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
-  var DIR_PIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
-  var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
-  Blockly.Arduino.definitions_['define_8833LIB'] = '#include <DRV8833.h>';
-  Blockly.Arduino.definitions_['define8833driver'] = 'DRV8833 driver = DRV8833();';
-  Blockly.Arduino.setups_['setup_output_B'] = 'driver.attachMotorB('+SPEED_PIN+', '+DIR_PIN+');';
-  var code;
-  if(speed>0)
-    code ='driver.motorBForward('+speed+');\n';
-  else if(speed<0)
-    code ='driver.motorBReverse('+(0-speed)+');\n';
-  else
-    code ='driver.motorBStop();\n';
-  return code;
-};
+// //执行器-电机转动
+// Blockly.Arduino.MAKER17_8833motorA = function() {
+//   var SPEED_PIN = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
+//   var DIR_PIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
+//   var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+//   Blockly.Arduino.definitions_['define_8833LIB'] = '#include <DRV8833.h>';
+//   Blockly.Arduino.definitions_['define8833driver'] = 'DRV8833 driver = DRV8833();';
+//   Blockly.Arduino.setups_['setup_output_A'] = 'driver.attachMotorA('+SPEED_PIN+', '+DIR_PIN+');';
+//   var code;
+//   if(speed>0)
+//     code ='driver.motorAForward('+speed+');\n';
+//   else if(speed<0)
+//     code ='driver.motorAReverse('+(0-speed)+');\n';
+//   else
+//     code ='driver.motorAStop();\n';
+//   return code;
+// };
+// Blockly.Arduino.MAKER17_8833motorB = function() {
+//    var SPEED_PIN = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
+//   var DIR_PIN = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
+//   var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ASSIGNMENT) || '0';
+//   Blockly.Arduino.definitions_['define_8833LIB'] = '#include <DRV8833.h>';
+//   Blockly.Arduino.definitions_['define8833driver'] = 'DRV8833 driver = DRV8833();';
+//   Blockly.Arduino.setups_['setup_output_B'] = 'driver.attachMotorB('+SPEED_PIN+', '+DIR_PIN+');';
+//   var code;
+//   if(speed>0)
+//     code ='driver.motorBForward('+speed+');\n';
+//   else if(speed<0)
+//     code ='driver.motorBReverse('+(0-speed)+');\n';
+//   else
+//     code ='driver.motorBStop();\n';
+//   return code;
+// };
 //执行器-蜂鸣器频率选择列表
 Blockly.Arduino.MAKER17_tone_notes = function() {
   var code = this.getFieldValue('STAT');
@@ -153,7 +153,7 @@ Blockly.Arduino.MAX7219_init = function() {
 // var lc_num = Blockly.Arduino.valueToCode(this, 'NUM', Blockly.Arduino.ORDER_ATOMIC);
 var lc_num = 1;
 var Intensity = Blockly.Arduino.valueToCode(this, 'Intensity', Blockly.Arduino.ORDER_ATOMIC);
-Blockly.Arduino.definitions_['define0_MaxMatrix'] = '#include "MaxMatrix.h"';
+Blockly.Arduino.definitions_['define0_MaxMatrix'] = '#include <MaxMatrix.h>';
 Blockly.Arduino.definitions_['define1_MaxMatrix'] = '#include <avr/pgmspace.h>';
 Blockly.Arduino.definitions_['define_LIST'] = 'PROGMEM const unsigned char LIST[]{\n';
 Blockly.Arduino.definitions_['define_LIST'] += '3,8,B00000000,B00000000,B00000000,B00000000,B00000000,//space\n';
@@ -375,9 +375,9 @@ Blockly.Arduino.MAKER17_oled_draw4Str = function() {
   var value_text_line3 = Blockly.Arduino.valueToCode(this, 'Text_line3', Blockly.Arduino.ORDER_ATOMIC) || '\'\'';
   var value_text_line4 = Blockly.Arduino.valueToCode(this, 'Text_line4', Blockly.Arduino.ORDER_ATOMIC) || '\'\'';
   var code = 'u8g2.drawStr(0, 12, ' + value_text_line1 + ');\n'
-  code += 'u8g2.drawStr(0, 28, ' + value_text_line2 + ');\n'
-  code += 'u8g2.drawStr(0, 44, ' + value_text_line3 + ');\n'
-  code += 'u8g2.drawStr(0, 60, ' + value_text_line4 + ');\n'
+  code += 'u8g2.drawStr(0, 24, ' + value_text_line2 + ');\n'
+  code += 'u8g2.drawStr(0, 36, ' + value_text_line3 + ');\n'
+  code += 'u8g2.drawStr(0, 48, ' + value_text_line4 + ');\n'
   return code;
 };
 
@@ -696,7 +696,7 @@ Blockly.Arduino.MAKER17_4DigitDisplay_Brightness = function() {
 Blockly.Arduino.MAKER17_TM1637_init = function() {
   var CLK = Blockly.Arduino.valueToCode(this, 'PIN1', Blockly.Arduino.ORDER_ATOMIC);
   var DIO = Blockly.Arduino.valueToCode(this, 'PIN2', Blockly.Arduino.ORDER_ATOMIC);
-  Blockly.Arduino.definitions_['include_tm1637'] = '#include "SevenSegmentTM1637.h"';
+  Blockly.Arduino.definitions_['include_tm1637'] = '#include <SevenSegmentTM1637.h>';
   Blockly.Arduino.definitions_['var_tm1637'] = 'SevenSegmentTM1637 display(' + CLK + ',' + DIO + ');';
   Blockly.Arduino.setups_['setup_tm1637_init'] = '  display.begin();\ndelay(1000); ';
   return '';
@@ -740,27 +740,19 @@ return code;
 //   Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
 //   Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
 // };
-//时间-DS1307-获取时间
-Blockly.Arduino.DS1307_start_get_time = function() {
-  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
-  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307RTC.h>';
-  Blockly.Arduino.definitions_['include_TimeLib'] = '#include <TimeLib.h>';
-  Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);  while (!Serial) ;  \ndelay(200);  \n';
-  Blockly.Arduino.definitions_['tmElements_t'] = 'tmElements_t tm;\n';
-  var code = 'RTC.read(tm); ';
-  return code;
-};
+
 //时间-DS1307-获取时间
 Blockly.Arduino.DS1307_get_time = function() {
   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
-  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307RTC.h>';
-  Blockly.Arduino.definitions_['include_TimeLib'] = '#include <TimeLib.h>';
-  Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);  while (!Serial) ;  \ndelay(200);  \n';
-  Blockly.Arduino.definitions_['tmElements_t'] = 'tmElements_t tm;\n';
+  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
+    Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+ // Blockly.Arduino.definitions_['include_TimeLib'] = '#include <TimeLib.h>';
+  Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);clock.begin();';
+  //Blockly.Arduino.definitions_['tmElements_t'] = 'tmElements_t tm;\n';
   var dropdown_type = this.getFieldValue('TIME_TYPE');
   var code = '  ';
-  if (dropdown_type == "Year") code += 'tmYearToCalendar(tm.Year);';
-  else code += 'tm.' + dropdown_type;
+  if (dropdown_type == "year") code += 'clock.year+2000';
+  else code += 'clock.' + dropdown_type;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -769,6 +761,7 @@ Blockly.Arduino.DS1307_set_time = function() {
   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
   Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+   Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);clock.begin();';
   var hour = Blockly.Arduino.valueToCode(this, 'hour', Blockly.Arduino.ORDER_ATOMIC);
   var minute = Blockly.Arduino.valueToCode(this, 'minute', Blockly.Arduino.ORDER_ATOMIC);
   var second = Blockly.Arduino.valueToCode(this, 'second', Blockly.Arduino.ORDER_ATOMIC);
@@ -783,7 +776,13 @@ if ((!isNaN(minute) && minute < 61 && minute > 0) || (isNaN(minute))) {
 if ((!isNaN(second) && second < 61 && second > 0) || (isNaN(second))) {
   code += second + ');\n';
 }
-if (code.split(",").length == 3 && code.split(")").length == 2) return code;
+if (code.split(",").length == 3 && code.split(")").length == 2) 
+  {
+   code+='\nclock.setTime();';
+
+return code;
+}
+
 else return "";
 };
 
@@ -792,6 +791,7 @@ Blockly.Arduino.DS1307_set_date = function() {
   Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
   Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
   Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+   Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);clock.begin();';
   var year = Blockly.Arduino.valueToCode(this, 'year', Blockly.Arduino.ORDER_ATOMIC);
   var month = Blockly.Arduino.valueToCode(this, 'month', Blockly.Arduino.ORDER_ATOMIC);
   var day = Blockly.Arduino.valueToCode(this, 'day', Blockly.Arduino.ORDER_ATOMIC);
@@ -805,8 +805,30 @@ Blockly.Arduino.DS1307_set_date = function() {
   if ((!isNaN(day) && day < 32 && day > 0) || (isNaN(day))) {
     code += day + ');\n';
   }
-  if (code.split(",").length == 3 && code.split(")").length == 2) return code;
+  if (code.split(",").length == 3 && code.split(")").length == 2)  
+    {
+     code+='\nclock.setTime();';
+
+return code;
+}
   else return "";
+};
+
+//时间-DS1307-设置星期
+Blockly.Arduino.DS1307_set_dayOfWeek = function() {
+  Blockly.Arduino.definitions_['include_WIRE'] = '#include <Wire.h>';
+  Blockly.Arduino.definitions_['include_ds1307'] = '#include <DS1307.h>';
+  Blockly.Arduino.definitions_['define_clock'] = 'DS1307 clock;';
+   Blockly.Arduino.setups_['setup_ds1307'] = '  Serial.begin(9600);clock.begin();';
+    var dropdown_week = this.getFieldValue('WEEK_DAY');
+
+   var code = '';
+  
+    code = 'clock.fillDayOfWeek(' + dropdown_week + ');';
+    code+='\n clock.setTime();';
+  
+return code;
+
 };
 
 //IIC地址查找

@@ -76,6 +76,8 @@ Blockly.Blocks.MAKER17_newNoTone = {
 Blockly.Blocks.MAKER17_motorA = {
   init: function() {
     this.setColour(Blockly.Blocks.MAKER17.HUE2);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_MOTORA);
+
     this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MOTOR_SPEED_PIN);
     this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MOTOR_DIR_PIN);
     this.appendValueInput('speed').setCheck(Number).appendField(Blockly.MAKER17_MOTOR_SPEED);
@@ -87,6 +89,7 @@ Blockly.Blocks.MAKER17_motorA = {
 Blockly.Blocks.MAKER17_motorB = {
   init: function() {
     this.setColour(Blockly.Blocks.MAKER17.HUE2);
+    this.appendDummyInput("").appendField(Blockly.MAKER17_MOTORB);
     this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MOTOR_SPEED_PIN);
     this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MOTOR_DIR_PIN);
     this.appendValueInput('speed').setCheck(Number).appendField(Blockly.MAKER17_MOTOR_SPEED);
@@ -97,29 +100,29 @@ Blockly.Blocks.MAKER17_motorB = {
 };
 
 
-//执行器-电机转速
-Blockly.Blocks.MAKER17_8833motorA = {
-  init: function() {
-    this.setColour(Blockly.Blocks.MAKER17.HUE2);
-    this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_8833MOTOR_SPEED_PIN);
-    this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MOTOR_DIR_PIN);
-    this.appendValueInput('speed').setCheck(Number).appendField(Blockly.MAKER17_MOTOR_SPEED);
-    this.setInputsInline(true);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-  }
-};
-Blockly.Blocks.MAKER17_8833motorB = {
-  init: function() {
-    this.setColour(Blockly.Blocks.MAKER17.HUE2);
-    this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_8833MOTOR_SPEED_PIN);
-    this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MOTOR_DIR_PIN);
-    this.appendValueInput('speed').setCheck(Number).appendField(Blockly.MAKER17_MOTOR_SPEED);
-    this.setInputsInline(true);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-  }
-};
+// //执行器-电机转速
+// Blockly.Blocks.MAKER17_8833motorA = {
+//   init: function() {
+//     this.setColour(Blockly.Blocks.MAKER17.HUE2);
+//     this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_8833MOTOR_SPEED_PIN);
+//     this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MOTOR_DIR_PIN);
+//     this.appendValueInput('speed').setCheck(Number).appendField(Blockly.MAKER17_MOTOR_SPEED);
+//     this.setInputsInline(true);
+//     this.setPreviousStatement(true);
+//     this.setNextStatement(true);
+//   }
+// };
+// Blockly.Blocks.MAKER17_8833motorB = {
+//   init: function() {
+//     this.setColour(Blockly.Blocks.MAKER17.HUE2);
+//     this.appendValueInput("PIN1").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_8833MOTOR_SPEED_PIN);
+//     this.appendValueInput("PIN2").setCheck(Number).setAlign(Blockly.ALIGN_RIGHT).appendField(Blockly.MAKER17_MOTOR_DIR_PIN);
+//     this.appendValueInput('speed').setCheck(Number).appendField(Blockly.MAKER17_MOTOR_SPEED);
+//     this.setInputsInline(true);
+//     this.setPreviousStatement(true);
+//     this.setNextStatement(true);
+//   }
+// };
 
 //数字传感器-DHT11传感器
 Blockly.Blocks.MAKER17_dht11 = {
@@ -805,28 +808,25 @@ Blockly.Blocks.MAKER17_oled_draw4Str = {
 
 //时间-DS1307获取时间变量
 var MAKER17_DS1307_TIME_TYPE = [
-  ["年", "Year"],
-  ["月", "Month"],
-  ["日", "Day"],
-  ["时", "Hour"],
-  ["分", "Minute"],
-  ["秒", "Second"],
+  ["年", "year"],
+  ["月", "month"],
+  ["日", "dayOfMonth"],
+  ["时", "hour"],
+  ["分", "minute"],
+  ["秒", "aecond"],
   ["星期", "dayOfWeek"]
 ];
 
-//时间-DS1307开始获取时间
-Blockly.Blocks.DS1307_start_get_time = {
-  init: function() {
-    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/MAKER17/RTC.png", Blockly.Blocks.MAKER17.ICON_WIDTH , Blockly.Blocks.MAKER17.ICON_HEIGHT));
-    this.appendDummyInput("").appendField("开始获取时间");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setColour(Blockly.Blocks.MAKER17.HUE3);
-    this.setTooltip(Blockly.MAKER17_IIC);
-    this.setHelpUrl('');
-  }
-};
+//时间-DS1307设置星期变量
+var MAKER17_DS1307_WEEK_DAY = [
+  ["星期一", "MON"],
+  ["星期二", "TUE"],
+  ["星期三", "WED"],
+  ["星期四", "THU"],
+  ["星期五", "FRI"],
+  ["星期六", "SAT"],
+  ["星期日", "SUN"]
+];
 //时间-DS1307获取时间
 Blockly.Blocks.DS1307_get_time = {
   init: function() {
@@ -881,6 +881,23 @@ Blockly.Blocks.DS1307_set_date = {
     this.setHelpUrl('');
   }
 };
+//时间-DS1307设置星期
+Blockly.Blocks.DS1307_set_dayOfWeek = {
+  init: function() {
+    this.appendDummyInput("").appendField(new Blockly.FieldImage("../../media/MAKER17/RTC.png",  Blockly.Blocks.MAKER17.ICON_WIDTH , Blockly.Blocks.MAKER17.ICON_HEIGHT)).appendField(Blockly.MAKER17_DS1307_SET_WEEK);
+    this.setInputsInline(true);
+      this.appendDummyInput("").appendField(new Blockly.FieldDropdown(MAKER17_DS1307_WEEK_DAY), "WEEK_DAY");
+  
+    this.setOutput(false, Number);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(Blockly.Blocks.MAKER17.HUE3);
+    this.setTooltip(Blockly.MAKER17_IIC);
+    this.setHelpUrl('');
+  }
+};
+
 
 //时间-DS1307设置时间
 Blockly.Blocks.title1 = {
