@@ -79,9 +79,7 @@
 				<field name="NUM">100</field>
 			</shadow>
 		</value>
-	  </block>
-	  <block type="mbot_set_light_senser_led"></block>
-	  <block type="mbot_set_camera"></block>
+	  </block>		  
 	  <block type="mbot_light_sensor"></block>
 	  <block type="mbot_button"></block>
 	  <block type="mbot_chaoshengbo"></block>
@@ -89,16 +87,7 @@
 	  <block type="mbot_joystick"></block>
 	  <block type="mbot_potentiometer"></block>
 	  <block type="mbot_sound_sensor"></block>
-	  <block type="mbot_limit_switch"></block>
 	  <block type="mbot_temperature"></block>
 	  <block type="mbot_pir_motion_sensor"></block>
-	  <block type="mbot_ir_remote"></block>
-	  <block type="mbot_send_message">
-		<value name="text">
-		  <block type="text">
-            <field name="TEXT">hello</field>
-          </block>
-		</value>
-	  </block>
-	  <block type="mbot_message_received"></block>
+	  <block type="mbot_ir_remote"></block>	  
 </category>

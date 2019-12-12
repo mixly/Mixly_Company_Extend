@@ -4,12 +4,13 @@ goog.provide('Blockly.Blocks.mbot');
 
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks.mbot.HUE = 210;
+Blockly.Blocks.mbot.HUE = 180;
 
 Blockly.Blocks['mbot_move'] = {
    init: function() {
     this.setColour(Blockly.Blocks.mbot.HUE);
     this.appendDummyInput("")
+        .appendField("Mbot小车")
         .appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_FORWARD, "1"], [Blockly.MIXLY_BACKWARD, "2"],[Blockly.MIXLY_TURNLEFT, "3"],[Blockly.MIXLY_TURNRIGHT, "4"]]), 'direction')
     this.appendValueInput('speed')
 		.setCheck(Number)
@@ -136,11 +137,7 @@ Blockly.Blocks.mbot_showface_text = {
 	this.appendValueInput("y", Number)
         .setCheck(Number)
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("y:");
-	//this.appendValueInput("text", String)
-      //  .setCheck(String)
-        //.setAlign(Blockly.ALIGN_RIGHT)
-        //.appendField(Blockly.MIXLY_SHOW_FACE_TEXT);
+        .appendField("y:");	
 	this.appendDummyInput()
 		.appendField(Blockly.MIXLY_SHOW_FACE_TEXT)
         .appendField(this.newQuote_(true))
@@ -196,20 +193,6 @@ Blockly.Blocks.mbot_set_light_senser_led = {
   }
 };
 
-Blockly.Blocks.mbot_set_camera= {
-  init: function() {
-	this.setColour(Blockly.Blocks.mbot.HUE);
-    this.appendDummyInput("")
-        .appendField(Blockly.MIXLY_MBOT_SET_CAMERA)
-        .appendField("#")
-        .appendField(new Blockly.FieldDropdown([["Port1", "1"], ["Port2", "2"],["Port3", "3"],["Port4", "4"]]), "PIN")
-		.appendField(Blockly.MIXLY_MBOT_SET_CAMERA_STAT)
-        .appendField(new Blockly.FieldDropdown([[Blockly.MIXLY_MBOT_SET_CAMERA_PRESS, "0"],[Blockly.MIXLY_MBOT_SET_CAMERA_RELEASE, "1"],[Blockly.MIXLY_MBOT_SET_CAMERA_FOCUS_ON, "2"],[Blockly.MIXLY_MBOT_SET_CAMERA_FOCUS_OFF, "3"]]), "STAT");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-	this.setInputsInline(true);
-  }
-};
 
 Blockly.Blocks.mbot_light_sensor = {
   init: function() {
@@ -237,8 +220,9 @@ Blockly.Blocks.mbot_chaoshengbo = {
     this.setColour(Blockly.Blocks.mbot.HUE);
     this.appendDummyInput("")
 	      .appendField(Blockly.MIXLY_MB_CHAOSHENGBO)
-		  .appendField("#")
-	      .appendField(new Blockly.FieldDropdown([["Port1", "1"], ["Port2", "2"],["Port3", "3"],["Port4", "4"]]), "PORT");
+		    .appendField("#")
+	      .appendField(new Blockly.FieldDropdown([["Port1", "1"], ["Port2", "2"],["Port3", "3"],["Port4", "4"]]), "PORT")
+        .appendField("(Cm)");
     this.setOutput(true, Number);
   }
 };
@@ -288,18 +272,6 @@ Blockly.Blocks.mbot_sound_sensor = {
   }
 };
 
-Blockly.Blocks.mbot_limit_switch = {
-  init: function() {
-    this.setColour(Blockly.Blocks.mbot.HUE);
-    this.appendDummyInput("")
-	      .appendField(Blockly.MIXLY_MBOT_LIMIT_SWITCH)
-		  .appendField("#")
-		  .appendField(new Blockly.FieldDropdown([["Port1", "1"], ["Port2", "2"],["Port3", "3"],["Port4", "4"]]), "PORT")
-		  .appendField("#")
-	      .appendField(new Blockly.FieldDropdown([["Slot1", "1"],["Slot2", "2"]]), "SLOT");
-    this.setOutput(true, Number);
-  }
-};
 
 Blockly.Blocks.mbot_temperature= {
   init: function() {
@@ -324,6 +296,17 @@ Blockly.Blocks.mbot_pir_motion_sensor= {
 		  .appendField(new Blockly.FieldDropdown([["Port1", "1"], ["Port2", "2"],["Port3", "3"],["Port4", "4"]]), "PORT");
     this.setOutput(true, Number);
   }
+};
+
+Blockly.Blocks.mbot_Gas_sensor= {
+  init: function() {
+    this.setColour(Blockly.Blocks.mbot.HUE);
+    this.appendDummyInput("")
+      .appendField(Blockly.MIXLY_MBOT_Gas)
+      .appendField("#")
+      .appendField(new Blockly.FieldDropdown([["Port1", "1"], ["Port2", "2"],["Port3", "3"],["Port4", "4"]]), "PORT");
+    this.setOutput(true, Number);
+}
 };
 
 Blockly.Blocks.mbot_ir_remote= {

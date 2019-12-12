@@ -11,11 +11,11 @@ Blockly.Arduino.mbot_move = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeDCMotor'] = '#include "MeDCMotor.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	Blockly.Arduino.definitions_['var_MeDCMotor_motor'] = 'MeDCMotor motor(0);';//
+	Blockly.Arduino.definitions_['var_declare_MeDCMotor_motor'] = 'MeDCMotor motor(0);';//
 	var direction = this.getFieldValue('direction');
 	var speed = Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var code="motor.move("+direction+","+speed+");\n";
@@ -29,12 +29,12 @@ Blockly.Arduino.mbot_motor = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeDCMotor'] = '#include "MeDCMotor.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
 	var port = this.getFieldValue('PORT');
-	Blockly.Arduino.definitions_['var_MeDCMotor_motor_'+port] = 'MeDCMotor motor_'+port+'('+port+');';//
+	Blockly.Arduino.definitions_['var_declare_MeDCMotor_motor_'+port] = 'MeDCMotor motor_'+port+'('+port+');';//
 	var speed=Blockly.Arduino.valueToCode(this, 'speed', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var code='motor_'+port+'.run(('+port+')==M1?-('+speed+'):('+speed+'));\n';
 	return code;
@@ -47,7 +47,7 @@ Blockly.Arduino.mbot_servo_move = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
 	var port = this.getFieldValue('PIN');
@@ -66,19 +66,20 @@ Blockly.Arduino.mbot_led = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeRGBLed'] = '#include "MeRGBLed.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
 	var pin1 = this.getFieldValue('PIN');
 	var pin2 = this.getFieldValue('PIN2');
-	Blockly.Arduino.definitions_['var_MeRGBLed_rgbled_'+pin1] = 'MeRGBLed rgbled_'+pin1+'('+pin1+');';//
+	Blockly.Arduino.definitions_['var_declare_MeRGBLed_rgbled_'+pin1] = 'MeRGBLed rgbled_'+pin1+'('+pin1+');';//
 	var R=Blockly.Arduino.valueToCode(this, 'R', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var G=Blockly.Arduino.valueToCode(this, 'G', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var B=Blockly.Arduino.valueToCode(this, 'B', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var code='rgbled_'+pin1+'.setNumber('+pin1+'==7?2:16);\nrgbled_'+pin1+'.setColor('+pin2+','+R+','+G+','+B+');\nrgbled_'+pin1+'.show();\n';
 	return code;
 }
+
 
 Blockly.Arduino.mbot_tone = function() {
 	Blockly.Arduino.definitions_['define_arduino'] = '#include <Arduino.h>';
@@ -87,11 +88,11 @@ Blockly.Arduino.mbot_tone = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeBuzzer'] = '#include "MeBuzzer.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	Blockly.Arduino.definitions_['var_MeBuzzer_buzzer'] = 'MeBuzzer buzzer;';//
+	Blockly.Arduino.definitions_['var_declare_MeBuzzer_buzzer'] = 'MeBuzzer buzzer;';//
 	var fre=Blockly.Arduino.valueToCode(this, 'FREQUENCY', Blockly.Arduino.ORDER_ATOMIC) || '0';
 	var code='buzzer.tone('+fre+');\n';
 	return code;
@@ -104,11 +105,11 @@ Blockly.Arduino.mbot_notone = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeBuzzer'] = '#include "MeBuzzer.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	Blockly.Arduino.definitions_['var_MeBuzzer_buzzer'] = 'MeBuzzer buzzer;';//
+	Blockly.Arduino.definitions_['var_declare_MeBuzzer_buzzer'] = 'MeBuzzer buzzer;';//
 	var code='buzzer.noTone();\n';
 	return code;
 }
@@ -120,7 +121,7 @@ Blockly.Arduino.mbot_showface_text = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeLEDMatrix'] = '#include "MeLEDMatrix.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -141,7 +142,7 @@ Blockly.Arduino.mbot_showface_time = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeLEDMatrix'] = '#include "MeLEDMatrix.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -159,7 +160,7 @@ Blockly.Arduino.mbot_display = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_Me7SegmentDisplay'] = '#include <Me7SegmentDisplay.h>';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -176,7 +177,7 @@ Blockly.Arduino.mbot_set_light_senser_led = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -187,24 +188,6 @@ Blockly.Arduino.mbot_set_light_senser_led = function() {
 	return code;
 }
 
-Blockly.Arduino.mbot_set_camera = function() {
-	Blockly.Arduino.definitions_['define_arduino'] = '#include <Arduino.h>';
-	Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
-	Blockly.Arduino.definitions_['define_servo'] = '#include <Servo.h>';
-	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
-	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
-	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
-	
-	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
-	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var pin = this.getFieldValue('PIN');
-	Blockly.Arduino.definitions_['var_MePort_shutter_'+pin] = 'MePort shutter_'+pin+'('+pin+');';//
-	var stat = this.getFieldValue('STAT');
-	var code='shutter_'+pin+'.dWrite1('+stat+');\n';
-	return code;
-}
-
 Blockly.Arduino.mbot_light_sensor = function() {
 	Blockly.Arduino.definitions_['define_arduino'] = '#include <Arduino.h>';
 	Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
@@ -212,7 +195,7 @@ Blockly.Arduino.mbot_light_sensor = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -229,7 +212,7 @@ Blockly.Arduino.mbot_button = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -246,12 +229,12 @@ Blockly.Arduino.mbot_chaoshengbo = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeUltrasonic'] = '#include "MeUltrasonic.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
 	var PORT = this.getFieldValue('PORT');
-	Blockly.Arduino.definitions_['var_MeUltrasonic_ultrasonic_'+PORT] = 'MeUltrasonic ultrasonic_'+PORT+'('+PORT+');';//
+	Blockly.Arduino.definitions_['var_declare_MeUltrasonic_ultrasonic_'+PORT] = 'MeUltrasonic ultrasonic_'+PORT+'('+PORT+');';//
 	var code="ultrasonic_"+PORT+".distanceCm()";
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
 }
@@ -263,7 +246,7 @@ Blockly.Arduino.mbot_line_follower = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -280,7 +263,7 @@ Blockly.Arduino.mbot_joystick = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -298,7 +281,7 @@ Blockly.Arduino.mbot_potentiometer = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -315,7 +298,7 @@ Blockly.Arduino.mbot_sound_sensor = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -325,23 +308,6 @@ Blockly.Arduino.mbot_sound_sensor = function() {
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
 }
 
-Blockly.Arduino.mbot_limit_switch = function() {
-	Blockly.Arduino.definitions_['define_arduino'] = '#include <Arduino.h>';
-	Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
-	Blockly.Arduino.definitions_['define_servo'] = '#include <Servo.h>';
-	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
-	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
-	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
-	
-	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
-	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	var PORT = this.getFieldValue('PORT');
-	var SLOT = this.getFieldValue('SLOT');
-	Blockly.Arduino.definitions_['var_MePort_sw_'+PORT+'_'+SLOT] = 'MePort sw_'+PORT+'_'+SLOT+'('+PORT+');';//
-	var code='sw_'+PORT+'_'+SLOT+'.dpRead'+SLOT+'()';
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
-}
 
 Blockly.Arduino.mbot_temperature = function() {
 	Blockly.Arduino.definitions_['define_arduino'] = '#include <Arduino.h>';
@@ -350,7 +316,7 @@ Blockly.Arduino.mbot_temperature = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeTemperature'] = '#include "MeTemperature.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -368,7 +334,7 @@ Blockly.Arduino.mbot_pir_motion_sensor = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
@@ -378,6 +344,8 @@ Blockly.Arduino.mbot_pir_motion_sensor = function() {
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
 }
 
+Blockly.Arduino.mbot_Gas_sensor = Blockly.Arduino.mbot_pir_motion_sensor;
+
 Blockly.Arduino.mbot_ir_remote = function() {
 	Blockly.Arduino.definitions_['define_arduino'] = '#include <Arduino.h>';
 	Blockly.Arduino.definitions_['define_i2c'] = '#include <Wire.h>';
@@ -385,12 +353,12 @@ Blockly.Arduino.mbot_ir_remote = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeIR'] = '#include "MeIR.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
 	var btn = this.getFieldValue('btn');
-	Blockly.Arduino.definitions_['var_MeIR_ir'] = 'MeIR ir;';//
+	Blockly.Arduino.definitions_['var_declare_MeIR_ir'] = 'MeIR ir;';//
 	Blockly.Arduino.setups_['setup_ir_begin'] = 'ir.begin();';
 	//var code='ir.keyPressed('+btn+');\nir.loop()';
 	var code='ir.keyPressed('+btn+')';
@@ -404,11 +372,11 @@ Blockly.Arduino.mbot_send_message = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeIR'] = '#include "MeIR.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	Blockly.Arduino.definitions_['var_MeIR_ir'] = 'MeIR ir;';//
+	Blockly.Arduino.definitions_['var_declare_MeIR_ir'] = 'MeIR ir;';//
 	Blockly.Arduino.setups_['setup_ir_begin'] = 'ir.begin();';
 	var text = Blockly.Arduino.valueToCode(this, 'text', Blockly.Arduino.ORDER_ATOMIC) || '\"\"';
 	var code='ir.sendString('+text+');\n';
@@ -423,11 +391,11 @@ Blockly.Arduino.mbot_message_received = function() {
 	Blockly.Arduino.definitions_['define_SoftwareSerial'] = '#include <SoftwareSerial.h>';
 	Blockly.Arduino.definitions_['define_mBot'] = '#include "mBot.h"';
 	Blockly.Arduino.definitions_['define_MePort'] = '#include "MePort.h"';
-	Blockly.Arduino.definitions_['var_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
+	Blockly.Arduino.definitions_['var_declare_MeBoard_myBoard'] = 'MeBoard myBoard(mBot);';
 	Blockly.Arduino.definitions_['define_MeIR'] = '#include "MeIR.h"';//
 	Blockly.Arduino.definitions_['var_double_angle_rad'] = 'double angle_rad = PI/180.0;';
 	Blockly.Arduino.definitions_['var_double_angle_deg'] = 'double angle_deg = 180.0/PI;';
-	Blockly.Arduino.definitions_['var_MeIR_ir'] = 'MeIR ir;';//
+	Blockly.Arduino.definitions_['var_declare_MeIR_ir'] = 'MeIR ir;';//
 	Blockly.Arduino.setups_['setup_ir_begin'] = 'ir.begin();';
 	var code='ir.getString()';
 	return [code, Blockly.Arduino.ORDER_ATOMIC];
