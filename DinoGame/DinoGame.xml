@@ -1,0 +1,21 @@
+<!--
+  Descirption: https://github.com/rushairer/Arduino_DinoGame 的米思奇扩展库
+  Author: 阿笨
+  Homepage: https://github.com/rushairer
+-->
+<script type="text/javascript" src="./block/dino_game.js"></script>
+<script type="text/javascript" src="./generator/dino_game.js"></script>
+<category id="dino_game_category" name="Dino Game" colour="345">
+    <block type="dino_game_setup">
+    </block>
+    <block type="dino_game_loop">
+    </block>
+    <block type="dino_game_start_game">
+    </block>
+    <block type="dino_game_dino_jump">
+    </block>
+    <block type="dino_game_set_cheat">
+    </block>
+    <block type="dino_game_show_ultraman">
+    </block>
+</category>
