@@ -53,8 +53,8 @@
                 .appendField('是否开启作弊')
                 .appendField(
                     new Blockly.FieldDropdown([
-                        ['开启', '1'],
-                        ['关闭', '0'],
+                        ['开启', 'CHEAT_MODE_CHEAT'],
+                        ['关闭', 'CHEAT_MODE_NORMAL'],
                     ]),
                     'isCheat'
                 )
